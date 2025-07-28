@@ -1,32 +1,30 @@
-// app/blog/[slug]/page.tsx
-
 import { notFound } from 'next/navigation';
 import { Playfair_Display } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import posts from '@/lib/posts'; // Ajusta la ruta según donde guardes el archivo
+import posts from '@/lib/posts';
 import { ArrowLeft } from 'lucide-react';
+import { Metadata } from 'next';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
 });
 
-type PageProps = {
-  params: { slug: string };
-};
-
+// Esta función es correcta
 export async function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-// Dentro de app/blog/[slug]/page.tsx
-
-export async function generateMetadata({ params }: PageProps) {
+// ✅ CORRECTO: Usá destructuring directo sin declarar un type personalizado
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   const post = posts.find((p) => p.slug === params.slug);
-
   if (!post) return { title: 'Artículo no encontrado' };
 
   return {
@@ -40,7 +38,12 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-export default function PostPage({ params }: PageProps) {
+// ✅ También acá usamos destructuring directamente
+export default function PostPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const post = posts.find((p) => p.slug === params.slug);
 
   if (!post) {
@@ -49,7 +52,6 @@ export default function PostPage({ params }: PageProps) {
 
   return (
     <article className="max-w-4xl mx-auto px-6 py-16 md:py-24">
-      {/* Botón de volver */}
       <Link
         href="/blog"
         className="inline-flex items-center text-amber-500 hover:text-amber-400 text-sm font-medium mb-8 transition"
@@ -57,7 +59,6 @@ export default function PostPage({ params }: PageProps) {
         <ArrowLeft size={16} className="mr-1" /> Volver al blog
       </Link>
 
-      {/* Título y encabezado */}
       <header className="mb-10">
         <div className="flex items-center gap-3 mb-4">
           <span className="bg-amber-500/90 text-black text-xs font-bold px-3 py-1 rounded-full">
@@ -70,10 +71,12 @@ export default function PostPage({ params }: PageProps) {
         >
           {post.title}
         </h1>
-        <p className="text-gray-400 mt-4">Publicado el {new Date(post.publishedAt).toLocaleDateString('es-AR')}</p>
+        <p className="text-gray-400 mt-4">
+          Publicado el{' '}
+          {new Date(post.publishedAt).toLocaleDateString('es-AR')}
+        </p>
       </header>
 
-      {/* Imagen destacada */}
       <div className="relative mb-10 h-64 md:h-100">
         <Image
           src={post.image}
@@ -85,13 +88,11 @@ export default function PostPage({ params }: PageProps) {
         />
       </div>
 
-      {/* Contenido del artículo */}
       <div
         className="prose prose-invert prose-lg max-w-none"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
 
-      {/* CTA final */}
       <div className="mt-16 text-center border-t border-gray-800 pt-10">
         <h3 className="text-2xl font-semibold text-white mb-4">
           ¿Te sirvió este artículo?
