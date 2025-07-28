@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: 'Somos creativos estratégicos que ayudamos a emprendedores y pequeñas empresas a construir marcas memorables y auténticas.',
     images: [
       {
-        url: '/logo-tumarca.png',
+        url: '/marca-1-ar.png',
         width: 800,
         height: 600,
         alt: 'Tu Marca AR - Sobre Nosotros',

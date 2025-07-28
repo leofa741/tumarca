@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: 'Ponete en contacto con nosotros para llevar tu marca al siguiente nivel. Branding, diseño web, marketing digital y más.',
     images: [
       {
-        url: '/images.png',
+        url: '/marca-1-ar.png',
         width: 800,
         height: 600,
         alt: 'Contacto Tu Marca AR',

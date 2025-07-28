@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description: 'Transformamos marcas con identidad poderosa, sitios web impactantes y estrategias digitales que generan crecimiento sostenible.',
     images: [
       {
-        url: '/logo-tumarca.png',
+        url: '/marca-1-ar.png',
         width: 800,
         height: 600,
         alt: 'Tu Marca AR - Servicios de Branding y Marketing Digital',
