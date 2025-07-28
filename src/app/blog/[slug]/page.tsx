@@ -11,14 +11,15 @@ const playfair = Playfair_Display({
   weight: ['400', '600', '700'],
 });
 
-// ✔️ Genera rutas estáticas para cada post
+
+// Genera rutas estáticas para cada post
 export function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-// ✔️ Metadata dinámica basada en el post
+// Metadata dinámica basada en el post
 export function generateMetadata({
   params,
 }: {
@@ -38,7 +39,7 @@ export function generateMetadata({
   };
 }
 
-// ✔️ Página de detalle del post (ya corregida)
+// Página de detalle del post
 export default function PostPage({
   params,
 }: {
@@ -49,7 +50,7 @@ export default function PostPage({
   if (!post) {
     notFound();
   }
-
+  
   return (
     <article className="max-w-4xl mx-auto px-6 py-16 md:py-24">
       <Link
