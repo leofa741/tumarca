@@ -1,3 +1,5 @@
+// src/app/blog/[slug]/page.tsx
+
 import { notFound } from 'next/navigation';
 import { Playfair_Display } from 'next/font/google';
 import Image from 'next/image';
@@ -11,19 +13,19 @@ const playfair = Playfair_Display({
   weight: ['400', '600', '700'],
 });
 
-// Esta función es correcta
-export async function generateStaticParams() {
+// ✅ Correcto: función sync porque posts es un array local
+export function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-// ✅ CORRECTO: Usá destructuring directo sin declarar un type personalizado
-export async function generateMetadata({
+// ✅ También puede ser sincrónica si no haces await
+export function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}): Promise<Metadata> {
+}): Metadata {
   const post = posts.find((p) => p.slug === params.slug);
   if (!post) return { title: 'Artículo no encontrado' };
 
@@ -38,12 +40,8 @@ export async function generateMetadata({
   };
 }
 
-// ✅ También acá usamos destructuring directamente
-export default function PostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+// ✅ Este componente NO debe ser async si no estás usando fetch
+export default function PostPage({ params }: { params: { slug: string } }) {
   const post = posts.find((p) => p.slug === params.slug);
 
   if (!post) {
