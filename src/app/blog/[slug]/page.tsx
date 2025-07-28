@@ -1,5 +1,3 @@
-// src/app/blog/[slug]/page.tsx
-
 import { notFound } from 'next/navigation';
 import { Playfair_Display } from 'next/font/google';
 import Image from 'next/image';
@@ -13,14 +11,14 @@ const playfair = Playfair_Display({
   weight: ['400', '600', '700'],
 });
 
-// ✅ Correcto: función sync porque posts es un array local
+// ✅ Dejá esta función así, está bien
 export function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-// ✅ También puede ser sincrónica si no haces await
+// ✅ También está bien como la tenés
 export function generateMetadata({
   params,
 }: {
@@ -40,8 +38,12 @@ export function generateMetadata({
   };
 }
 
-// ✅ Este componente NO debe ser async si no estás usando fetch
-export default function PostPage({ params }: { params: { slug: string } }) {
+// ✅ IMPORTANTE: esta función NO debe ser async porque estás accediendo a un array local
+export default function PostPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const post = posts.find((p) => p.slug === params.slug);
 
   if (!post) {
