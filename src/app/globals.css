@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
+@tailwind utilities;
+
+
+/* 👇 Forzamos el modo oscuro por defecto */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;   /* fondo negro */
+  --foreground: #ededed;   /* texto blanco suave */
 }
 
 @theme inline {
@@ -12,15 +16,79 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* app/globals.css */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-in-out;
+  animation-fill-mode: both; /* ← Muy importante */
+}
+
+.animate-slideUp {
+  animation: slideUp 1s ease-in-out;
+  animation-fill-mode: both; /* ← Mantiene el estado final */
+}
+/* clase personalizada para aplicar la máscara */
+.mask-blob {
+  -webkit-mask-image: url('/masks/blob-2.svg');
+  mask-image: url('/masks/blob-2.svg');
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  background-color: transparent; /* Fondo transparente */
+  z-index: 10; /* Asegura que la máscara esté por encima de otros elementos */
+  
+}
+
+/* globals.css */
+.prose {
+  @apply text-gray-300 leading-relaxed;
+}
+
+.prose h2 {
+  @apply text-2xl font-semibold text-white mt-8 mb-4;
+}
+
+.prose p {
+  @apply mb-6;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-amber-500 pl-5 italic text-gray-300 my-6;
+}
+
+.prose a {
+  @apply text-amber-400 hover:text-amber-300 underline;
+}
+
