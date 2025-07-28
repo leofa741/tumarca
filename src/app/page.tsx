@@ -44,26 +44,36 @@ export default function Home() {
               <span className="text-amber-500">Bienvenido a</span> <span className="text-white">Tu Marca AR</span>
             </div>
    <div className="text-center px-6 py-8 md:py-12">
+ <div className="text-center px-6 py-8 md:py-12">
   <h1 className="font-bold leading-tight md:leading-none">
+    {/* "tu." - más chico y discreto */}
     <span
-      className={`${playfair.className} block text-amber-500 text-5xl sm:text-6xl md:text-7xl lg:text-8xl`}
-      style={{ fontSize: 'clamp(2rem, 8vw, 6rem)' }}
+      className={`${playfair.className} block text-amber-500 text-3xl sm:text-4xl md:text-5xl`}
+      style={{ fontSize: 'clamp(1.2rem, 5vw, 2.5rem)' }}
     >
       tu.
     </span>
+
+    {/* "marca." - el foco principal, mucho más grande */}
     <span
-      className={`${playfair.className} block text-amber-500 text-5xl sm:text-6xl md:text-7xl lg:text-8xl mt-1 md:mt-2`}
-      style={{ fontSize: 'clamp(2rem, 8vw, 6rem)' }}
+      className={`${playfair.className} block text-amber-500 font-black mt-1`}
+      style={{ 
+        fontSize: 'clamp(2.5rem, 10vw, 8rem)', // Hasta 8rem (~128px) en pantallas grandes
+        lineHeight: 'clamp(1, 1.1, 1.1)'       // Ajuste de altura para no romper el flujo
+      }}
     >
       marca.
     </span>
+
+    {/* "ar" - pequeño, quizás en mayúsculas y más fino */}
     <span
-      className={`${playfair.className} block text-amber-500 text-5xl sm:text-6xl md:text-7xl lg:text-8xl mt-1 md:mt-2`}
-      style={{ fontSize: 'clamp(2rem, 8vw, 6rem)' }}
+      className={`${playfair.className} block text-amber-500 font-light mt-2`}
+      style={{ fontSize: 'clamp(1rem, 3vw, 4.5rem)' }} // Hasta 4.5rem (~72px) en pantallas grandes
     >
       ar
     </span>
   </h1>
+</div>
 
   <p className="text-gray-400 mt-6 text-lg md:text-xl max-w-lg mx-auto">
     Construí una marca personal que destaque en Argentina y más allá.
