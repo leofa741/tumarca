@@ -67,6 +67,7 @@ export default function RootLayout({
        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${inter.className} bg-gray-100 text-gray-900 antialiased`}
       >
           <Header />
+          <br />
         <LoadingProvider>
         
           <Loader />
