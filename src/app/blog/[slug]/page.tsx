@@ -4,21 +4,21 @@ import Image from 'next/image';
 import Link from 'next/link';
 import posts from '@/lib/posts';
 import { ArrowLeft } from 'lucide-react';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
 });
 
-// ✅ Dejá esta función así, está bien
+// ✔️ Genera rutas estáticas para cada post
 export function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-// ✅ También está bien como la tenés
+// ✔️ Metadata dinámica basada en el post
 export function generateMetadata({
   params,
 }: {
@@ -38,7 +38,7 @@ export function generateMetadata({
   };
 }
 
-// ✅ IMPORTANTE: esta función NO debe ser async porque estás accediendo a un array local
+// ✔️ Página de detalle del post (ya corregida)
 export default function PostPage({
   params,
 }: {
