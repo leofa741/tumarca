@@ -44,37 +44,30 @@ export default function Home() {
               <span className="text-amber-500">Bienvenido a</span> <span className="text-white">Tu Marca AR</span>
             </div>
    <div className="text-center px-6 py-8 md:py-12">
-<div className="text-center px-6 py-8 md:py-16">
-  <h1 className="font-bold leading-tight">
-    {/* "tu." - ahora más presente en móvil */}
+<div className="text-center px-6 py-12 md:py-20 lg:py-28">
+  <h1 className="leading-none">
     <span
-      className={`${playfair.className} block text-amber-500 uppercase tracking-wide`}
-      style={{ 
-        fontSize: 'clamp(1.5rem, 6vw, 3rem)', // Mín: ~24px, Máx: ~48px
-        fontWeight: '700'
-      }}
+      className={`${playfair.className} block text-amber-500 uppercase tracking-wide font-black`}
+      style={{ fontSize: 'clamp(2rem, 8vw, 5rem)', lineHeight: 1 }}
     >
       tu.
     </span>
-
-    {/* "marca." - el centro de atención */}
     <span
-      className={`${playfair.className} block text-amber-500 font-black mt-1`}
-      style={{ 
-        fontSize: 'clamp(2.5rem, 10vw, 8rem)', // Ajuste fluido: grande en móvil, enorme en escritorio
-        lineHeight: 1.1,
-        letterSpacing: '-0.03em' // Para dar más densidad tipográfica
+      className={`${playfair.className} block text-amber-500 font-black mt-1 lg:mt-2`}
+      style={{
+        fontSize: 'clamp(4rem, 14vw, 12rem)',
+        lineHeight: 1,
+        letterSpacing: '-0.05em',
+        textShadow: '0 4px 12px rgba(251, 191, 36, 0.2)',
       }}
     >
       marca.
     </span>
-
-    {/* "ar" - ahora también grande y destacado */}
     <span
-      className={`${playfair.className} block text-amber-500 font-bold mt-2`}
-      style={{ 
-        fontSize: 'clamp(2rem, 8vw, 6rem)', // ¡Hasta 6rem (~96px)! Gran impacto en móvil
-        opacity: 0.95
+      className={`${playfair.className} block text-white font-black uppercase tracking-tighter mt-2`}
+      style={{
+        fontSize: 'clamp(3rem, 10vw, 8rem)',
+        letterSpacing: '-0.03em',
       }}
     >
       ar
