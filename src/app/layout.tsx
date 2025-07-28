@@ -58,6 +58,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+          <meta name="theme-color" content="#000000" id="theme-color"/>
+      </head>
+
+
       <body
        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${inter.className} bg-gray-100 text-gray-900 antialiased`}
       >

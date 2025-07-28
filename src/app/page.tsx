@@ -43,19 +43,31 @@ export default function Home() {
             >
               <span className="text-amber-500">Bienvenido a</span> <span className="text-white">Tu Marca AR</span>
             </div>
-        <div className="text-center px-6 py-8 md:py-12">
+   <div className="text-center px-6 py-8 md:py-12">
   <h1 className="font-bold leading-tight md:leading-none">
     <span
-      className={`${playfair.className} block text-amber-500 
-                  text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl
-                  drop-shadow-lg`}
-      style={{
-        fontSize: 'clamp(2rem, 8vw, 6rem)',
-      }}
+      className={`${playfair.className} block text-amber-500 text-5xl sm:text-6xl md:text-7xl lg:text-8xl`}
+      style={{ fontSize: 'clamp(2rem, 8vw, 6rem)' }}
+    >
+      tu.
+    </span>
+    <span
+      className={`${playfair.className} block text-amber-500 text-5xl sm:text-6xl md:text-7xl lg:text-8xl mt-1 md:mt-2`}
+      style={{ fontSize: 'clamp(2rem, 8vw, 6rem)' }}
     >
       marca.
     </span>
+    <span
+      className={`${playfair.className} block text-amber-500 text-5xl sm:text-6xl md:text-7xl lg:text-8xl mt-1 md:mt-2`}
+      style={{ fontSize: 'clamp(2rem, 8vw, 6rem)' }}
+    >
+      ar
+    </span>
   </h1>
+
+  <p className="text-gray-400 mt-6 text-lg md:text-xl max-w-lg mx-auto">
+    Construí una marca personal que destaque en Argentina y más allá.
+  </p>
 </div>
 
 
