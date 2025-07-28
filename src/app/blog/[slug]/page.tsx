@@ -12,7 +12,7 @@ const playfair = Playfair_Display({
   weight: ['400', '600', '700'],
 });
 
-type Props = {
+type PageProps = {
   params: { slug: string };
 };
 
@@ -24,7 +24,7 @@ export async function generateStaticParams() {
 
 // Dentro de app/blog/[slug]/page.tsx
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: PageProps) {
   const post = posts.find((p) => p.slug === params.slug);
 
   if (!post) return { title: 'Artículo no encontrado' };
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-export default function PostPage({ params }: Props) {
+export default function PostPage({ params }: PageProps) {
   const post = posts.find((p) => p.slug === params.slug);
 
   if (!post) {
