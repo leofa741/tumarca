@@ -20,11 +20,11 @@ export function generateStaticParams() {
 }
 
 // Metadata dinámica basada en el post
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}): Metadata {
+}): Promise<Metadata> {
   const post = posts.find((p) => p.slug === params.slug);
   if (!post) return { title: 'Artículo no encontrado' };
 
@@ -40,7 +40,7 @@ export function generateMetadata({
 }
 
 // Página de detalle del post
-export default function PostPage({
+export default async function PostPage({
   params,
 }: {
   params: { slug: string };
