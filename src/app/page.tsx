@@ -44,31 +44,38 @@ export default function Home() {
               <span className="text-amber-500">Bienvenido a</span> <span className="text-white">Tu Marca AR</span>
             </div>
    <div className="text-center px-6 py-8 md:py-12">
- <div className="text-center px-6 py-8 md:py-12">
-  <h1 className="font-bold leading-tight md:leading-none">
-    {/* "tu." - más chico y discreto */}
+<div className="text-center px-6 py-8 md:py-16">
+  <h1 className="font-bold leading-tight">
+    {/* "tu." - ahora más presente en móvil */}
     <span
-      className={`${playfair.className} block text-amber-500 text-3xl sm:text-4xl md:text-5xl`}
-      style={{ fontSize: 'clamp(1.2rem, 5vw, 2.5rem)' }}
+      className={`${playfair.className} block text-amber-500 uppercase tracking-wide`}
+      style={{ 
+        fontSize: 'clamp(1.5rem, 6vw, 3rem)', // Mín: ~24px, Máx: ~48px
+        fontWeight: '700'
+      }}
     >
       tu.
     </span>
 
-    {/* "marca." - el foco principal, mucho más grande */}
+    {/* "marca." - el centro de atención */}
     <span
       className={`${playfair.className} block text-amber-500 font-black mt-1`}
       style={{ 
-        fontSize: 'clamp(2.5rem, 10vw, 8rem)', // Hasta 8rem (~128px) en pantallas grandes
-        lineHeight: 'clamp(1, 1.1, 1.1)'       // Ajuste de altura para no romper el flujo
+        fontSize: 'clamp(2.5rem, 10vw, 8rem)', // Ajuste fluido: grande en móvil, enorme en escritorio
+        lineHeight: 1.1,
+        letterSpacing: '-0.03em' // Para dar más densidad tipográfica
       }}
     >
       marca.
     </span>
 
-    {/* "ar" - pequeño, quizás en mayúsculas y más fino */}
+    {/* "ar" - ahora también grande y destacado */}
     <span
-      className={`${playfair.className} block text-amber-500 font-light mt-2`}
-      style={{ fontSize: 'clamp(1rem, 3vw, 4.5rem)' }} // Hasta 4.5rem (~72px) en pantallas grandes
+      className={`${playfair.className} block text-amber-500 font-bold mt-2`}
+      style={{ 
+        fontSize: 'clamp(2rem, 8vw, 6rem)', // ¡Hasta 6rem (~96px)! Gran impacto en móvil
+        opacity: 0.95
+      }}
     >
       ar
     </span>
