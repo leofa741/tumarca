@@ -1,6 +1,6 @@
 // lib/posts.ts
 
-export type Post = {
+export interface Post {
   id: number;
   title: string;
   category: string;

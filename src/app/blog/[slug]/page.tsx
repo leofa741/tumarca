@@ -6,27 +6,31 @@ import posts from '@/lib/posts';
 import { ArrowLeft } from 'lucide-react';
 import type { Metadata } from 'next';
 
+// Configuración de la fuente
 const playfair = Playfair_Display({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
 });
 
-
-// Genera rutas estáticas para cada post
+// Genera las rutas estáticas para cada artículo del blog
 export function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-// Metadata dinámica basada en el post
+// Genera metadatos dinámicos (SEO) para cada artículo
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>; // ✅ params es una promesa
 }): Promise<Metadata> {
-  const post = posts.find((p) => p.slug === params.slug);
-  if (!post) return { title: 'Artículo no encontrado' };
+  const resolvedParams = await params; // ✅ Esperamos la promesa
+  const post = posts.find((p) => p.slug === resolvedParams.slug);
+
+  if (!post) {
+    return { title: 'Artículo no encontrado' };
+  }
 
   return {
     title: `${post.title} | Tu Marca AR`,
@@ -39,20 +43,22 @@ export async function generateMetadata({
   };
 }
 
-// Página de detalle del post
+// Página principal del artículo del blog
 export default async function PostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>; // ✅ params como promesa
 }) {
-  const post = posts.find((p) => p.slug === params.slug);
+  const resolvedParams = await params; // ✅ Esperamos el valor real
+  const post = posts.find((p) => p.slug === resolvedParams.slug);
 
   if (!post) {
-    notFound();
+    notFound(); // Muestra página 404 si no existe
   }
-  
+
   return (
     <article className="max-w-4xl mx-auto px-6 py-16 md:py-24">
+      {/* Botón para volver al blog */}
       <Link
         href="/blog"
         className="inline-flex items-center text-amber-500 hover:text-amber-400 text-sm font-medium mb-8 transition"
@@ -60,6 +66,7 @@ export default async function PostPage({
         <ArrowLeft size={16} className="mr-1" /> Volver al blog
       </Link>
 
+      {/* Encabezado del artículo */}
       <header className="mb-10">
         <div className="flex items-center gap-3 mb-4">
           <span className="bg-amber-500/90 text-black text-xs font-bold px-3 py-1 rounded-full">
@@ -78,7 +85,8 @@ export default async function PostPage({
         </p>
       </header>
 
-      <div className="relative mb-10 h-64 md:h-100">
+      {/* Imagen destacada */}
+      <div className="relative mb-10 h-64 md:h-96">
         <Image
           src={post.image}
           alt={post.title}
@@ -89,11 +97,13 @@ export default async function PostPage({
         />
       </div>
 
+      {/* Contenido del artículo */}
       <div
         className="prose prose-invert prose-lg max-w-none"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
 
+      {/* Sección de llamado a la acción (newsletter) */}
       <div className="mt-16 text-center border-t border-gray-800 pt-10">
         <h3 className="text-2xl font-semibold text-white mb-4">
           ¿Te sirvió este artículo?
