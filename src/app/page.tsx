@@ -43,15 +43,20 @@ export default function Home() {
             >
               <span className="text-amber-500">Bienvenido a</span> <span className="text-white">Tu Marca AR</span>
             </div>
-            <h1
-              className={`${playfair.className} animate-slideUp font-semibold text-white text-6xl md:text-7xl lg:text-[6.5rem] leading-[1.1] tracking-tight`}
-            >
-              <span className="block text-neutral-300">tu.</span>
-              <span className="block text-amber-500 font-bold text-9xl  *:**:not-[text-amber-500]">marca.</span>
-              <span className="block text-neutral-300">ar</span>
-            </h1>
-
-
+        <div className="text-center px-6 py-8 md:py-12">
+  <h1 className="font-bold leading-tight md:leading-none">
+    <span
+      className={`${playfair.className} block text-amber-500 
+                  text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl
+                  drop-shadow-lg`}
+      style={{
+        fontSize: 'clamp(2rem, 8vw, 6rem)',
+      }}
+    >
+      marca.
+    </span>
+  </h1>
+</div>
 
 
           </div>
