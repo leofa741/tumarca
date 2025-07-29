@@ -147,7 +147,7 @@ export default function Home() {
             {/* Botón de contacto */}
             <div className="flex justify-center md:justify-start">
               <a
-                href="#contact"
+                href="/contact"
                 className="px-6 py-3 bg-amber-500 text-black font-semibold rounded hover:bg-amber-600 transition-colors duration-300"
               >
                 Contáctanos
