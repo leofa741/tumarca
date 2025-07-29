@@ -44,21 +44,20 @@ export default function Home() {
               <span className="text-amber-500">Bienvenido a</span> <span className="text-white">Tu Marca AR</span>
             </div>
    <div className="text-center px-6 py-8 md:py-12">
-<div className="text-center px-6 py-12 md:py-20 lg:py-28">
+<div className="text-center px-6 py-12 sm:py-16 md:py-20 lg:py-28">
   <h1 className="leading-none">
     <span
       className={`${playfair.className} block text-amber-500 uppercase tracking-wide font-black`}
-      style={{ fontSize: 'clamp(2rem, 8vw, 5rem)', lineHeight: 1 }}
+      style={{ fontSize: 'clamp(2rem, 6vw, 3rem)', lineHeight: 1 }}
     >
       tu.
     </span>
     <span
-      className={`${playfair.className} block text-amber-500 font-black mt-1 lg:mt-2`}
+      className={`${playfair.className} block text-amber-500 font-black mt-1`}
       style={{
-        fontSize: 'clamp(4rem, 14vw, 12rem)',
+        fontSize: 'clamp(3.5rem, 8vw, 6rem)',
         lineHeight: 1,
         letterSpacing: '-0.05em',
-        textShadow: '0 4px 12px rgba(251, 191, 36, 0.2)',
       }}
     >
       marca.
@@ -66,7 +65,7 @@ export default function Home() {
     <span
       className={`${playfair.className} block text-white font-black uppercase tracking-tighter mt-2`}
       style={{
-        fontSize: 'clamp(3rem, 10vw, 8rem)',
+        fontSize: 'clamp(2.5rem, 7vw, 4.5rem)',
         letterSpacing: '-0.03em',
       }}
     >
