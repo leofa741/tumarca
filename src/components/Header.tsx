@@ -38,7 +38,7 @@ export default function Header() {
               quality={100}
               placeholder="blur"
               blurDataURL="/marca-2-ar-removebg.png"
-              alt="TU.MARCA.AR Logo"
+              alt="TUMARCA.AR Logo"
             />
           </Link>
 
