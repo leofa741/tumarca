@@ -130,19 +130,7 @@ export default function Home() {
               Gestionamos tu marca con pasión y creatividad. Desde el branding hasta el marketing digital, estamos aquí para ayudarte a destacar en el mundo digital.
             </p>
 
-            {/* Redes sociales */}
-            <ul className="flex justify-center md:justify-start space-x-6 mt-4 text-sm uppercase tracking-wide">
-              {['Facebook', 'Instagram', 'Pinterest', 'X'].map((name) => (
-                <li key={name}>
-                  <a
-                    href="#"
-                    className="text-neutral-400 hover:text-amber-500 transition-colors duration-200"
-                  >
-                    {name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+        
 
             {/* Botón de contacto */}
             <div className="flex justify-center md:justify-start">
