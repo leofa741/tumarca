@@ -4,8 +4,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Playfair_Display } from 'next/font/google';
 import { BookOpen, PenTool, Zap, Target } from 'lucide-react';
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import posts from '@/lib/posts';
+import NewsletterCTA from '@/components/NewsletterCTA';
+// ← Componente del cliente
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -14,13 +16,15 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: 'Blog de Branding y Marketing Digital | Tu Marca AR',
-  description: 'Aprende a construir una marca poderosa, diseñar sitios web que convierten y crecer con estrategia. Tips reales para emprendedores y pequeñas empresas.',
+  description:
+    'Aprende a construir una marca poderosa, diseñar sitios web que convierten y crecer con estrategia. Tips reales para emprendedores y pequeñas empresas.',
   openGraph: {
     title: 'Blog | Tu Marca AR - Estrategia de Marca y Crecimiento Digital',
-    description: 'Guías prácticas sobre branding, diseño web, marketing emocional y lanzamientos exitosos. Transforma tu negocio desde la esencia.',
+    description:
+      'Guías prácticas sobre branding, diseño web, marketing emocional y lanzamientos exitosos. Transforma tu negocio desde la esencia.',
     images: [
       {
-        url: '/marca-1-ar.png',
+        url: '/marca-2.ar.png',
         width: 800,
         height: 600,
         alt: 'Tu Marca AR - Blog de Estrategia de Marca',
@@ -38,8 +42,11 @@ export default function BlogPage() {
         <h1 className={`${playfair.className} text-4xl md:text-6xl font-semibold text-white animate-slideUp`}>
           El <span className="text-amber-500">Blog Estratégico</span> de Tu Marca
         </h1>
-        <p className="text-gray-300 text-lg leading-relaxed animate-fadeIn" style={{ animationDelay: '0.2s' }}>
-          No son solo artículos. Son <strong>guías prácticas</strong> para construir una marca que destaque, 
+        <p
+          className="text-gray-300 text-lg leading-relaxed animate-fadeIn"
+          style={{ animationDelay: '0.2s' }}
+        >
+          No son solo artículos. Son <strong>guías prácticas</strong> para construir una marca que destaque,
           conecte y crezca con propósito. Ideal para emprendedores, coaches y pequeñas empresas.
         </p>
       </div>
@@ -83,7 +90,9 @@ export default function BlogPage() {
                 </div>
               </div>
               <div className="p-6">
-                <h2 className={`${playfair.className} text-xl font-semibold text-white group-hover:text-amber-400 transition-colors`}>
+                <h2
+                  className={`${playfair.className} text-xl font-semibold text-white group-hover:text-amber-400 transition-colors`}
+                >
                   {post.title}
                 </h2>
                 <p className="mt-3 text-gray-300 text-sm leading-relaxed">{post.excerpt}</p>
@@ -94,19 +103,8 @@ export default function BlogPage() {
         ))}
       </div>
 
-      {/* CTA */}
-      <div className="mt-24 text-center max-w-2xl mx-auto bg-gradient-to-r from-gray-900 to-transparent border border-gray-700 rounded-2xl p-8">
-        <h3 className="text-white text-2xl font-semibold mb-4">¿Querés más contenido como este?</h3>
-        <p className="text-gray-400 mb-6">Suscríbete y recibí cada semana:</p>
-        <ul className="text-gray-300 text-sm space-y-2 mb-6 text-left max-w-xs mx-auto">
-          <li className="flex items-center gap-2">✍️ Tips de branding aplicables</li>
-          <li className="flex items-center gap-2">🚀 Estrategias de lanzamiento</li>
-          <li className="flex items-center gap-2">🔍 Análisis de marcas reales</li>
-        </ul>
-        <Link href="/newsletter" className="inline-block px-8 py-3 bg-amber-500 text-black font-semibold rounded-lg hover:bg-amber-400 transition">
-          🔔 Suscribirme al newsletter
-        </Link>
-      </div>
+      {/* Newsletter CTA (Client Component) */}
+      <NewsletterCTA />
     </section>
   );
 }

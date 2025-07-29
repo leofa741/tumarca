@@ -5,6 +5,7 @@ import Link from 'next/link';
 import posts from '@/lib/posts';
 import { ArrowLeft } from 'lucide-react';
 import type { Metadata } from 'next';
+import NewsletterCTA from '@/components/NewsletterCTA';
 
 // Configuración de la fuente
 const playfair = Playfair_Display({
@@ -111,12 +112,7 @@ export default async function PostPage({
         <p className="text-gray-400 mb-6">
           Suscríbete y recibí cada semana estrategias prácticas para potenciar tu marca.
         </p>
-        <Link
-          href="/newsletter"
-          className="inline-block px-8 py-3 bg-amber-500 text-black font-semibold rounded-lg hover:bg-amber-400 transition"
-        >
-          🔔 Recibir tips exclusivos
-        </Link>
+       <NewsletterCTA />
       </div>
     </article>
   );

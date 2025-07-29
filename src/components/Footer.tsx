@@ -1,42 +1,21 @@
 import React from 'react';
 import Image from 'next/image';
+import NewsletterForm from './NewsletterForm';
 
 
 const Footer = () => {
   return (
     <footer className=" text-gray-800">
+{/* Newsletter Section */}
+<div className="flex justify-center py-12">
+  <div className="w-full max-w-2xl text-center">
+    <h5 className="text-2xl font-bold text-white mb-6">
+      Subscribe to our Newsletter
+    </h5>
 
-      {/* Newsletter Section */}
-      <div className="flex justify-center py-12">
-        <div className="w-full max-w-2xl text-center">
-          <h5 className="text-2xl font-bold mb-6">
-            Subscribe to our Newsletter
-
-
-          </h5>
-
-          <div>
-            <form className="mc-form">
-              <div className="flex flex-col sm:flex-row gap-4">
-                <input
-                  type="email"
-                  name="EMAIL"
-                  placeholder="Your Email Address"
-                  className="flex-grow px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-                <input
-                  type="submit"
-                  name="subscribe"
-                  value="Subscribe"
-                  className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors cursor-pointer"
-                />
-              </div>
-              <div className="mc-status mt-4"></div>
-            </form>
-          </div>
-        </div>
-      </div>
+    <NewsletterForm />
+  </div>
+</div>
 
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-8">
