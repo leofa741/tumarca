@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: 'Descubre nuestros servicios de branding, diseño web, marketing digital y lanzamientos para potenciar tu marca en el mundo digital.',
     images: [
       {
-        url: '/marca-1-ar.png',
+        url: 'https://tumarca.vercel.app/marca-1-ar.png',
         width: 800,
         height: 600,
         alt: 'Tu Marca AR',
