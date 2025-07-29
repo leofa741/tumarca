@@ -1,16 +1,41 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function FormContact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [num1, setNum1] = useState(0);
+  const [num2, setNum2] = useState(0);
+  const [userAnswer, setUserAnswer] = useState('');
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Generar nuevos números al cargar o reiniciar
+  useEffect(() => {
+    generateCaptcha();
+  }, []);
+
+  const generateCaptcha = () => {
+    const n1 = Math.floor(Math.random() * 10) + 1; // 1-10
+    const n2 = Math.floor(Math.random() * 10) + 1; // 1-10
+    setNum1(n1);
+    setNum2(n2);
+    setUserAnswer('');
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validar la suma
+    const correctAnswer = num1 + num2;
+    if (parseInt(userAnswer, 10) !== correctAnswer) {
+      setError('La respuesta al cálculo es incorrecta. Intenta nuevamente.');
+      generateCaptcha(); // Renovar captcha
+      return;
+    }
+
     setLoading(true);
     setError(null);
     setSent(false);
@@ -31,11 +56,14 @@ export default function FormContact() {
         setName('');
         setEmail('');
         setMessage('');
+        setUserAnswer('');
       } else {
         setError(data.error || 'Error desconocido');
+        generateCaptcha(); // Nueva suma si falla
       }
     } catch (err) {
       setError('Hubo un problema al enviar el mensaje. Intentá más tarde.');
+      generateCaptcha();
     } finally {
       setLoading(false);
     }
@@ -46,10 +74,12 @@ export default function FormContact() {
       <h2 className="text-2xl font-semibold text-white mb-4">Formulario de Contacto</h2>
 
       {sent ? (
-        <p className="text-green-400 text-center">¡Gracias! Tu mensaje fue enviado. Te responderemos pronto.</p>
+        <p className="text-green-400 text-center">
+          ¡Gracias! Tu mensaje fue enviado. Te responderemos pronto.
+        </p>
       ) : (
         <>
-          {error && <p className="text-red-400 text-sm">{error}</p>}
+          {error && <p className="text-red-400 text-sm text-center">{error}</p>}
 
           <div className="space-y-4">
             <input
@@ -75,6 +105,21 @@ export default function FormContact() {
               className="w-full p-3 bg-gray-800 text-white rounded focus:outline-none focus:ring-2 focus:ring-amber-500 h-32"
               required
             ></textarea>
+
+            {/* CAPTCHA de suma */}
+            <div className="bg-gray-800 p-4 rounded text-center space-y-3">
+              <p className="text-white">
+                Para continuar, resolvé: <strong>{num1} + {num2}</strong> = ?
+              </p>
+              <input
+                type="number"
+                value={userAnswer}
+                onChange={(e) => setUserAnswer(e.target.value)}
+                placeholder="Resultado"
+                className="w-full p-2 bg-gray-700 text-white rounded text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+            </div>
           </div>
 
           <button
