@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: "TU.MARCA.AR",
     images: [
       {
-        url: "/marca-1-ar.png",
+        url: "/logo-tumarca.png",
         width: 1200,
         height: 630,
         alt: "TU.MARCA.AR - Your brand, our passion",
