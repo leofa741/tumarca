@@ -66,7 +66,7 @@ export default function ServicePage() {
         {/* Servicio 2 */}
         <div className="bg-white/8 backdrop-blur-md rounded-2xl p-7 shadow-xl border border-white/10 hover:shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-1">
           <Paintbrush className="mx-auto mb-5 text-amber-500" size={48} />
-          <h3 className="text-white font-bold text-2xl mb-4">Diseño Web Premium</h3>
+          <h3 className="text-white font-bold text-2xl mb-4">Diseño Web</h3>
           <p className="text-gray-300 text-sm mb-5 leading-relaxed">
             Sitios web que no solo se ven increíbles, sino que <strong>convierten visitantes en clientes</strong>.
           </p>
