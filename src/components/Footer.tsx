@@ -44,7 +44,8 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="flex items-center space-x-2">
             <a href="/">
-              <Image                src="/marca-1-ar-logo.png"
+              <Image
+                src="/marca-2-ar-removebg.png"
                 width={70}
                 height={70}
                 priority
@@ -52,7 +53,7 @@ const Footer = () => {
                 draggable="false"
                 quality={100}
                 placeholder="blur"
-                blurDataURL="/marca-1-ar-logo.png"
+                blurDataURL="/marca-2-ar-removebg.png"
                 alt="TU.MARCA.AR Logo"
                 className="w-16 h-16 rounded-full object-cover "
               />
@@ -69,11 +70,11 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-8 ">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-600 text-center md:text-left mb-4 md:mb-0">
-            <span>© Tu.Marca.Ar 2025</span>
+            <span>© TuMarca.Ar 2025</span>
             <span className="mx-2">•</span>
-            <span>Design by <a href="https://www.tumarca.ar" className="text-blue-600 hover:underline"> Tu.Marca.Ar</a></span>
+            <span>Design by <a href="https://www.tumarca.ar" className="text-blue-600 hover:underline"> TuMarca.Ar</a></span>
             <span className="mx-2">•</span>
-            Distributed by <a href="https://www.tumarca.ar" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Tu.Marca.Ar</a>
+            Distributed by <a href="https://www.tumarca.ar" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">TuMarca.Ar</a>
           </p>
 
           <div className="flex items-center space-x-2">

@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     title: 'Home | Tu Marca AR',
     description:
       'Descubre nuestros servicios de branding, diseño web, marketing digital y lanzamientos para potenciar tu marca en el mundo digital.',
-    url: 'https://tumarca.vercel.app',
+    url: 'https://www.tumarca.ar',
     siteName: 'Tu Marca AR',
     type: 'website',
     locale: 'es_ES',
     images: [
       {
-        url: 'https://tumarca.vercel.app/logo-tumarca.png',
+        url: 'https://www.tumarca.ar/marca-2.ar.png',
         width: 800,
         height: 600,
         alt: 'Logo de Tu Marca AR',
@@ -46,7 +46,7 @@ export default function Home() {
       style={{ animationDelay: '0.3s' }}
     >
       <span className="text-amber-500">Bienvenido a</span>{' '}
-      <span className="text-white">Tu Marca AR</span>
+      <span className="text-white">TuMarca.AR</span>
     </div>
 
     {/* Título principal */}
@@ -55,7 +55,7 @@ export default function Home() {
         className={`${playfair.className} block text-amber-500 uppercase tracking-wide font-black animate-fadeIn`}
         style={{ fontSize: 'clamp(2rem, 6vw, 3rem)', lineHeight: 1, animationDelay: '0.5s' }}
       >
-        tu.
+        tu
       </span>
       <span
         className={`${playfair.className} block text-amber-500 font-black mt-1 animate-fadeIn`}
@@ -96,7 +96,7 @@ export default function Home() {
       style={{ animationDelay: '1.3s' }}
     >
       <Image
-        src="/marca-1-ar-logo.png"
+        src="/marca-2-ar-removebg.png"
         alt="Logo de Tu Marca AR"
         width={800}
         height={600}
@@ -115,7 +115,7 @@ export default function Home() {
           {/* Imagen con máscara blob */}
           <div className="max-w-lg mx-auto md:mx-0">
             <Image
-              src="/brand.png"
+              src="/brand-1.png"
               alt="Gestión de marca digital"
               width={600}
               height={400}

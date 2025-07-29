@@ -29,7 +29,7 @@ export default function Header() {
         <div className="flex items-center justify-between w-full lg:w-auto">
           <Link href="/" className="block" onClick={handleLinkClick}>
             <Image
-              src="/marca-1-ar-logo.png"
+              src="/marca-2-ar-removebg.png"
               width={70}
               height={70}
               priority
@@ -37,7 +37,7 @@ export default function Header() {
               draggable="false"
               quality={100}
               placeholder="blur"
-              blurDataURL="/marca-1-ar-logo.png"
+              blurDataURL="/marca-2-ar-removebg.png"
               alt="TU.MARCA.AR Logo"
             />
           </Link>
