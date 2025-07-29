@@ -36,11 +36,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TU.MARCA.AR",
     description: "Your brand, our passion. TU.MARCA.AR",
-    url: "https://tumarca.ar",
+    url: "https://tumarca.vercel.app/",
     siteName: "TU.MARCA.AR",
     images: [
       {
-        url: "/logo-tumarca.png",
+        url: "https://tumarca.vercel.app/logo-tumarca.png",
         width: 1200,
         height: 630,
         alt: "TU.MARCA.AR - Your brand, our passion",

@@ -15,9 +15,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Home | Tu Marca AR',
     description: 'Descubre nuestros servicios de branding, diseño web, marketing digital y lanzamientos para potenciar tu marca en el mundo digital.',
+    url: 'https://tumarca.vercel.app/',
+    siteName: 'Tu Marca AR',
+    type: 'website',
+    locale: 'es_ES',
     images: [
       {
-        url: '/logo-tumarca.png',
+        url: 'https://tumarca.vercel.app/logo-tumarca.png',
         width: 800,
         height: 600,
         alt: 'Tu Marca AR',
