@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: 'Somos creativos estratégicos que ayudamos a emprendedores y pequeñas empresas a construir marcas memorables y auténticas.',
     images: [
       {
-        url: '/marca-1-ar.png',
+        url: '/marka-2.ar.png',
         width: 800,
         height: 600,
         alt: 'Tu Marca AR - Sobre Nosotros',
@@ -44,19 +44,19 @@ export default function AboutPage() {
             y <span className="text-neutral-300">pasión por las marcas</span>
           </h1>
           <p className="text-gray-300 text-lg leading-relaxed">
-            En <strong>TU.MARCA.AR</strong>, no creamos logos al azar ni sitios web genéricos. 
+            En <strong>TUMARCA.AR</strong>, no creamos logos al azar ni sitios web genéricos. 
             <strong> Construimos identidades con propósito</strong>, diseñadas para conectar, 
             diferenciarse y crecer en el mundo digital.
           </p>
           <p className="text-gray-400 text-sm">
-            Desde 2020, hemos acompañado a más de 50 emprendedores, coaches y pequeñas empresas 
+            Desde 2015, hemos acompañado a más de 50 emprendedores, coaches y pequeñas empresas 
             a transformar su imagen y posicionarse con autenticidad.
           </p>
         </div>
 
         <figure className="w-full rounded-xl overflow-hidden shadow-2xl">
           <Image
-            src="/tu.png"
+            src="/tu1.png"
             alt="Equipo creativo de Tu Marca AR"
             width={800}
             height={600}

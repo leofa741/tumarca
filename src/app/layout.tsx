@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter ,Geist, Geist_Mono } from "next/font/google";
 import { Playfair_Display } from 'next/font/google';
+import { Analytics } from "@vercel/analytics/next"
 
 import "./globals.css";
 import Header from "@/components/Header";
@@ -75,6 +76,7 @@ export default function RootLayout({
                <br />
                   <br />
             {children}
+            <Analytics />
           </main>
           <Footer />
         </LoadingProvider>
