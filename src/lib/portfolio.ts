@@ -24,11 +24,11 @@ const projects: PortfolioProject[] = [
   },
   {
     id: 2,
-    title: 'E-Commerce para Carpintería',
+    title: 'Web para Carpintería',
     client: ' Carpintería',
     image: '/portfolio/carpinteria-r.png',
-    description: 'E-commerce con diseño atractivo y fácil navegación.',
-    category: 'E-Commerce',
+    description: 'Web con diseño atractivo y fácil navegación.',
+    category: 'Web Design',
     link: 'https://www.carpinteriarubilar.com.ar',
     year: 2023
   },
