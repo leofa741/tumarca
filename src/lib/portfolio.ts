@@ -25,7 +25,7 @@ const projects: PortfolioProject[] = [
   {
     id: 2,
     title: 'Web para Carpintería',
-    client: ' Carpintería',
+    client: ' Carpintería Rubilar Bariloche',
     image: '/portfolio/carpinteria-r.png',
     description: 'Web con diseño atractivo y fácil navegación.',
     category: 'Web Design',
