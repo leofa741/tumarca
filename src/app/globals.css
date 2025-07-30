@@ -24,6 +24,16 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-in-out;
+  animation-fill-mode: both; /* ← Muy importante */
+}
+
+.animate-slideUp {
+  animation: slideUp 1s ease-in-out;
+  animation-fill-mode: both; /* ← Mantiene el estado final */
+}
+
 /* app/globals.css */
 @keyframes fadeIn {
   from {
@@ -47,15 +57,7 @@ body {
   }
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.8s ease-in-out;
-  animation-fill-mode: both; /* ← Muy importante */
-}
 
-.animate-slideUp {
-  animation: slideUp 1s ease-in-out;
-  animation-fill-mode: both; /* ← Mantiene el estado final */
-}
 /* clase personalizada para aplicar la máscara */
 .mask-blob {
   -webkit-mask-image: url('/masks/blob-2.svg');
