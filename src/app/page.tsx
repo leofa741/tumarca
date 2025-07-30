@@ -85,7 +85,7 @@ export default function Home() {
       className="text-gray-400 mt-6 text-lg md:text-xl max-w-lg animate-fadeIn"
       style={{ animationDelay: '1.1s' }}
     >
-      Construí una marca personal que destaque en Argentina y más allá.
+      Construí una marca personal ,autentica, estrategica y con impacto real en Argentina y más allá.
     </p>
   </div>
 
@@ -119,7 +119,7 @@ export default function Home() {
               alt="Gestión de marca digital"
               width={600}
               height={400}
-              className="w-full h-auto object-cover rounded-lg mask-blob shadow-xl"
+              className="w-full h-auto object-cover rounded-lg mask-blob shadow-xl transparent hover:scale-105 transition-transform duration-500"
               priority
             />
           </div>

@@ -68,7 +68,7 @@ body {
   mask-position: center;
   background-color: transparent; /* Fondo transparente */
   z-index: 10; /* Asegura que la máscara esté por encima de otros elementos */
-  
+  pointer-events: none; /* Asegura que los eventos del mouse pasen a través de la máscara */
 }
 
 /* globals.css */
