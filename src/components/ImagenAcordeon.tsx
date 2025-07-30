@@ -34,7 +34,8 @@ const ImageAccordion = () => {
   ];
 
   const toggleItem = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index); // Alternar abierto/cerrado
+    setOpenIndex(openIndex === index ? null : index); // Cambiamos el estado para abrir/cerrar
+   
   };
 
   return (
@@ -45,8 +46,11 @@ const ImageAccordion = () => {
           <div key={index} className="bg-white/5 rounded-xl overflow-hidden border border-gray-700">
             {/* Imagen + Botón para expandir */}
             <div
-              className="relative h-40 cursor-pointer"
+              className="relative h-64 cursor-pointer transition-all duration-700 ease-out group"
               onClick={() => toggleItem(index)}
+              style={{
+                transform: openIndex === index ? 'scale(1.05)' : 'scale(1)',
+              }}
             >
               <img
                 src={item.src}
@@ -84,11 +88,11 @@ const ImageAccordion = () => {
         {images.map((item, index) => (
           <div
             key={index}
-            className="relative flex-1 min-w-0 transition-all duration-700 ease-out cursor-pointer"
+            className="bg-white/5 rounded-xl overflow-hidden border border-gray-700 cursor-pointer transition-all duration-700 ease-out group"
+            onClick={() => toggleItem(index)}
             style={{
-              flex: openIndex === null || openIndex === index ? '1.5' : '0.8',
+              transform: openIndex === index ? 'scale(1.05)' : 'scale(1)',
             }}
-            onClick={() => setOpenIndex(openIndex === index ? null : index)}
           >
             <div className="relative h-96 rounded-lg overflow-hidden shadow-lg transform transition-all duration-700 group">
               <img
