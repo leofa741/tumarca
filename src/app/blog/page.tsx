@@ -24,7 +24,7 @@ export const metadata: Metadata = {
       'Guías prácticas sobre branding, diseño web, marketing emocional y lanzamientos exitosos. Transforma tu negocio desde la esencia.',
     images: [
       {
-        url: '/marca-2.ar.png',
+       url: 'https://www.tumarca.ar/marca-2-ar.png',
         width: 800,
         height: 600,
         alt: 'Tu Marca AR - Blog de Estrategia de Marca',

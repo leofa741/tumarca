@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       'Proyectos reales de diseño web y branding para emprendedores. Transformamos ideas en marcas memorables.',
     images: [
       {
-        url: '/portfolio/portfolio-preview.png', // opcional: crea una imagen de vista previa
+       url: 'https://www.tumarca.ar/marca-2-ar.png',
         width: 1200,
         height: 630,
         alt: 'Portfolio de Tu Marca AR',

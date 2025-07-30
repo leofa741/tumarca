@@ -37,18 +37,19 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TU.MARCA.AR",
     description: "Your brand, our passion. TU.MARCA.AR",
-    url: "https://tumarca.vercel.app/",
-    siteName: "TU.MARCA.AR",
+    url: "https://www.tumarca.ar",
+    type: "website",
+    locale: "es_ES",
+    siteName: "TUMARCA.AR",
     images: [
       {
-        url: "https://tumarca.vercel.app/logo-tumarca.png",
+        url: 'https://www.tumarca.ar/marca-2-ar.png',
         width: 1200,
         height: 630,
         alt: "TU.MARCA.AR - Your brand, our passion",
       },  
     ],
-    locale: "es_ES",
-    type: "website",
+  
   },
 };
 

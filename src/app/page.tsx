@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     locale: 'es_ES',
     images: [
       {
-        url: 'https://www.tumarca.ar/marca-2.ar.png',
+        url: 'https://www.tumarca.ar/marca-2-ar.png',
         width: 800,
         height: 600,
         alt: 'Logo de Tu Marca AR',
