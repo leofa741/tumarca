@@ -36,7 +36,7 @@ const Footer = () => {
                 alt="TU.MARCA.AR Logo"
                 className="w-16 h-16 rounded-full object-cover "
               />
-              <p className="mt-2 text-sm text-gray-600"> Tu Marca AR</p>
+          
             </a>
           </div>
 
