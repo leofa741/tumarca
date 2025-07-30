@@ -81,7 +81,7 @@ export default function RootLayout({
           </main>
  <a
   href="https://wa.me/+541141461312"
-  className="fixed bottom-6 right-6 z-50 flex items-center justify-center bg-green-500 text-white p-0 rounded-full shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300 ease-in-out animate-pulse-slow"
+  className="fixed bottom-6 right-6 z-50 flex items-center justify-center bg-green-500 text-white p-0 rounded-full shadow-lg hover:scale-130 hover:shadow-xl transition-all duration-300 ease-in-out animate-pulse-slow"
   target="_blank"
   rel="noopener noreferrer"
   aria-label="Chatea con nosotros por WhatsApp"
@@ -89,7 +89,7 @@ export default function RootLayout({
   {/* Icono de WhatsApp */}
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
+    viewBox="0 0 26 26"
     fill="currentColor"
     className="w-8 h-8 md:w-9 md:h-9 p-1.5"
   >
