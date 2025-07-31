@@ -157,35 +157,35 @@ export default function ServicePage() {
             <ValorDestacado
               titulo="Identidad de Marca"
               descripcion="Creamos una identidad visual única que refleja la esencia de tu marca, desde el logo hasta los colores y tipografías."
-              imagenSrc="/identidad.png"
+              imagenSrc="/identidad1.png"
               alt="Identidad de Marca"
               delay={0.4}
             />
             <ValorDestacado
               titulo="Desarrollo Web"
               descripcion="Diseñamos y desarrollamos la plataforma web ideal para tu proyecto con tecnologías de vanguardia, y te proporcionamos las herramientas necesarias para administrarla de manera eficiente."
-              imagenSrc="/desarrollo.png"
+              imagenSrc="/desarrollo2.png"
               alt="Desarrollo Web"
               delay={0.5}
             />
             <ValorDestacado
               titulo="SEO & Posicionamiento"
               descripcion="Optimizamos tu sitio web para que sea fácilmente encontrado por los motores de búsqueda, mejorando su visibilidad y atrayendo más tráfico orgánico."
-              imagenSrc="/seo.png"
+              imagenSrc="/seo2.png"
               alt="SEO & Posicionamiento"
               delay={0.6}
             />
             <ValorDestacado
               titulo="Soporte Técnico"
               descripcion="Mantené tu web siempre activa, actualizada y segura con nuestro soporte técnico especializado. Estamos aquí para resolver cualquier inconveniente."
-              imagenSrc="/soporte-1.png"
+              imagenSrc="/soporte2.png"
               alt="Soporte Técnico"
               delay={0.7}
             />
             <ValorDestacado
               titulo="Consultoría Estratégica"
               descripcion="Impulsá tu marca con decisiones estratégicas. Te acompañamos con asesoramiento experto para construir, optimizar o redefinir tu presencia digital."
-              imagenSrc="/consultoria.png"
+              imagenSrc="/consultoria2.png"
               alt="Consultoría Estratégica"
               delay={0.8}
             />
