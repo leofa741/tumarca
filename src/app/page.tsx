@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Playfair_Display } from 'next/font/google';
 import ImageAccordion from '@/components/ImagenAcordeon';
 import type { Metadata } from 'next';
+import ValorDestacado from '@/components/ValorDestacado';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -144,6 +145,54 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Sección de Valores o Servicios Destacados */}
+<section className="py-20 px-6">
+  <div className="max-w-6xl mx-auto">
+    <h2
+      className="text-3xl md:text-4xl font-bold text-center mb-12 animate-fadeIn"
+      style={{ animationDelay: '0.3s' }}
+    >
+      Cómo te ayudamos a crecer
+    </h2>
+    <div className="space-y-6">
+      <ValorDestacado
+        titulo="Diseño de Marca"
+        descripcion="Creamos identidades visuales únicas que comunican la esencia de tu marca. Desde el logo hasta la paleta de colores y la tipografía, cada elemento está diseñado para transmitir profesionalismo, confianza y personalidad."
+        imagenSrc="/d-marca.png"
+        alt="Diseño de Marca"
+        delay={0.4}
+      />
+      <ValorDestacado
+        titulo="Desarrollo Web"
+        descripcion="Diseñamos y desarrollamos la plataforma web ideal para tu proyecto con tecnologías de vanguardia, y te proporcionamos las herramientas necesarias para administrarla de manera eficiente."
+        imagenSrc="/desarrollo.png"
+        alt="Desarrollo Web"
+        delay={0.5}
+      />
+      <ValorDestacado
+        titulo="SEO & Posicionamiento"
+        descripcion="Optimizamos tu sitio web para que sea fácilmente encontrado por los motores de búsqueda, mejorando su visibilidad y atrayendo más tráfico orgánico."
+        imagenSrc="/seo.png"
+        alt="SEO & Posicionamiento"
+        delay={0.6}
+      />
+      <ValorDestacado
+        titulo="Soporte Técnico"
+        descripcion="Mantené tu web siempre activa, actualizada y segura con nuestro soporte técnico especializado. Estamos aquí para resolver cualquier inconveniente."
+        imagenSrc="/soporte-1.png"
+        alt="Soporte Técnico"
+        delay={0.7}
+      />
+      <ValorDestacado
+        titulo="Consultoría Estratégica"
+        descripcion="Impulsá tu marca con decisiones estratégicas. Te acompañamos con asesoramiento experto para construir, optimizar o redefinir tu presencia digital."
+        imagenSrc="/consultoria.png"
+        alt="Consultoría Estratégica"
+        delay={0.8}
+      />
+    </div>
+  </div>
+</section>
 
       {/* Componente adicional: Acordion de imágenes */}
       <ImageAccordion />
