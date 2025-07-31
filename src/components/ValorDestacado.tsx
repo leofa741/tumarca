@@ -36,7 +36,7 @@ export default function ValorDestacado({
 
       {/* Texto */}
         <div className="flex-1">
-            <h3 className="text-xl font-semibold text-gray-700 dark:text-white">
+            <h3 className="text-xl font-semibold text-gray-500 dark:text-white">
             {titulo}
             </h3>
             <p className="text-gray-500 dark:text-gray-300 mt-2">
