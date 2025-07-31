@@ -39,7 +39,7 @@ export default function ValorDestacado({
             <h3 className="text-xl font-semibold text-gray-500 dark:text-white">
             {titulo}
             </h3>
-            <p className="text-gray-500 dark:text-gray-300 mt-2">
+            <p className="text-gray-400 dark:text-gray-300 mt-2">
             {descripcion}
             </p>
             <p className="text-gray-300 dark:text-gray-200 mt-2">
