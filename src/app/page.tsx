@@ -107,7 +107,8 @@ export default function Home() {
               Gestionamos tu marca con pasión y creatividad
             </h2>
             <p className="text-lg text-gray-400 dark:text-gray-300">
-              Desde el branding hasta el marketing digital, estamos aquí para ayudarte a destacar en el mundo digital.
+              Somos un equipo de profesionales dedicados a potenciar tu presencia digital. Desde el diseño de marca hasta el desarrollo web y el marketing digital, te acompañamos en cada paso del camino.
+             
             </p>
 
             <div className="flex justify-center md:justify-start">
