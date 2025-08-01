@@ -18,7 +18,7 @@ export default function ValorDestacado({
 }: ValorDestacadoProps) {
   return (
     <div
-      className="flex items-start space-x-4 p-4 dark:bg-gray-800 rounded-lg  transition-transform transform hover:scale-105"
+      className="flex items-start space-x-4 p-4 rounded-lg  transition-transform transform hover:scale-105"
       style={{ animationDelay: `${delay}s` }}
     >
       {/* Imagen */}

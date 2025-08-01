@@ -124,7 +124,7 @@ export default function Home() {
       </section>
 
       {/* Sección de servicios */}
-      <section className="py-20 px-6 dark:bg-gray-900">
+      <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           {/* H2 único para la sección */}
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-100 dark:text-white animate-fadeIn" style={{ animationDelay: '0.3s' }}>
