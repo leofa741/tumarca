@@ -87,7 +87,7 @@ export default async function PostPage({
       </header>
 
       {/* Imagen destacada */}
-      <div className="relative mb-10 h-64 md:h-96">
+      <div className="relative w-full h-64 md:h-96 mb-10 rounded-lg overflow-hidden">
         <Image
           src={post.image}
           alt={post.title}
