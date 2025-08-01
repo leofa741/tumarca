@@ -91,6 +91,31 @@ const posts: Post[] = [
     readTime: "7 min",
     publishedAt: "2025-04-01",
   },
+  {
+  id: 4,
+  title: "¿Por qué tu sitio necesita un blog? (Y cómo puede impulsar tu marca)",
+  category: "Estrategia Digital",
+  excerpt: "Un blog activo no es solo texto: es visibilidad, confianza y crecimiento a largo plazo.",
+  content: `
+    <p>Un sitio web con blog es como una vidriera viva. No solo mostrás lo que hacés: construís autoridad, atraés tráfico y generás confianza.</p>
+
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">1. Atrae visitas con SEO orgánico</h2>
+    <p>Los artículos bien escritos posicionan en Google. Cada post es una oportunidad para que nuevos clientes te encuentren buscando lo que ofrecés.</p>
+
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">2. Te posiciona como referente</h2>
+    <p>Compartir conocimiento muestra que sabés lo que hacés. Tus futuros clientes quieren trabajar con alguien que entiende y educa.</p>
+
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">3. Genera confianza y conexión</h2>
+    <p>Un blog con tono humano, claro y útil genera cercanía. Sentís que hay una persona detrás de la marca, y eso hace toda la diferencia.</p>
+
+    <p>No se trata de escribir por escribir: se trata de crear contenido que resuelva, inspire y posicione. Si no tenés un blog, estás dejando valor sobre la mesa.</p>
+  `,
+  slug: "importancia-del-blog",
+  image: "/importancia-del-blog-en-tu-sitio.png",
+  readTime: "6 min",
+  publishedAt: "2025-08-01",
+}
+
 ];
 
 export default posts;
