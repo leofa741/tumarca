@@ -126,7 +126,7 @@ export default function Home() {
       <section className="py-20 px-6 dark:bg-gray-900">
         <div className="max-w-6xl mx-auto">
           {/* H2 único para la sección */}
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white animate-fadeIn" style={{ animationDelay: '0.3s' }}>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-500 dark:text-white animate-fadeIn" style={{ animationDelay: '0.3s' }}>
             Cómo te ayudamos a crecer
           </h2>
           <div className="space-y-6">
