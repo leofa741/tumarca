@@ -93,7 +93,7 @@ export default async function PostPage({
           alt={post.title}
           fill
           className="object-cover rounded-lg shadow-lg transition-transform duration-500"
-          sizes="(max-width: 768px) 100vw, 50vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           priority
         />
       </div>
