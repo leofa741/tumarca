@@ -103,10 +103,10 @@ export default function Home() {
           {/* Texto y CTA */}
           <div className="space-y-6 text-center md:text-left">
             {/* H2: Mensaje clave de valor */}
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-500 dark:text-white animate-fadeIn" style={{ animationDelay: '0.3s' }}>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-100 dark:text-white animate-fadeIn" style={{ animationDelay: '0.3s' }}>
               Gestionamos tu marca con pasión y creatividad
             </h2>
-            <p className="text-lg text-gray-100 dark:text-gray-300">
+            <p className="text-lg text-gray-300 dark:text-gray-300">
               Somos un equipo de profesionales dedicados a potenciar tu presencia digital. Desde el diseño de marca hasta el desarrollo web y el marketing digital, te acompañamos en cada paso del camino.
              
             </p>
