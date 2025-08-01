@@ -103,10 +103,10 @@ export default function Home() {
           {/* Texto y CTA */}
           <div className="space-y-6 text-center md:text-left">
             {/* H2: Mensaje clave de valor */}
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white animate-fadeIn" style={{ animationDelay: '0.3s' }}>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-500 dark:text-white animate-fadeIn" style={{ animationDelay: '0.3s' }}>
               Gestionamos tu marca con pasión y creatividad
             </h2>
-            <p className="text-lg text-gray-700 dark:text-gray-300">
+            <p className="text-lg text-gray-400 dark:text-gray-300">
               Desde el branding hasta el marketing digital, estamos aquí para ayudarte a destacar en el mundo digital.
             </p>
 
