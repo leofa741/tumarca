@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import projects from '@/lib/portfolio';
+import AplicacionesAMedida from '@/components/AplicacionesAMedida';
+import ServicioSEO from '@/components/ServicioSEO';
 
 export const metadata: Metadata = {
   title: 'Portfolio | Tu Marca AR',
@@ -26,6 +28,8 @@ export const metadata: Metadata = {
 
 export default function PortfolioPage() {
   return (
+
+    <>
     <section className="container mx-auto px-6 py-16 md:py-24 lg:py-32">
       {/* Encabezado */}
       <div className="max-w-4xl mx-auto text-center space-y-6 mb-16">
@@ -97,5 +101,10 @@ export default function PortfolioPage() {
         </Link>
       </div>
     </section>
+      <ServicioSEO />
+    
+                 <AplicacionesAMedida />
+                 </>
+      
   );
 }

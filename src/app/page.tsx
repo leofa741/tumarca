@@ -3,6 +3,8 @@ import { Playfair_Display } from 'next/font/google';
 import ImageAccordion from '@/components/ImagenAcordeon';
 import type { Metadata } from 'next';
 import ValorDestacado from '@/components/ValorDestacado';
+import AplicacionesAMedida from '@/components/AplicacionesAMedida';
+import ServicioSEO from '@/components/ServicioSEO';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -171,7 +173,10 @@ export default function Home() {
       </section>
 
       {/* Componente adicional: Acordion de imágenes */}
-      <ImageAccordion />
+    
+        <ServicioSEO />
+  <ImageAccordion />
+             <AplicacionesAMedida />
     </>
   );
 }

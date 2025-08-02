@@ -7,6 +7,8 @@ import { BookOpen, PenTool, Zap, Target } from 'lucide-react';
 import type { Metadata } from 'next';
 import posts from '@/lib/posts';
 import NewsletterCTA from '@/components/NewsletterCTA';
+import AplicacionesAMedida from '@/components/AplicacionesAMedida';
+import ServicioSEO from '@/components/ServicioSEO';
 // ← Componente del cliente
 
 const playfair = Playfair_Display({
@@ -35,6 +37,7 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
+    <>
     <section className="container mx-auto px-6 py-16 md:py-24 lg:py-32">
       {/* Encabezado */}
       <div className="max-w-4xl mx-auto text-center space-y-6">
@@ -106,6 +109,12 @@ export default function BlogPage() {
       {/* Newsletter CTA (Client Component) */}
       <NewsletterCTA />
     </section>
+
+     <ServicioSEO />
+     
+                 <AplicacionesAMedida />
+    
+                </>
   );
 }
 

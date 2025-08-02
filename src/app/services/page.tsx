@@ -2,6 +2,9 @@ import { Playfair_Display } from 'next/font/google';
 import { Briefcase, Paintbrush, Globe, Rocket, Star, Check } from 'lucide-react';
 import type { Metadata } from "next";
 import ValorDestacado from '@/components/ValorDestacado';
+import AplicacionesAMedida from '@/components/AplicacionesAMedida';
+
+import ServicioSEO from '@/components/ServicioSEO';
 
 
 const playfair = Playfair_Display({
@@ -28,6 +31,7 @@ export const metadata: Metadata = {
 
 export default function ServicePage() {
   return (
+     <>
     <section className="container mx-auto px-6 py-20 md:py-28 lg:py-32">
       {/* Título principal */}
       <div className="text-center max-w-4xl mx-auto mb-16">
@@ -213,5 +217,10 @@ export default function ServicePage() {
         </p>
       </div>
     </section>
+        <ServicioSEO />
+ 
+             <AplicacionesAMedida />
+
+            </>
   );
 }

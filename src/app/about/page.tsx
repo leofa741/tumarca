@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { Playfair_Display } from 'next/font/google';
 import { Star, Target, Lightbulb, Heart, Award } from 'lucide-react';
 import type { Metadata } from "next";
+import AplicacionesAMedida from '@/components/AplicacionesAMedida';
+import ServicioSEO from '@/components/ServicioSEO';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -29,6 +31,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
+    <>
     <section className="container mx-auto px-6 py-16 md:py-24 lg:py-32">
       {/* Sección principal: Presentación */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -144,5 +147,9 @@ export default function AboutPage() {
         </div>
       </div>
     </section>
+      <ServicioSEO />
+
+             <AplicacionesAMedida />
+             </>
   );
 }
