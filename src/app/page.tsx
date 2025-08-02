@@ -13,6 +13,15 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+    keywords: [
+    'diseño web',
+    'branding',
+    'marketing digital',
+    'SEO',
+    'posicionamiento en Google',
+    'páginas web Argentina',
+    'agencia digital',
+  ],
   title: 'Home | Tu Marca AR',
   description:
     'Descubre nuestros servicios de branding, diseño web, marketing digital y lanzamientos para potenciar tu marca en el mundo digital.',
@@ -43,23 +52,28 @@ export default function Home() {
     <>
       {/* Sección principal: Hero con texto e imagen */}
       <section id="intro" className="*:relative text-white py-20">
+ <h1 className=" text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 animate-fadeIn"
+              style={{ animationDelay: '0.2s', letterSpacing: '-0.02em' }}>
+              
+              Diseño Web Profesional en Argentina
+              </h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+
+         
           
           {/* Columna del texto */}
           <div className="flex flex-col items-center justify-center text-center space-y-6 px-6 lg:px-0 order-2 lg:order-1">
             {/* Subtítulo */}
-            <div className="animate-fadeIn text-sm uppercase tracking-widest text-gray-400" style={{ animationDelay: '0.3s' }}>
-              <span className="text-amber-500">Bienvenido a</span>{' '}
-              <span className="text-white">TuMarca.AR</span>
-            </div>
+             
+            
 
             {/* H1 ÚNICO, claro y descriptivo (más de 20 caracteres) */}
-            <h1
+            <h2
               className={`${playfair.className} text-amber-500 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center leading-tight animate-fadeIn`}
               style={{ animationDelay: '0.5s', letterSpacing: '-0.03em' }}
             >
               Construí una marca personal auténtica, estratégica y con impacto
-            </h1>
+            </h2>
 
             {/* Descripción */}
             <p

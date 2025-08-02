@@ -34,13 +34,17 @@ export default function ServicePage() {
   return (
     <>
       <section className="container mx-auto px-6 py-20 md:py-28 lg:py-32">
+
+
         {/* Título principal */}
+       
+
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <h2
+          <h1
             className={`${playfair.className} animate-slideUp text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight`}
           >
             Transforma tu <span className="text-amber-500">Marca</span> con Estrategia y Diseño
-          </h2>
+          </h1>
           <p className="mt-6 text-gray-300 text-lg leading-relaxed">
             No solo creamos logos o sitios web. <strong>Construimos marcas que conectan, inspiran y venden</strong>.
             Cada servicio está diseñado para darte visibilidad, credibilidad y crecimiento real en el mundo digital.
