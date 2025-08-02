@@ -5,6 +5,7 @@ import ValorDestacado from '@/components/ValorDestacado';
 import AplicacionesAMedida from '@/components/AplicacionesAMedida';
 
 import ServicioSEO from '@/components/ServicioSEO';
+import AplicacionesIA from '@/components/AplicacionesIA';
 
 
 const playfair = Playfair_Display({
@@ -220,7 +221,7 @@ export default function ServicePage() {
         <ServicioSEO />
  
              <AplicacionesAMedida />
-
+<AplicacionesIA />
             </>
   );
 }
