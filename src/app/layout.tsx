@@ -9,6 +9,7 @@ import Loader from "@/components/Loader";
 import { LoadingProvider } from "@/context/LoadingContext";
 import Footer from "@/components/Footer";
 import RedesFlotantes from "@/components/RedesFlotantes";
+import AplicacionesAMedida from "@/components/AplicacionesAMedida";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -104,6 +105,8 @@ export default function RootLayout({
               Habla con nosotros
             </span>
           </a>*/}
+
+             <AplicacionesAMedida />
 
           <Footer />
         </LoadingProvider>

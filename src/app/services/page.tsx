@@ -3,6 +3,7 @@ import { Briefcase, Paintbrush, Globe, Rocket, Star, Check } from 'lucide-react'
 import type { Metadata } from "next";
 import ValorDestacado from '@/components/ValorDestacado';
 
+
 const playfair = Playfair_Display({
   subsets: ['latin'],
   weight: ['400', '600'],
@@ -127,6 +128,8 @@ export default function ServicePage() {
           </div>
         </div>
       </div>
+
+   
 
       {/* Sección de confianza */}
       <div className="mt-24 text-center max-w-3xl mx-auto bg-gradient-to-r from-amber-500/10 to-transparent border border-amber-500/20 rounded-2xl p-8">
