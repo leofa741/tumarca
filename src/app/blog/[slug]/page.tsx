@@ -86,14 +86,15 @@ export default async function PostPage({
         </p>
       </header>
 
+
       {/* Imagen destacada */}
-      <div className="relative w-full h-64 md:h-96 mb-10 rounded-lg overflow-hidden">
+      <div className="relative w-full aspect-[4/3] md:aspect-[16/9] mb-10 rounded-lg overflow-hidden">
         <Image
           src={post.image}
           alt={post.title}
           fill
           className="object-cover rounded-lg shadow-lg transition-transform duration-500"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 60vw"
           priority
         />
       </div>
@@ -112,7 +113,7 @@ export default async function PostPage({
         <p className="text-gray-400 mb-6">
           Suscríbete y recibí cada semana estrategias prácticas para potenciar tu marca.
         </p>
-       <NewsletterCTA />
+        <NewsletterCTA />
       </div>
     </article>
   );

@@ -114,7 +114,35 @@ const posts: Post[] = [
   image: "/importancia-del-blog-en-tu-sitio.png",
   readTime: "6 min",
   publishedAt: "2025-08-01",
+},
+{
+  id: 5,
+  title: "¿Por qué tu web no vende? (Y cómo podés cambiarlo)",
+  category: "Estrategia Digital",
+  excerpt: "Si tu sitio no convierte visitas en clientes, hay algo que no está funcionando. Descubrí las causas más comunes y cómo solucionarlas.",
+  content: `
+    <p>Tu web puede ser tu mejor aliada o tu mayor obstáculo. Muchos negocios tienen presencia online, pero no resultados. ¿Te pasa que tenés visitas, pero nadie compra, consulta ni deja sus datos?</p>
+
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">1. No generás confianza</h2>
+    <p>Una web lenta, desactualizada o mal diseñada transmite desconfianza. Si el usuario no siente seguridad en los primeros segundos, se va. Y no vuelve.</p>
+
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">2. No hay un mensaje claro</h2>
+    <p>¿Qué hacés? ¿Para quién? ¿Por qué deberían elegirte? Si no lo explicás en los primeros segundos, el visitante se pierde y abandona.</p>
+
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">3. No está optimizada para vender</h2>
+    <p>Una web funcional debe guiar al usuario hacia la acción: pedir un presupuesto, comprar, agendar, etc. Sin llamadas a la acción claras, no hay conversiones.</p>
+
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">4. No estás trabajando el SEO</h2>
+    <p>Si no aparecés en Google, nadie te encuentra. Sin contenido optimizado ni estrategia de palabras clave, tu sitio queda invisible para quien más te necesita.</p>
+
+    <p>No se trata solo de tener una web: se trata de tener una web que cumpla un objetivo claro. Analizá tu sitio con mirada crítica o escribinos. Te ayudamos a transformarlo en una herramienta real de venta.</p>
+  `,
+  slug: "por-que-tu-web-no-vende",
+  image: "/por-que-tu-web-no-vende.png",
+  readTime: "5 min",
+  publishedAt: "2025-08-02",
 }
+
 
 ];
 
