@@ -9,6 +9,7 @@ import Loader from "@/components/Loader";
 import { LoadingProvider } from "@/context/LoadingContext";
 import Footer from "@/components/Footer";
 import RedesFlotantes from "@/components/RedesFlotantes";
+import Script from "next/script";
 
 
 const geistSans = Geist({
@@ -64,6 +65,19 @@ export default function RootLayout({
     <html lang="es">
       <head>
         <meta name="theme-color" content="#000000" id="theme-color" />
+           <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+        >{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-BN6R2GDMJL');
+        `}</Script>
       </head>
 
 
