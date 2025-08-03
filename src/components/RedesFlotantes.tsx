@@ -24,6 +24,12 @@ const redes = [
     icono: '/email.webp',
     color: '#EA4335',
   },
+  {
+    nombre: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/tu-marca-8b6777378?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+    icono: '/linkedin.webp',
+    color: '#0077B5',
+  },
 ];
 
 export default function RedesFlotantesFuturo() {
