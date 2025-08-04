@@ -13,36 +13,40 @@ export interface Post {
 };
 
 const posts: Post[] = [
-  {
-    id: 1,
-    title: "Cómo construir una marca memorable (sin ser genérico)",
-    category: "Branding Estratégico",
-    excerpt: "Descubrí los 5 pilares que usan las marcas que todos recuerdan.",
-    content: `
-      <p>Construir una marca memorable no se trata solo de tener un logo bonito o un nombre creativo. Se trata de <strong>coherencia, propósito y conexión emocional</strong>.</p>
+ {
+  id: 1,
+  title: "Cómo aparecer en Google: Guía paso a paso para indexar tu web y mejorar el SEO",
+  category: "SEO y Posicionamiento",
+  excerpt: "¿Tu web no aparece en Google? Tranquilo, no estás solo. En esta guía te explicamos cómo lograr que tu sitio esté visible en los resultados de búsqueda y cómo optimizarlo para subir posiciones.",
+  content: `
+    <p>Si tenés una web y no aparece en Google, es como si no existiera. Pero la buena noticia es que podés cambiarlo. Acá te contamos cómo hacer que Google detecte, indexe y muestre tu sitio web.</p>
 
-      <h2 class="text-2xl font-semibold text-white mt-6 mb-4">1. Define tu "por qué"</h2>
-      <p>Según Simon Sinek, las marcas que inspiran comienzan con el por qué. ¿Por qué existes más allá de ganar dinero? Esto atrae a personas que creen lo mismo que vos.</p>
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">1. Verificá tu sitio con Google Search Console</h2>
+    <p>Ingresá a <a href="https://search.google.com/search-console/about" target="_blank" class="underline text-blue-400">Search Console</a> y agregá tu dominio. Verificá la propiedad con un registro DNS o HTML. Esto le dice a Google que el sitio es tuyo.</p>
 
-      <h2 class="text-2xl font-semibold text-white mt-6 mb-4">2. Sé coherente en cada detalle</h2>
-      <p>Desde el tono de voz hasta el color del botón de tu sitio: todo debe reflejar tu identidad. La coherencia construye confianza.</p>
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">2. Enviá tu sitemap</h2>
+    <p>Un sitemap es un archivo que le indica a Google cómo está estructurada tu web. Si usás Vercel con Next.js, podés generarlo automáticamente con plugins o librerías. Luego, en Search Console, enviá la ruta: <code>/sitemap.xml</code>.</p>
 
-      <p>¿Querés un ejemplo? Apple no solo vende tecnología: vende <em>simplicidad, innovación y diseño</em>. Y lo repite en cada punto de contacto.</p>
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">3. Optimizá tu sitio con SEO básico</h2>
+    <ul class="list-disc list-inside">
+      <li>Usá títulos claros (<code>&lt;title&gt;</code> y <code>meta description</code>).</li>
+      <li>Incluí palabras clave reales en tus textos.</li>
+      <li>Asegurate de que la web cargue rápido y esté adaptada a móvil.</li>
+    </ul>
 
-      <blockquote class="border-l-4 border-amber-500 pl-5 italic text-gray-300 mt-6 mb-6">
-        "Las personas no compran lo que hacés, compran por qué lo hacés." – Simon Sinek
-      </blockquote>
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">4. Creá contenido útil</h2>
+    <p>Publicar artículos como este que estás leyendo ayuda a que Google entienda que tu web es activa y valiosa. Es una de las formas más efectivas de mejorar tu posicionamiento.</p>
 
-      <h2 class="text-2xl font-semibold text-white mt-6 mb-4">3. Habla como humano, no como empresa</h2>
-      <p>El lenguaje frío y corporativo no conecta. Usá tu voz, tu historia, tu autenticidad. La gente sigue a personas, no a logos.</p>
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">5. Usá Google Analytics para medir resultados</h2>
+    <p>Con Google Analytics podés ver cuántas personas te visitan, desde dónde, cuánto tiempo están, y qué contenido funciona mejor. Eso te da información real para tomar decisiones.</p>
 
-      <p>Conclusión: Una marca memorable no se construye en un día, pero cada decisión cuenta. Empezá por tu esencia, y todo lo demás fluirá.</p>
-    `,
-    slug: "branding-memorable",
-    image: "/Como-construir-una-marca-memorable.png",
-    readTime: "5 min",
-    publishedAt: "2025-04-05",
-  },
+    <p>¿Querés que te ayudemos a mejorar tu posicionamiento y visibilidad online? Contactanos desde nuestra web y crecemos juntos.</p>
+  `,
+  slug: "como-aparecer-en-google",
+  image: "/como-aparecer-en-google.png",
+  readTime: "6 min",
+  publishedAt: "2025-08-04",
+},
   {
     id: 2,
     title: "Tendencias de diseño web 2025 que ya están funcionando",
@@ -141,7 +145,37 @@ const posts: Post[] = [
   image: "/por-que-tu-web-no-vende.png",
   readTime: "5 min",
   publishedAt: "2025-08-02",
-}
+},
+ {
+    id: 6,
+    title: "Cómo construir una marca memorable (sin ser genérico)",
+    category: "Branding Estratégico",
+    excerpt: "Descubrí los 5 pilares que usan las marcas que todos recuerdan.",
+    content: `
+      <p>Construir una marca memorable no se trata solo de tener un logo bonito o un nombre creativo. Se trata de <strong>coherencia, propósito y conexión emocional</strong>.</p>
+
+      <h2 class="text-2xl font-semibold text-white mt-6 mb-4">1. Define tu "por qué"</h2>
+      <p>Según Simon Sinek, las marcas que inspiran comienzan con el por qué. ¿Por qué existes más allá de ganar dinero? Esto atrae a personas que creen lo mismo que vos.</p>
+
+      <h2 class="text-2xl font-semibold text-white mt-6 mb-4">2. Sé coherente en cada detalle</h2>
+      <p>Desde el tono de voz hasta el color del botón de tu sitio: todo debe reflejar tu identidad. La coherencia construye confianza.</p>
+
+      <p>¿Querés un ejemplo? Apple no solo vende tecnología: vende <em>simplicidad, innovación y diseño</em>. Y lo repite en cada punto de contacto.</p>
+
+      <blockquote class="border-l-4 border-amber-500 pl-5 italic text-gray-300 mt-6 mb-6">
+        "Las personas no compran lo que hacés, compran por qué lo hacés." – Simon Sinek
+      </blockquote>
+
+      <h2 class="text-2xl font-semibold text-white mt-6 mb-4">3. Habla como humano, no como empresa</h2>
+      <p>El lenguaje frío y corporativo no conecta. Usá tu voz, tu historia, tu autenticidad. La gente sigue a personas, no a logos.</p>
+
+      <p>Conclusión: Una marca memorable no se construye en un día, pero cada decisión cuenta. Empezá por tu esencia, y todo lo demás fluirá.</p>
+    `,
+    slug: "branding-memorable",
+    image: "/Como-construir-una-marca-memorable.png",
+    readTime: "5 min",
+    publishedAt: "2025-04-05",
+  }
 
 
 ];
