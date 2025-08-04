@@ -25,7 +25,7 @@ const posts: Post[] = [
     <p>Ingresá a <a href="https://search.google.com/search-console/about" target="_blank" class="underline text-blue-400">Search Console</a> y agregá tu dominio. Verificá la propiedad con un registro DNS o HTML. Esto le dice a Google que el sitio es tuyo.</p>
 
     <h2 class="text-2xl font-semibold text-white mt-6 mb-4">2. Enviá tu sitemap</h2>
-    <p>Un sitemap es un archivo que le indica a Google cómo está estructurada tu web. Si usás Vercel con Next.js, podés generarlo automáticamente con plugins o librerías. Luego, en Search Console, enviá la ruta: <code>/sitemap.xml</code>.</p>
+    <>Un sitemap es un archivo que le indica a Google cómo está estructurada tu web.</p>
 
     <h2 class="text-2xl font-semibold text-white mt-6 mb-4">3. Optimizá tu sitio con SEO básico</h2>
     <ul class="list-disc list-inside">
