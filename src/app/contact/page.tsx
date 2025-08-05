@@ -3,6 +3,7 @@
 import { Playfair_Display } from 'next/font/google';
 import type { Metadata } from "next";
 import FormContact from '@/components/FormContact';
+import ContactSection from '@/components/ContactSection';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -28,18 +29,6 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="container mx-auto px-6 py-16 md:py-24 lg:py-32">
-      <div className="max-w-3xl mx-auto text-center space-y-6">
-        <h1 className={`${playfair.className} text-4xl md:text-6xl font-semibold text-white animate-slideUp`}>
-          Contactanos
-        </h1>
-        <p className="text-gray-400 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
-          ¿Tenés un proyecto en mente? Hablemos. Completá el formulario y nos pondremos en contacto a la brevedad.
-        </p>
-      </div>
-      <FormContact /> 
-
-     
-    </section>
+ <ContactSection />
   );
 }
