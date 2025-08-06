@@ -11,13 +11,7 @@ const redes = [
     url: 'https://wa.me/+541141461312',
     icono: '/WhatsApp_icon.png',
     color: '#25D366',
-  },
-  {
-    nombre: 'Instagram',
-    url: 'https://instagram.com/tu.marca.ar',
-    icono: '/instagram.webp',
-    color: 'conic-gradient(from 0deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)',
-  },
+  },  
   {
     nombre: 'Email',
     url: '/contact',
