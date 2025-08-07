@@ -35,7 +35,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "TU.MARCA.AR",
   keywords: ["branding", "design", "marketing", "TU.MARCA.AR"],
-  authors: [{ name: "TU.MARCA.AR Team", url: "https://tumarca.ar" }],
+  authors: [{ name: "TU.MARCA.AR Team", url: "https://www.tumarca.ar" }],
   creator: "TU.MARCA.AR",
   openGraph: {
     title: "TU.MARCA.AR",

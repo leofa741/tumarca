@@ -15,6 +15,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
     keywords: [
     'diseño web',
+    'tienda online',
     'desarrollo web Argentina',
     'diseño web Argentina',
     'branding',
