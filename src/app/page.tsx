@@ -101,7 +101,7 @@ export default function Home() {
               style={{ animationDelay: '1.3s' }}
             >
               <Image
-                src="/logo-n.png"
+                src="/logo-red.png"
                 alt="Logo de Tu Marca AR"
                 width={800}
                 height={600}
