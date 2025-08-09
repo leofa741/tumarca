@@ -78,6 +78,7 @@ export default function RootLayout({
           gtag('js', new Date());
           gtag('config', 'G-BN6R2GDMJL');
         `}</Script>
+        <meta name="p:domain_verify" content="753accdb8bdcd06f483d29b75b607b8b"/>
       </head>
 
 
