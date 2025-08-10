@@ -13,12 +13,12 @@ export interface Post {
 };
 
 const posts: Post[] = [
- {
-  id: 1,
-  title: "Cómo aparecer en Google: Guía paso a paso para indexar tu web y mejorar el SEO",
-  category: "SEO y Posicionamiento",
-  excerpt: "¿Tu web no aparece en Google? Tranquilo, no estás solo. En esta guía te explicamos cómo lograr que tu sitio esté visible en los resultados de búsqueda y cómo optimizarlo para subir posiciones.",
-  content: `
+  {
+    id: 1,
+    title: "Cómo aparecer en Google: Guía paso a paso para indexar tu web y mejorar el SEO",
+    category: "SEO y Posicionamiento",
+    excerpt: "¿Tu web no aparece en Google? Tranquilo, no estás solo. En esta guía te explicamos cómo lograr que tu sitio esté visible en los resultados de búsqueda y cómo optimizarlo para subir posiciones.",
+    content: `
     <p>Si tenés una web y no aparece en Google, es como si no existiera. Pero la buena noticia es que podés cambiarlo. Acá te contamos cómo hacer que Google detecte, indexe y muestre tu sitio web.</p>
 
     <h2 class="text-2xl font-semibold text-white mt-6 mb-4">1. Verificá tu sitio con Google Search Console</h2>
@@ -42,34 +42,45 @@ const posts: Post[] = [
 
     <p>¿Querés que te ayudemos a mejorar tu posicionamiento y visibilidad online? Contactanos desde nuestra web y crecemos juntos.</p>
   `,
-  slug: "como-aparecer-en-google",
-  image: "/como-aparecer-en-google.png",
-  readTime: "6 min",
-  publishedAt: "2025-08-04",
-},
+    slug: "como-aparecer-en-google",
+    image: "/como-aparecer-en-google.png",
+    readTime: "6 min",
+    publishedAt: "2025-08-04",
+  },
   {
     id: 2,
-    title: "Tendencias de diseño web 2025 que ya están funcionando",
-    category: "Diseño Web",
-    excerpt: "Sitios más rápidos, experiencias más humanas y tecnologías que convierten.",
+    title: "5 pasos para optimizar tu web y convertir más visitas en clientes",
+    category: "Estrategia Digital",
+    excerpt: "Una web atractiva no basta: necesita ser clara, rápida y persuasiva. Te enseñamos cómo lograrlo en 5 pasos prácticos.",
     content: `
-      <p>El diseño web está evolucionando rápido. Ya no basta con que se vea bonito: debe <strong>convertir, cargar rápido y sentirse humano</strong>.</p>
+    <p>Podés tener el mejor producto o servicio, pero si tu web no convierte, estás perdiendo clientes cada día. Optimizar tu sitio no es solo diseño: es estrategia.</p>
 
-      <h2 class="text-2xl font-semibold text-white mt-6 mb-4">1. Micro-interacciones con propósito</h2>
-      <p>Pequeñas animaciones que guían al usuario: un botón que cambia al hacer hover, un mensaje de agradecimiento después de un formulario. Hacen la experiencia más agradable.</p>
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">1. Diagnosticá tu web</h2>
+    <p>Usá herramientas gratuitas como <a href="https://pagespeed.web.dev/" target="_blank" class="text-blue-400 underline">PageSpeed Insights</a> para medir velocidad y asegurate de que sea <em>responsive</em> (adaptable a móviles). Si tu web carga lento o se ve mal en el celular, el 50% de los visitantes se irán.</p>
 
-      <h2 class="text-2xl font-semibold text-white mt-6 mb-4">2. Tipografías grandes y audaces</h2>
-      <p>El texto como protagonista. Más legibilidad, más impacto visual. Ideal para páginas de lanzamiento o portfolios.</p>
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">2. Acelerá la carga</h2>
+    <p>Comprimí imágenes, usá formatos modernos como WebP y eliminá plugins o scripts innecesarios. Cada segundo de demora puede reducir la conversión hasta un 20%.</p>
 
-      <h2 class="text-2xl font-semibold text-white mt-6 mb-4">3. Fondos oscuros con alto contraste</h2>
-      <p>Moderno, elegante y fácil de leer si se hace bien. Usalo con tipografía clara y toques de color estratégicos.</p>
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">3. Claridad en tu mensaje</h2>
+    <p>Tu titular debe decir en 5 segundos qué hacés, para quién y cómo podés ayudar. Añadí <strong>llamados a la acción claros</strong> (botones visibles) para guiar al visitante.</p>
 
-      <p>El futuro del diseño web es <strong>rápido, emocional y centrado en el usuario</strong>. ¿Estás listo?</p>
-    `,
-    slug: "tendencias-diseno-web-2025",
-    image: "/desarrollo-web.png",
-    readTime: "6 min",
-    publishedAt: "2025-04-03",
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">4. Mejorá el SEO básico</h2>
+    <p>Usá palabras clave en títulos y descripciones. Estructurá tu contenido con encabezados H1, H2 y H3. Esto ayuda a Google a entender tu web y mostrarla en búsquedas relevantes.</p>
+
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">5. Medí y ajustá</h2>
+    <p>Usá herramientas como <a href="https://www.hotjar.com/" target="_blank" class="text-blue-400 underline">Hotjar</a> para ver cómo navegan los usuarios. Testeá cambios y medí resultados para mejorar continuamente.</p>
+
+    <p>Una web optimizada no es solo más linda: es más efectiva. Y eso significa más ventas.</p>
+
+    <div class="bg-gray-800 p-4 rounded-md mt-6">
+      <p class="text-lg font-semibold">📩 ¿Querés que optimicemos tu web y empiece a vender más?</p>
+      <p>Visitá <a href="https://www.tumarca.ar" target="_blank" class="text-blue-400 underline">www.tumarca.ar</a> o escribinos. Transformemos tu sitio en tu mejor vendedor.</p>
+    </div>
+  `,
+    slug: "optimizar-web-conversion",
+    image: "/optimizar-web-conversion.png",
+    readTime: "8 min",
+    publishedAt: "2025-08-10",
   },
   {
     id: 3,
@@ -96,11 +107,11 @@ const posts: Post[] = [
     publishedAt: "2025-04-01",
   },
   {
-  id: 4,
-  title: "¿Por qué tu sitio necesita un blog? (Y cómo puede impulsar tu marca)",
-  category: "Estrategia Digital",
-  excerpt: "Un blog activo no es solo texto: es visibilidad, confianza y crecimiento a largo plazo.",
-  content: `
+    id: 4,
+    title: "¿Por qué tu sitio necesita un blog? (Y cómo puede impulsar tu marca)",
+    category: "Estrategia Digital",
+    excerpt: "Un blog activo no es solo texto: es visibilidad, confianza y crecimiento a largo plazo.",
+    content: `
     <p>Un sitio web con blog es como una vidriera viva. No solo mostrás lo que hacés: construís autoridad, atraés tráfico y generás confianza.</p>
 
     <h2 class="text-2xl font-semibold text-white mt-6 mb-4">1. Atrae visitas con SEO orgánico</h2>
@@ -114,17 +125,17 @@ const posts: Post[] = [
 
     <p>No se trata de escribir por escribir: se trata de crear contenido que resuelva, inspire y posicione. Si no tenés un blog, estás dejando valor sobre la mesa.</p>
   `,
-  slug: "importancia-del-blog",
-  image: "/importancia-del-blog-en-tu-sitio.png",
-  readTime: "6 min",
-  publishedAt: "2025-08-01",
-},
-{
-  id: 5,
-  title: "¿Por qué tu web no vende? (Y cómo podés cambiarlo)",
-  category: "Estrategia Digital",
-  excerpt: "Si tu sitio no convierte visitas en clientes, hay algo que no está funcionando. Descubrí las causas más comunes y cómo solucionarlas.",
-  content: `
+    slug: "importancia-del-blog",
+    image: "/importancia-del-blog-en-tu-sitio.png",
+    readTime: "6 min",
+    publishedAt: "2025-08-01",
+  },
+  {
+    id: 5,
+    title: "¿Por qué tu web no vende? (Y cómo podés cambiarlo)",
+    category: "Estrategia Digital",
+    excerpt: "Si tu sitio no convierte visitas en clientes, hay algo que no está funcionando. Descubrí las causas más comunes y cómo solucionarlas.",
+    content: `
     <p>Tu web puede ser tu mejor aliada o tu mayor obstáculo. Muchos negocios tienen presencia online, pero no resultados. ¿Te pasa que tenés visitas, pero nadie compra, consulta ni deja sus datos?</p>
 
     <h2 class="text-2xl font-semibold text-white mt-6 mb-4">1. No generás confianza</h2>
@@ -141,12 +152,12 @@ const posts: Post[] = [
 
     <p>No se trata solo de tener una web: se trata de tener una web que cumpla un objetivo claro. Analizá tu sitio con mirada crítica o escribinos. Te ayudamos a transformarlo en una herramienta real de venta.</p>
   `,
-  slug: "por-que-tu-web-no-vende",
-  image: "/por-que-tu-web-no-vende.png",
-  readTime: "5 min",
-  publishedAt: "2025-08-02",
-},
- {
+    slug: "por-que-tu-web-no-vende",
+    image: "/por-que-tu-web-no-vende.png",
+    readTime: "5 min",
+    publishedAt: "2025-08-02",
+  },
+  {
     id: 6,
     title: "Cómo construir una marca memorable (sin ser genérico)",
     category: "Branding Estratégico",
@@ -175,8 +186,31 @@ const posts: Post[] = [
     image: "/Como-construir-una-marca-memorable.png",
     readTime: "5 min",
     publishedAt: "2025-04-05",
-  }
+  },
+  {
+    id: 7,
+    title: "Tendencias de diseño web 2025 que ya están funcionando",
+    category: "Diseño Web",
+    excerpt: "Sitios más rápidos, experiencias más humanas y tecnologías que convierten.",
+    content: `
+      <p>El diseño web está evolucionando rápido. Ya no basta con que se vea bonito: debe <strong>convertir, cargar rápido y sentirse humano</strong>.</p>
 
+      <h2 class="text-2xl font-semibold text-white mt-6 mb-4">1. Micro-interacciones con propósito</h2>
+      <p>Pequeñas animaciones que guían al usuario: un botón que cambia al hacer hover, un mensaje de agradecimiento después de un formulario. Hacen la experiencia más agradable.</p>
+
+      <h2 class="text-2xl font-semibold text-white mt-6 mb-4">2. Tipografías grandes y audaces</h2>
+      <p>El texto como protagonista. Más legibilidad, más impacto visual. Ideal para páginas de lanzamiento o portfolios.</p>
+
+      <h2 class="text-2xl font-semibold text-white mt-6 mb-4">3. Fondos oscuros con alto contraste</h2>
+      <p>Moderno, elegante y fácil de leer si se hace bien. Usalo con tipografía clara y toques de color estratégicos.</p>
+
+      <p>El futuro del diseño web es <strong>rápido, emocional y centrado en el usuario</strong>. ¿Estás listo?</p>
+    `,
+    slug: "tendencias-diseno-web-2025",
+    image: "/desarrollo-web.png",
+    readTime: "6 min",
+    publishedAt: "2025-04-03",
+  }
 
 ];
 
