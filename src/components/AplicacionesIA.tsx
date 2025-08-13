@@ -1,8 +1,10 @@
 // components/AplicacionesIA.tsx
 import { Sparkles, MessageSquare, Mic, BookOpen, Globe, Brain } from 'lucide-react';
+import CorrectorTextoIA from './AsistenteIA';
 
 export default function AplicacionesIA() {
   return (
+    <>
     <section className="py-20 px-6 bg-gradient-to-b from-gray-900/40 via-transparent to-gray-950">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -101,7 +103,7 @@ export default function AplicacionesIA() {
             </div>
           </div>
         </div>
-
+ <CorrectorTextoIA />
         {/* CTA especial para IA */}
         <div className="text-center mt-16">
           <a
@@ -111,10 +113,12 @@ export default function AplicacionesIA() {
             💬 Quiero mi asistente de IA personalizado
           </a>
           <p className="text-gray-500 text-sm mt-3">
-            Ofrecemos prototipo funcional en 7 días
+            ¿Tenés una idea? Hablemos y la hacemos realidad.
           </p>
         </div>
       </div>
     </section>
+    
+    </>
   );
 }
