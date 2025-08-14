@@ -13,10 +13,10 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Contacto | Tu Marca AR',
+  title: ' Inteligencia Artificial | Tu Marca AR',
   description: 'Ponete en contacto con nosotros para llevar tu marca al siguiente nivel. Branding, diseño web, marketing digital y más.',
   openGraph: {
-    title: 'Contacto | Tu Marca AR',
+    title: 'Inteligencia Artificial | Tu Marca AR',
     description: 'Ponete en contacto con nosotros para llevar tu marca al siguiente nivel. Branding, diseño web, marketing digital y más.',
     images: [
       {
