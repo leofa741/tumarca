@@ -76,19 +76,19 @@ export default function MLRetailServicePage() {
           Nuestro proceso de implementación
         </h2>
         <div className="grid md:grid-cols-4 gap-6 text-center">
-          <div className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md">
+          <div className="p-6 text-gray-600 dark:bg-gray-800 rounded-xl shadow-md">
             <h4 className="font-bold text-lg mb-2">1. Diagnóstico</h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm">Analizamos sus datos, sistemas y objetivos de negocio.</p>
           </div>
-          <div className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md">
+          <div className="p-6 text-gray-600 dark:bg-gray-800 rounded-xl shadow-md">
             <h4 className="font-bold text-lg mb-2">2. Estrategia</h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm">Diseñamos una arquitectura de datos unificada y clara.</p>
           </div>
-          <div className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md">
+          <div className="p-6 text-gray-600 dark:bg-gray-800 rounded-xl shadow-md">
             <h4 className="font-bold text-lg mb-2">3. Modelos ML</h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm">Implementamos algoritmos adaptados a su negocio minorista.</p>
           </div>
-          <div className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md">
+          <div className="p-6 text-gray-600 dark:bg-gray-800 rounded-xl shadow-md">
             <h4 className="font-bold text-lg mb-2">4. Capacitación</h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm">Formamos a su equipo para aprovechar la nueva ventaja competitiva.</p>
           </div>
