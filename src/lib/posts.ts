@@ -236,7 +236,7 @@ const posts: Post[] = [
 
     <p>El futuro del retail es claro: <strong>los datos ya no alcanzan, hay que convertirlos en decisiones accionables</strong>. Y el Machine Learning es la clave para lograrlo.</p>
 
-    <p class="mt-6"><em>¿Quieres llevar estas ideas a tu negocio? Descubre cómo podemos ayudarte en nuestra <a href="/servicios/machine-learning-retail" class="text-blue-400 underline">página de servicios de Machine Learning para Retail</a>.</em></p>
+    <p class="mt-6"><em>¿Quieres llevar estas ideas a tu negocio? Descubre cómo podemos ayudarte en nuestra <a href="/machine-learning" class="text-blue-400 underline">página de servicios de Machine Learning para Retail</a>.</em></p>
   `,
   slug: "machine-learning-retail-2025",
   image: "/machinelearning.webp",
