@@ -35,7 +35,27 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "TU.MARCA.AR",
-  keywords: ["branding", "design", "marketing", "TU.MARCA.AR"],
+  keywords: [
+    'diseño web profesional Argentina',
+    'tienda online Argentina',
+    'desarrollo web para pymes',
+    'branding Argentina',
+    'marketing digital para empresas',
+    'SEO Argentina',
+    'posicionamiento en Google Argentina',
+    'agencia digital Buenos Aires',
+    'consultoría digital para pymes',
+    'aplicaciones a medida Argentina',
+    'aplicaciones móviles Argentina',
+    'inteligencia artificial para negocios',
+  ],
+  description:
+    "Agencia digital en Argentina especializada en diseño web, branding, SEO, marketing digital y desarrollo de aplicaciones a medida. Potenciamos tu marca para atraer más clientes.",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
   authors: [{ name: "TU.MARCA.AR Team", url: "https://www.tumarca.ar" }],
   creator: "TU.MARCA.AR",
   openGraph: {
