@@ -231,8 +231,8 @@ const posts: Post[] = [
     <h2 class="text-2xl font-semibold text-white mt-6 mb-4">4. Precios dinámicos</h2>
     <p>Con algoritmos de Machine Learning se pueden ajustar precios en tiempo real según la demanda, la competencia y el stock disponible. Esto permite <strong>maximizar márgenes sin perder competitividad</strong>.</p>
 
-    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">5. Detección de fraude y pérdidas</h2>
-    <p>Desde transacciones sospechosas hasta patrones de robo hormiga, la IA ayuda a <strong>proteger el negocio</strong> reduciendo riesgos que afectan directamente la rentabilidad.</p>
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">5. Detección de productos con falta de ventas</h2>
+    <p>Identifique productos con bajo rendimiento y ajuste su estrategia de marketing y ventas para impulsarlos.</p>
 
     <p>El futuro del retail es claro: <strong>los datos ya no alcanzan, hay que convertirlos en decisiones accionables</strong>. Y el Machine Learning es la clave para lograrlo.</p>
 

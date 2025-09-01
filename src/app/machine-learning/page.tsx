@@ -61,10 +61,10 @@ export default function MLRetailServicePage() {
           </div>
           <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-md border border-gray-100 dark:border-gray-700">
             <h3 className="text-xl font-semibold text-purple-700 dark:text-purple-400 mb-4">
-              Detección de fraude y anomalías
+              Detección de productos con falta de ventas
             </h3>
             <p className="text-gray-700 dark:text-gray-300">
-              Identifique patrones sospechosos en devoluciones, pagos y operaciones internas antes de que se traduzcan en pérdidas.
+              Identifique productos con bajo rendimiento y ajuste su estrategia de marketing y ventas para impulsarlos.
             </p>
           </div>
         </div>
