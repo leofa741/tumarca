@@ -25,7 +25,7 @@ export default function MLRetailServicePage() {
                      dark:from-blue-500 dark:to-teal-400 dark:hover:from-blue-600 dark:hover:to-teal-500
                      transition-all duration-300 transform hover:scale-105"
         >
-          📊 Solicitar Consulta Gratuita
+          📊 Solicitar
         </a>
       </section>
 
@@ -111,7 +111,7 @@ export default function MLRetailServicePage() {
                      dark:from-blue-500 dark:to-teal-400 dark:hover:from-blue-600 dark:hover:to-teal-500
                      transition-all duration-300 transform hover:scale-105"
         >
-          🚀 Solicitar Consulta Gratuita
+          🚀 Solicitar
         </a>
         <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
           Sin compromiso. Evaluamos su situación actual y le proponemos un plan a medida.

@@ -56,7 +56,7 @@ export default function DesarrolloWebPage() {
                                 <span className="text-green-500">✓</span> Carga en menos de 1.5 segundos
                             </li>
                             <li className="flex items-center gap-2">
-                                <span className="text-green-500">✓</span> Integración con CRM y herramientas B2B
+                                <span className="text-green-500">✓</span> Integración con métodos de pago
                             </li>
                         </ul>
                     </div>
@@ -176,7 +176,7 @@ export default function DesarrolloWebPage() {
                      dark:from-blue-500 dark:to-purple-500 dark:hover:from-blue-600 dark:hover:to-purple-600
                      transition-all duration-300 transform hover:scale-105"
                 >
-                    📞 Solicitar Consulta Gratuita
+                    📞 Solicitar
                 </a>
                 <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
                     Sin compromiso. Respuesta en menos de 24 horas.
