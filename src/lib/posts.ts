@@ -210,7 +210,40 @@ const posts: Post[] = [
     image: "/desarrollo-web.png",
     readTime: "6 min",
     publishedAt: "2025-04-03",
-  }
+  },
+  {
+  id: 8,
+  title: "Cómo el Machine Learning está transformando el Retail",
+  category: "Machine Learning",
+  excerpt: "De la predicción de ventas a la personalización del cliente: la IA ya no es futuro, es presente.",
+  content: `
+    <p>El <strong>Machine Learning en el retail</strong> ya no es una promesa lejana: es una herramienta concreta que las grandes y pequeñas cadenas están utilizando para <strong>vender más, reducir costos y fidelizar clientes</strong>. Si en 2020 hablábamos de pruebas, en 2025 hablamos de resultados.</p>
+
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">1. Predicción de la demanda</h2>
+    <p>La IA analiza históricos de ventas, estacionalidad y factores externos (clima, eventos, tendencias) para anticipar qué productos tendrán más salida. Resultado: <strong>menos quiebres de stock y menos sobreinventario</strong>.</p>
+
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">2. Optimización de inventarios</h2>
+    <p>Un sistema de Machine Learning puede recomendar <strong>qué cantidad pedir, en qué sucursal y en qué momento</strong>. Esto no solo reduce costos de almacenamiento, también mejora la disponibilidad de productos para el cliente final.</p>
+
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">3. Personalización de la experiencia del cliente</h2>
+    <p>Las recomendaciones inteligentes —como las que vemos en Amazon o Mercado Libre— ya están al alcance de cualquier retailer. <strong>Mostrar el producto adecuado en el momento justo</strong> aumenta las conversiones y la lealtad.</p>
+
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">4. Precios dinámicos</h2>
+    <p>Con algoritmos de Machine Learning se pueden ajustar precios en tiempo real según la demanda, la competencia y el stock disponible. Esto permite <strong>maximizar márgenes sin perder competitividad</strong>.</p>
+
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">5. Detección de fraude y pérdidas</h2>
+    <p>Desde transacciones sospechosas hasta patrones de robo hormiga, la IA ayuda a <strong>proteger el negocio</strong> reduciendo riesgos que afectan directamente la rentabilidad.</p>
+
+    <p>El futuro del retail es claro: <strong>los datos ya no alcanzan, hay que convertirlos en decisiones accionables</strong>. Y el Machine Learning es la clave para lograrlo.</p>
+
+    <p class="mt-6"><em>¿Quieres llevar estas ideas a tu negocio? Descubre cómo podemos ayudarte en nuestra <a href="/servicios/machine-learning-retail" class="text-blue-400 underline">página de servicios de Machine Learning para Retail</a>.</em></p>
+  `,
+  slug: "machine-learning-retail-2025",
+  image: "/machinelearning.webp",
+  readTime: "7 min",
+  publishedAt: "2025-04-10",
+}
+
 
 ];
 
