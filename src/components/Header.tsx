@@ -71,7 +71,7 @@ export default function Header() {
               <Link
                 key={href}
                 href={href}
-                className={`relative group text-sm font-black uppercase tracking-wide transition-colors duration-300
+                className={`relative group  text-centered transition-colors duration-300
                   ${isActive ? 'text-white' : 'text-gray-400 hover:text-orange-500'}
                   ${isActive ? 'after:absolute after:inset-x-0 after:bottom-0 after:h-1 after:bg-orange-500' : ''}
                   ${isActive ? 'after:transition-all after:duration-300' : ''}
