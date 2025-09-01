@@ -11,10 +11,10 @@ export default function MLRetailServicePage() {
     <main className="container mx-auto px-6 py-20 md:py-28 lg:py-32">
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-6 py-20 md:py-28 text-center">
-        <h1 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
+        <h1 className="text-3xl md:text-5xl font-bold text-gray-200 dark:text-white leading-tight mb-6">
           Machine Learning para Retail: Convierta Datos en Resultados
         </h1>
-        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+        <p className="text-lg md:text-xl text-gray-100 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
           Le ayudamos a implementar <strong>inteligencia artificial en su negocio minorista</strong> para vender más, reducir costos y fidelizar clientes.
         </p>
         <a
@@ -31,7 +31,7 @@ export default function MLRetailServicePage() {
 
       {/* Beneficios */}
       <section className="max-w-5xl mx-auto px-6 py-16">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-200 dark:text-white text-center mb-12">
           ¿Qué logrará su negocio con Machine Learning?
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
@@ -72,7 +72,7 @@ export default function MLRetailServicePage() {
 
       {/* Cómo trabajamos */}
       <section className="max-w-5xl mx-auto px-6 py-16">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-200 dark:text-white text-center mb-12">
           Nuestro proceso de implementación
         </h2>
         <div className="grid md:grid-cols-4 gap-6 text-center">
@@ -97,10 +97,10 @@ export default function MLRetailServicePage() {
 
       {/* CTA Final */}
       <section className="max-w-4xl mx-auto px-6 py-20 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+        <h2 className="text-3xl font-bold text-gray-200 dark:text-white mb-6">
           ¿Quiere liderar el futuro del retail con Machine Learning?
         </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300 mb-10">
+        <p className="text-lg text-gray-100 dark:text-gray-300 mb-10">
           Hable con nuestros expertos y descubra cómo podemos transformar su negocio con datos inteligentes.
         </p>
         <a

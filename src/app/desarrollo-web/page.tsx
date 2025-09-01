@@ -13,10 +13,10 @@ export default function DesarrolloWebPage() {
       
             {/* Hero Section */}
             <section className="max-w-5xl mx-auto px-6 py-16 md:py-24 text-center">
-                <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+                <h1 className="text-4xl md:text-6xl font-bold text-gray-200 dark:text-white mb-6 leading-tight">
                     Desarrollo Web que Impulsa tu Negocio
                 </h1>
-                <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-10">
+                <p className="text-lg md:text-xl text-gray-100 dark:text-gray-300 max-w-3xl mx-auto mb-10">
                     No construimos solo sitios web. Creamos <strong>herramientas digitales estratégicas</strong> que generan leads, aumentan ventas y fortalecen tu marca.
                 </p>
 
@@ -35,7 +35,7 @@ export default function DesarrolloWebPage() {
 
             {/* Servicios Destacados */}
             <section className="max-w-5xl mx-auto px-6 py-16">
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">
+                <h2 className="text-3xl font-bold text-gray-200 dark:text-white text-center mb-12">
                     Lo que Ofrecemos a tu Empresa
                 </h2>
 
@@ -162,7 +162,7 @@ export default function DesarrolloWebPage() {
 
             {/* CTA Final */}
             <section className="max-w-4xl mx-auto px-6 py-16 text-center">
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                <h2 className="text-3xl font-bold text-gray-200 dark:text-white mb-6">
                     ¿Listo para Transformar tu Presencia Digital?
                 </h2>
                 <p className="text-lg text-gray-600 dark:text-gray-300 mb-10 max-w-2xl mx-auto">
