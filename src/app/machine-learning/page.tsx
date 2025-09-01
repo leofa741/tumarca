@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function MLRetailServicePage() {
   return (
-    <main className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <main className="container mx-auto px-6 py-20 md:py-28 lg:py-32">
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-6 py-20 md:py-28 text-center">
         <h1 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
