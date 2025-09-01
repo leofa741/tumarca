@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import { Inter, Geist, Geist_Mono } from "next/font/google";
 import { Playfair_Display } from 'next/font/google';
 import { Analytics } from "@vercel/analytics/next"
@@ -64,6 +65,54 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+
+           {/* JSON-LD Schema.org */}
+        <Script
+          id="ld-json-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "@id": "https://www.tumarca.ar/#agencia",
+              "url": "https://www.tumarca.ar",
+              "name": "Tu Marca AR",
+              "image": "https://www.tumarca.ar/marca-2-ar.png",
+              "description":
+                "Agencia digital en Argentina especializada en diseño web, branding, SEO, marketing digital y desarrollo de aplicaciones a medida.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "AR",
+                "addressLocality": "Buenos Aires",
+                "addressRegion": "Buenos Aires",
+                "postalCode": "1865",
+                "streetAddress": "Castelli 2007"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "-34.6037",
+                "longitude": "-58.3816"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+54 11 4146-1312",
+                "contactType": "customer service",
+                "areaServed": "AR",
+                "availableLanguage": ["Spanish", "English"]
+              },
+              "sameAs": [                
+                "https://www.instagram.com/tu.marca.ar?igsh=bG5mNHQzZmUxbGU2",
+                "https://www.linkedin.com/in/tu-marca-ar-8b6777378?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              ],
+              "priceRange": "$$",
+              "founder": {
+                "@type": "Person",
+                "name": "Leonardo"
+              }
+            }),
+          }}
+        />
+
         <meta name="theme-color" content="#000000" id="theme-color" />
            <Script
           strategy="afterInteractive"
@@ -79,6 +128,9 @@ export default function RootLayout({
           gtag('config', 'G-BN6R2GDMJL');
         `}</Script>
         <meta name="p:domain_verify" content="753accdb8bdcd06f483d29b75b607b8b"/>
+
+
+        
       </head>
 
 

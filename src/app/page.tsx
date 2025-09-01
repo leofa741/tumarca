@@ -12,35 +12,31 @@ const playfair = Playfair_Display({
   subsets: ['latin'],
   weight: ['400', '600'],
 });
-
 export const metadata: Metadata = {
-    keywords: [
-    'diseño web',
-    'tienda online',
-    'desarrollo web Argentina',
-    'diseño web Argentina',
-    'branding',
-    'marketing digital',
-    'SEO',
-    'posicionamiento en Google',
-    'páginas web Argentina',
-    'desarrollo web',
-    'diseño de marca',
-    'consultoría digital',
+  keywords: [
+    'diseño web profesional Argentina',
+    'tienda online Argentina',
+    'desarrollo web para pymes',
+    'branding Argentina',
+    'marketing digital para empresas',
+    'SEO Argentina',
+    'posicionamiento en Google Argentina',
+    'agencia digital Buenos Aires',
+    'diseño de marca Argentina',
+    'consultoría digital para pymes',
     'soporte técnico web',
     'aplicaciones a medida',
-    'aplicaciones web',
-    'aplicaciones móviles',
-    'aplicaciones IA',
-    'agencia digital',
+    'aplicaciones web Argentina',
+    'aplicaciones móviles Argentina',
+    'inteligencia artificial para negocios',
   ],
-  title: 'Home | Tu Marca AR',
+  title: 'Diseño Web y Marketing Digital en Argentina | Tu Marca AR',
   description:
-    'Descubre nuestros servicios de branding, diseño web, marketing digital y lanzamientos para potenciar tu marca en el mundo digital.',
+    'Agencia digital en Argentina especializada en diseño web, branding, SEO, marketing digital y desarrollo de aplicaciones a medida. Potenciamos tu marca para atraer más clientes.',
   openGraph: {
-    title: 'Home | Tu Marca AR',
+    title: 'Diseño Web y Marketing Digital en Argentina | Tu Marca AR',
     description:
-      'Descubre nuestros servicios de branding, diseño web, marketing digital y lanzamientos para potenciar tu marca en el mundo digital.',
+      'Agencia digital en Argentina especializada en diseño web, branding, SEO, marketing digital y desarrollo de aplicaciones a medida.',
     url: 'https://www.tumarca.ar',
     siteName: 'Tu Marca AR',
     type: 'website',
@@ -50,7 +46,7 @@ export const metadata: Metadata = {
         url: 'https://www.tumarca.ar/marca-2-ar.png',
         width: 800,
         height: 600,
-        alt: 'Logo de Tu Marca AR',
+        alt: 'Tu Marca AR - Agencia de diseño web y marketing digital en Argentina',
       },
     ],
   },
@@ -64,29 +60,27 @@ export default function Home() {
     <>
       {/* Sección principal: Hero con texto e imagen */}
       <section id="intro" className="*:relative text-white py-20">
- <h1 className=" text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 animate-fadeIn"
-              style={{ animationDelay: '0.2s', letterSpacing: '-0.02em' }}>
-              
-              Diseño Web Profesional en Argentina
-              </h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 animate-fadeIn"
+          style={{ animationDelay: '0.2s', letterSpacing: '-0.02em' }}>
+          Agencia de Diseño Web y Marketing Digital en Argentina
+        </h1>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
 
-         
-          
+
+
           {/* Columna del texto */}
           <div className="flex flex-col items-center justify-center text-center space-y-6 px-6 lg:px-0 order-2 lg:order-1">
             {/* Subtítulo */}
-             
-            
 
-            {/* H1 ÚNICO, claro y descriptivo (más de 20 caracteres) */}
+
+
             <h2
               className={`${playfair.className} text-amber-500 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center leading-tight animate-fadeIn`}
               style={{ animationDelay: '0.5s', letterSpacing: '-0.03em' }}
             >
-              Construí una marca personal auténtica, estratégica y con impacto
+              Construí una marca auténtica, estratégica y con impacto real
             </h2>
-
             {/* Descripción */}
             <p
               className="text-gray-400 mt-6 text-lg md:text-xl max-w-lg animate-fadeIn"
@@ -137,7 +131,7 @@ export default function Home() {
             </h2>
             <p className="text-lg text-gray-300 dark:text-gray-300">
               Somos un equipo de profesionales dedicados a potenciar tu presencia digital. Desde el diseño de marca hasta el desarrollo web y el marketing digital, te acompañamos en cada paso del camino.
-             
+
             </p>
 
             <div className="flex justify-center md:justify-start">
@@ -200,13 +194,13 @@ export default function Home() {
       </section>
 
       {/* Componente adicional: Acordion de imágenes */}
-    
-        <ServicioSEO />
-  <ImageAccordion />
-             <AplicacionesAMedida />
-             <AplicacionesIA />
+
+      <ServicioSEO />
+      <ImageAccordion />
+      <AplicacionesAMedida />
+      <AplicacionesIA />
       {/* Componente adicional: Asistente de IA */}
-     
+
     </>
   );
 }
