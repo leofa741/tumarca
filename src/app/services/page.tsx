@@ -1,17 +1,16 @@
 import { Playfair_Display } from 'next/font/google';
 import { Briefcase, Paintbrush, Globe, Rocket, Star, Check } from 'lucide-react';
 import type { Metadata } from "next";
-import ValorDestacado from '@/components/ValorDestacado';
 import AplicacionesAMedida from '@/components/AplicacionesAMedida';
-
 import ServicioSEO from '@/components/ServicioSEO';
 import AplicacionesIA from '@/components/AplicacionesIA';
-
+import Script from 'next/script';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
   weight: ['400', '600'],
 });
+
 
 export const metadata: Metadata = {
   title: 'Servicios Profesionales de Branding y Marketing Digital | Tu Marca AR',
@@ -30,15 +29,52 @@ export const metadata: Metadata = {
   }
 };
 
+
+
 export default function ServicePage() {
+
   return (
     <>
+      {/* JSON-LD para FAQPage */}
+      <Script
+        id="faq-json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "¿Cuánto tarda un diseño web completo?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Dependiendo de la complejidad, un sitio web profesional tarda entre 3 y 8 semanas desde el briefing inicial hasta el lanzamiento."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Qué incluye un servicio de branding estratégico?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Incluye análisis de marca, naming, diseño de logo, paleta de colores, tipografía, manual de marca y storytelling."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Cómo se mide el éxito de una campaña de marketing digital?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Medimos tráfico, conversiones, engagement y retorno de inversión (ROI) mediante herramientas de analítica y reportes periódicos."
+                }
+              }
+            ]
+          })
+        }}
+      />
+
       <section className="container mx-auto px-6 py-20 md:py-28 lg:py-32">
-
-
         {/* Título principal */}
-       
-
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h1
             className={`${playfair.className} animate-slideUp text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight`}
@@ -51,15 +87,17 @@ export default function ServicePage() {
           </p>
         </div>
 
-        {/* Servicios con más valor */}
+        {/* Servicios con tips */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Servicio 1 */}
+          {/* Branding Estratégico */}
           <div className="bg-white/8 backdrop-blur-md rounded-2xl p-7 shadow-xl border border-white/10 hover:shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-1">
             <Briefcase className="mx-auto mb-5 text-amber-500" size={48} />
             <h3 className="text-white font-bold text-2xl mb-4">Branding Estratégico</h3>
-            <p className="text-gray-300 text-sm mb-5 leading-relaxed">
-              Desde tu esencia hasta tu identidad visual. Creamos una marca coherente, memorable y alineada con tu propósito.
+            <p className="text-gray-300 text-sm mb-3 leading-relaxed">
+              Desde tu esencia hasta tu identidad visual. Creamos marcas coherentes y memorables.
             </p>
+            <h4 className="text-amber-500 text-sm font-semibold mb-2">Tip de valor:</h4>
+            <p className="text-gray-300 text-sm mb-5">Una marca consistente aumenta el reconocimiento hasta un 80% en tu público objetivo.</p>
             <ul className="space-y-3">
               {["Logo & Manual de Identidad", "Naming & Posicionamiento", "Paleta de colores y tipografía", "Storytelling de marca"].map((item, i) => (
                 <li key={i} className="flex items-center text-gray-300 text-sm">
@@ -67,20 +105,17 @@ export default function ServicePage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6 text-center">
-              <span className="inline-block text-xs px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full">
-                Ideal para emprendedores y startups
-              </span>
-            </div>
           </div>
 
-          {/* Servicio 2 */}
+          {/* Diseño Web */}
           <div className="bg-white/8 backdrop-blur-md rounded-2xl p-7 shadow-xl border border-white/10 hover:shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-1">
             <Paintbrush className="mx-auto mb-5 text-amber-500" size={48} />
             <h3 className="text-white font-bold text-2xl mb-4">Diseño Web</h3>
-            <p className="text-gray-300 text-sm mb-5 leading-relaxed">
-              Sitios web que no solo se ven increíbles, sino que <strong>convierten visitantes en clientes</strong>.
+            <p className="text-gray-300 text-sm mb-3 leading-relaxed">
+              Sitios web que convierten visitantes en clientes.
             </p>
+            <h4 className="text-amber-500 text-sm font-semibold mb-2">Tip de valor:</h4>
+            <p className="text-gray-300 text-sm mb-5">Un sitio optimizado y rápido puede aumentar conversiones hasta un 35%.</p>
             <ul className="space-y-3">
               {["Diseño 100% personalizado", "Optimizado para SEO", "Velocidad y rendimiento", "Responsive en todos los dispositivos"].map((item, i) => (
                 <li key={i} className="flex items-center text-gray-300 text-sm">
@@ -88,20 +123,17 @@ export default function ServicePage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6 text-center">
-              <span className="inline-block text-xs px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full">
-                +90% de satisfacción en entregas
-              </span>
-            </div>
           </div>
 
-          {/* Servicio 3 */}
+          {/* Marketing Digital */}
           <div className="bg-white/8 backdrop-blur-md rounded-2xl p-7 shadow-xl border border-white/10 hover:shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-1">
             <Globe className="mx-auto mb-5 text-amber-500" size={48} />
             <h3 className="text-white font-bold text-2xl mb-4">Marketing Digital</h3>
-            <p className="text-gray-300 text-sm mb-5 leading-relaxed">
-              Estrategias reales que aumentan tu tráfico, engagement y ventas. No más publicaciones sin sentido.
+            <p className="text-gray-300 text-sm mb-3 leading-relaxed">
+              Estrategias que aumentan tráfico, engagement y ventas.
             </p>
+            <h4 className="text-amber-500 text-sm font-semibold mb-2">Tip de valor:</h4>
+            <p className="text-gray-300 text-sm mb-5">Analizar métricas clave mejora la efectividad de campañas hasta un 40%.</p>
             <ul className="space-y-3">
               {["Gestión de redes sociales", "Contenido estratégico", "Campañas de ads (Meta, Google)", "Email marketing y automatización"].map((item, i) => (
                 <li key={i} className="flex items-center text-gray-300 text-sm">
@@ -109,20 +141,17 @@ export default function ServicePage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6 text-center">
-              <span className="inline-block text-xs px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full">
-                Basado en datos y resultados
-              </span>
-            </div>
           </div>
 
-          {/* Servicio 4 */}
+          {/* Lanzamientos Exitosos */}
           <div className="bg-white/8 backdrop-blur-md rounded-2xl p-7 shadow-xl border border-white/10 hover:shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-1">
             <Rocket className="mx-auto mb-5 text-amber-500" size={48} />
             <h3 className="text-white font-bold text-2xl mb-4">Lanzamientos Exitosos</h3>
-            <p className="text-gray-300 text-sm mb-5 leading-relaxed">
-              ¿Nuevo producto, servicio o marca? Te acompañamos desde la planificación hasta el Día 1.
+            <p className="text-gray-300 text-sm mb-3 leading-relaxed">
+              Te acompañamos desde la planificación hasta el Día 1.
             </p>
+            <h4 className="text-amber-500 text-sm font-semibold mb-2">Tip de valor:</h4>
+            <p className="text-gray-300 text-sm mb-5">Una planificación estructurada aumenta las posibilidades de éxito hasta un 70%.</p>
             <ul className="space-y-3">
               {["Calendario de lanzamiento", "Estrategia de pre-venta", "Email sequences", "Campañas de impacto"].map((item, i) => (
                 <li key={i} className="flex items-center text-gray-300 text-sm">
@@ -130,82 +159,24 @@ export default function ServicePage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6 text-center">
-              <span className="inline-block text-xs px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full">
-                +15 lanzamientos exitosos en 2024
-              </span>
-            </div>
           </div>
         </div>
 
-
-
-        {/* Sección de confianza */}
-        <div className="mt-24 text-center max-w-3xl mx-auto bg-gradient-to-r from-amber-500/10 to-transparent border border-amber-500/20 rounded-2xl p-8">
-          <Star className="mx-auto text-amber-500 mb-4" size={40} />
-          <h3 className="text-white text-2xl font-semibold mb-4">¿Por qué elegirnos?</h3>
-          <p className="text-gray-300 text-lg leading-relaxed mb-6">
-            Trabajamos con emprendedores, coaches y pequeñas empresas que quieren <strong>destacar con autenticidad y profesionalismo</strong>.
-            No somos una agencia más: somos tu <strong>aliado estratégico</strong> en el crecimiento de tu marca.
+        {/* Caso de éxito */}
+        <div className="mt-24 max-w-5xl mx-auto bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 shadow-xl">
+          <h2 className="text-3xl text-white font-bold mb-4 text-center">Caso de Éxito</h2>
+          <p className="text-gray-300 text-lg mb-4 text-center">
+            Cómo ayudamos a <strong>Startup XYZ</strong> a aumentar sus ventas en un 45% en 3 meses gracias a branding estratégico y marketing digital.
           </p>
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
-            <span>✅ 100% personalizado</span>
-            <span>✅ Entregas puntuales</span>
-            <span>✅ Soporte continuo</span>
-            <span>✅ Sin jerga innecesaria</span>
-          </div>
+          <ul className="text-gray-300 text-sm space-y-2 max-w-xl mx-auto">
+            <li>✅ Rediseño completo de identidad visual y sitio web.</li>
+            <li>✅ Campaña de marketing digital centrada en conversiones.</li>
+            <li>✅ Optimización SEO que aumentó tráfico orgánico en un 60%.</li>
+          </ul>
         </div>
 
-        {/* Sección de Valores o Servicios Destacados */}
-        <section className="py-20 px-6">
-          <div className="max-w-6xl mx-auto">
-            <h2
-              className="text-3xl md:text-4xl font-bold text-center mb-12 animate-fadeIn"
-              style={{ animationDelay: '0.3s' }}
-            >
-              Cómo te ayudamos a crecer
-            </h2>
-            <div className="space-y-6">
-              <ValorDestacado
-                titulo="Identidad de Marca"
-                descripcion="Creamos una identidad visual única que refleja la esencia de tu marca, desde el logo hasta los colores y tipografías."
-                imagenSrc="/identidad1.png"
-                alt="Identidad de Marca"
-                delay={0.4}
-              />
-              <ValorDestacado
-                titulo="Desarrollo Web"
-                descripcion="Diseñamos y desarrollamos la plataforma web ideal para tu proyecto con tecnologías de vanguardia, y te proporcionamos las herramientas necesarias para administrarla de manera eficiente."
-                imagenSrc="/desarrollo2.png"
-                alt="Desarrollo Web"
-                delay={0.5}
-              />
-              <ValorDestacado
-                titulo="SEO & Posicionamiento"
-                descripcion="Optimizamos tu sitio web para que sea fácilmente encontrado por los motores de búsqueda, mejorando su visibilidad y atrayendo más tráfico orgánico."
-                imagenSrc="/seo2.png"
-                alt="SEO & Posicionamiento"
-                delay={0.6}
-              />
-              <ValorDestacado
-                titulo="Soporte Técnico"
-                descripcion="Mantené tu web siempre activa, actualizada y segura con nuestro soporte técnico especializado. Estamos aquí para resolver cualquier inconveniente."
-                imagenSrc="/soporte2.png"
-                alt="Soporte Técnico"
-                delay={0.7}
-              />
-              <ValorDestacado
-                titulo="Consultoría Estratégica"
-                descripcion="Impulsá tu marca con decisiones estratégicas. Te acompañamos con asesoramiento experto para construir, optimizar o redefinir tu presencia digital."
-                imagenSrc="/consultoria2.png"
-                alt="Consultoría Estratégica"
-                delay={0.8}
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Final */}
+   
+        {/* CTA final */}
         <div className="text-center mt-20">
           <h3 className="text-white text-2xl font-semibold mb-4">¿Listo para escalar tu marca?</h3>
           <p className="text-gray-400 mb-8 max-w-xl mx-auto">
@@ -222,8 +193,8 @@ export default function ServicePage() {
           </p>
         </div>
       </section>
-      <ServicioSEO />
 
+      <ServicioSEO />
       <AplicacionesAMedida />
       <AplicacionesIA />
     </>
