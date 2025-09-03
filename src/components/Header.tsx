@@ -14,7 +14,7 @@ export default function Header() {
     { href: '/services', label: 'Services' },
     { href: '/desarrollo-web', label: 'Desarrollo Web' },
     { href: '/machine-learning', label: 'Machine Learning' },
-    { href: '/ia-estrategica-para-marcas', label: 'IA service' },
+    { href: '/ia-estrategica-para-marcas', label: 'IA Estratégica' },
     //{ href: '/portfolio', label: 'Portfolio' },
     { href: '/about', label: 'About' },
     { href: '/blog', label: 'Blog' },

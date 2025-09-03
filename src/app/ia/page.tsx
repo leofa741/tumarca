@@ -13,17 +13,17 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: ' Inteligencia Artificial | Tu Marca AR',
-  description: 'Ponete en contacto con nosotros para llevar tu marca al siguiente nivel. Branding, diseño web, marketing digital y más.',
+  title: 'Inteligencia Artificial | Tu Marca AR',
+  description: 'Descubre cómo la inteligencia artificial puede transformar tu negocio con soluciones innovadoras y personalizadas. Explora nuestras herramientas y servicios de IA.',
   openGraph: {
     title: 'Inteligencia Artificial | Tu Marca AR',
-    description: 'Ponete en contacto con nosotros para llevar tu marca al siguiente nivel. Branding, diseño web, marketing digital y más.',
+    description: 'Descubre cómo la inteligencia artificial puede transformar tu negocio con soluciones innovadoras y personalizadas. Explora nuestras herramientas y servicios de IA.',
     images: [
       {
-      url: 'https://www.tumarca.ar/marca-2-ar.png',
+        url: 'https://www.tumarca.ar/marca-2-ar.png',
         width: 800,
         height: 600,
-        alt: 'Contacto Tu Marca AR',
+        alt: 'Inteligencia Artificial | Tu Marca AR',
       },
     ],
   },
