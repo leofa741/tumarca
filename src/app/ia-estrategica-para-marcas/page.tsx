@@ -44,8 +44,6 @@ export const metadata: Metadata = {
 
 export default function IAServicePage() {
 
-
-
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}

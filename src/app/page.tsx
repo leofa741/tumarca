@@ -53,8 +53,6 @@ export const metadata: Metadata = {
 };
 
 
-// ... (importaciones y metadata, que ya están bien)
-
 export default function Home() {
   return (
     <>
@@ -67,14 +65,9 @@ export default function Home() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
 
-
-
           {/* Columna del texto */}
           <div className="flex flex-col items-center justify-center text-center space-y-6 px-6 lg:px-0 order-2 lg:order-1">
-            {/* Subtítulo */}
-
-
-
+         
             <h2
               className={`${playfair.className} text-amber-500 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center leading-tight animate-fadeIn`}
               style={{ animationDelay: '0.5s', letterSpacing: '-0.03em' }}
@@ -109,9 +102,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Sección secundaria */}
+     
         <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
-          {/* Imagen */}
+        
           <div className="max-w-lg mx-auto md:mx-0">
             <Image
               src="/brand-1.png"
@@ -123,15 +116,14 @@ export default function Home() {
             />
           </div>
 
-          {/* Texto y CTA */}
+       
           <div className="space-y-6 text-center md:text-left">
-            {/* H2: Mensaje clave de valor */}
+         
             <h2 className="text-2xl md:text-3xl font-bold text-gray-100 dark:text-white animate-fadeIn" style={{ animationDelay: '0.3s' }}>
               Gestionamos tu marca con pasión y creatividad
             </h2>
             <p className="text-lg text-gray-300 dark:text-gray-300">
               Somos un equipo de profesionales dedicados a potenciar tu presencia digital. Desde el diseño de marca hasta el desarrollo web y el marketing digital, te acompañamos en cada paso del camino.
-
             </p>
 
             <div className="flex justify-center md:justify-start">
@@ -191,16 +183,12 @@ export default function Home() {
             />
           </div>
         </div>
-      </section>
-
-      {/* Componente adicional: Acordion de imágenes */}
+      </section>     
 
       <ServicioSEO />
       <ImageAccordion />
       <AplicacionesAMedida />
       <AplicacionesIA />
-      {/* Componente adicional: Asistente de IA */}
-
     </>
   );
 }

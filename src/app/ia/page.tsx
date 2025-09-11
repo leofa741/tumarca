@@ -1,10 +1,7 @@
 
-// Necesario si usas animaciones basadas en visibilidad (opcional aquí, pero recomendado si agregas Intersection Observer luego)
-
 import { Playfair_Display } from 'next/font/google';
 import type { Metadata } from "next";
 import CorrectorTextoIA from '@/components/AsistenteIA';
-
 
 
 const playfair = Playfair_Display({

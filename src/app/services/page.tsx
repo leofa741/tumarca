@@ -56,10 +56,6 @@ export default function ServicePage() {
     <>
       <section className="container mx-auto px-6 py-20 md:py-28 lg:py-32">
 
-
-        {/* Título principal */}
-       
-
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h1
             className={`${playfair.className} animate-slideUp text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight`}
@@ -227,96 +223,95 @@ export default function ServicePage() {
         </section>
 
         {/* Sección de Resultados y Testimonios */}
-<section className="py-20 px-6 bg-gradient-to-b from-transparent to-gray-900/50">
-  <div className="max-w-6xl mx-auto text-center mb-16">
-    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-      Resultados que Hablan por Nosotros
-    </h2>
-    <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-      No prometemos magia. <strong>Generamos resultados reales</strong> para marcas como la tuya.
-    </p>
-  </div>
+        <section className="py-20 px-6 bg-gradient-to-b from-transparent to-gray-900/50">
+          <div className="max-w-6xl mx-auto text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Resultados que Hablan por Nosotros
+            </h2>
+            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+              No prometemos magia. <strong>Generamos resultados reales</strong> para marcas como la tuya.
+            </p>
+          </div>
 
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-    {[
-      { num: '+200%', label: 'Más tráfico orgánico en 6 meses', desc: 'Clientes con SEO estratégico' },
-      { num: '+85%', label: 'Incremento en conversiones', desc: 'Sitios web rediseñados' },
-      { num: '15+', label: 'Lanzamientos exitosos en 2024', desc: 'Productos, servicios y marcas nuevas' },
-    ].map((stat, i) => (
-      <div key={i} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition">
-        <p className="text-4xl md:text-5xl font-extrabold text-amber-500 mb-2">{stat.num}</p>
-        <p className="text-white font-semibold text-lg mb-1">{stat.label}</p>
-        <p className="text-gray-400 text-sm">{stat.desc}</p>
-      </div>
-    ))}
-  </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+            {[
+              { num: '+200%', label: 'Más tráfico orgánico en 6 meses', desc: 'Clientes con SEO estratégico' },
+              { num: '+85%', label: 'Incremento en conversiones', desc: 'Sitios web rediseñados' },
+              { num: '15+', label: 'Lanzamientos exitosos en 2024', desc: 'Productos, servicios y marcas nuevas' },
+            ].map((stat, i) => (
+              <div key={i} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition">
+                <p className="text-4xl md:text-5xl font-extrabold text-amber-500 mb-2">{stat.num}</p>
+                <p className="text-white font-semibold text-lg mb-1">{stat.label}</p>
+                <p className="text-gray-400 text-sm">{stat.desc}</p>
+              </div>
+            ))}
+          </div>
 
-  {/* Testimonio destacado */}
-  <div className="mt-20 max-w-3xl mx-auto bg-gradient-to-r from-amber-500/10 to-transparent border border-amber-500/20 rounded-2xl p-8 text-center">
-    <Star className="text-amber-500 mx-auto mb-4" size={32} />
-    <blockquote className="text-gray-200 text-lg italic mb-4">
-      “Gracias a Tu Marca AR, mi negocio pasó de ser invisible a generar ventas todos los meses. No solo el diseño es hermoso, sino que <strong>el sitio web empezó a traer clientes desde el primer mes</strong>.”
-    </blockquote>
-    <p className="text-amber-400 font-semibold">— Camila R., Emprendedora de Bienestar</p>
-    <p className="text-gray-500 text-sm mt-1">Buenos Aires, Argentina</p>
-  </div>
-</section>
+          {/* Testimonio destacado */}
+          <div className="mt-20 max-w-3xl mx-auto bg-gradient-to-r from-amber-500/10 to-transparent border border-amber-500/20 rounded-2xl p-8 text-center">
+            <Star className="text-amber-500 mx-auto mb-4" size={32} />
+            <blockquote className="text-gray-200 text-lg italic mb-4">
+              “Gracias a Tu Marca AR, mi negocio pasó de ser invisible a generar ventas todos los meses. No solo el diseño es hermoso, sino que <strong>el sitio web empezó a traer clientes desde el primer mes</strong>.”
+            </blockquote>
+            <p className="text-amber-400 font-semibold">— Camila R., Emprendedora de Bienestar</p>
+            <p className="text-gray-500 text-sm mt-1">Buenos Aires, Argentina</p>
+          </div>
+        </section>
 
-{/* FAQ Schema-friendly Section */}
-<section className="py-20 px-6">
-  <div className="max-w-4xl mx-auto">
-    <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12">
-      Preguntas Frecuentes
-    </h2>
-    <div className="space-y-6">
-      {[
-        {
-          q: "¿Cuánto tiempo lleva desarrollar una identidad de marca completa?",
-          a: "Nuestro proceso de branding estratégico toma entre 4 y 6 semanas. Incluye investigación, naming, diseño de logo, manual de identidad y guía de storytelling."
-        },
-        {
-          q: "¿Hacen sitios web para emprendedores sin experiencia técnica?",
-          a: "Sí. Diseñamos plataformas intuitivas y te entregamos capacitación + acceso fácil. Además, ofrecemos soporte continuo para que nunca estés solo."
-        },
-        {
-          q: "¿Ofrecen servicios solo en Argentina?",
-          a: "Trabajamos con clientes de toda Latinoamérica. Nuestros servicios son 100% online, con acompañamiento en español y horarios flexibles."
-        },
-        {
-          q: "¿Qué incluye el servicio de SEO?",
-          a: "Optimización técnica, investigación de palabras clave, contenido estratégico, velocidad del sitio y seguimiento mensual de posicionamiento y tráfico."
-        }
-      ].map((item, i) => (
-        <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition">
-          <h3 className="text-white font-semibold text-lg mb-3">{item.q}</h3>
-          <p className="text-gray-300 leading-relaxed">{item.a}</p>
+        {/* FAQ Schema-friendly Section */}
+        <section className="py-20 px-6">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12">
+              Preguntas Frecuentes
+            </h2>
+            <div className="space-y-6">
+              {[
+                {
+                  q: "¿Cuánto tiempo lleva desarrollar una identidad de marca completa?",
+                  a: "Nuestro proceso de branding estratégico toma entre 4 y 6 semanas. Incluye investigación, naming, diseño de logo, manual de identidad y guía de storytelling."
+                },
+                {
+                  q: "¿Hacen sitios web para emprendedores sin experiencia técnica?",
+                  a: "Sí. Diseñamos plataformas intuitivas y te entregamos capacitación + acceso fácil. Además, ofrecemos soporte continuo para que nunca estés solo."
+                },
+                {
+                  q: "¿Ofrecen servicios solo en Argentina?",
+                  a: "Trabajamos con clientes de toda Latinoamérica. Nuestros servicios son 100% online, con acompañamiento en español y horarios flexibles."
+                },
+                {
+                  q: "¿Qué incluye el servicio de SEO?",
+                  a: "Optimización técnica, investigación de palabras clave, contenido estratégico, velocidad del sitio y seguimiento mensual de posicionamiento y tráfico."
+                }
+              ].map((item, i) => (
+                <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition">
+                  <h3 className="text-white font-semibold text-lg mb-3">{item.q}</h3>
+                  <p className="text-gray-300 leading-relaxed">{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Mejorado */}
+        <div className="text-center mt-20 bg-gradient-to-r from-gray-900/70 to-transparent border-t border-amber-500/20 pt-16 pb-12 px-6 rounded-t-3xl">
+          <h3 className="text-white text-2xl md:text-3xl font-bold mb-4">
+            ¿Listo para que tu marca <span className="text-amber-500">destaque y crezca?</span>
+          </h3>
+          <p className="text-gray-400 mb-8 max-w-xl mx-auto text-lg">
+            Únete a emprendedores que ya transformaron su presencia digital con un equipo que entiende tu negocio.
+          </p>
+          <a
+            href="/contact"
+            className="inline-block px-10 py-4 bg-gradient-to-r from-amber-500 to-amber-400 text-black font-bold text-lg rounded-xl hover:from-amber-400 hover:to-amber-300 transition-all duration-300 shadow-2xl hover:shadow-amber-500/40 transform hover:scale-105"
+          >
+            🚀 Agenda tu Consulta Gratuita
+          </a>
+          <p className="text-gray-500 text-sm mt-4">
+            Próximos cupos: <span className="text-amber-400 font-medium">7 días</span> • Sin compromiso • 100% online
+          </p>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-     {/* CTA Mejorado */}
-<div className="text-center mt-20 bg-gradient-to-r from-gray-900/70 to-transparent border-t border-amber-500/20 pt-16 pb-12 px-6 rounded-t-3xl">
-  <h3 className="text-white text-2xl md:text-3xl font-bold mb-4">
-    ¿Listo para que tu marca <span className="text-amber-500">destaque y crezca?</span>
-  </h3>
-  <p className="text-gray-400 mb-8 max-w-xl mx-auto text-lg">
-    Únete a emprendedores que ya transformaron su presencia digital con un equipo que entiende tu negocio.
-  </p>
-  <a
-    href="/contact"
-    className="inline-block px-10 py-4 bg-gradient-to-r from-amber-500 to-amber-400 text-black font-bold text-lg rounded-xl hover:from-amber-400 hover:to-amber-300 transition-all duration-300 shadow-2xl hover:shadow-amber-500/40 transform hover:scale-105"
-  >
-    🚀 Agenda tu Consulta Gratuita
-  </a>
-  <p className="text-gray-500 text-sm mt-4">
-    Próximos cupos: <span className="text-amber-400 font-medium">7 días</span> • Sin compromiso • 100% online
-  </p>
-</div>
       </section>
       <ServicioSEO />
-
       <AplicacionesAMedida />
       <AplicacionesIA />
     </>
