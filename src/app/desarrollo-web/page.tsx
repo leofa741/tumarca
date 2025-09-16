@@ -51,7 +51,7 @@ export default function DesarrolloWebPage() {
 
                 <div className="grid md:grid-cols-3 gap-10">
                     {/* Servicio 1 */}
-                    <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
+                    <div className="bg-whitez dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
                         <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
                             Sitios Web Corporativos
                         </h3>

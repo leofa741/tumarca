@@ -242,7 +242,47 @@ const posts: Post[] = [
   image: "/machinelearning.webp",
   readTime: "7 min",
   publishedAt: "2025-04-10",
+},{
+  id: 9,
+  title: "Qué es un LLM (Large Language Model) y cómo puede transformar tu negocio",
+  category: "Inteligencia Artificial",
+  excerpt: "Los modelos de lenguaje como GPT no son magia: son herramientas poderosas que ya están revolucionando la forma en que trabajamos y creamos.",
+  content: `
+    <p>Seguramente escuchaste hablar de <strong>ChatGPT</strong> o de la <strong>Inteligencia Artificial Generativa</strong>. Detrás de estas tecnologías está un concepto clave: los <strong>LLM (Large Language Models)</strong>, o Modelos de Lenguaje a Gran Escala.</p>
+
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">¿Qué es un LLM?</h2>
+    <p>Un LLM es un modelo entrenado con cantidades enormes de texto (libros, artículos, código, conversaciones) que aprende patrones del lenguaje. Gracias a esto puede <strong>responder preguntas, redactar textos, generar código, resumir información y mucho más</strong>.</p>
+
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">Ejemplo práctico</h2>
+    <p>Imaginemos que tenés una tienda online de ropa. Un LLM puede:</p>
+    <ul class="list-disc list-inside">
+      <li><strong>Atender consultas</strong> de tus clientes 24/7 (chatbot con respuestas naturales).</li>
+      <li><strong>Redactar descripciones de productos</strong> atractivas y optimizadas para SEO.</li>
+      <li><strong>Analizar reseñas de clientes</strong> para detectar problemas y oportunidades.</li>
+      <li><strong>Generar campañas de email marketing</strong> personalizadas en minutos.</li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">Beneficios para tu negocio</h2>
+    <p>
+      <ul class="list-disc list-inside">
+        <li><strong>Ahorro de tiempo</strong>: automatizás tareas repetitivas.</li>
+        <li><strong>Mejor experiencia del cliente</strong>: respuestas más rápidas y precisas.</li>
+        <li><strong>Más creatividad</strong>: nuevas ideas para contenido y campañas.</li>
+        <li><strong>Escalabilidad</strong>: atendés a más personas sin aumentar tu equipo.</li>
+      </ul>
+    </p>
+
+    <h2 class="text-2xl font-semibold text-white mt-6 mb-4">Conclusión</h2>
+    <p>Los LLM no reemplazan a las personas: <strong>potencian su trabajo</strong>. El secreto está en saber cómo usarlos estratégicamente para tu negocio. Hoy no es una opción, es una ventaja competitiva.</p>
+
+    <p class="mt-6"><em>¿Querés aprender a aplicar la IA en tu empresa? Contactanos en <a href="https://www.tumarca.ar" class="text-blue-400 underline">www.tumarca.ar</a> y descubrí cómo aprovechar los LLM para crecer.</em></p>
+  `,
+  slug: "que-es-un-llm",
+  image: "/que-es-un-llm.png",
+  readTime: "7 min",
+  publishedAt: "2025-09-16",
 }
+
 
 
 ];
