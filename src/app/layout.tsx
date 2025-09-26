@@ -22,7 +22,7 @@ const geistSans = Geist({
 const playfair = Playfair_Display({
   subsets: ['latin'],
   weight: ['400', '700'],
-  variable: '--font-playfair', 
+  variable: '--font-playfair',
 });
 
 
@@ -85,8 +85,22 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+       
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KBK7XNSM');`
+          }}
+        />
+       
 
-           {/* JSON-LD Schema.org */}
+
+        {/* JSON-LD Schema.org */}
         <Script
           id="ld-json-schema"
           type="application/ld+json"
@@ -120,7 +134,7 @@ export default function RootLayout({
                 "areaServed": "AR",
                 "availableLanguage": ["Spanish", "English"]
               },
-              "sameAs": [                
+              "sameAs": [
                 "https://www.instagram.com/tu.marca.ar?igsh=bG5mNHQzZmUxbGU2",
                 "https://www.linkedin.com/in/tu-marca-ar-8b6777378?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               ],
@@ -134,7 +148,7 @@ export default function RootLayout({
         />
 
         <meta name="theme-color" content="#000000" id="theme-color" />
-           <Script
+        <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
         />
@@ -147,12 +161,17 @@ export default function RootLayout({
           gtag('js', new Date());
           gtag('config', 'G-BN6R2GDMJL');
         `}</Script>
-        <meta name="p:domain_verify" content="753accdb8bdcd06f483d29b75b607b8b"/>        
+        <meta name="p:domain_verify" content="753accdb8bdcd06f483d29b75b607b8b" />
       </head>
 
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${inter.className} bg-gray-100 text-gray-900 antialiased`}
       >
+      
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBK7XNSM"
+height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe></noscript>
+
+
         <Header />
 
         <LoadingProvider>
@@ -164,7 +183,7 @@ export default function RootLayout({
             {children}
             <Analytics />
           </main>
-          <RedesFlotantes />               
+          <RedesFlotantes />
 
           <Footer />
         </LoadingProvider>

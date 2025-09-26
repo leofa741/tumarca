@@ -6,6 +6,7 @@ import ValorDestacado from '@/components/ValorDestacado';
 import AplicacionesAMedida from '@/components/AplicacionesAMedida';
 import ServicioSEO from '@/components/ServicioSEO';
 import AplicacionesIA from '@/components/AplicacionesIA';
+import GrowthGif from '@/components/GrowthGif';
 
 
 const playfair = Playfair_Display({
@@ -67,7 +68,7 @@ export default function Home() {
 
           {/* Columna del texto */}
           <div className="flex flex-col items-center justify-center text-center space-y-6 px-6 lg:px-0 order-2 lg:order-1">
-         
+
             <h2
               className={`${playfair.className} text-amber-500 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center leading-tight animate-fadeIn`}
               style={{ animationDelay: '0.5s', letterSpacing: '-0.03em' }}
@@ -102,9 +103,9 @@ export default function Home() {
           </div>
         </div>
 
-     
+
         <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
-        
+
           <div className="max-w-lg mx-auto md:mx-0">
             <Image
               src="/brand-1.png"
@@ -116,9 +117,9 @@ export default function Home() {
             />
           </div>
 
-       
+
           <div className="space-y-6 text-center md:text-left">
-         
+
             <h2 className="text-2xl md:text-3xl font-bold text-gray-100 dark:text-white animate-fadeIn" style={{ animationDelay: '0.3s' }}>
               Gestionamos tu marca con pasión y creatividad
             </h2>
@@ -138,6 +139,8 @@ export default function Home() {
         </div>
       </section>
 
+
+
       {/* Sección de servicios */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
@@ -145,6 +148,13 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-100 dark:text-white animate-fadeIn" style={{ animationDelay: '0.3s' }}>
             Cómo te ayudamos a crecer
           </h2>
+          <GrowthGif
+            apiKey={process.env.NEXT_PUBLIC_GIPHY_API_KEY!}
+            query="rocket launch animated"
+            width={150}
+            height={190}
+            opacity={0.85}
+          />
           <div className="space-y-6">
             <ValorDestacado
               titulo="Diseño de Marca"
@@ -183,7 +193,7 @@ export default function Home() {
             />
           </div>
         </div>
-      </section>     
+      </section>
 
       <ServicioSEO />
       <ImageAccordion />
