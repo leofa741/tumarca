@@ -20,7 +20,7 @@ const projects: PortfolioProject[] = [
     description: 'Diseño moderno y funcional para un negocio familiar.',
     category: 'Web Design',
     link: 'https://www.dosreinasapicultura.com.ar',
-    year: 2023,
+    year: 2025,
   },
   {
     id: 2,
@@ -30,18 +30,8 @@ const projects: PortfolioProject[] = [
     description: 'Web con diseño atractivo y fácil navegación.',
     category: 'Web Design',
     link: 'https://www.carpinteriarubilar.com.ar',
-    year: 2023
-  },
-  {
-    id: 3,
-    title: 'E-commerce para BSASTECH',
-    client: 'BSASTECH',
-    image: '/portfolio/bsastech.png',
-    description: 'Tienda online con diseño responsivo y optimizado para ventas.',
-    category: 'Landing Page',
-    link: 'https://www.bsastechshop.com.ar',
-    year: 2024,
-  },
+    year: 2025,
+  }
 
 ];
 

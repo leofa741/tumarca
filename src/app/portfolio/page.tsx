@@ -27,6 +27,7 @@ export const metadata: Metadata = {
 };
 
 export default function PortfolioPage() {
+
   return (
     <>
       <section className="container mx-auto px-6 py-16 md:py-24 lg:py-32">
@@ -37,7 +38,7 @@ export default function PortfolioPage() {
           </h1>
           <p className="text-gray-300 text-lg leading-relaxed">
             Cada proyecto es una historia de transformación.
-            Acá mostramos cómo ayudamos a marcas a crecer con diseño estratégico.
+            Acá mostramos cómo ayudamos a marcas a crecer con diseño estratégico en este año.
           </p>
         </div>
 
