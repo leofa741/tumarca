@@ -12,13 +12,13 @@ export default function Header() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/services', label: 'Services' },
-    { href: '/desarrollo-web', label: 'Desarrollo Web' },
-    { href: '/machine-learning', label: 'Machine Learning' },
-    { href: '/ia-estrategica-para-marcas', label: 'IA Estratégica' },
+    { href: '/desarrollo-web', label: 'Web' },
+    { href: '/machine-learning', label: 'LLM' },
+    { href: '/ia-estrategica-para-marcas', label: 'IA' },
     { href: '/portfolio', label: 'Portfolio' },
     { href: '/about', label: 'About' },
     { href: '/blog', label: 'Blog' },
-    { href: '/ia', label: 'IA' },
+    { href: '/ia', label: 'ChatGPT' },
     { href: '/contact', label: 'Contact' },
   ]
 
