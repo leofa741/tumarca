@@ -18,7 +18,7 @@ export default function Header() {
     { href: '/portfolio', label: 'Portfolio' },
     { href: '/about', label: 'About' },
     { href: '/blog', label: 'Blog' },
-    { href: '/ia', label: 'ChatGPT' },
+   //{ href: '/ia', label: 'ChatGPT' },
     { href: '/contact', label: 'Contact' },
   ]
 

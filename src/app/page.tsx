@@ -148,13 +148,7 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-100 dark:text-white animate-fadeIn" style={{ animationDelay: '0.3s' }}>
             Cómo te ayudamos a crecer
           </h2>
-          <GrowthGif
-            apiKey={process.env.NEXT_PUBLIC_GIPHY_API_KEY!}
-            query="rocket launch animated"
-            width={150}
-            height={190}
-            opacity={0.85}
-          />
+        
           <div className="space-y-6">
             <ValorDestacado
               titulo="Diseño de Marca"
