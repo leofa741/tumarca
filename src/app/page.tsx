@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     'aplicaciones móviles Argentina',
     'inteligencia artificial para negocios',
   ],
-  title: 'Diseño Web y Marketing Digital en Argentina | Tu Marca AR',
+  title: 'Creamos sitios web modernos que generan clientes para tu negocio” | Tu Marca AR',
   description:
     'Agencia digital en Argentina especializada en diseño web, branding, SEO, marketing digital y desarrollo de aplicaciones a medida. Potenciamos tu marca para atraer más clientes.',
   openGraph: {
@@ -61,7 +61,7 @@ export default function Home() {
       <section id="intro" className="*:relative text-white py-20">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 animate-fadeIn"
           style={{ animationDelay: '0.2s', letterSpacing: '-0.02em' }}>
-          Agencia de Diseño Web y Marketing Digital en Argentina
+          Creamos sitios web modernos que generan clientes para tu negocio
         </h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
@@ -73,16 +73,17 @@ export default function Home() {
               className={`${playfair.className} text-amber-500 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center leading-tight animate-fadeIn`}
               style={{ animationDelay: '0.5s', letterSpacing: '-0.03em' }}
             >
-              Construí una marca auténtica, estratégica y con impacto real
+             “Branding, desarrollo web y estrategias digitales para pymes y profesionales”
             </h2>
             {/* Descripción */}
             <p
               className="text-gray-400 mt-6 text-lg md:text-xl max-w-lg animate-fadeIn"
               style={{ animationDelay: '1.1s' }}
             >
-              En Argentina y más allá.
+              En <strong>Tu Marca AR</strong>, somos más que una agencia digital. Somos tu socio estratégico en el mundo online. Te ayudamos a construir una presencia digital sólida y atractiva que no solo refleje la esencia de tu marca, sino que también atraiga y convierta a tus visitantes en clientes fieles.
             </p>
           </div>
+          
 
           {/* Columna de la imagen */}
           <div className="flex justify-center lg:justify-center order-1 lg:order-2 px-6">
@@ -102,7 +103,19 @@ export default function Home() {
             </figure>
           </div>
         </div>
-
+  {/* CTA especial para pedir presupuesto */}
+          <div className="text-center mt-16">
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-xl hover:from-blue-400 hover:to-purple-500 transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
+            >
+              💬 
+              <span className="text-lg">Solicitá tu presupuesto gratis</span>
+            </a>
+            <p className="text-gray-500 text-sm mt-3">
+              ¿Tenés una idea? Hablemos y la hacemos realidad.
+            </p>
+          </div>
 
         <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
 
