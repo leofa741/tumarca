@@ -73,7 +73,7 @@ export default function Home() {
               className={`${playfair.className} text-amber-500 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center leading-tight animate-fadeIn`}
               style={{ animationDelay: '0.5s', letterSpacing: '-0.03em' }}
             >
-             “Branding, desarrollo web y estrategias digitales para pymes y profesionales”
+              “Branding, desarrollo web y estrategias digitales para pymes y profesionales“
             </h2>
             {/* Descripción */}
             <p
@@ -83,7 +83,7 @@ export default function Home() {
               En <strong>Tu Marca AR</strong>, somos más que una agencia digital. Somos tu socio estratégico en el mundo online. Te ayudamos a construir una presencia digital sólida y atractiva que no solo refleje la esencia de tu marca, sino que también atraiga y convierta a tus visitantes en clientes fieles.
             </p>
           </div>
-          
+
 
           {/* Columna de la imagen */}
           <div className="flex justify-center lg:justify-center order-1 lg:order-2 px-6">
@@ -103,19 +103,20 @@ export default function Home() {
             </figure>
           </div>
         </div>
-  {/* CTA especial para pedir presupuesto */}
-          <div className="text-center mt-16">
-            <a
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-xl hover:from-blue-400 hover:to-purple-500 transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
-            >
-              💬 
-              <span className="text-lg">Solicitá tu presupuesto gratis</span>
-            </a>
-            <p className="text-gray-500 text-sm mt-3">
-              ¿Tenés una idea? Hablemos y la hacemos realidad.
-            </p>
-          </div>
+        {/* CTA especial para pedir presupuesto */}
+        <div className="text-center mt-16">
+          <a
+            href="/contact"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-xl hover:from-blue-400 hover:to-purple-500 transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
+          >
+            💬
+            <span className="text-lg">Solicitá tu presupuesto gratis</span>
+          </a>
+          <p className="text-gray-500 text-sm mt-3">
+            ¿Tenés una idea? Hablemos y la hacemos realidad.
+            
+          </p>
+        </div>
 
         <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
 
@@ -161,7 +162,7 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-100 dark:text-white animate-fadeIn" style={{ animationDelay: '0.3s' }}>
             Cómo te ayudamos a crecer
           </h2>
-        
+
           <div className="space-y-6">
             <ValorDestacado
               titulo="Diseño de Marca"

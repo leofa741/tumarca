@@ -1,5 +1,5 @@
 import { Playfair_Display } from 'next/font/google';
-import { Briefcase, Paintbrush, Globe, Rocket, Star, Check } from 'lucide-react';
+import { Briefcase, Paintbrush, Globe, Rocket, Star, Check, Brain, Sparkles, MessageCircle } from 'lucide-react';
 import type { Metadata } from "next";
 import ValorDestacado from '@/components/ValorDestacado';
 import AplicacionesAMedida from '@/components/AplicacionesAMedida';
@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   title: 'Servicios de Branding y Marketing Digital | Tu Marca AR - Expertos en Crecimiento de Marca',
   description: 'Agencia de branding y marketing digital en Argentina. Creamos identidades poderosas, sitios web que convierten y estrategias digitales con resultados reales para emprendedores y startups.',
   keywords: [
+    'sistemas a medida Argentina',
     'branding profesional Argentina',
     'diseño web que convierte',
     'marketing digital estratégico',
@@ -73,6 +74,28 @@ export default function ServicePage() {
           {/* Servicio 1 */}
           <div className="bg-white/8 backdrop-blur-md rounded-2xl p-7 shadow-xl border border-white/10 hover:shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-1">
             <Briefcase className="mx-auto mb-5 text-amber-500" size={48} />
+            <h3 className="text-white font-bold text-2xl mb-4">Sistemas a Medida</h3>
+            <p className="text-gray-300 text-sm mb-5 leading-relaxed">
+              Automatizamos procesos repetitivos para que te enfoques en lo que importa: crecer.
+            </p>
+            <ul className="space-y-3">
+              {["Automatización de procesos", "Integraciones con herramientas existentes", "Desarrollo personalizado", "Soporte continuo"].map((item, i) => (
+                <li key={i} className="flex items-center text-gray-300 text-sm">
+                  <Check className="text-amber-500 mr-2" size={16} /> {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 text-center">
+              <span className="inline-block text-xs px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full">
+                Ideal para emprendedores y startups
+              </span>
+            </div>
+          </div>
+
+
+          {/* Servicio 2 */}
+          <div className="bg-white/8 backdrop-blur-md rounded-2xl p-7 shadow-xl border border-white/10 hover:shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-1">
+            <Briefcase className="mx-auto mb-5 text-amber-500" size={48} />
             <h3 className="text-white font-bold text-2xl mb-4">Branding Estratégico</h3>
             <p className="text-gray-300 text-sm mb-5 leading-relaxed">
               Desde tu esencia hasta tu identidad visual. Creamos una marca coherente, memorable y alineada con tu propósito.
@@ -91,7 +114,7 @@ export default function ServicePage() {
             </div>
           </div>
 
-          {/* Servicio 2 */}
+          {/* Servicio 3 */}
           <div className="bg-white/8 backdrop-blur-md rounded-2xl p-7 shadow-xl border border-white/10 hover:shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-1">
             <Paintbrush className="mx-auto mb-5 text-amber-500" size={48} />
             <h3 className="text-white font-bold text-2xl mb-4">Diseño Web</h3>
@@ -112,7 +135,7 @@ export default function ServicePage() {
             </div>
           </div>
 
-          {/* Servicio 3 */}
+          {/* Servicio 4 */}
           <div className="bg-white/8 backdrop-blur-md rounded-2xl p-7 shadow-xl border border-white/10 hover:shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-1">
             <Globe className="mx-auto mb-5 text-amber-500" size={48} />
             <h3 className="text-white font-bold text-2xl mb-4">Marketing Digital</h3>
@@ -133,15 +156,15 @@ export default function ServicePage() {
             </div>
           </div>
 
-          {/* Servicio 4 */}
+          {/* Servicio 5 */}
           <div className="bg-white/8 backdrop-blur-md rounded-2xl p-7 shadow-xl border border-white/10 hover:shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-1">
-            <Rocket className="mx-auto mb-5 text-amber-500" size={48} />
-            <h3 className="text-white font-bold text-2xl mb-4">Lanzamientos Exitosos</h3>
+            <Brain className="mx-auto mb-5 text-amber-500" size={48} />
+            <h3 className="text-white font-bold text-2xl mb-4">Machine Learning</h3>
             <p className="text-gray-300 text-sm mb-5 leading-relaxed">
-              ¿Nuevo producto, servicio o marca? Te acompañamos desde la planificación hasta el Día 1.
+              Modelos inteligentes que transforman tus datos en predicciones exactas. Automatiza procesos y toma decisiones basadas en evidencia, no en suposiciones.
             </p>
             <ul className="space-y-3">
-              {["Calendario de lanzamiento", "Estrategia de pre-venta", "Email sequences", "Campañas de impacto"].map((item, i) => (
+              {["Modelos predictivos personalizados", "Procesamiento de lenguaje natural", "Visión artificial y reconocimiento", "Automatización de procesos con IA"].map((item, i) => (
                 <li key={i} className="flex items-center text-gray-300 text-sm">
                   <Check className="text-amber-500 mr-2" size={16} /> {item}
                 </li>
@@ -149,11 +172,95 @@ export default function ServicePage() {
             </ul>
             <div className="mt-6 text-center">
               <span className="inline-block text-xs px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full">
-                +15 lanzamientos exitosos en 2024
+                Transforma tus datos en decisiones inteligentes
+
               </span>
             </div>
           </div>
+
+
+          {/* Servicio 6 */}
+          <div className="bg-white/8 backdrop-blur-md rounded-2xl p-7 shadow-xl border border-white/10 hover:shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-1">
+            <Sparkles className="mx-auto mb-5 text-amber-500" size={48} />
+            <h3 className="text-white font-bold text-2xl mb-4">IA</h3>
+            <p className="text-gray-300 text-sm mb-5 leading-relaxed">
+              Potenciamos tu negocio con soluciones de IA generativa y automatización avanzada. Creamos herramientas inteligentes que optimizan tu tiempo y mejoran la toma de decisiones.
+            </p>
+            <ul className="space-y-3">
+              {["Modelos predictivos personalizados", "Procesamiento de lenguaje natural", "Visión artificial y reconocimiento", "Automatización de procesos con IA"].map((item, i) => (
+                <li key={i} className="flex items-center text-gray-300 text-sm">
+                  <Check className="text-amber-500 mr-2" size={16} /> {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 text-center">
+              <span className="inline-block text-xs px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full">
+                Transforma tus datos en decisiones inteligentes 
+
+              </span>
+            </div>
+          </div>
+
+
+          {/* Servicio 7 */}
+          <div className="bg-white/8 backdrop-blur-md rounded-2xl p-7 shadow-xl border border-white/10 hover:shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-1">
+            <Brain className="mx-auto mb-5 text-amber-500" size={48} />
+            <h3 className="text-white font-bold text-2xl mb-4">Consultoría en IA</h3>
+            <p className="text-gray-300 text-sm mb-5 leading-relaxed">
+              Modelos inteligentes que transforman tus datos en predicciones exactas. Automatiza procesos y toma decisiones basadas en evidencia, no en suposiciones.
+            </p>
+            <ul className="space-y-3">
+              {["Modelos predictivos personalizados", "Procesamiento de lenguaje natural", "Visión artificial y reconocimiento", "Automatización de procesos con IA"].map((item, i) => (
+                <li key={i} className="flex items-center text-gray-300 text-sm">
+                  <Check className="text-amber-500 mr-2" size={16} /> {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 text-center">
+              <span className="inline-block text-xs px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full">
+                Transforma tus datos en decisiones inteligentes
+
+              </span>
+            </div>
+          </div>
+
+          {/* Servicio 8 */}
+          <div className="bg-white/8 backdrop-blur-md rounded-2xl p-7 shadow-xl border border-white/10 hover:shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-1">
+            <MessageCircle className="mx-auto mb-5 text-amber-500" size={48} />
+            <h3 className="text-white font-bold text-2xl mb-4">Chatbots</h3>
+            <p className="text-gray-300 text-sm mb-5 leading-relaxed">
+              Chatbots inteligentes que transforman tus datos en predicciones exactas. Automatiza procesos y toma decisiones basadas en evidencia, no en suposiciones.    
+              
+            </p>
+            <ul className="space-y-3">
+              {["Modelos predictivos personalizados", "Procesamiento de lenguaje natural", "Visión artificial y reconocimiento", "Automatización de procesos con IA"].map((item, i) => (
+                <li key={i} className="flex items-center text-gray-300 text-sm">
+                  <Check className="text-amber-500 mr-2" size={16} /> {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 text-center">
+              <span className="inline-block text-xs px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full">
+                Chatbots inteligentes que transforman tus datos en predicciones exactas. Automatiza procesos y toma decisiones basadas en evidencia, no en suposiciones.  
+
+              </span>
+            </div>
+          </div> |
+
+
+
+
+
         </div>
+
+
+
+
+
+
+
+
+
 
 
 
