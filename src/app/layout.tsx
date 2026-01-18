@@ -36,6 +36,23 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Tu Marca AR | Agencia Digital',
   description: "Tu Marca AR es una agencia digital especializada en diseño web, branding, SEO, marketing digital y desarrollo de aplicaciones a medida. Potenciamos tu marca para atraer más clientes.",
+  keywords: [
+    'diseño web profesional Argentina',
+    'tienda online Argentina',
+    'desarrollo web para pymes',
+    'branding Argentina',
+    'marketing digital para empresas',
+    'SEO Argentina',
+    'posicionamiento en Google Argentina',
+    'agencia digital Buenos Aires',
+    'diseño de marca Argentina',
+    'consultoría digital para pymes',
+    'soporte técnico web',
+    'aplicaciones a medida',
+    'aplicaciones web Argentina',
+    'aplicaciones móviles Argentina',
+    'inteligencia artificial para negocios',
+  ],  
   openGraph: {
     title: 'Tu Marca AR | Agencia Digital',
     description: "Tu Marca AR es una agencia digital especializada en diseño web, branding, SEO, marketing digital y desarrollo de aplicaciones a medida. Potenciamos tu marca para atraer más clientes.",

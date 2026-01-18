@@ -6,6 +6,7 @@ import ValorDestacado from '@/components/ValorDestacado';
 import AplicacionesAMedida from '@/components/AplicacionesAMedida';
 import ServicioSEO from '@/components/ServicioSEO';
 import AplicacionesIA from '@/components/AplicacionesIA';
+import GrowthGif from '@/components/GrowthGif';
 
 
 const playfair = Playfair_Display({
