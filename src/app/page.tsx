@@ -1,57 +1,18 @@
 import Image from 'next/image';
 import { Playfair_Display } from 'next/font/google';
 import ImageAccordion from '@/components/ImagenAcordeon';
-import type { Metadata } from 'next';
+
 import ValorDestacado from '@/components/ValorDestacado';
 import AplicacionesAMedida from '@/components/AplicacionesAMedida';
 import ServicioSEO from '@/components/ServicioSEO';
 import AplicacionesIA from '@/components/AplicacionesIA';
-import GrowthGif from '@/components/GrowthGif';
 
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
   weight: ['400', '600'],
 });
-export const metadata: Metadata = {
-  keywords: [
-    'diseño web profesional Argentina',
-    'tienda online Argentina',
-    'desarrollo web para pymes',
-    'branding Argentina',
-    'marketing digital para empresas',
-    'SEO Argentina',
-    'posicionamiento en Google Argentina',
-    'agencia digital Buenos Aires',
-    'diseño de marca Argentina',
-    'consultoría digital para pymes',
-    'soporte técnico web',
-    'aplicaciones a medida',
-    'aplicaciones web Argentina',
-    'aplicaciones móviles Argentina',
-    'inteligencia artificial para negocios',
-  ],
-  title: 'Creamos sitios web modernos que generan clientes para tu negocio” | Tu Marca AR',
-  description:
-    'Agencia digital en Argentina especializada en diseño web, branding, SEO, marketing digital y desarrollo de aplicaciones a medida. Potenciamos tu marca para atraer más clientes.',
-  openGraph: {
-    title: 'Diseño Web y Marketing Digital en Argentina | Tu Marca AR',
-    description:
-      'Agencia digital en Argentina especializada en diseño web, branding, SEO, marketing digital y desarrollo de aplicaciones a medida.',
-    url: 'https://www.tumarca.ar',
-    siteName: 'Tu Marca AR',
-    type: 'website',
-    locale: 'es_ES',
-    images: [
-      {
-        url: 'https://www.tumarca.ar/marca-2-ar.png',
-        width: 800,
-        height: 600,
-        alt: 'Tu Marca AR - Agencia de diseño web y marketing digital en Argentina',
-      },
-    ],
-  },
-};
+
 
 
 export default function Home() {
