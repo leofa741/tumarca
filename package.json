@@ -14,12 +14,14 @@
     "@vercel/analytics": "^1.5.0",
     "lucide-react": "^0.525.0",
     "next": "^16.0.7",
+    "next-auth": "^4.24.13",
     "next-sitemap": "^4.2.3",
     "nodemailer": "^7.0.5",
     "openai": "^5.12.2",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
-    "react-spinners": "^0.17.0"
+    "react-spinners": "^0.17.0",
+    "socket.io-client": "^4.8.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

@@ -11,6 +11,7 @@ import { LoadingProvider } from "@/context/LoadingContext";
 import Footer from "@/components/Footer";
 import RedesFlotantes from "@/components/RedesFlotantes";
 import Script from "next/script";
+import ChatWidget from "@/components/chatwidget/ChatWidget";
 
 
 const geistSans = Geist({
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
     'aplicaciones web Argentina',
     'aplicaciones móviles Argentina',
     'inteligencia artificial para negocios',
-  ],  
+  ],
   openGraph: {
     title: 'Tu Marca AR | Agencia Digital',
     description: "Tu Marca AR es una agencia digital especializada en diseño web, branding, SEO, marketing digital y desarrollo de aplicaciones a medida. Potenciamos tu marca para atraer más clientes.",
@@ -75,7 +76,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-       
+
         <Script
           id="gtm-script"
           strategy="afterInteractive"
@@ -87,7 +88,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-KBK7XNSM');`
           }}
         />
-       
+
 
 
         {/* JSON-LD Schema.org */}
@@ -157,9 +158,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${inter.className} bg-gray-100 text-gray-900 antialiased`}
       >
-      
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBK7XNSM"
-height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe></noscript>
+
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBK7XNSM"
+          height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe></noscript>
 
 
         <Header />
@@ -171,6 +172,7 @@ height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe></nos
             <br />
             <br />
             {children}
+            <ChatWidget />
             <Analytics />
           </main>
           <RedesFlotantes />
