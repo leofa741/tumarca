@@ -48,7 +48,7 @@ export default function RedesFlotantesFuturo() {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-end justify-end h-32 md:h-40">
+    <div className="fixed bottom-3 right-4 z-50 flex items-end justify-end h-32 md:h-40">
       {/* Redes emergentes */}
       <div className="flex space-x-3 md:space-x-4 mr-2">
         {activo &&
