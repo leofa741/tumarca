@@ -20,10 +20,20 @@ export default function AdminChatClient() {
   const [responseText, setResponseText] = useState('');
   const [selectedVisitorId, setSelectedVisitorId] = useState<string | null>(null);
   const [conversation, setConversation] = useState<Message[]>([]);
+  const [newMessageAlert, setNewMessageAlert] = useState<{ id: string; name: string } | null>(null);
   const socketRef = useRef<Socket | null>(null);
   
   // Dark mode
   const [darkMode, setDarkMode] = useState(false);
+
+  // Cambiar título de la pestaña
+  useEffect(() => {
+    if (pendingMessages.length > 0) {
+      document.title = `(${pendingMessages.length}) Nuevos mensajes - Tu Marca AR`;
+    } else {
+      document.title = "Panel de Operador - Tu Marca AR";
+    }
+  }, [pendingMessages.length]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -33,20 +43,27 @@ export default function AdminChatClient() {
     return () => mediaQuery.removeEventListener('change', handler);
   }, []);
 
+  // Auto-ocultar alerta después de 5 segundos
+  useEffect(() => {
+    if (newMessageAlert) {
+      const timer = setTimeout(() => {
+        setNewMessageAlert(null);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [newMessageAlert]);
+
   // Conexión WebSocket
   useEffect(() => {
-    // 🔥 Eliminá los espacios en la URL
     const socket = io('https://chat-tumarca.onrender.com', {
       query: { role: 'agent' },
     });
     socketRef.current = socket;
 
-    // Cargar mensajes pendientes iniciales
     socket.on('pendingMessages', (messages: Message[]) => {
       setPendingMessages(messages);
     });
 
-    // Nuevos mensajes de visitantes
     socket.on('newMessage', (msg: any) => {
       const newMsg = {
         ...msg,
@@ -55,10 +72,13 @@ export default function AdminChatClient() {
         status: 'pending',
       };
       setPendingMessages(prev => [...prev, newMsg]);
+      
+      // Mostrar alerta visual
+      setNewMessageAlert({ id: newMsg._id, name: newMsg.name });
+      
       if (!selectedVisitorId) setSelectedVisitorId(msg.visitorId);
     });
 
-    // Respuestas de agentes (incluyendo las propias)
     socket.on('agentResponseSent', (responseMsg: Message) => {
       setPendingMessages(prev => [...prev, responseMsg]);
       if (selectedVisitorId === responseMsg.visitorId) {
@@ -71,7 +91,7 @@ export default function AdminChatClient() {
     };
   }, []);
 
-  // Cargar conversación completa cuando se selecciona un visitante
+  // Cargar conversación completa
   useEffect(() => {
     if (selectedVisitorId) {
       const fullConversation = pendingMessages
@@ -84,7 +104,6 @@ export default function AdminChatClient() {
   const handleSendResponse = () => {
     if (!responseText.trim() || !selectedVisitorId) return;
 
-    // ✅ Solo enviar al backend, nada más
     socketRef.current?.emit('sendMessageToVisitor', {
       visitorId: selectedVisitorId,
       message: responseText,
@@ -99,6 +118,26 @@ export default function AdminChatClient() {
 
   return (
     <div className={`min-h-screen p-6 transition-colors duration-200 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
+      {/* 🚨 Notificación de nuevo mensaje */}
+      {newMessageAlert && (
+        <div className="fixed top-4 right-4 z-50 bg-amber-500 text-black px-4 py-3 rounded-lg shadow-xl animate-pulse border border-amber-600">
+          <div className="flex items-center gap-3">
+            <div className="w-2 h-2 bg-black rounded-full animate-ping absolute"></div>
+            <span className="text-xl">💬</span>
+            <div>
+              <p className="font-bold">Nuevo mensaje</p>
+              <p className="text-sm">de <strong>{newMessageAlert.name}</strong></p>
+            </div>
+            <button 
+              onClick={() => setNewMessageAlert(null)}
+              className="ml-2 text-black hover:text-gray-800 font-bold text-lg"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="max-w-6xl mx-auto">
         <br />
         <br />
