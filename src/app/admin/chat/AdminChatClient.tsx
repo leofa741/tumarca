@@ -40,7 +40,7 @@ export default function AdminChatClient() {
   }, []);
 
   useEffect(() => {
-    const socket = io('http://localhost:3001', {
+    const socket = io('https://chat-tumarca.onrender.com', {
       query: { role: 'agent' },
     });
     socketRef.current = socket;
