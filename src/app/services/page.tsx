@@ -227,13 +227,13 @@ export default function ServicePage() {
           {/* Servicio 8 */}
           <div className="bg-white/8 backdrop-blur-md rounded-2xl p-7 shadow-xl border border-white/10 hover:shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-1">
             <MessageCircle className="mx-auto mb-5 text-amber-500" size={48} />
-            <h3 className="text-white font-bold text-2xl mb-4">Chatbots</h3>
+            <h3 className="text-white font-bold text-2xl mb-4">Chats en tiempo real</h3>
             <p className="text-gray-300 text-sm mb-5 leading-relaxed">
-              Chatbots inteligentes que transforman tus datos en predicciones exactas. Automatiza procesos y toma decisiones basadas en evidencia, no en suposiciones.    
-              
+              Chat en tiempo real para conectar con tus clientes al instante. Implementamos soluciones de chat personalizadas para tu sitio web, con funciones avanzadas de mensajería, notificaciones y gestión de conversaciones. 
+           
             </p>
             <ul className="space-y-3">
-              {["Modelos predictivos personalizados", "Procesamiento de lenguaje natural", "Visión artificial y reconocimiento", "Automatización de procesos con IA"].map((item, i) => (
+              {["Chat en tiempo real", "Mensajería instantánea", "Notificaciones en tiempo real", "Gestión de conversaciones"].map((item, i) => (
                 <li key={i} className="flex items-center text-gray-300 text-sm">
                   <Check className="text-amber-500 mr-2" size={16} /> {item}
                 </li>
@@ -241,22 +241,13 @@ export default function ServicePage() {
             </ul>
             <div className="mt-6 text-center">
               <span className="inline-block text-xs px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full">
-                Chatbots inteligentes que transforman tus datos en predicciones exactas. Automatiza procesos y toma decisiones basadas en evidencia, no en suposiciones.  
-
+               Conecta con tus clientes al instante 
               </span>
             </div>
-          </div> |
-
-
-
+          </div> 
 
 
         </div>
-
-
-
-
-
 
 
 
