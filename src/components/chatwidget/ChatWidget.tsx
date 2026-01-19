@@ -1,7 +1,7 @@
 // components/ChatWidget.tsx
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react'; // 👈 agregá useRef
 import { io, Socket } from 'socket.io-client';
 
 interface Message {
@@ -33,6 +33,14 @@ export default function ChatWidget() {
   const [isAgentOnline, setIsAgentOnline] = useState(false);
   const [hasSavedInfo, setHasSavedInfo] = useState(false);
 
+  // 👇 Referencia para el scroll
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // 👇 Función para hacer scroll automático
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   // Detectar modo oscuro
   const [darkMode, setDarkMode] = useState(false);
   useEffect(() => {
@@ -58,11 +66,10 @@ export default function ChatWidget() {
     }
   }, []);
 
-
-
-
-
-
+  // 👇 Auto-scroll cuando cambian los mensajes
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   // Conectar socket
   useEffect(() => {
@@ -80,7 +87,7 @@ export default function ChatWidget() {
       });
     }
 
-    return () => { };
+    return () => {};
   }, []);
 
   const handleSend = () => {
@@ -170,15 +177,19 @@ export default function ChatWidget() {
                 className={`flex ${msg.from === 'visitor' ? 'justify-end' : 'justify-start'}`}
               >
                 <span
-                  className={`inline-block px-3 py-2 rounded-lg text-sm max-w-[80%] ${msg.from === 'visitor'
-                    ? `${messageVisitorBg} text-white rounded-br-sm`
-                    : `${messageAgentBg} ${messageAgentText} rounded-bl-sm`
-                    }`}
+                  className={`inline-block px-3 py-2 rounded-lg text-sm max-w-[80%] ${
+                    msg.from === 'visitor'
+                      ? `${messageVisitorBg} text-white rounded-br-sm`
+                      : `${messageAgentBg} ${messageAgentText} rounded-bl-sm`
+                  }`}
                 >
                   {msg.text}
                 </span>
               </div>
             ))}
+            
+            {/* 👇 Anchor invisible para el scroll */}
+            <div ref={messagesEndRef} />
           </div>
 
           {/* Formulario */}
@@ -225,10 +236,11 @@ export default function ChatWidget() {
               <button
                 onClick={handleSend}
                 disabled={!isFormValid}
-                className={`px-4 rounded-lg text-sm font-medium transition-colors ${isFormValid
-                  ? 'bg-blue-600 text-white hover:bg-blue-700'
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                  }`}
+                className={`px-4 rounded-lg text-sm font-medium transition-colors ${
+                  isFormValid
+                    ? 'bg-blue-600 text-white hover:bg-blue-700'
+                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                }`}
               >
                 Enviar
               </button>
