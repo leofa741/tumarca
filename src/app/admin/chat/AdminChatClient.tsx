@@ -35,6 +35,7 @@ export default function AdminChatClient() {
 
   // Conexión WebSocket
   useEffect(() => {
+    // 🔥 Eliminá los espacios en la URL
     const socket = io('https://chat-tumarca.onrender.com', {
       query: { role: 'agent' },
     });
@@ -49,15 +50,15 @@ export default function AdminChatClient() {
     socket.on('newMessage', (msg: any) => {
       const newMsg = {
         ...msg,
-        _id: msg.id || Date.now().toString(),
-        createdAt: new Date().toISOString(),
+        _id: msg._id || Date.now().toString(),
+        createdAt: msg.createdAt || new Date().toISOString(),
         status: 'pending',
       };
       setPendingMessages(prev => [...prev, newMsg]);
       if (!selectedVisitorId) setSelectedVisitorId(msg.visitorId);
     });
 
-    // Respuestas de otros agentes (o propias)
+    // Respuestas de agentes (incluyendo las propias)
     socket.on('agentResponseSent', (responseMsg: Message) => {
       setPendingMessages(prev => [...prev, responseMsg]);
       if (selectedVisitorId === responseMsg.visitorId) {
@@ -83,25 +84,12 @@ export default function AdminChatClient() {
   const handleSendResponse = () => {
     if (!responseText.trim() || !selectedVisitorId) return;
 
-    const responseMsg: Message = {
-      _id: Date.now().toString(),
-      name: 'Operador',
-      email: 'operador@tumarca.ar',
-      message: responseText,
-      status: 'answered',
-      visitorId: selectedVisitorId,
-      createdAt: new Date().toISOString(),
-    };
-
-    // Enviar al backend
+    // ✅ Solo enviar al backend, nada más
     socketRef.current?.emit('sendMessageToVisitor', {
       visitorId: selectedVisitorId,
       message: responseText,
     });
 
-    // Actualizar localmente
-    setConversation(prev => [...prev, responseMsg]);
-    setPendingMessages(prev => [...prev, responseMsg]);
     setResponseText('');
   };
 
@@ -194,7 +182,7 @@ export default function AdminChatClient() {
                     </p>
                   ) : (
                     conversation.map((msg, i) => (
-                      <div key={i} className="mb-3">
+                      <div key={`${msg._id}-${i}`} className="mb-3">
                         <div className="flex items-center gap-2 mb-1">
                           <span className={`font-semibold ${
                             msg.name === 'Operador' 
