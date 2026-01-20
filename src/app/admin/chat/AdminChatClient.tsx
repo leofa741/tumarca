@@ -22,20 +22,36 @@ export default function AdminChatClient() {
   const [conversation, setConversation] = useState<Message[]>([]);
   const [newMessageAlert, setNewMessageAlert] = useState<{ id: string; name: string } | null>(null);
   const socketRef = useRef<Socket | null>(null);
+  // Microinteracciones
+  const [refreshRipple, setRefreshRipple] = useState<{ x: number; y: number } | null>(null);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   // Dark mode
   const [darkMode, setDarkMode] = useState(false);
 
   const [refreshing, setRefreshing] = useState(false);
 
-  const refreshAgentStatus = () => {
-    if (!socketRef.current) return;
+  const refreshAgentStatus = (e: React.MouseEvent) => {
+    if (refreshing || !socketRef.current) return;
 
+    // Ripple effect
+    const rect = e.currentTarget.getBoundingClientRect();
+    setRefreshRipple({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+    setTimeout(() => setRefreshRipple(null), 600);
+
+    // Acción principal
     setRefreshing(true);
-    // Emitir evento para que el backend reenvíe el estado
     socketRef.current.emit('refreshAgentStatus');
 
-    setTimeout(() => setRefreshing(false), 1000);
+    // Mostrar éxito brevemente
+    setTimeout(() => {
+      setRefreshing(false);
+      setShowSuccess(true);
+      setTimeout(() => setShowSuccess(false), 2000);
+    }, 1000);
   };
 
 
@@ -160,34 +176,87 @@ export default function AdminChatClient() {
         <br />
 
         <div className="flex justify-end gap-4 mb-6">
+          {/* Botón Dark Mode */}
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded transition-colors duration-200"
+            className="group relative px-5 py-2.5 rounded-lg bg-gradient-to-r from-gray-100 to-gray-200 
+               text-gray-800 font-medium shadow-sm hover:shadow-md 
+               transition-all duration-300 hover:from-gray-200 hover:to-gray-300 
+               active:scale-[0.98] border border-gray-200 hover:-translate-y-0.5"
           >
-            {darkMode ? 'Modo Claro' : 'Modo Oscuro'}
+            <span className="flex items-center gap-2">
+              {darkMode ? (
+                <>
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
+                  </svg>
+                  Modo Claro
+                </>
+              ) : (
+                <>
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                  </svg>
+                  Modo Oscuro
+                </>
+              )}
+            </span>
           </button>
+
+          {/* Botón Actualizar Estado con microinteracciones */}
+          <button
+            onClick={refreshAgentStatus}
+            disabled={refreshing}
+            className="group relative px-5 py-2.5 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 
+               text-black font-bold shadow-lg hover:shadow-xl 
+               transition-all duration-300 hover:from-amber-600 hover:to-amber-700 
+               active:scale-[0.98] disabled:opacity-70 overflow-hidden hover:-translate-y-0.5"
+          >
+            {/* Ripple effect */}
+            {refreshRipple && (
+              <span
+                className="absolute w-24 h-24 bg-white/30 rounded-full animate-ripple"
+                style={{
+                  left: refreshRipple.x - 48,
+                  top: refreshRipple.y - 48,
+                }}
+              />
+            )}
+
+            <span className="flex items-center gap-2 relative z-10">
+              {refreshing ? (
+                <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+              ) : showSuccess ? (
+                <svg className="w-4 h-4 animate-success-check" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+              ) : (
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 014.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+              )}
+              {showSuccess ? 'Actualizado!' : refreshing ? 'Actualizando...' : 'Actualizar Estado'}
+            </span>
+          </button>
+
+          {/* Botón Cerrar Sesión */}
           <button
             onClick={logout}
-            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition-colors duration-200"
+            className="group relative px-5 py-2.5 rounded-lg bg-gradient-to-r from-red-500 to-red-600 
+               text-white font-medium shadow-lg hover:shadow-xl 
+               transition-all duration-300 hover:from-red-600 hover:to-red-700 
+               active:scale-[0.98] hover:-translate-y-0.5"
           >
-            Cerrar Sesión
+            <span className="flex items-center gap-2">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+              Cerrar Sesión
+            </span>
           </button>
-
-          <div className="flex justify-end gap-4 mb-6">
-            <button
-              onClick={refreshAgentStatus}
-              disabled={refreshing}
-              className="bg-amber-500 hover:bg-amber-600 text-black px-4 py-2 rounded transition-colors duration-200"
-            >
-              {refreshing ? 'Actualizando...' : 'Actualizar Estado'}
-            </button>
-            {/* ... otros botones */}
-          </div>
-
-
-
-
-
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

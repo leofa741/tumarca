@@ -5,8 +5,10 @@
 
 /* 👇 Forzamos el modo oscuro por defecto */
 :root {
-  --background: #0a0a0a;   /* fondo negro */
-  --foreground: #ededed;   /* texto blanco suave */
+  --background: #0a0a0a;
+  /* fondo negro */
+  --foreground: #ededed;
+  /* texto blanco suave */
 }
 
 @theme inline {
@@ -25,8 +27,15 @@ body {
 }
 
 @keyframes pulse-slow {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
 }
 
 .animate-pulse-slow {
@@ -35,12 +44,14 @@ body {
 
 .animate-fadeIn {
   animation: fadeIn 0.8s ease-in-out;
-  animation-fill-mode: both; /* ← Muy importante */
+  animation-fill-mode: both;
+  /* ← Muy importante */
 }
 
 .animate-slideUp {
   animation: slideUp 1s ease-in-out;
-  animation-fill-mode: both; /* ← Mantiene el estado final */
+  animation-fill-mode: both;
+  /* ← Mantiene el estado final */
 }
 
 /* app/globals.css */
@@ -49,6 +60,7 @@ body {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -60,6 +72,7 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -77,9 +90,12 @@ body {
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
   mask-position: center;
-  background-color: transparent; /* Fondo transparente */
-  z-index: 10; /* Asegura que la máscara esté por encima de otros elementos */
-  pointer-events: none; /* Asegura que los eventos del mouse pasen a través de la máscara */
+  background-color: transparent;
+  /* Fondo transparente */
+  z-index: 10;
+  /* Asegura que la máscara esté por encima de otros elementos */
+  pointer-events: none;
+  /* Asegura que los eventos del mouse pasen a través de la máscara */
 }
 
 /* globals.css */
@@ -103,3 +119,41 @@ body {
   @apply text-amber-400 hover:text-amber-300 underline;
 }
 
+
+/* Microinteracciones premium */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple 0.6s linear;
+}
+
+@keyframes success-check {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+.animate-success-check {
+  animation: success-check 0.5s ease-out;
+}
