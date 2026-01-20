@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@tailwind utilities;
+
 
 
 /* 👇 Forzamos el modo oscuro por defecto */
@@ -157,6 +157,3 @@ body {
 .animate-success-check {
   animation: success-check 0.5s ease-out;
 }
-
-
-
