@@ -1,7 +1,7 @@
 // components/ChatWidget.tsx
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react'; // 👈 agregá useRef
 import { io, Socket } from 'socket.io-client';
 
 interface Message {
@@ -32,11 +32,11 @@ export default function ChatWidget() {
   const [email, setEmail] = useState('');
   const [isAgentOnline, setIsAgentOnline] = useState(false);
   const [hasSavedInfo, setHasSavedInfo] = useState(false);
-  const [checkingStatus, setCheckingStatus] = useState(false); // 👈 Nuevo estado
 
-  // Referencia para el scroll
+  // 👇 Referencia para el scroll
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // 👇 Función para hacer scroll automático
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -66,7 +66,7 @@ export default function ChatWidget() {
     }
   }, []);
 
-  // Auto-scroll
+  // 👇 Auto-scroll cuando cambian los mensajes
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
@@ -74,8 +74,7 @@ export default function ChatWidget() {
   // Conectar socket
   useEffect(() => {
     if (!socket) {
-      const BACKEND_URL = process.env.NEXT_PUBLIC_CHAT_BACKEND_URL || 'http://localhost:3001';
-      socket = io(BACKEND_URL, {
+      socket = io('https://chat-tumarca.onrender.com', {
         query: { role: 'visitor' },
       });
 
@@ -90,23 +89,6 @@ export default function ChatWidget() {
 
     return () => {};
   }, []);
-
-  // 👇 Función para verificar estado manualmente
-  const checkAgentStatus = async () => {
-    if (!socket) return;
-    
-    setCheckingStatus(true);
-    try {
-      // Emitir evento para pedir estado actual
-      socket.emit('requestAgentStatus');
-      
-      // Opcional: timeout para feedback
-      setTimeout(() => setCheckingStatus(false), 2000);
-    } catch (error) {
-      console.error('Error al verificar estado:', error);
-      setCheckingStatus(false);
-    }
-  };
 
   const handleSend = () => {
     const cleanName = name.trim();
@@ -149,7 +131,7 @@ export default function ChatWidget() {
   const messageAgentText = darkMode ? 'text-gray-100' : 'text-gray-800';
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-26 right-5 z-100">
       {!isOpen ? (
         <button
           onClick={() => setIsOpen(true)}
@@ -172,18 +154,11 @@ export default function ChatWidget() {
             </button>
           </div>
 
-          {/* Status con botón de actualización */}
-          <div className="px-3 pt-2 pb-1 flex justify-between items-center">
+          {/* Status */}
+          <div className="px-3 pt-2 pb-1">
             <span className={`text-xs font-medium ${isAgentOnline ? 'text-green-600' : 'text-orange-600'}`}>
               {isAgentOnline ? '🟢 Operador online' : '🟠 Fuera de horario'}
             </span>
-            <button
-              onClick={checkAgentStatus}
-              disabled={checkingStatus}
-              className={`text-xs ${checkingStatus ? 'text-gray-400' : 'text-amber-600 hover:text-amber-500'} transition-colors`}
-            >
-              {checkingStatus ? 'Verificando...' : 'Actualizar'}
-            </button>
           </div>
 
           {/* Messages */}
@@ -213,6 +188,7 @@ export default function ChatWidget() {
               </div>
             ))}
             
+            {/* 👇 Anchor invisible para el scroll */}
             <div ref={messagesEndRef} />
           </div>
 
@@ -250,7 +226,7 @@ export default function ChatWidget() {
             <div className="flex gap-2">
               <input
                 type="text"
-                placeholder={!name.trim() || !email.trim() ? "Completa nombre y email" : "Escribe tu consulta..."}
+                placeholder={!name.trim() || !email.trim() ? "Completa nombre y email" : "Escribe tu mensaje..."}
                 className={`flex-1 p-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 ${inputBg} ${textColor} ${placeholderColor}`}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
