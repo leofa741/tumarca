@@ -22,9 +22,22 @@ export default function AdminChatClient() {
   const [conversation, setConversation] = useState<Message[]>([]);
   const [newMessageAlert, setNewMessageAlert] = useState<{ id: string; name: string } | null>(null);
   const socketRef = useRef<Socket | null>(null);
-  
+
   // Dark mode
   const [darkMode, setDarkMode] = useState(false);
+
+  const [refreshing, setRefreshing] = useState(false);
+
+  const refreshAgentStatus = () => {
+    if (!socketRef.current) return;
+
+    setRefreshing(true);
+    // Emitir evento para que el backend reenvíe el estado
+    socketRef.current.emit('refreshAgentStatus');
+
+    setTimeout(() => setRefreshing(false), 1000);
+  };
+
 
   // Cambiar título de la pestaña
   useEffect(() => {
@@ -72,10 +85,10 @@ export default function AdminChatClient() {
         status: 'pending',
       };
       setPendingMessages(prev => [...prev, newMsg]);
-      
+
       // Mostrar alerta visual
       setNewMessageAlert({ id: newMsg._id, name: newMsg.name });
-      
+
       if (!selectedVisitorId) setSelectedVisitorId(msg.visitorId);
     });
 
@@ -128,7 +141,7 @@ export default function AdminChatClient() {
               <p className="font-bold">Nuevo mensaje</p>
               <p className="text-sm">de <strong>{newMessageAlert.name}</strong></p>
             </div>
-            <button 
+            <button
               onClick={() => setNewMessageAlert(null)}
               className="ml-2 text-black hover:text-gray-800 font-bold text-lg"
             >
@@ -159,13 +172,28 @@ export default function AdminChatClient() {
           >
             Cerrar Sesión
           </button>
+
+          <div className="flex justify-end gap-4 mb-6">
+            <button
+              onClick={refreshAgentStatus}
+              disabled={refreshing}
+              className="bg-amber-500 hover:bg-amber-600 text-black px-4 py-2 rounded transition-colors duration-200"
+            >
+              {refreshing ? 'Actualizando...' : 'Actualizar Estado'}
+            </button>
+            {/* ... otros botones */}
+          </div>
+
+
+
+
+
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Lista de chats pendientes */}
-          <div className={`lg:col-span-1 rounded-lg shadow p-4 h-[600px] overflow-y-auto transition-colors duration-200 ${
-            darkMode ? 'bg-gray-800 text-gray-100 border border-gray-700' : 'bg-white text-gray-800'
-          }`}>
+          <div className={`lg:col-span-1 rounded-lg shadow p-4 h-[600px] overflow-y-auto transition-colors duration-200 ${darkMode ? 'bg-gray-800 text-gray-100 border border-gray-700' : 'bg-white text-gray-800'
+            }`}>
             <h2 className="font-bold mb-3">
               Mensajes ({pendingMessages.length})
             </h2>
@@ -181,11 +209,10 @@ export default function AdminChatClient() {
                   <li
                     key={msg.visitorId}
                     onClick={() => setSelectedVisitorId(msg.visitorId)}
-                    className={`p-3 rounded cursor-pointer border transition-colors duration-150 ${
-                      selectedVisitorId === msg.visitorId
-                        ? (darkMode ? 'border-amber-500 bg-amber-900/20' : 'border-amber-500 bg-amber-50')
-                        : (darkMode ? 'border-gray-600 hover:bg-gray-700' : 'border-gray-200 hover:bg-gray-50')
-                    }`}
+                    className={`p-3 rounded cursor-pointer border transition-colors duration-150 ${selectedVisitorId === msg.visitorId
+                      ? (darkMode ? 'border-amber-500 bg-amber-900/20' : 'border-amber-500 bg-amber-50')
+                      : (darkMode ? 'border-gray-600 hover:bg-gray-700' : 'border-gray-200 hover:bg-gray-50')
+                      }`}
                   >
                     <p className="font-medium">{msg.name}</p>
                     <p className={`text-sm truncate ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
@@ -201,9 +228,8 @@ export default function AdminChatClient() {
           </div>
 
           {/* Área de conversación */}
-          <div className={`lg:col-span-2 rounded-lg shadow p-4 flex flex-col transition-colors duration-200 ${
-            darkMode ? 'bg-gray-800 text-gray-100 border border-gray-700' : 'bg-white text-gray-800'
-          }`}>
+          <div className={`lg:col-span-2 rounded-lg shadow p-4 flex flex-col transition-colors duration-200 ${darkMode ? 'bg-gray-800 text-gray-100 border border-gray-700' : 'bg-white text-gray-800'
+            }`}>
             <h2 className="font-bold mb-4">
               {selectedVisitorId
                 ? 'Conversación'
@@ -212,9 +238,8 @@ export default function AdminChatClient() {
 
             {selectedVisitorId && (
               <>
-                <div className={`flex-1 rounded p-3 mb-4 overflow-y-auto h-64 transition-colors duration-200 ${
-                  darkMode ? 'bg-gray-900' : 'bg-gray-50'
-                }`}>
+                <div className={`flex-1 rounded p-3 mb-4 overflow-y-auto h-64 transition-colors duration-200 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'
+                  }`}>
                   {conversation.length === 0 ? (
                     <p className={`text-sm text-center ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                       Cargando conversación...
@@ -223,24 +248,21 @@ export default function AdminChatClient() {
                     conversation.map((msg, i) => (
                       <div key={`${msg._id}-${i}`} className="mb-3">
                         <div className="flex items-center gap-2 mb-1">
-                          <span className={`font-semibold ${
-                            msg.name === 'Operador' 
-                              ? 'text-amber-500' 
-                              : 'text-blue-500'
-                          }`}>
+                          <span className={`font-semibold ${msg.name === 'Operador'
+                            ? 'text-amber-500'
+                            : 'text-blue-500'
+                            }`}>
                             {msg.name}
                           </span>
-                          <span className={`text-xs ${
-                            darkMode ? 'text-gray-400' : 'text-gray-500'
-                          }`}>
+                          <span className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'
+                            }`}>
                             {new Date(msg.createdAt).toLocaleTimeString()}
                           </span>
                         </div>
-                        <p className={`p-2 rounded text-sm ${
-                          msg.name === 'Operador'
-                            ? (darkMode ? 'bg-amber-900/30 text-amber-100' : 'bg-amber-100 text-amber-800')
-                            : (darkMode ? 'bg-blue-900/30 text-blue-100' : 'bg-blue-100 text-blue-800')
-                        }`}>
+                        <p className={`p-2 rounded text-sm ${msg.name === 'Operador'
+                          ? (darkMode ? 'bg-amber-900/30 text-amber-100' : 'bg-amber-100 text-amber-800')
+                          : (darkMode ? 'bg-blue-900/30 text-blue-100' : 'bg-blue-100 text-blue-800')
+                          }`}>
                           {msg.message}
                         </p>
                       </div>
@@ -252,11 +274,10 @@ export default function AdminChatClient() {
                   <input
                     type="text"
                     placeholder="Escribe tu respuesta..."
-                    className={`flex-1 p-2 rounded focus:outline-none focus:ring-2 focus:ring-amber-500 transition-colors duration-200 ${
-                      darkMode
-                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
-                        : 'bg-white border-gray-300 text-black placeholder-gray-500'
-                    } border`}
+                    className={`flex-1 p-2 rounded focus:outline-none focus:ring-2 focus:ring-amber-500 transition-colors duration-200 ${darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
+                      : 'bg-white border-gray-300 text-black placeholder-gray-500'
+                      } border`}
                     value={responseText}
                     onChange={(e) => setResponseText(e.target.value)}
                     onKeyPress={(e) => e.key === 'Enter' && handleSendResponse()}
@@ -264,11 +285,10 @@ export default function AdminChatClient() {
                   <button
                     onClick={handleSendResponse}
                     disabled={!responseText.trim()}
-                    className={`px-4 rounded font-medium transition-colors duration-200 ${
-                      responseText.trim()
-                        ? 'bg-amber-500 text-black hover:bg-amber-600'
-                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                    }`}
+                    className={`px-4 rounded font-medium transition-colors duration-200 ${responseText.trim()
+                      ? 'bg-amber-500 text-black hover:bg-amber-600'
+                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      }`}
                   >
                     Enviar
                   </button>
