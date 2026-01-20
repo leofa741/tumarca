@@ -250,7 +250,7 @@ export default function ChatWidget() {
             <div className="flex gap-2">
               <input
                 type="text"
-                placeholder={!name.trim() || !email.trim() ? "Completa nombre y email" : "Escribe tu mensaje..."}
+                placeholder={!name.trim() || !email.trim() ? "Completa nombre y email" : "Escribe tu consulta..."}
                 className={`flex-1 p-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 ${inputBg} ${textColor} ${placeholderColor}`}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
