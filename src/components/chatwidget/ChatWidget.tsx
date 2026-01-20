@@ -143,7 +143,7 @@ export default function ChatWidget() {
   const messageAgentText = darkMode ? 'text-gray-100' : 'text-gray-800';
 
   return (
-    <div className="fixed bottom-20 right-6 z-50">
+    <div className="fixed bottom-20 right-4 z-100">
       {!isOpen ? (
         <button
           onClick={() => setIsOpen(true)}
