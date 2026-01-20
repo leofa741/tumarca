@@ -15,10 +15,10 @@ export default function Header() {
     { href: '/desarrollo-web', label: 'Web' },
     { href: '/machine-learning', label: 'LLM' },
     { href: '/ia-estrategica-para-marcas', label: 'IA' },
-   // { href: '/portfolio', label: 'Portfolio' },
+    // { href: '/portfolio', label: 'Portfolio' },
     { href: '/about', label: 'About' },
     { href: '/blog', label: 'Blog' },
-   //{ href: '/ia', label: 'ChatGPT' },
+    { href: '/chat-ai', label: 'Chat AI' },
     { href: '/contact', label: 'Contact' },
   ]
 
