@@ -47,16 +47,16 @@ export default function FormContactLanding() {
 
       setSubmitSuccess(true);
       reset();
-      
+
       // 👇 Trackeo de conversión (Google Ads, Meta, etc.)
-   // ✅ Conversión Google Ads REAL
-if (typeof window !== 'undefined' && (window as any).gtag) {
-  (window as any).gtag('event', 'conversion', {
-    send_to: 'AW-17893506096/5519CMKZ4-kbELD4pNRC',
-    value: 1.0,
-    currency: 'ARS'
-  });
-}
+      // ✅ Conversión Google Ads REAL
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'conversion', {
+          send_to: 'AW-17893506096/5519CMKZ4-kbELD4pNRC',
+          value: 1.0,
+          currency: 'ARS'
+        });
+      }
 
     } catch (error) {
       setSubmitError('Hubo un error al enviar el formulario. Por favor, intenta nuevamente.');
@@ -97,18 +97,17 @@ if (typeof window !== 'undefined' && (window as any).gtag) {
           <input
             id="name"
             {...register('name', { required: 'El nombre es requerido' })}
-            className={`w-full px-4 py-3 rounded-lg border ${
-              errors.name 
-                ? 'border-red-500 focus:ring-red-500' 
+            className={`w-full px-4 py-3 rounded-lg border ${errors.name
+                ? 'border-red-500 focus:ring-red-500'
                 : 'border-gray-300 dark:border-gray-600 focus:ring-amber-500'
-            } focus:outline-none focus:ring-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white`}
+              } focus:outline-none focus:ring-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white`}
             placeholder="Tu nombre"
           />
           {errors.name && (
             <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
           )}
         </div>
-        
+
         <div>
           <label htmlFor="email" className="block text-sm font-medium mb-2">
             Email *
@@ -116,18 +115,17 @@ if (typeof window !== 'undefined' && (window as any).gtag) {
           <input
             id="email"
             type="email"
-            {...register('email', { 
+            {...register('email', {
               required: 'El email es requerido',
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                 message: 'Email inválido'
               }
             })}
-            className={`w-full px-4 py-3 rounded-lg border ${
-              errors.email 
-                ? 'border-red-500 focus:ring-red-500' 
+            className={`w-full px-4 py-3 rounded-lg border ${errors.email
+                ? 'border-red-500 focus:ring-red-500'
                 : 'border-gray-300 dark:border-gray-600 focus:ring-amber-500'
-            } focus:outline-none focus:ring-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white`}
+              } focus:outline-none focus:ring-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white`}
             placeholder="tu@email.com"
           />
           {errors.email && (
@@ -135,7 +133,7 @@ if (typeof window !== 'undefined' && (window as any).gtag) {
           )}
         </div>
       </div>
-      
+
       <div className="grid md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="business" className="block text-sm font-medium mb-2">
@@ -144,18 +142,17 @@ if (typeof window !== 'undefined' && (window as any).gtag) {
           <input
             id="business"
             {...register('business', { required: 'El nombre de tu negocio es requerido' })}
-            className={`w-full px-4 py-3 rounded-lg border ${
-              errors.business 
-                ? 'border-red-500 focus:ring-red-500' 
+            className={`w-full px-4 py-3 rounded-lg border ${errors.business
+                ? 'border-red-500 focus:ring-red-500'
                 : 'border-gray-300 dark:border-gray-600 focus:ring-amber-500'
-            } focus:outline-none focus:ring-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white`}
+              } focus:outline-none focus:ring-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white`}
             placeholder="Nombre de tu empresa o emprendimiento"
           />
           {errors.business && (
             <p className="mt-1 text-sm text-red-500">{errors.business.message}</p>
           )}
         </div>
-        
+
         <div>
           <label htmlFor="phone" className="block text-sm font-medium mb-2">
             Teléfono (opcional)
@@ -169,7 +166,7 @@ if (typeof window !== 'undefined' && (window as any).gtag) {
           />
         </div>
       </div>
-      
+
       <div>
         <label htmlFor="message" className="block text-sm font-medium mb-2">
           ¿Qué necesitás resolver? *
@@ -177,28 +174,27 @@ if (typeof window !== 'undefined' && (window as any).gtag) {
         <textarea
           id="message"
           rows={4}
-          {...register('message', { 
+          {...register('message', {
             required: 'Por favor, contanos qué necesitás',
             minLength: { value: 20, message: 'Por favor, sé más específico (mínimo 20 caracteres)' }
           })}
-          className={`w-full px-4 py-3 rounded-lg border ${
-            errors.message 
-              ? 'border-red-500 focus:ring-red-500' 
+          className={`w-full px-4 py-3 rounded-lg border ${errors.message
+              ? 'border-red-500 focus:ring-red-500'
               : 'border-gray-300 dark:border-gray-600 focus:ring-amber-500'
-          } focus:outline-none focus:ring-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white`}
+            } focus:outline-none focus:ring-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white`}
           placeholder="Contanos sobre tu negocio y qué problemas querés resolver..."
         ></textarea>
         {errors.message && (
           <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>
         )}
       </div>
-      
+
       {submitError && (
         <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
           <p className="text-red-700 dark:text-red-300">{submitError}</p>
         </div>
       )}
-      
+
       <button
         type="submit"
         disabled={isSubmitting}
@@ -216,7 +212,7 @@ if (typeof window !== 'undefined' && (window as any).gtag) {
           'Reservar demo GRATIS →'
         )}
       </button>
-      
+
       <p className="text-center text-sm text-gray-500 dark:text-gray-400">
         ⚡ Respondemos en menos de 24 horas • Garantía 100% de satisfacción
       </p>

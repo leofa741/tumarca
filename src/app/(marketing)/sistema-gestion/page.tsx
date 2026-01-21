@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import FormContactLanding from './components/FormContactLanding';
+import FormContactLanding from '../components/FormContactLanding';
 
 export default function SistemaGestionPage() {
   const [darkMode, setDarkMode] = useState(false);
