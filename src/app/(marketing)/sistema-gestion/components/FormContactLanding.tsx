@@ -49,13 +49,15 @@ export default function FormContactLanding() {
       reset();
       
       // 👇 Trackeo de conversión (Google Ads, Meta, etc.)
-     if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'conversion', {
-          send_to: 'AW-XXXXXXXXX/XXXXXXXXXX',
-          value: 1.0,
-          currency: 'ARS'
-        });
-      }
+   // ✅ Conversión Google Ads REAL
+if (typeof window !== 'undefined' && (window as any).gtag) {
+  (window as any).gtag('event', 'conversion', {
+    send_to: 'AW-17893506096/5519CMKZ4-kbELD4pNRC',
+    value: 1.0,
+    currency: 'ARS'
+  });
+}
+
     } catch (error) {
       setSubmitError('Hubo un error al enviar el formulario. Por favor, intenta nuevamente.');
     } finally {
