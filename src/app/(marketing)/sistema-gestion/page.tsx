@@ -112,13 +112,14 @@ export default function SistemaGestionPage() {
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-              Control total de tu negocio,
-              <span className="bg-gradient-to-r from-amber-500 to-orange-600 bg-clip-text text-transparent"> sin el caos</span>
+              Sistema de Gestión Empresarial + Catálogo
+              <span className="bg-gradient-to-r from-amber-500 to-orange-600 bg-clip-text text-transparent"> Escalabilidad garantizada </span>
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto">
-              Sistema de Gestión Premium para emprendedores que quieren escalar profesionalmente,
-              con dashboard en tiempo real, catálogo público y escalabilidad garantizada.
+              Sistema de Gestión Empresarial + Catálogo + Escalabilidad garantizada con dashboard en tiempo real,
+              catálogo público y escalabilidad garantizada.
+
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -128,16 +129,10 @@ export default function SistemaGestionPage() {
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
               >
-                Reservá tu demo GRATIS →
+                Contactanos →
               </motion.button>
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-gray-800 dark:border-white text-gray-800 dark:text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-800/5 dark:hover:bg-white/10 transition-all duration-300"
-              >
-                Ver video demo
-              </motion.button>
+
             </div>
 
             <div className="mt-8 flex items-center justify-center gap-6 text-sm text-gray-500 dark:text-gray-400">
@@ -320,9 +315,9 @@ export default function SistemaGestionPage() {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Lo que dicen quienes ya lo usan</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Casos de éxito</h2>
             <p className="text-xl text-gray-600 dark:text-gray-400">
-              Emprendedores premium que transformaron su negocio en 10 días.
+              Clientes que ya transformaron su negocio.
             </p>
           </motion.div>
 
@@ -362,7 +357,9 @@ export default function SistemaGestionPage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Reservá tu demo GRATIS</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              ¿Listo para transformar tu negocio?
+            </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400">
               Completá el formulario y agendá tu demo personalizada sin compromiso.
             </p>
@@ -393,7 +390,7 @@ export default function SistemaGestionPage() {
               ¿Listo para transformar tu negocio?
             </h2>
             <p className="text-xl text-white/90 mb-8">
-              Solo 3 cupos disponibles este mes — Cada sistema se personaliza 100% para tu negocio.
+              Cada sistema se personaliza 100% para tu negocio.
             </p>
 
             <motion.button
@@ -402,7 +399,7 @@ export default function SistemaGestionPage() {
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-black text-white px-12 py-5 rounded-xl font-bold text-xl shadow-2xl hover:bg-gray-800 transition-all duration-300"
             >
-              Reservá tu demo GRATIS →
+              Contactanos  →
             </motion.button>
 
             <p className="mt-6 text-white/80 text-sm">
@@ -420,7 +417,9 @@ export default function SistemaGestionPage() {
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
+
                 Pago solo al entregar
+
               </div>
               <div className="flex items-center gap-2">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
