@@ -2,7 +2,7 @@
 
 import { Playfair_Display } from 'next/font/google';
 import type { Metadata } from "next";
-import FormContact from '@/components/FormContact';
+
 import ContactSection from '@/components/ContactSection';
 
 const playfair = Playfair_Display({

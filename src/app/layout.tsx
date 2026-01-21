@@ -1,186 +1,58 @@
 import type { Metadata } from "next";
-
-import { Inter, Geist, Geist_Mono } from "next/font/google";
-import { Playfair_Display } from 'next/font/google';
-import { Analytics } from "@vercel/analytics/next"
-
-import "./globals.css";
-import Header from "@/components/Header";
-import Loader from "@/components/Loader";
-import { LoadingProvider } from "@/context/LoadingContext";
-import Footer from "@/components/Footer";
-import RedesFlotantes from "@/components/RedesFlotantes";
+import { Inter, Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import Script from "next/script";
-import ChatWidget from "@/components/chatwidget/ChatWidget";
-
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-playfair',
-});
-
-
-const inter = Inter({ subsets: ['latin'] });
-
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-playfair",
+});
+
+const inter = Inter({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
-  title: 'Tu Marca AR | Agencia Digital',
-  description: "Tu Marca AR es una agencia digital especializada en diseño web, branding, SEO, marketing digital y desarrollo de aplicaciones a medida. Potenciamos tu marca para atraer más clientes.",
-  keywords: [
-    'diseño web profesional Argentina',
-    'tienda online Argentina',
-    'desarrollo web para pymes',
-    'branding Argentina',
-    'marketing digital para empresas',
-    'SEO Argentina',
-    'posicionamiento en Google Argentina',
-    'agencia digital Buenos Aires',
-    'diseño de marca Argentina',
-    'consultoría digital para pymes',
-    'soporte técnico web',
-    'aplicaciones a medida',
-    'aplicaciones web Argentina',
-    'aplicaciones móviles Argentina',
-    'inteligencia artificial para negocios',
-  ],
-  openGraph: {
-    title: 'Tu Marca AR | Agencia Digital',
-    description: "Tu Marca AR es una agencia digital especializada en diseño web, branding, SEO, marketing digital y desarrollo de aplicaciones a medida. Potenciamos tu marca para atraer más clientes.",
-    images: [
-      {
-        url: 'https://www.tumarca.ar/marca-2-ar.png',
-        width: 800,
-        height: 600,
-        alt: 'Tu Marca AR',
-      },
-    ],
-  },
+  title: "Tu Marca AR | Agencia Digital",
+  description: "Agencia digital especializada en desarrollo web y sistemas",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="es">
       <head>
-
+        {/* Scripts globales */}
         <Script
           id="gtm-script"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KBK7XNSM');`
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-KBK7XNSM');`,
           }}
         />
-
-
-
-        {/* JSON-LD Schema.org */}
-        <Script
-          id="ld-json-schema"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "@id": "https://www.tumarca.ar/#agencia",
-              "url": "https://www.tumarca.ar",
-              "name": "Tu Marca AR",
-              "image": "https://www.tumarca.ar/marca-2-ar.png",
-              "description":
-                "Agencia digital en Argentina especializada en diseño web, branding, SEO, marketing digital y desarrollo de aplicaciones a medida.",
-              "address": {
-                "@type": "PostalAddress",
-                "addressCountry": "AR",
-                "addressLocality": "Buenos Aires",
-                "addressRegion": "Buenos Aires",
-                "postalCode": "1865",
-                "streetAddress": "Castelli 2007"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": "-34.6037",
-                "longitude": "-58.3816"
-              },
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+54 11 4146-1312",
-                "contactType": "customer service",
-                "areaServed": "AR",
-                "availableLanguage": ["Spanish", "English"]
-              },
-              "sameAs": [
-                "https://www.instagram.com/tu.marca.ar?igsh=bG5mNHQzZmUxbGU2",
-                "https://www.linkedin.com/in/tu-marca-ar-8b6777378?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-              ],
-              "priceRange": "$$",
-              "founder": {
-                "@type": "Person",
-                "name": "Leonardo"
-              }
-            }),
-          }}
-        />
-
-        <meta name="theme-color" content="#000000" id="theme-color" />
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-        >{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-BN6R2GDMJL');
-        `}</Script>
-        <meta name="p:domain_verify" content="753accdb8bdcd06f483d29b75b607b8b" />
       </head>
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${inter.className} bg-gray-100 text-gray-900 antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${inter.className} antialiased bg-gray-100 text-gray-900`}
       >
-
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBK7XNSM"
-          height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe></noscript>
-
-
-        <Header />
-
-        <LoadingProvider>
-
-          <Loader />
-          <main className="min-h-screen">
-            <br />
-            <br />
-            {children}
-            <ChatWidget />
-            <Analytics />
-          </main>
-          <RedesFlotantes />
-
-          <Footer />
-        </LoadingProvider>
+        {children}
       </body>
     </html>
   );
 }
-

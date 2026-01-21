@@ -1,5 +1,5 @@
 // app/admin/chat/page.tsx
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/app/(site)/api/auth/[...nextauth]/route';
 import { getServerSession } from 'next-auth/next';
 import { redirect } from 'next/navigation';
 import AdminChatClient from './AdminChatClient';
