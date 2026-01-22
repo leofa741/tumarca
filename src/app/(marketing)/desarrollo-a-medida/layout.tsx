@@ -1,3 +1,6 @@
+import Script from 'next/script';
+import { Metadata } from "next";
+
 export const metadata = {
   title: 'Desarrollo de Software a Medida | Soluciones Digitales para Empresas',
   description:
@@ -5,5 +8,24 @@ export const metadata = {
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return <>
+      {/* Google Ads Global Tag */}
+   
+  <Script
+        src="https://www.googletagmanager.com/gtag/js?id=AW-17893506096"
+        strategy="afterInteractive"
+      />
+      <Script id="google-ads-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-17893506096');
+        `}
+      </Script>
+
+      <main className="min-h-screen bg-white">
+        {children}
+      </main>
+    </>;
 }
