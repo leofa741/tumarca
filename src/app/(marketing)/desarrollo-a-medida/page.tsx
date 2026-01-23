@@ -19,7 +19,7 @@ export default function DesarrolloAMedidaLanding() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white">
-      
+
       {/* HERO CON DOLOR + SOLUCIÓN */}
       <section className="relative px-6 py-28 max-w-7xl mx-auto">
         <motion.div
@@ -39,7 +39,7 @@ export default function DesarrolloAMedidaLanding() {
             </h1>
 
             <p className="text-gray-300 text-lg mb-8 max-w-xl">
-              Desarrollamos soluciones digitales a medida que resuelven problemas reales — 
+              Desarrollamos soluciones digitales a medida que resuelven problemas reales —
               <span className="text-amber-500 font-bold"> listas en 15 días.</span>
             </p>
 
@@ -55,7 +55,7 @@ export default function DesarrolloAMedidaLanding() {
                   <li>• Gastás horas en tareas manuales</li>
                 </ul>
               </div>
-              
+
               <div className="bg-green-900/20 border border-green-700/50 p-4 rounded-xl">
                 <h4 className="font-bold text-green-400 mb-2 flex items-center gap-2">
                   <CheckCircle size={16} /> Después
@@ -70,7 +70,7 @@ export default function DesarrolloAMedidaLanding() {
 
             {/* BENEFICIOS CLAVE */}
             <div className="flex flex-wrap gap-4 mb-10">
-       
+
               <span className="bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full text-sm">Pago 50% al inicio</span>
               <span className="bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full text-sm">Pago 50% al entregar</span>
               <span className="bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full text-sm">Garantía 100%</span>
@@ -85,12 +85,11 @@ export default function DesarrolloAMedidaLanding() {
             >
               Enviar consulta   <ArrowRight size={20} />
             </motion.button>
-            
+
             <p className="text-xs text-gray-500 mt-3">Solo 3 cupos disponibles este mes</p>
           </div>
-
           {/* FORM */}
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl">
+          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl" id="contact">
             <h2 className="text-2xl font-bold mb-6">Contanos tu proyecto</h2>
             <FormContactLanding />
           </div>
@@ -101,10 +100,10 @@ export default function DesarrolloAMedidaLanding() {
       <section className="px-6 py-24 bg-gradient-to-r from-amber-900/10 to-orange-900/10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8">Lo que dicen quienes ya lo usan</h2>
-          
+
           <div className="bg-white/5 backdrop-blur-sm border border-amber-500/30 rounded-2xl p-8">
             <p className="text-xl italic mb-6">
-              "Pasé de perder clientes por desorganización a tener todo controlado en un solo lugar. 
+              "Pasé de perder clientes por desorganización a tener todo controlado en un solo lugar.
               En 10 días tenía mi sistema funcionando y ya generé mis primeras ventas."
             </p>
             <p className="font-bold">— María G., Emprendedora de moda premium</p>
@@ -162,13 +161,13 @@ export default function DesarrolloAMedidaLanding() {
       <section className="px-6 py-24 bg-gradient-to-r from-blue-900/20 to-purple-900/20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Ejemplo real: Asistente IA para Coaching</h2>
-          
+
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white/5 p-6 rounded-xl">
               <h3 className="font-bold mb-3 text-amber-400">Usuario pregunta:</h3>
               <p className="text-gray-300">"Necesito un mensaje para retener a un cliente indeciso."</p>
             </div>
-            
+
             <div className="bg-amber-900/20 p-6 rounded-xl">
               <h3 className="font-bold mb-3 text-green-400">IA responde (tu tono):</h3>
               <p className="text-gray-300">
@@ -176,7 +175,7 @@ export default function DesarrolloAMedidaLanding() {
               </p>
             </div>
           </div>
-          
+
           <div className="mt-8 text-center text-sm text-gray-400">
             ✅ Entrenado con tus textos • ✅ Sin salir de tu marca • ✅ Integrado a tu web o app
           </div>
@@ -201,7 +200,7 @@ export default function DesarrolloAMedidaLanding() {
           >
             Solicitar consulta sin costo → <ArrowRight size={20} />
           </motion.button>
-          
+
           <p className="text-xs text-gray-500 mt-4">Incluye auditoría técnica gratuita + plan de implementación</p>
         </div>
       </section>
