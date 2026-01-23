@@ -1,5 +1,6 @@
 import Script from 'next/script';
 import { Metadata } from "next";
+import ChatWidget from "@/components/chatwidget/ChatWidget";
 
 export const metadata: Metadata = {
   title: 'Sistema de Gestión Premium | Tu Marca AR',
@@ -29,6 +30,7 @@ export default function MarketingLayout({
 
       <main className="min-h-screen bg-white">
         {children}
+          <ChatWidget />
       </main>
     </>
   );
