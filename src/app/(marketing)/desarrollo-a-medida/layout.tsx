@@ -9,23 +9,24 @@ export const metadata = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>
-      {/* Google Ads Global Tag */}
-   
-  <Script
-        src="https://www.googletagmanager.com/gtag/js?id=AW-17893506096"
-        strategy="afterInteractive"
-      />
-      <Script id="google-ads-init" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'AW-17893506096');
-        `}
-      </Script>
+    {/* Google Ads Global Tag */}
 
-      <main className="min-h-screen bg-white">
-        {children}
-      </main>
-    </>;
+
+    <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-17893506096">
+    </Script>
+    <Script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        // @ts-ignore
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'AW-17893506096');
+    </Script>
+
+    <main className="min-h-screen bg-white">
+      {children}
+    </main>
+  </>;
 }
