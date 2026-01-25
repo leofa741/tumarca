@@ -1,9 +1,10 @@
 // app/api/auth/[...nextauth]/route.ts
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import { ADMIN_EMAILS } from "@/lib/admins"; // ← importa la lista
 
 export const authOptions = {
-  secret: process.env.NEXTAUTH_SECRET, // ← 🔑 ESTA LÍNEA ES OBLIGATORIA
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -12,10 +13,8 @@ export const authOptions = {
   ],
   callbacks: {
     async signIn({ user }: { user: any }) {
-      console.log("🔐 NEXTAUTH_SECRET presente:", !!process.env.NEXTAUTH_SECRET);
       console.log("📧 Correo de Google:", user.email);
-      const allowedEmails = ["rotafelipexx1@gmail.com"];
-      return allowedEmails.includes(user.email);
+      return ADMIN_EMAILS.includes(user.email);
     },
   },
   pages: {
