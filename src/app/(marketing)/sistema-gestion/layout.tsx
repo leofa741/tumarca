@@ -3,8 +3,8 @@ import { Metadata } from "next";
 import ChatWidget from "@/components/chatwidget/ChatWidget";
 
 export const metadata: Metadata = {
-  title: 'Sistema de Gestión Premium | Tu Marca AR',
-  description: 'Dashboard + catálogo + escalabilidad. Listo en 10 días. Garantía 100%. Reservá tu demo GRATIS.',
+  title: 'Sistema de Gestión | Tu Marca AR',
+  description: 'Dashboard + catálogo + escalabilidad. Garantía 100%',
 };
 
 export default function MarketingLayout({
