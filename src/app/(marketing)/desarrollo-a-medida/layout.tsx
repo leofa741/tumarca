@@ -1,4 +1,5 @@
 // app/layout.tsx
+import ChatWidget from '@/components/chatwidget/ChatWidget';
 import Script from 'next/script';
 
 export const metadata = {
@@ -44,7 +45,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         `}
       </Script>
 
-      <main className="min-h-screen bg-white">{children}</main>
+      <main className="min-h-screen bg-white">
+        {children}
+        <ChatWidget />
+      </main>
     </>
   );
 }
