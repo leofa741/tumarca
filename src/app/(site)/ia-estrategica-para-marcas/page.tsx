@@ -3,6 +3,7 @@
 import { Playfair_Display } from 'next/font/google';
 import { Brain, Zap, Bot, Sparkles, Target, MessageSquare, Cpu, Rocket } from 'lucide-react';
 import type { Metadata } from "next";
+import VisitTracker from '@/app/(marketing)/components/VisitTracker';
 
 
 
@@ -48,6 +49,9 @@ export default function IAServicePage() {
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
       <section className="container mx-auto px-6 py-24 md:py-32 text-center">
+         <VisitTracker
+                pageName="ia-estrategica-para-marcas"
+              />
         <div className="inline-block mb-6">
           <span className="px-5 py-2 bg-gradient-to-r from-violet-600 to-amber-500 text-white text-sm font-bold rounded-full">
             🔮 NUEVO SERVICIO 2025

@@ -6,6 +6,7 @@ import ValorDestacado from '@/components/ValorDestacado';
 import AplicacionesAMedida from '@/components/AplicacionesAMedida';
 import ServicioSEO from '@/components/ServicioSEO';
 import AplicacionesIA from '@/components/AplicacionesIA';
+import VisitTracker from '../(marketing)/components/VisitTracker';
 
 
 
@@ -21,6 +22,9 @@ export default function Home() {
     <>
       {/* Sección principal: Hero con texto e imagen */}
       <section id="intro" className="*:relative text-white py-20">
+         <VisitTracker
+                pageName="home" 
+              />
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 animate-fadeIn"
           style={{ animationDelay: '0.2s', letterSpacing: '-0.02em' }}>
           Creamos sitios web modernos que generan clientes para tu negocio

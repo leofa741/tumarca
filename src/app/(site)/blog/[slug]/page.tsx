@@ -6,6 +6,7 @@ import posts from '@/lib/posts';
 import { ArrowLeft } from 'lucide-react';
 import type { Metadata } from 'next';
 import NewsletterCTA from '@/components/NewsletterCTA';
+import VisitTracker from '@/app/(marketing)/components/VisitTracker';
 
 // Configuración de la fuente
 const playfair = Playfair_Display({
@@ -66,7 +67,9 @@ export default async function PostPage({
       >
         <ArrowLeft size={16} className="mr-1" /> Volver al blog
       </Link>
-
+ <VisitTracker
+        pageName="blog"
+      />
       {/* Encabezado del artículo */}
       <header className="mb-10">
         <div className="flex items-center gap-3 mb-4">

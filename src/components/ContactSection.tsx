@@ -1,12 +1,15 @@
 // components/ContactSection.tsx
 import { Mail, Phone, MessageSquare, Clock } from 'lucide-react';
 import FormContact from './FormContact';
+import VisitTracker from '@/app/(marketing)/components/VisitTracker';
 
 export default function ContactSection() {
   return (
     <section className="container mx-auto px-6 py-20 md:py-28 lg:py-36">
       <div className="max-w-4xl mx-auto text-center space-y-8">
-        {/* Título */}
+        {/* Título */} <VisitTracker
+                pageName="contact" 
+              />
         <h2 className="text-4xl md:text-6xl font-semibold text-white">
           Estamos listos para ayudarte
         </h2>

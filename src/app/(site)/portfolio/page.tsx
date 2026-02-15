@@ -6,6 +6,7 @@ import type { Metadata } from 'next';
 import projects from '@/lib/portfolio';
 import AplicacionesAMedida from '@/components/AplicacionesAMedida';
 import ServicioSEO from '@/components/ServicioSEO';
+import VisitTracker from '@/app/(marketing)/components/VisitTracker';
 
 export const metadata: Metadata = {
   title: 'Portfolio | Tu Marca AR',
@@ -31,6 +32,9 @@ export default function PortfolioPage() {
   return (
     <>
       <section className="container mx-auto px-6 py-16 md:py-24 lg:py-32">
+         <VisitTracker
+                pageName="portfolio"  
+              />
         {/* Encabezado */}
         <div className="max-w-4xl mx-auto text-center space-y-6 mb-16">
           <h1 className="text-4xl md:text-6xl font-bold text-white">

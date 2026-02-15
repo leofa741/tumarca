@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import VisitTracker from '@/app/(marketing)/components/VisitTracker';
 
 export const metadata: Metadata = {
     title: "Desarrollo Web Empresarial | TuMarca",
@@ -9,6 +10,9 @@ export default function DesarrolloWebPage() {
     return (
         <>
             <section className="max-w-5xl mx-auto px-6 py-16 md:py-24 text-center">
+                <VisitTracker
+                pageName="desarrollo-web"
+              />
                 <h1 className="text-4xl md:text-6xl font-bold text-gray-200 dark:text-white mb-6 leading-tight">
                     Desarrollo Web que Impulsa tu Negocio
                 </h1>

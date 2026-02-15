@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import VisitTracker from '@/app/(marketing)/components/VisitTracker';
 
 export const metadata: Metadata = {
   title: "Machine Learning para Negocios | Transforme Datos en Ventaja Competitiva",
@@ -11,6 +12,9 @@ export default function MLForBusinessPage() {
     <main className="container mx-auto px-6 py-20 md:py-28 lg:py-32">
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-6 py-20 md:py-28 text-center">
+         <VisitTracker
+                pageName="machine-learning"  
+              />
         <h1 className="text-3xl md:text-5xl font-bold text-gray-200 dark:text-white leading-tight mb-6">
           Machine Learning para Negocios Reales: Decida con Datos, No con Corazonadas
         </h1>

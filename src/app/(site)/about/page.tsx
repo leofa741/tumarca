@@ -6,6 +6,7 @@ import { Star, Target, Lightbulb, Heart, Award } from 'lucide-react';
 import type { Metadata } from "next";
 import AplicacionesAMedida from '@/components/AplicacionesAMedida';
 import ServicioSEO from '@/components/ServicioSEO';
+import VisitTracker from '@/app/(marketing)/components/VisitTracker';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -35,6 +36,9 @@ export default function AboutPage() {
       <section className="container mx-auto px-6 py-16 md:py-24 lg:py-32">
         {/* Sección principal: Presentación */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+           <VisitTracker
+                  pageName="about"
+                />
           <div className="space-y-8">
             <span className="text-amber-500 text-sm uppercase tracking-widest font-semibold">
               Conocé al equipo
