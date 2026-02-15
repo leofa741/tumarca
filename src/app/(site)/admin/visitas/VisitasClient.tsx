@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import { format } from 'date-fns';
+import Image from 'next/image';
 import { signOut } from 'next-auth/react';
 
 async function getStats() {
@@ -99,6 +100,25 @@ export default function VisitasClient() {
   return (
     <div className="min-h-screen bg-black text-white p-10">
       <h1 className="text-3xl font-bold mb-10">📊 Dashboard Analytics</h1>
+      <br />
+               <div className="flex items-center space-x-2">
+                         <a href="/admin/chat">
+                           <Image
+                             src="/marca-2-ar-removebg.png"
+                             width={70}
+                             height={70}
+                             priority
+                             loading="eager"
+                             draggable="false"
+                             quality={100}
+                             placeholder="blur"
+                             blurDataURL="/marca-2-ar-removebg.png"
+                             alt="TU.MARCA.AR Logo"
+                             className="w-16 h-16 rounded-full object-cover "
+                           />
+                       
+                         </a>
+                       </div>
        {/* Botón Cerrar Sesión */}
           <button
             onClick={logout}

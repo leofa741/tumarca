@@ -4,7 +4,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { io, Socket } from 'socket.io-client';
 import { signOut } from 'next-auth/react';
-import { Link } from 'lucide-react';
+
 import Image from 'next/image';
 
 interface Message {
