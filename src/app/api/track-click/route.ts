@@ -45,6 +45,7 @@ export async function POST(request: Request) {
 /* =========================
    STATS CLICKS
 ========================= */
+// app/api/track-click/route.ts
 export async function GET() {
   await connectDB();
 

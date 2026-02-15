@@ -2,15 +2,25 @@
 import { format } from "date-fns";
 
 async function getStats() {
-  const resVisits = await fetch(`${process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000"}/api/visits`, {
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  
+  console.log('Base URL:', baseUrl);
+  console.log('Fetching visits from:', `${baseUrl}/api/visits`);
+  console.log('Fetching clicks from:', `${baseUrl}/api/track-click`);
+
+  const resVisits = await fetch(`${baseUrl}/api/visits`, {
     cache: "no-store",
   });
 
-  const resClicks = await fetch(`${process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000"}/api/track-click`, {
+  const resClicks = await fetch(`${baseUrl}/api/track-click`, {
     cache: "no-store",
   });
+
+  console.log('Visits status:', resVisits.status);
+  console.log('Clicks status:', resClicks.status);
 
   if (!resVisits.ok || !resClicks.ok) {
+    console.error('Error fetching stats');
     return {
       visits: { today: 0, total: 0 },
       clicks: { today: 0, total: 0, breakdown: [] },
@@ -19,6 +29,9 @@ async function getStats() {
 
   const visits = await resVisits.json();
   const clicks = await resClicks.json();
+
+  console.log('Visits data:', visits);
+  console.log('Clicks data:', clicks);
 
   return { visits, clicks };
 }
