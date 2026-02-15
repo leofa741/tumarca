@@ -2,7 +2,7 @@
 import { format } from "date-fns";
 
 async function getStats() {
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
   
   console.log('Base URL:', baseUrl);
   console.log('Fetching visits from:', `${baseUrl}/api/visits`);
