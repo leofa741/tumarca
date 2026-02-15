@@ -142,13 +142,29 @@ const GymAccessLanding = () => {
 
             {/* CTA secundario */}
             <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
-              className="mt-6 bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={async () => {
+                // Track click inline
+                try {
+                  await fetch('/api/track-click', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                      eventName: 'hero_consultar',
+                      section: 'hero',
+                      button: 'consultar'
+                    }),
+                  });
+                  console.log('✅ Clic trackeado: hero_consultar');
+                } catch (error) {
+                  console.error('Error trackeando clic:', error);
+                }
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl"
             >
-              Solicitar demostración gratuita
-              <ArrowRight size={20} />
+              Consultar →
             </motion.button>
 
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
@@ -379,11 +395,27 @@ const GymAccessLanding = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-white text-blue-700 px-10 py-5 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all flex items-center justify-center mx-auto gap-2"
+            onClick={async () => {
+              // Track click inline
+              try {
+                await fetch('/api/track-click', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    eventName: 'hero_consultar',
+                    section: 'hero',
+                    button: 'consultar'
+                  }),
+                });
+                console.log('✅ Clic trackeado: hero_consultar');
+              } catch (error) {
+                console.error('Error trackeando clic:', error);
+              }
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl"
           >
-            Solicitar consulta sin costo
-            <ArrowRight size={22} />
+            Consultar →
           </motion.button>
 
           <p className="text-sm opacity-80 mt-6 max-w-md mx-auto">

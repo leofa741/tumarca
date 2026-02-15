@@ -25,9 +25,9 @@ export default function SistemaGestionPage() {
 
       {/* HERO CON DOLOR REAL */}
       <section className="relative overflow-hidden">
-         {/* TRACKERS */}
-      <VisitTracker pageName="sistema-gestion-landing" />
-      <VisitCounter />
+        {/* TRACKERS */}
+        <VisitTracker pageName="sistema-gestion-landing" />
+        <VisitCounter />
         <div className="absolute inset-0 bg-gradient-to-br from-amber-400/20 to-orange-600/20" />
         <div className="relative max-w-6xl mx-auto px-4 py-28 text-center">
 
@@ -41,7 +41,7 @@ export default function SistemaGestionPage() {
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto">
-            Sistema de Gestión Premium para PyMEs que quieren escalar sin caos.  
+            Sistema de Gestión Premium para PyMEs que quieren escalar sin caos.
             <span className="text-amber-600 font-bold"> Listo en 15 días · Pago al 50% al inicio · Pago al 50% al final.</span>
           </p>
 
@@ -65,8 +65,22 @@ export default function SistemaGestionPage() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => {
-                trackClick('hero_consultar', { section: 'hero', button: 'consultar' });
+              onClick={async () => {
+                // Track click inline
+                try {
+                  await fetch('/api/track-click', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                      eventName: 'hero_consultar',
+                      section: 'hero',
+                      button: 'consultar'
+                    }),
+                  });
+                  console.log('✅ Clic trackeado: hero_consultar');
+                } catch (error) {
+                  console.error('Error trackeando clic:', error);
+                }
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }}
               className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl"
@@ -77,14 +91,29 @@ export default function SistemaGestionPage() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => {
-                trackClick('hero_whatsapp', { section: 'hero', button: 'whatsapp' });
+              onClick={async () => {
+                // Track click inline
+                try {
+                  await fetch('/api/track-click', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                      eventName: 'hero_whatsapp',
+                      section: 'hero',
+                      button: 'whatsapp'
+                    }),
+                  });
+                  console.log('✅ Clic trackeado: hero_whatsapp');
+                } catch (error) {
+                  console.error('Error trackeando clic:', error);
+                }
                 window.open('https://wa.me/5491141461312', '_blank');
               }}
               className="border-2 border-amber-500 text-amber-600 dark:text-amber-400 px-8 py-4 rounded-xl font-bold text-lg hover:bg-amber-500/10"
             >
               Consultar por WhatsApp
             </motion.button>
+
           </div>
 
           <p className="mt-4 text-sm text-gray-500">Incluye auditoría técnica gratuita + plan de implementación</p>
@@ -94,7 +123,7 @@ export default function SistemaGestionPage() {
       {/* ANTES / DESPUÉS VISUAL */}
       <section className="py-24 max-w-6xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-16">Deja de adivinar, empieza a controlar</h2>
-        
+
         <div className="grid md:grid-cols-2 gap-8">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -124,7 +153,7 @@ export default function SistemaGestionPage() {
               </li>
             </ul>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -160,7 +189,7 @@ export default function SistemaGestionPage() {
       <section className="py-24 bg-gray-50 dark:bg-gray-800/50">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-16">Todo lo que necesitás, en un solo lugar</h2>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
@@ -229,7 +258,7 @@ export default function SistemaGestionPage() {
       {/* CASO DE ÉXITO REAL */}
       <section className="py-24 max-w-4xl mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold mb-8">Ejemplo real: Asistente IA para Coaching</h2>
-        
+
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -281,7 +310,7 @@ export default function SistemaGestionPage() {
             </li>
           </ul>
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -340,27 +369,41 @@ export default function SistemaGestionPage() {
         <div className="relative max-w-4xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-4">¿Listo para transformar tu negocio?</h2>
           <p className="text-xl mb-8">Solo 3 cupos disponibles este mes — Cada sistema se personaliza 100% para tu negocio.</p>
-          
+
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              trackClick('footer_consultar', { section: 'footer', button: 'consultar' });
+            onClick={async () => {
+              // Track click inline
+              try {
+                await fetch('/api/track-click', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    eventName: 'hero_consultar',
+                    section: 'hero',
+                    button: 'consultar'
+                  }),
+                });
+                console.log('✅ Clic trackeado: hero_consultar');
+              } catch (error) {
+                console.error('Error trackeando clic:', error);
+              }
               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="bg-black px-12 py-5 rounded-xl text-xl font-bold shadow-2xl"
+            className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl"
           >
-            Consultar  →
+            Consultar →
           </motion.button>
-          
+
           <p className="mt-6 text-sm">
             Incluye plan de escalabilidad, soporte premium 3 meses y garantía de satisfacción
           </p>
-          
+
           <div className="mt-12 flex flex-wrap justify-center gap-8 text-white/80">
             <div className="flex items-center gap-2">
               <Clock size={20} />
-              Listo en 15 días hábiles  
+              Listo en 15 días hábiles
             </div>
             <div className="flex items-center gap-2">
               <Shield size={20} />
@@ -374,7 +417,7 @@ export default function SistemaGestionPage() {
         </div>
       </section>
 
-     
+
 
     </div>
   );

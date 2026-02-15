@@ -88,11 +88,55 @@ export default function DesarrolloAMedidaLanding() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl flex items-center gap-2"
+              onClick={async () => {
+                // Track click inline
+                try {
+                  await fetch('/api/track-click', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                      eventName: 'hero_consultar',
+                      section: 'hero',
+                      button: 'consultar'
+                    }),
+                  });
+                  console.log('✅ Clic trackeado: hero_consultar');
+                } catch (error) {
+                  console.error('Error trackeando clic:', error);
+                }
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl"
             >
-              Enviar consulta   <ArrowRight size={20} />
+              Consultar →
             </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={async () => {
+                // Track click inline
+                try {
+                  await fetch('/api/track-click', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                      eventName: 'hero_whatsapp',
+                      section: 'hero',
+                      button: 'whatsapp'
+                    }),
+                  });
+                  console.log('✅ Clic trackeado: hero_whatsapp');
+                } catch (error) {
+                  console.error('Error trackeando clic:', error);
+                }
+                window.open('https://wa.me/5491141461312', '_blank');
+              }}
+              className="border-2 border-amber-500 text-amber-600 dark:text-amber-400 px-8 py-4 rounded-xl font-bold text-lg hover:bg-amber-500/10"
+            >
+              Consultar por WhatsApp
+            </motion.button>
+
 
             <p className="text-xs text-gray-500 mt-3">Solo 3 cupos disponibles este mes</p>
           </div>
@@ -200,31 +244,31 @@ export default function DesarrolloAMedidaLanding() {
             Analizamos tu caso y te proponemos una solución realista, escalable y eficiente.
           </p>
 
-       <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={async () => {
-          // Track click inline
-          try {
-            await fetch('/api/track-click', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                eventName: 'hero_consultar',
-                section: 'hero',
-                button: 'consultar'
-              }),
-            });
-            console.log('✅ Clic trackeado: hero_consultar');
-          } catch (error) {
-            console.error('Error trackeando clic:', error);
-          }
-          document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-        }}
-        className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl"
-      >
-        Consultar →
-      </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={async () => {
+              // Track click inline
+              try {
+                await fetch('/api/track-click', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    eventName: 'hero_consultar',
+                    section: 'hero',
+                    button: 'consultar'
+                  }),
+                });
+                console.log('✅ Clic trackeado: hero_consultar');
+              } catch (error) {
+                console.error('Error trackeando clic:', error);
+              }
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl"
+          >
+            Consultar →
+          </motion.button>
           <p className="text-xs text-gray-500 mt-4">Incluye auditoría técnica gratuita + plan de implementación</p>
         </div>
       </section>
@@ -237,33 +281,8 @@ export default function DesarrolloAMedidaLanding() {
 
 
 
-      
 
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={async () => {
-          // Track click inline
-          try {
-            await fetch('/api/track-click', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                eventName: 'hero_whatsapp',
-                section: 'hero',
-                button: 'whatsapp'
-              }),
-            });
-            console.log('✅ Clic trackeado: hero_whatsapp');
-          } catch (error) {
-            console.error('Error trackeando clic:', error);
-          }
-          window.open('https://wa.me/5491141461312', '_blank');
-        }}
-        className="border-2 border-amber-500 text-amber-600 dark:text-amber-400 px-8 py-4 rounded-xl font-bold text-lg hover:bg-amber-500/10"
-      >
-        Consultar por WhatsApp
-      </motion.button>
+
 
 
       <motion.button
