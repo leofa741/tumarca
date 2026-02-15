@@ -1,4 +1,3 @@
-// app/(marketing)/visitas/page.tsx
 import { format } from "date-fns";
 
 async function getStats() {
@@ -22,7 +21,7 @@ async function getStats() {
   if (!resVisits.ok || !resClicks.ok) {
     console.error('Error fetching stats');
     return {
-      visits: { today: 0, total: 0 },
+      visits: { today: 0, total: 0, breakdown: [] },
       clicks: { today: 0, total: 0, breakdown: [] },
     };
   }
@@ -43,11 +42,11 @@ export default async function VisitasPage() {
   const totalVisits = visits.total || 0;
   const todayClicks = clicks.today || 0;
   const totalClicks = clicks.total || 0;
+  const visitBreakdown = visits.breakdown || [];
+  const clickBreakdown = clicks.breakdown || [];
 
   const conversionRate =
     totalVisits > 0 ? ((totalClicks / totalVisits) * 100).toFixed(2) : "0";
-
-  const breakdown = clicks.breakdown || [];
 
   return (
     <div className="min-h-screen bg-black text-white p-10">
@@ -61,22 +60,57 @@ export default async function VisitasPage() {
         <Stat title="CONVERSIÓN" value={`${conversionRate}%`} />
       </div>
 
-      <div className="bg-gray-900 rounded-xl p-6">
-        <h2 className="text-xl font-bold mb-4">Top eventos</h2>
+      {/* ✅ NUEVO: Desglose de visitas por página */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div className="bg-gray-900 rounded-xl p-6">
+          <h2 className="text-xl font-bold mb-4">👁️ Visitas por página (hoy)</h2>
 
-        {breakdown.length === 0 ? (
-          <p className="text-gray-400">Sin clics registrados</p>
-        ) : (
-          breakdown.map((item: any) => (
-            <div
-              key={item._id}
-              className="flex justify-between border-b border-gray-800 py-3"
-            >
-              <span>{item.eventName} / {item.button}</span>
-              <span className="font-bold">{item.count}</span>
+          {visitBreakdown.length === 0 ? (
+            <p className="text-gray-400">Sin visitas registradas hoy</p>
+          ) : (
+            <div className="space-y-3">
+              {visitBreakdown.map((item: any, index: number) => (
+                <div
+                  key={index}
+                  className="flex justify-between items-center border-b border-gray-800 py-3"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-amber-400 font-bold">{index + 1}</span>
+                    <span className="text-gray-300">{item.page}</span>
+                  </div>
+                  <span className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+                    {item.count}
+                  </span>
+                </div>
+              ))}
             </div>
-          ))
-        )}
+          )}
+        </div>
+
+        <div className="bg-gray-900 rounded-xl p-6">
+          <h2 className="text-xl font-bold mb-4">🖱️ Top eventos clics</h2>
+
+          {clickBreakdown.length === 0 ? (
+            <p className="text-gray-400">Sin clics registrados</p>
+          ) : (
+            <div className="space-y-3">
+              {clickBreakdown.map((item: any, index: number) => (
+                <div
+                  key={index}
+                  className="flex justify-between items-center border-b border-gray-800 py-3"
+                >
+                  <div className="flex flex-col">
+                    <span className="text-gray-300 text-sm">{item.eventName}</span>
+                    <span className="text-gray-500 text-xs">{item.button}</span>
+                  </div>
+                  <span className="text-xl font-bold text-blue-400">
+                    {item.count}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="mt-10 text-sm text-gray-500">
