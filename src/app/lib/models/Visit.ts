@@ -1,13 +1,13 @@
 // models/Visit.ts
-
-
 import mongoose from "mongoose";
 
 const VisitSchema = new mongoose.Schema({
-  date: String,
-  page: String,
+  date: { type: String, required: true },
+  page: { type: String, required: true },
   count: { type: Number, default: 0 },
 });
 
-export default mongoose.models.Visit || mongoose.model("Visit", VisitSchema);
+// ✅ Índice compuesto único
+VisitSchema.index({ date: 1, page: 1 }, { unique: true });
 
+export default mongoose.models.Visit || mongoose.model("Visit", VisitSchema);

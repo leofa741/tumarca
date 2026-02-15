@@ -20,13 +20,15 @@ export async function POST(req: Request) {
       { upsert: true }
     );
 
-    const totals = await Visit.aggregate([
-      { $group: { _id: null, total: { $sum: "$count" } } }
-    ]);
-
-    const today = await Visit.aggregate([
-      { $match: { date } },
-      { $group: { _id: null, total: { $sum: "$count" } } }
+    // ✅ Optimización: una sola agregación para ambos valores
+    const [totals, today] = await Promise.all([
+      Visit.aggregate([
+        { $group: { _id: null, total: { $sum: "$count" } } }
+      ]),
+      Visit.aggregate([
+        { $match: { date } },
+        { $group: { _id: null, total: { $sum: "$count" } } }
+      ])
     ]);
 
     return new Response(
@@ -50,16 +52,21 @@ export async function GET() {
     await connectDB();
     const date = todayStr();
 
-    const totals = await Visit.aggregate([
-      { $group: { _id: null, total: { $sum: "$count" } } }
+    // ✅ Corregido: usa agregación para sumar todas las páginas de hoy
+    const [totals, today] = await Promise.all([
+      Visit.aggregate([
+        { $group: { _id: null, total: { $sum: "$count" } } }
+      ]),
+      Visit.aggregate([
+        { $match: { date } },
+        { $group: { _id: null, total: { $sum: "$count" } } }
+      ])
     ]);
-
-    const today = await Visit.findOne({ date });
 
     return new Response(
       JSON.stringify({
         total: totals[0]?.total || 0,
-        today: today?.count || 0,
+        today: today[0]?.total || 0,
       }),
       { status: 200, headers: { "Content-Type": "application/json" } }
     );
