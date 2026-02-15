@@ -6,16 +6,14 @@ function todayStr() {
   return d.toISOString().slice(0, 10);
 }
 
-/* =========================
-   SUMAR VISITA
-========================= */
-export async function POST() {
+export async function POST(req: Request) {
   await connectDB();
 
+  const { pageName } = await req.json(); // 👈 leer lo que manda el cliente
   const date = todayStr();
 
   await Visit.updateOne(
-    { date },
+    { date, page: pageName }, // 👈 ahora separa por página
     { $inc: { count: 1 } },
     { upsert: true }
   );
@@ -24,13 +22,17 @@ export async function POST() {
     { $group: { _id: null, total: { $sum: "$count" } } }
   ]);
 
-  const today = await Visit.findOne({ date });
+  const today = await Visit.aggregate([
+    { $match: { date } },
+    { $group: { _id: null, total: { $sum: "$count" } } }
+  ]);
 
   return Response.json({
     total: totals[0]?.total || 0,
-    today: today?.count || 0,
+    today: today[0]?.total || 0,
   });
 }
+
 
 /* =========================
    OBTENER STATS

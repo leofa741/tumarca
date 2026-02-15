@@ -200,28 +200,7 @@ export default function DesarrolloAMedidaLanding() {
             Analizamos tu caso y te proponemos una solución realista, escalable y eficiente.
           </p>
 
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-gradient-to-r from-amber-500 to-orange-600 px-10 py-5 rounded-xl font-bold text-lg shadow-xl flex items-center gap-2 mx-auto"
-          >
-            Solicitar consulta sin costo → <ArrowRight size={20} />
-          </motion.button>
-
-          <p className="text-xs text-gray-500 mt-4">Incluye auditoría técnica gratuita + plan de implementación</p>
-        </div>
-      </section>
-
-      {/* FOOTER SIMPLE */}
-      <footer className="py-8 border-t border-gray-800 text-center text-gray-500 text-sm">
-        © {new Date().getFullYear()} Tu Marca AR — Soluciones digitales premium para emprendedores exigentes
-      </footer>º
-
-
-
-
-      <motion.button
+       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={async () => {
@@ -246,6 +225,19 @@ export default function DesarrolloAMedidaLanding() {
       >
         Consultar →
       </motion.button>
+          <p className="text-xs text-gray-500 mt-4">Incluye auditoría técnica gratuita + plan de implementación</p>
+        </div>
+      </section>
+
+      {/* FOOTER SIMPLE */}
+      <footer className="py-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+        © {new Date().getFullYear()} Tu Marca AR — Soluciones digitales premium para emprendedores exigentes
+      </footer>º
+
+
+
+
+      
 
       <motion.button
         whileHover={{ scale: 1.05 }}

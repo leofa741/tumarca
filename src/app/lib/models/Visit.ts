@@ -1,9 +1,13 @@
 // models/Visit.ts
-import mongoose, { Schema, models, model } from 'mongoose';
 
-const VisitSchema = new Schema({
-  date: { type: String, required: true, unique: true }, // YYYY-MM-DD
+
+import mongoose from "mongoose";
+
+const VisitSchema = new mongoose.Schema({
+  date: String,
+  page: String,
   count: { type: Number, default: 0 },
-}, { timestamps: true });
+});
 
-export default models.Visit || model('Visit', VisitSchema);
+export default mongoose.models.Visit || mongoose.model("Visit", VisitSchema);
+
