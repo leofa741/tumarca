@@ -52,21 +52,33 @@ export async function GET() {
     await connectDB();
     const date = todayStr();
 
-    // ✅ Corregido: usa agregación para sumar todas las páginas de hoy
-    const [totals, today] = await Promise.all([
+    // ✅ Obtiene totales + desglose por página
+    const [totals, todayTotal, breakdown] = await Promise.all([
       Visit.aggregate([
         { $group: { _id: null, total: { $sum: "$count" } } }
       ]),
       Visit.aggregate([
         { $match: { date } },
         { $group: { _id: null, total: { $sum: "$count" } } }
+      ]),
+      Visit.aggregate([
+        { $match: { date } },
+        { $sort: { count: -1 } },
+        { 
+          $project: { 
+            _id: 0, 
+            page: 1, 
+            count: 1 
+          } 
+        }
       ])
     ]);
 
     return new Response(
       JSON.stringify({
         total: totals[0]?.total || 0,
-        today: today[0]?.total || 0,
+        today: todayTotal[0]?.total || 0,
+        breakdown: breakdown // ✅ Nuevo: desglose por página
       }),
       { status: 200, headers: { "Content-Type": "application/json" } }
     );
