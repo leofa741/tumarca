@@ -7,6 +7,8 @@ import {
   CheckCircle, XCircle, ArrowRight, Shield, TrendingUp, 
   Users, Smartphone, BarChart2, Mail, Phone, Sun, Moon 
 } from 'lucide-react';
+import VisitCounter from '../components/VisitCounter';
+import VisitTracker from '../components/VisitTracker';
 
 const GymAccessLanding = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -427,6 +429,10 @@ const GymAccessLanding = () => {
           </div>
         </div>
       </footer>
+      <VisitCounter />
+      <VisitTracker 
+      pageName="sistema-de-control-de-acceso-para-gimnasios-landing"
+      />
     </div>
   );
 };

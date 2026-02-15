@@ -5,6 +5,10 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import FormContactLanding from '../components/FormContactLanding';
 import { CheckCircle, XCircle, ArrowRight } from 'lucide-react';
+import VisitCounter from '../components/VisitCounter';
+import VisitTracker from '../components/VisitTracker';
+import { trackClick } from '../components/clickTracker';
+
 
 export default function DesarrolloAMedidaLanding() {
   const [darkMode, setDarkMode] = useState(false);
@@ -208,7 +212,94 @@ export default function DesarrolloAMedidaLanding() {
       {/* FOOTER SIMPLE */}
       <footer className="py-8 border-t border-gray-800 text-center text-gray-500 text-sm">
         © {new Date().getFullYear()} Tu Marca AR — Soluciones digitales premium para emprendedores exigentes
-      </footer>
+      </footer>º
+      
+      <VisitCounter />
+            <VisitTracker 
+            pageName="desarrollo-a-medida-landing"
+            />
+
+
+<motion.button
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  onClick={async () => {
+    // Track click inline
+    try {
+      await fetch('/api/track-click', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          eventName: 'hero_consultar',
+          section: 'hero',
+          button: 'consultar'
+        }),
+      });
+      console.log('✅ Clic trackeado: hero_consultar');
+    } catch (error) {
+      console.error('Error trackeando clic:', error);
+    }
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  }}
+  className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl"
+>
+  Consultar →
+</motion.button>
+
+<motion.button
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  onClick={async () => {
+    // Track click inline
+    try {
+      await fetch('/api/track-click', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          eventName: 'hero_whatsapp',
+          section: 'hero',
+          button: 'whatsapp'
+        }),
+      });
+      console.log('✅ Clic trackeado: hero_whatsapp');
+    } catch (error) {
+      console.error('Error trackeando clic:', error);
+    }
+    window.open('https://wa.me/5491141461312', '_blank');
+  }}
+  className="border-2 border-amber-500 text-amber-600 dark:text-amber-400 px-8 py-4 rounded-xl font-bold text-lg hover:bg-amber-500/10"
+>
+  Consultar por WhatsApp
+</motion.button>
+
+
+<motion.button
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  onClick={async () => {
+    // Track click inline
+    try {
+      await fetch('/api/track-click', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          eventName: 'footer_consultar',
+          section: 'footer',
+          button: 'consultar'
+        }),
+      });
+      console.log('✅ Clic trackeado: footer_consultar');
+    } catch (error) {
+      console.error('Error trackeando clic:', error);
+    }
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  }}
+  className="bg-black px-12 py-5 rounded-xl text-xl font-bold shadow-2xl"
+>
+  Consultar →
+</motion.button>
+
+
     </main>
   );
 }

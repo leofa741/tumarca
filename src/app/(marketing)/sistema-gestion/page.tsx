@@ -5,6 +5,9 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import FormContactLanding from '../components/FormContactLanding';
 import { CheckCircle, XCircle, Clock, Shield, TrendingUp, BarChart3, Package, MessageSquare } from 'lucide-react';
+import VisitTracker from '../components/VisitTracker';
+import VisitCounter from '../components/VisitCounter';
+import { trackClick } from '../components/clickTracker';
 
 export default function SistemaGestionPage() {
   const [darkMode, setDarkMode] = useState(false);
@@ -59,7 +62,10 @@ export default function SistemaGestionPage() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => {
+                trackClick('hero_consultar', { section: 'hero', button: 'consultar' });
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl"
             >
               Consultar →
@@ -68,7 +74,10 @@ export default function SistemaGestionPage() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.open('https://wa.me/5491141461312', '_blank')}
+              onClick={() => {
+                trackClick('hero_whatsapp', { section: 'hero', button: 'whatsapp' });
+                window.open('https://wa.me/5491141461312', '_blank');
+              }}
               className="border-2 border-amber-500 text-amber-600 dark:text-amber-400 px-8 py-4 rounded-xl font-bold text-lg hover:bg-amber-500/10"
             >
               Consultar por WhatsApp
@@ -332,7 +341,10 @@ export default function SistemaGestionPage() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => {
+              trackClick('footer_consultar', { section: 'footer', button: 'consultar' });
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            }}
             className="bg-black px-12 py-5 rounded-xl text-xl font-bold shadow-2xl"
           >
             Consultar  →
@@ -358,6 +370,10 @@ export default function SistemaGestionPage() {
           </div>
         </div>
       </section>
+
+      {/* TRACKERS */}
+      <VisitTracker pageName="sistema-gestion-landing" />
+      <VisitCounter />
 
     </div>
   );
