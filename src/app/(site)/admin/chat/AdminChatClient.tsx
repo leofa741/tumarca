@@ -4,6 +4,8 @@
 import { useEffect, useState, useRef } from 'react';
 import { io, Socket } from 'socket.io-client';
 import { signOut } from 'next-auth/react';
+import { Link } from 'lucide-react';
+import Image from 'next/image';
 
 interface Message {
   _id: string;
@@ -174,6 +176,24 @@ export default function AdminChatClient() {
           Panel de Operador — Tu Marca AR
         </h1>
         <br />
+         <div className="flex items-center space-x-2">
+                   <a href="/admin/visitas">
+                     <Image
+                       src="/marca-2-ar-removebg.png"
+                       width={70}
+                       height={70}
+                       priority
+                       loading="eager"
+                       draggable="false"
+                       quality={100}
+                       placeholder="blur"
+                       blurDataURL="/marca-2-ar-removebg.png"
+                       alt="TU.MARCA.AR Logo"
+                       className="w-16 h-16 rounded-full object-cover "
+                     />
+                 
+                   </a>
+                 </div>
 
         <div className="flex justify-end gap-4 mb-6">
           {/* Botón Dark Mode */}

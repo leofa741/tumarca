@@ -1,43 +1,70 @@
-import { format } from "date-fns";
+// app/admin/visitas/VisitasClient.tsx
+'use client';
+
+import { useState, useEffect } from 'react';
+import { format } from 'date-fns';
+import { signOut } from 'next-auth/react';
 
 async function getStats() {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
   
-  console.log('Base URL:', baseUrl);
-  console.log('Fetching visits from:', `${baseUrl}/api/visits`);
-  console.log('Fetching clicks from:', `${baseUrl}/api/track-click`);
+  try {
+    const resVisits = await fetch(`${baseUrl}/api/visits`, {
+      cache: 'no-store',
+    });
 
-  const resVisits = await fetch(`${baseUrl}/api/visits`, {
-    cache: "no-store",
-  });
+    const resClicks = await fetch(`${baseUrl}/api/track-click`, {
+      cache: 'no-store',
+    });
 
-  const resClicks = await fetch(`${baseUrl}/api/track-click`, {
-    cache: "no-store",
-  });
+    if (!resVisits.ok || !resClicks.ok) {
+      throw new Error('Error fetching stats');
+    }
 
-  console.log('Visits status:', resVisits.status);
-  console.log('Clicks status:', resClicks.status);
+    const visits = await resVisits.json();
+    const clicks = await resClicks.json();
 
-  if (!resVisits.ok || !resClicks.ok) {
-    console.error('Error fetching stats');
+    return { visits, clicks };
+  } catch (error) {
+    console.error('Error fetching stats:', error);
     return {
       visits: { today: 0, total: 0, breakdown: [] },
       clicks: { today: 0, total: 0, breakdown: [] },
     };
   }
-
-  const visits = await resVisits.json();
-  const clicks = await resClicks.json();
-
-  console.log('Visits data:', visits);
-  console.log('Clicks data:', clicks);
-
-  return { visits, clicks };
 }
+ const logout = () => {
+    signOut({ callbackUrl: '/admin/login' });
+  };
 
-export default async function VisitasPage() {
-  const { visits, clicks } = await getStats();
+export default function VisitasClient() {
+  const [stats, setStats] = useState({
+    visits: { today: 0, total: 0, breakdown: [] },
+    clicks: { today: 0, total: 0, breakdown: [] },
+  });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
+  useEffect(() => {
+    async function fetchStats() {
+      try {
+        const data = await getStats();
+        setStats(data);
+        setError(null);
+      } catch (err) {
+        setError('Error al cargar las estadísticas');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchStats();
+    const interval = setInterval(fetchStats, 30000); // Refrescar cada 30 segundos
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const { visits, clicks } = stats;
   const todayVisits = visits.today || 0;
   const totalVisits = visits.total || 0;
   const todayClicks = clicks.today || 0;
@@ -46,11 +73,47 @@ export default async function VisitasPage() {
   const clickBreakdown = clicks.breakdown || [];
 
   const conversionRate =
-    totalVisits > 0 ? ((totalClicks / totalVisits) * 100).toFixed(2) : "0";
+    totalVisits > 0 ? ((totalClicks / totalVisits) * 100).toFixed(2) : '0';
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-black text-white p-10 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-amber-400 mx-auto mb-4"></div>
+          <p className="text-gray-400">Cargando estadísticas...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-black text-white p-10">
+        <div className="bg-red-900 border-l-4 border-red-500 p-4 rounded">
+          <p className="text-red-200">{error}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-black text-white p-10">
       <h1 className="text-3xl font-bold mb-10">📊 Dashboard Analytics</h1>
+       {/* Botón Cerrar Sesión */}
+          <button
+            onClick={logout}
+            className="group relative px-5 py-2.5 rounded-lg bg-gradient-to-r from-red-500 to-red-600 
+               text-white font-medium shadow-lg hover:shadow-xl 
+               transition-all duration-300 hover:from-red-600 hover:to-red-700 
+               active:scale-[0.98] hover:-translate-y-0.5"
+          >
+            <span className="flex items-center gap-2">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+              Salir
+            </span>
+          </button>
 
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-12">
         <Stat title="VISITAS HOY" value={todayVisits} />
@@ -60,7 +123,7 @@ export default async function VisitasPage() {
         <Stat title="CONVERSIÓN" value={`${conversionRate}%`} />
       </div>
 
-      {/* ✅ NUEVO: Desglose de visitas por página */}
+      {/* Desglose de visitas por página */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
         <div className="bg-gray-900 rounded-xl p-6">
           <h2 className="text-xl font-bold mb-4">👁️ Visitas por página (hoy)</h2>
@@ -114,7 +177,7 @@ export default async function VisitasPage() {
       </div>
 
       <div className="mt-10 text-sm text-gray-500">
-        Actualizado: {format(new Date(), "dd/MM/yyyy HH:mm:ss")}
+        Actualizado: {format(new Date(), 'dd/MM/yyyy HH:mm:ss')}
       </div>
     </div>
   );
