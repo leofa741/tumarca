@@ -25,6 +25,9 @@ export default function SistemaGestionPage() {
 
       {/* HERO CON DOLOR REAL */}
       <section className="relative overflow-hidden">
+         {/* TRACKERS */}
+      <VisitTracker pageName="sistema-gestion-landing" />
+      <VisitCounter />
         <div className="absolute inset-0 bg-gradient-to-br from-amber-400/20 to-orange-600/20" />
         <div className="relative max-w-6xl mx-auto px-4 py-28 text-center">
 
@@ -371,9 +374,7 @@ export default function SistemaGestionPage() {
         </div>
       </section>
 
-      {/* TRACKERS */}
-      <VisitTracker pageName="sistema-gestion-landing" />
-      <VisitCounter />
+     
 
     </div>
   );

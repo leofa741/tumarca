@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import FormContactLanding from '../components/FormContactLanding';
-import { 
-  CheckCircle, XCircle, ArrowRight, Shield, TrendingUp, 
-  Users, Smartphone, BarChart2, Mail, Phone, Sun, Moon 
+import {
+  CheckCircle, XCircle, ArrowRight, Shield, TrendingUp,
+  Users, Smartphone, BarChart2, Mail, Phone, Sun, Moon
 } from 'lucide-react';
 import VisitCounter from '../components/VisitCounter';
 import VisitTracker from '../components/VisitTracker';
@@ -37,7 +37,7 @@ const GymAccessLanding = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
-      
+
       {/* Header con toggle de dark mode */}
       <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-sm border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -51,7 +51,7 @@ const GymAccessLanding = () => {
                 Puentes Digitales
               </div>
             </div>
-            <button 
+            <button
               onClick={() => setDarkMode(!darkMode)}
               className="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors shadow-sm"
               aria-label="Toggle dark mode"
@@ -69,7 +69,10 @@ const GymAccessLanding = () => {
       {/* Hero Section - Layout único con formulario integrado */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          
+          <VisitCounter />
+          <VisitTracker
+            pageName="sistema-de-control-de-acceso-para-gimnasios-landing"
+          />
           {/* Contenido principal */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -87,7 +90,7 @@ const GymAccessLanding = () => {
             </h1>
 
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-xl">
-              Sistema de control de acceso RFID con máxima seguridad, eficiencia y comodidad. 
+              Sistema de control de acceso RFID con máxima seguridad, eficiencia y comodidad.
               <span className="font-medium text-blue-600 dark:text-blue-400"> Sin cuotas mensuales ocultas.</span>
             </p>
 
@@ -172,7 +175,7 @@ const GymAccessLanding = () => {
                 Recibí una propuesta personalizada sin compromiso
               </p>
             </div>
-            
+
             <FormContactLanding />
           </motion.div>
         </div>
@@ -192,32 +195,32 @@ const GymAccessLanding = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { 
-                icon: <Shield className="w-8 h-8" />, 
-                title: "Reducción de fraudes", 
+              {
+                icon: <Shield className="w-8 h-8" />,
+                title: "Reducción de fraudes",
                 desc: "Evita el uso no autorizado de membresías con autenticación única por RFID",
                 color: "text-red-500"
               },
-              { 
-                icon: <TrendingUp className="w-8 h-8" />, 
-                title: "Ahorro operativo", 
+              {
+                icon: <TrendingUp className="w-8 h-8" />,
+                title: "Ahorro operativo",
                 desc: "Reduce la necesidad de personal en recepción y automatiza tareas repetitivas",
                 color: "text-green-500"
               },
-              { 
-                icon: <Users className="w-8 h-8" />, 
-                title: "Experiencia del socio", 
+              {
+                icon: <Users className="w-8 h-8" />,
+                title: "Experiencia del socio",
                 desc: "Ingreso rápido, sin colas ni trámites manuales",
                 color: "text-blue-500"
               },
-              { 
-                icon: <Smartphone className="w-8 h-8" />, 
-                title: "Integración total", 
+              {
+                icon: <Smartphone className="w-8 h-8" />,
+                title: "Integración total",
                 desc: "Compatible con tus sistemas de facturación, CRM o software de gestión actual",
                 color: "text-purple-500"
               }
             ].map((benefit, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -250,8 +253,8 @@ const GymAccessLanding = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { 
-                title: "Tarjetas o tags RFID", 
+              {
+                title: "Tarjetas o tags RFID",
                 desc: "Validación rápida y segura mediante lectores por proximidad en puertas y zonas comunes",
                 svg: (
                   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-blue-500">
@@ -261,8 +264,8 @@ const GymAccessLanding = () => {
                 ),
                 gradient: "from-blue-500 to-blue-600"
               },
-              { 
-                title: "Puertas automáticas", 
+              {
+                title: "Puertas automáticas",
                 desc: "Apertura controlada desde dispositivos móviles o sistemas centralizados",
                 svg: (
                   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-purple-500">
@@ -271,8 +274,8 @@ const GymAccessLanding = () => {
                 ),
                 gradient: "from-purple-500 to-purple-600"
               },
-              { 
-                title: "Lectores RFID", 
+              {
+                title: "Lectores RFID",
                 desc: "Instalación en puntos estratégicos para control preciso del acceso",
                 svg: (
                   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-green-500">
@@ -317,27 +320,27 @@ const GymAccessLanding = () => {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
-              { 
-                icon: <CheckCircle className="w-7 h-7" />, 
-                title: "Autenticación segura", 
+              {
+                icon: <CheckCircle className="w-7 h-7" />,
+                title: "Autenticación segura",
                 desc: "Identificación precisa del socio antes de permitir el acceso",
                 color: "text-green-500"
               },
-              { 
-                icon: <CheckCircle className="w-7 h-7" />, 
-                title: "Autorización automática", 
+              {
+                icon: <CheckCircle className="w-7 h-7" />,
+                title: "Autorización automática",
                 desc: "Ingreso inmediato si el usuario tiene permisos vigentes",
                 color: "text-green-500"
               },
-              { 
-                icon: <BarChart2 className="w-7 h-7" />, 
-                title: "Trazabilidad en tiempo real", 
+              {
+                icon: <BarChart2 className="w-7 h-7" />,
+                title: "Trazabilidad en tiempo real",
                 desc: "Monitoreo continuo del flujo de personas para control de aforo y horarios",
                 color: "text-blue-500"
               },
-              { 
-                icon: <Mail className="w-7 h-7" />, 
-                title: "Alertas inteligentes", 
+              {
+                icon: <Mail className="w-7 h-7" />,
+                title: "Alertas inteligentes",
                 desc: "Notificaciones ante intentos de acceso no autorizado o tarjetas bloqueadas",
                 color: "text-red-500"
               }
@@ -382,7 +385,7 @@ const GymAccessLanding = () => {
             Solicitar consulta sin costo
             <ArrowRight size={22} />
           </motion.button>
-          
+
           <p className="text-sm opacity-80 mt-6 max-w-md mx-auto">
             ✅ Auditoría técnica gratuita<br />
             ✅ Plan de implementación personalizado<br />
@@ -429,10 +432,7 @@ const GymAccessLanding = () => {
           </div>
         </div>
       </footer>
-      <VisitCounter />
-      <VisitTracker 
-      pageName="sistema-de-control-de-acceso-para-gimnasios-landing"
-      />
+
     </div>
   );
 };
