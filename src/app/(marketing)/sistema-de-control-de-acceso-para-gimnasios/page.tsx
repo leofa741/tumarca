@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import VisitCounter from '../components/VisitCounter';
 import VisitTracker from '../components/VisitTracker';
+import { useSectionTracker } from '../components/useSectionTracker';
 
 const GymAccessLanding = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -34,6 +35,30 @@ const GymAccessLanding = () => {
       localStorage.setItem('darkMode', 'false');
     }
   }, [darkMode]);
+
+  const { ref: beneficiosRef } = useSectionTracker({
+  sectionId: 'beneficios',
+  sectionName: 'beneficios_principales',
+  minReadTime: 4000, // 4 segundos para considerar lectura
+  onEngagement: (data) => {
+    // Opcional: lógica extra en cliente
+    if (data.eventType === 'read') {
+      console.log('🎯 Usuario leyó beneficios');
+    }
+  },
+});
+
+  const { ref: funcionesRef } = useSectionTracker({
+  sectionId: 'funciones',
+  sectionName: 'funciones ',
+  minReadTime: 4000, // 4 segundos para considerar lectura
+  onEngagement: (data) => {
+    // Opcional: lógica extra en cliente
+    if (data.eventType === 'read') {
+      console.log('🎯 Usuario leyó beneficios');
+    }
+  },
+});
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
@@ -198,7 +223,9 @@ const GymAccessLanding = () => {
       </section>
 
       {/* Beneficios Principales */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-gray-800/50">
+      <section 
+      ref={beneficiosRef}
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-gray-800/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -323,7 +350,9 @@ const GymAccessLanding = () => {
       </section>
 
       {/* Funciones Esenciales */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-gray-800/50">
+      <section 
+      ref={funcionesRef}
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-gray-800/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
