@@ -1,11 +1,23 @@
 // components/AplicacionesIA.tsx
 import { Sparkles, MessageSquare, Mic, BookOpen, Globe, Brain } from 'lucide-react';
-import CorrectorTextoIA from './AsistenteIA';
+
+import { useSectionTracker } from '@/app/(marketing)/components/useSectionTracker';
 
 export default function AplicacionesIA() {
+    const { ref: iaRef } = useSectionTracker({
+    sectionId: 'iaHome',
+    sectionName: 'iaHome ',
+    minReadTime: 3000, // 4 segundos para considerar lectura
+    onEngagement: (data) => {
+      // Opcional: lógica extra en cliente
+      if (data.eventType === 'read') {
+        console.log('🎯 Usuario leyó iaHome');
+      }
+    },
+  });
   return (
     <>
-      <section className="py-20 px-6 bg-gradient-to-b from-gray-900/40 via-transparent to-gray-950">
+      <section className="py-20 px-6 bg-gradient-to-b from-gray-900/40 via-transparent to-gray-950" ref={iaRef}>
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Texto principal */}

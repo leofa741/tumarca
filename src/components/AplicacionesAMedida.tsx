@@ -1,9 +1,21 @@
 // components/AplicacionesAMedida.tsx
 import { Code, Zap, Layout, Database } from 'lucide-react';
+import { useSectionTracker } from '@/app/(marketing)/components/useSectionTracker';
 
 export default function AplicacionesAMedida() {
+  const { ref: medidaRef } = useSectionTracker({ 
+    sectionId: 'medidaHome',
+    sectionName: 'medidaHome ',
+    minReadTime: 3000, // 4 segundos para considerar lectura
+    onEngagement: (data) => {
+      // Opcional: lógica extra en cliente
+      if (data.eventType === 'read') {
+        console.log('🎯 Usuario leyó medidaHome');
+      }
+    },
+  });
   return (
-    <section className="py-20 px-6 bg-gradient-to-b from-gray-900/50 to-gray-950">
+    <section className="py-20 px-6 bg-gradient-to-b from-gray-900/50 to-gray-950" ref={medidaRef}>
       <div className="max-w-5xl mx-auto text-center">
         <div className="flex justify-center mb-6">
           <div className="flex space-x-4 text-amber-500">

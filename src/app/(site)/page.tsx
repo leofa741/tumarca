@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import { Playfair_Display } from 'next/font/google';
 import ImageAccordion from '@/components/ImagenAcordeon';
@@ -7,6 +8,7 @@ import AplicacionesAMedida from '@/components/AplicacionesAMedida';
 import ServicioSEO from '@/components/ServicioSEO';
 import AplicacionesIA from '@/components/AplicacionesIA';
 import VisitTracker from '../(marketing)/components/VisitTracker';
+import { useSectionTracker } from '../(marketing)/components/useSectionTracker';
 
 
 
@@ -18,10 +20,40 @@ const playfair = Playfair_Display({
 
 
 export default function Home() {
+
+    const { ref: introRef } = useSectionTracker({
+    sectionId: 'introHome',
+    sectionName: 'introHome ',
+    minReadTime: 3000, // 4 segundos para considerar lectura
+    onEngagement: (data) => {
+      // Opcional: lógica extra en cliente
+        if (data.eventType === 'read') {
+          console.log('🎯 Usuario leyó introHome');
+      }
+    },
+  });
+
+  const { ref: serviciosRef } = useSectionTracker({
+    sectionId: 'serviciosHome',
+    sectionName: 'serviciosHome ',
+    minReadTime: 3000, // 4 segundos para considerar lectura
+    onEngagement: (data) => {
+      // Opcional: lógica extra en cliente
+      if (data.eventType === 'read') {
+        console.log('🎯 Usuario leyó serviciosHome');
+      }
+    },
+  });
+
+ 
+
+ 
+
+ 
   return (
     <>
       {/* Sección principal: Hero con texto e imagen */}
-      <section id="intro" className="*:relative text-white py-20">
+      <section id="intro" className="*:relative text-white py-20" ref={introRef}>
          <VisitTracker
                 pageName="home" 
               />
@@ -122,7 +154,7 @@ export default function Home() {
 
 
       {/* Sección de servicios */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6" ref={serviciosRef}>
         <div className="max-w-6xl mx-auto">
           {/* H2 único para la sección */}
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-100 dark:text-white animate-fadeIn" style={{ animationDelay: '0.3s' }}>

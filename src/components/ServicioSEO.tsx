@@ -1,9 +1,23 @@
 // components/ServicioSEO.tsx
+import { useSectionTracker } from '@/app/(marketing)/components/useSectionTracker';
 import { Search, BarChart3, AlertTriangle, CheckCircle, ArrowRight } from 'lucide-react';
 
+
 export default function ServicioSEO() {
+
+    const { ref: seoRef } = useSectionTracker({ 
+    sectionId: 'seoHome',
+    sectionName: 'seoHome ',
+    minReadTime: 3000, // 4 segundos para considerar lectura
+    onEngagement: (data) => {
+      // Opcional: lógica extra en cliente
+      if (data.eventType === 'read') {
+        console.log('🎯 Usuario leyó seoHome');
+      }
+    },
+  }); 
   return (
-    <section className="py-20 px-6 bg-gradient-to-b from-gray-900/40 via-transparent to-gray-950">
+    <section className="py-20 px-6 bg-gradient-to-b from-gray-900/40 via-transparent to-gray-950" ref={seoRef}>
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Texto principal */}

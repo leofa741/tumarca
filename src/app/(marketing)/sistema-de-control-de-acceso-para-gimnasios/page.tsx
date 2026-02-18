@@ -55,7 +55,7 @@ const GymAccessLanding = () => {
   onEngagement: (data) => {
     // Opcional: lógica extra en cliente
     if (data.eventType === 'read') {
-      console.log('🎯 Usuario leyó beneficios');
+      console.log('🎯 Usuario leyó funciones');
     }
   },
 });
