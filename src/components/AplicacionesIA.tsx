@@ -1,4 +1,5 @@
 // components/AplicacionesIA.tsx
+'use client';
 import { Sparkles, MessageSquare, Mic, BookOpen, Globe, Brain } from 'lucide-react';
 
 import { useSectionTracker } from '@/app/(marketing)/components/useSectionTracker';

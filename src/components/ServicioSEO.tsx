@@ -1,4 +1,5 @@
 // components/ServicioSEO.tsx
+'use client';
 import { useSectionTracker } from '@/app/(marketing)/components/useSectionTracker';
 import { Search, BarChart3, AlertTriangle, CheckCircle, ArrowRight } from 'lucide-react';
 

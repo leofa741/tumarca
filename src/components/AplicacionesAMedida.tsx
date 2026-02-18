@@ -1,4 +1,5 @@
 // components/AplicacionesAMedida.tsx
+'use client';
 import { Code, Zap, Layout, Database } from 'lucide-react';
 import { useSectionTracker } from '@/app/(marketing)/components/useSectionTracker';
 
