@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <>
       {/* Sección principal: Hero con texto e imagen */}
-      <section id="intro" className="*:relative text-white py-20" ref={introRef}>
+      <section  className="*:relative text-white py-20" ref={introRef} id="introHome" >
          <VisitTracker
                 pageName="home" 
               />
@@ -154,7 +154,7 @@ export default function Home() {
 
 
       {/* Sección de servicios */}
-      <section className="py-20 px-6" ref={serviciosRef}>
+      <section className="py-20 px-6" ref={serviciosRef} id="serviciosHome" >
         <div className="max-w-6xl mx-auto">
           {/* H2 único para la sección */}
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-100 dark:text-white animate-fadeIn" style={{ animationDelay: '0.3s' }}>
