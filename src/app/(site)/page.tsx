@@ -12,6 +12,9 @@ import { useSectionTracker } from '../(marketing)/components/useSectionTracker';
 import IntroHome from '@/components/IntroHome';
 import VisitTracker from '../(marketing)/components/VisitTracker';
 
+import { motion } from 'framer-motion';
+import ScrollProgressBar from '@/components/scroolprogress/ScrollProgressBar';
+
 
 
 const playfair = Playfair_Display({
@@ -22,6 +25,9 @@ const playfair = Playfair_Display({
 
 
 export default function Home() {
+
+
+
 
 
 
@@ -42,11 +48,18 @@ export default function Home() {
   return (
     <>
 
+
+      <ScrollProgressBar
+        gradient="from-pink-500 to-rose-500"
+        opacity={0.9}
+        className="shadow-lg shadow-pink-500/20"
+
+      />
       <IntroHome />
 
-  <VisitTracker
-          pageName="introHome"
-        />
+      <VisitTracker
+        pageName="introHome"
+      />
 
 
       {/* Sección de servicios */}
@@ -101,6 +114,8 @@ export default function Home() {
       <ImageAccordion />
       <AplicacionesAMedida />
       <AplicacionesIA />
+
+
     </>
   );
 }

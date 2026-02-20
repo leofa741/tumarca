@@ -5,6 +5,7 @@ import Loader from "@/components/Loader";
 import ChatWidget from "@/components/chatwidget/ChatWidget";
 import RedesFlotantes from "@/components/RedesFlotantes";
 import { Analytics } from "@vercel/analytics/next";
+import ScrollProgressBar from "@/components/scroolprogress/ScrollProgressBar";
 
 export default function SiteLayout({
   children,
@@ -14,11 +15,17 @@ export default function SiteLayout({
   return (
     <>
       <Header />
+  <ScrollProgressBar 
+        gradient="from-pink-500 to-rose-500"
+        opacity={0.9}
+        className="shadow-lg shadow-pink-500/20"
 
+      />
       <LoadingProvider>
         <Loader />
 
         <main className="min-h-screen">
+       
           {children}
           <ChatWidget />
           <Analytics />

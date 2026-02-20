@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
@@ -13,6 +14,7 @@ export default function Header() {
     { href: '/', label: 'Home' },
     { href: '/services', label: 'Services' },
     { href: '/desarrollo-web', label: 'Web' },
+    { href: '/sistema-de-control-de-acceso', label: 'Gym' },
     { href: '/machine-learning', label: 'LLM' },
     { href: '/ia-estrategica-para-marcas', label: 'IA' },
     // { href: '/portfolio', label: 'Portfolio' },
@@ -29,6 +31,9 @@ export default function Header() {
 
   return (
     <header className="w-full bg-black text-white shadow z-50 fixed top-0">
+
+      
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
         {/* Logo + Toggle */}
         <div className="flex items-center justify-between w-full lg:w-auto">
