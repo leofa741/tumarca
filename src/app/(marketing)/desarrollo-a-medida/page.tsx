@@ -8,6 +8,7 @@ import { CheckCircle, XCircle, ArrowRight } from 'lucide-react';
 import VisitCounter from '../components/VisitCounter';
 import VisitTracker from '../components/VisitTracker';
 import { trackClick } from '../components/clickTracker';
+import { useSectionTracker } from '../components/useSectionTracker';
 
 
 export default function DesarrolloAMedidaLanding() {
@@ -21,6 +22,40 @@ export default function DesarrolloAMedidaLanding() {
     return () => mediaQuery.removeEventListener('change', handler);
   }, []);
 
+
+
+  const { ref: desarrolloAMedidaRef } = useSectionTracker({
+    sectionId: 'desarrolloAMedida',
+    sectionName: 'desarrolloAMedida ',
+    minReadTime: 2000, // 4 segundos para considerar lectura
+    onEngagement: (data) => {
+      // console.log("ladata",data)
+      // Opcional: lógica extra en cliente
+      if (data.eventType === 'read') {
+        console.log('🎯 Usuario leyó desarrolloAMedida');
+      }
+    },
+  });
+
+
+  const { ref: serviciosDevAMedidaRef } = useSectionTracker({
+    sectionId: 'serviciosDevAMedida',
+    sectionName: 'serviciosDevAMedida ',
+    minReadTime: 2000, // 4 segundos para considerar lectura
+    onEngagement: (data) => {
+      // console.log("ladata",data)
+      // Opcional: lógica extra en cliente
+      if (data.eventType === 'read') {
+        console.log('🎯 Usuario leyó serviciosDevAMedida');
+      }
+    },
+  });
+  
+
+
+
+
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white">
       <VisitCounter />
@@ -29,7 +64,10 @@ export default function DesarrolloAMedidaLanding() {
         pageName="desarrollo-a-medida-landing"
       />
       {/* HERO CON DOLOR + SOLUCIÓN */}
-      <section className="relative px-6 py-28 max-w-7xl mx-auto">
+      <section className="relative px-6 py-28 max-w-7xl mx-auto" 
+      ref={desarrolloAMedidaRef}
+      id="desarrolloAMedida"
+      >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -164,7 +202,10 @@ export default function DesarrolloAMedidaLanding() {
       </section>
 
       {/* SERVICIOS */}
-      <section className="px-6 py-24 bg-black/40">
+      <section className="px-6 py-24 bg-black/40"
+      ref={serviciosDevAMedidaRef}
+      id="serviciosDevAMedida"
+      > 
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-16">
             ¿Qué tipo de desarrollos realizamos?
