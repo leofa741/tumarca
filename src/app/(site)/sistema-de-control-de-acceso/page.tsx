@@ -7,7 +7,8 @@ import {
   Shield, Zap, Users, Smartphone, BarChart2, CheckCircle, XCircle,
   ArrowRight, Sun, Moon, Play, MessageCircle, Phone, Mail, Calendar,
   Lock, Wifi, Database, Bell, TrendingUp, Clock, CreditCard, Key,
-  ChevronDown, ExternalLink, Star, Award, Truck, Headphones
+  ChevronDown, ExternalLink, Star, Award, Truck, Headphones,
+  Fingerprint
 } from 'lucide-react';
 import FormContactLanding from '@/app/(marketing)/components/FormContactLanding';
 
@@ -392,11 +393,11 @@ const GymAccessControlPage = () => {
       description: "QR dinámico con refresh cada 30 segundos para máxima seguridad. Ideal para socios tech-savvy que prefieren no cargar tags adicionales.",
       icon: <Smartphone className="w-12 h-12" />,
       benefits: ["Sin hardware adicional", "Actualizaciones en tiempo real", "Notificaciones push", "Geolocalización opcional"]
-    },
+    } ,
     biometric: {
-      title: "Reconocimiento Facial",
+      title: "Huella dactilar",
       description: "Tecnología de vanguardia con algoritmos anti-spoofing. Acceso hands-free ideal para zonas de alto tráfico o experiencias premium.",
-      icon: <Users className="w-12 h-12" />,
+      icon: <Fingerprint className="w-12 h-12" />,
       benefits: ["Experiencia sin contacto", "Máxima seguridad", "Escalable a múltiples zonas", "Cumple con privacidad GDPR"]
     }
   };
@@ -901,7 +902,7 @@ const GymAccessControlPage = () => {
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Pricing Section 
       <section id="precios" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
         <div className="max-w-7xl mx-auto">
           <SectionHeading 
@@ -916,7 +917,7 @@ const GymAccessControlPage = () => {
             ))}
           </div>
           
-          {/* Guarantee */}
+       
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -931,10 +932,10 @@ const GymAccessControlPage = () => {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section>*/}
 
       {/* FAQ Section */}
-      <section id="faq" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8">
+      <section id="faq" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800/50">
         <div className="max-w-4xl mx-auto">
           <SectionHeading 
             eyebrow="Preguntas frecuentes"
