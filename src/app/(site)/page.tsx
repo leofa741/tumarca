@@ -12,7 +12,6 @@ import { useSectionTracker } from '../(marketing)/components/useSectionTracker';
 import IntroHome from '@/components/IntroHome';
 import VisitTracker from '../(marketing)/components/VisitTracker';
 
-import { motion } from 'framer-motion';
 import ScrollProgressBar from '@/components/scroolprogress/ScrollProgressBar';
 
 

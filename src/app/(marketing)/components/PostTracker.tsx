@@ -1,7 +1,9 @@
 // app/(marketing)/components/PostTracker.tsx
 'use client';
 
-import { useSectionTracker } from './useSectionTracker';
+import { useSectionTracker } from "./useSectionTracker";
+
+
 
 export default function PostTracker({ slug, title }: { slug: string; title: string }) {
   const { ref } = useSectionTracker({
@@ -15,6 +17,5 @@ export default function PostTracker({ slug, title }: { slug: string; title: stri
     },
   });
 
-  // 👇 Type assertion para resolver el conflicto de tipos
   return <div ref={ref as React.RefObject<HTMLDivElement>} className="hidden" />;
 }
