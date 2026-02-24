@@ -6,6 +6,7 @@ import ChatWidget from "@/components/chatwidget/ChatWidget";
 import RedesFlotantes from "@/components/RedesFlotantes";
 import { Analytics } from "@vercel/analytics/next";
 import ScrollProgressBar from "@/components/scroolprogress/ScrollProgressBar";
+import OnlineVisitors from "@/components/onlinevisitors/OnlineVisitors";
 
 export default function SiteLayout({
   children,
@@ -27,6 +28,7 @@ export default function SiteLayout({
         <main className="min-h-screen">
        
           {children}
+           <OnlineVisitors />
           <ChatWidget />
           <Analytics />
         </main>

@@ -61,66 +61,66 @@ export default async function PostPage({
 
   return (
     <BlogPostTracker slug={resolvedParams.slug} title={post.title}>
-    <article className="max-w-4xl mx-auto px-6 py-16 md:py-24">
-      {/* Botón para volver al blog */}
-      <Link
-        href="/blog"
-        className="inline-flex items-center text-amber-500 hover:text-amber-400 text-sm font-medium mb-8 transition"
-      >
-        <ArrowLeft size={16} className="mr-1" /> Volver al blog
-      </Link>
- <VisitTracker
-        pageName="blog"
-      />
-      {/* Encabezado del artículo */}
-      <header className="mb-10">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="bg-amber-500/90 text-black text-xs font-bold px-3 py-1 rounded-full">
-            {post.category}
-          </span>
-          <span className="text-gray-500 text-sm">• {post.readTime}</span>
-        </div>
-        <h1
-          className={`${playfair.className} text-3xl md:text-5xl font-semibold text-white leading-tight`}
+      <article className="max-w-4xl mx-auto px-6 py-16 md:py-24">
+        {/* Botón para volver al blog */}
+        <Link
+          href="/blog"
+          className="inline-flex items-center text-amber-500 hover:text-amber-400 text-sm font-medium mb-8 transition"
         >
-          {post.title}
-        </h1>
-        <p className="text-gray-400 mt-4">
-          Publicado el{' '}
-          {new Date(post.publishedAt).toLocaleDateString('es-AR')}
-        </p>
-      </header>
-
-
-      {/* Imagen destacada */}
-      <div className="relative w-full aspect-[4/3] md:aspect-[16/9] mb-10 rounded-lg overflow-hidden">
-        <Image
-          src={post.image}
-          alt={post.title}
-          fill
-          className="object-cover rounded-lg shadow-lg transition-transform duration-500"
-          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 60vw"
-          priority
+          <ArrowLeft size={16} className="mr-1" /> Volver al blog
+        </Link>
+        <VisitTracker
+          pageName="blog"
         />
-      </div>
+        {/* Encabezado del artículo */}
+        <header className="mb-10">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="bg-amber-500/90 text-black text-xs font-bold px-3 py-1 rounded-full">
+              {post.category}
+            </span>
+            <span className="text-gray-500 text-sm">• {post.readTime}</span>
+          </div>
+          <h1
+            className={`${playfair.className} text-3xl md:text-5xl font-semibold text-white leading-tight`}
+          >
+            {post.title}
+          </h1>
+          <p className="text-gray-400 mt-4">
+            Publicado el{' '}
+            {new Date(post.publishedAt).toLocaleDateString('es-AR')}
+          </p>
+        </header>
 
-      {/* Contenido del artículo */}
-      <div
-        className="prose prose-invert prose-lg max-w-none"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
 
-      {/* Sección de llamado a la acción (newsletter) */}
-      <div className="mt-16 text-center border-t border-gray-800 pt-10">
-        <h3 className="text-2xl font-semibold text-white mb-4">
-          ¿Te sirvió este artículo?
-        </h3>
-        <p className="text-gray-400 mb-6">
-          Suscríbete y recibí cada semana estrategias prácticas para potenciar tu marca.
-        </p>
-        <NewsletterCTA />
-      </div>
-    </article>
+        {/* Imagen destacada */}
+        <div className="relative w-full aspect-[4/3] md:aspect-[16/9] mb-10 rounded-lg overflow-hidden">
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            className="object-cover rounded-lg shadow-lg transition-transform duration-500"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 60vw"
+            priority
+          />
+        </div>
+
+        {/* Contenido del artículo */}
+        <div
+          className="prose prose-invert prose-lg max-w-none"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
+
+        {/* Sección de llamado a la acción (newsletter) */}
+        <div className="mt-16 text-center border-t border-gray-800 pt-10">
+          <h3 className="text-2xl font-semibold text-white mb-4">
+            ¿Te sirvió este artículo?
+          </h3>
+          <p className="text-gray-400 mb-6">
+            Suscríbete y recibí cada semana estrategias prácticas para potenciar tu marca.
+          </p>
+          <NewsletterCTA />
+        </div>
+      </article>
     </BlogPostTracker>
 
   );
