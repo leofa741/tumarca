@@ -24,7 +24,7 @@ interface StatsData {
 
 async function getStats(): Promise<StatsData> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-  
+
   try {
     // Fetch paralelo para mejor performance
     const [resVisits, resClicks, resEngagement] = await Promise.all([
@@ -37,8 +37,8 @@ async function getStats(): Promise<StatsData> {
     const clicks = await resClicks.json();
     const engagement = resEngagement.ok ? await resEngagement.json() : { stats: [] };
 
-    return { 
-      visits, 
+    return {
+      visits,
       clicks,
       engagement: engagement.stats || []
     };
@@ -60,7 +60,7 @@ function EngagementBar({ label, value, max, color = 'from-amber-400 to-orange-50
   color?: string;
 }) {
   const percentage = max > 0 ? Math.min(100, (value / max) * 100) : 0;
-  
+
   return (
     <div className="mb-2">
       <div className="flex justify-between text-xs mb-1">
@@ -68,7 +68,7 @@ function EngagementBar({ label, value, max, color = 'from-amber-400 to-orange-50
         <span className="font-medium text-white">{value}</span>
       </div>
       <div className="w-full bg-gray-800 rounded-full h-1.5">
-        <div 
+        <div
           className={`bg-gradient-to-r ${color} h-1.5 rounded-full transition-all duration-500`}
           style={{ width: `${percentage}%` }}
         />
@@ -148,7 +148,7 @@ export default function VisitasClient() {
     return (
       <div className="min-h-screen bg-black text-white p-10 flex items-center justify-center">
         <div className="text-center">
-           {/* <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-amber-400 mx-auto mb-4"></div> */}
+          {/* <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-amber-400 mx-auto mb-4"></div> */}
           <p className="text-gray-400">Cargando estadísticas...</p>
         </div>
       </div>
@@ -171,24 +171,16 @@ export default function VisitasClient() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
         <h1 className="text-2xl sm:text-3xl font-bold">📊 Dashboard Analytics</h1>
-        
+
         <div className="flex items-center gap-4 w-full sm:w-auto">
           <a href="/admin/chat" className="flex-shrink-0">
-            <Image
-              src="/marca-2-ar-removebg.png"
-              width={70}
-              height={70}
-              priority
-              loading="eager"
-              draggable="false"
-              quality={100}
-              placeholder="blur"
-              blurDataURL="/marca-2-ar-removebg.png"
-              alt="TU.MARCA.AR Logo"
-              className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover"
-            />
+            Chat en Vivo
           </a>
-          
+
+          <a href="/admin/analytics" className="flex-shrink-0">
+            📊  Analytics
+          </a>
+
           <button
             onClick={logout}
             className="group relative px-4 py-2 rounded-lg bg-gradient-to-r from-red-500 to-red-600 
@@ -219,23 +211,22 @@ export default function VisitasClient() {
       <div className="bg-gray-900 rounded-xl p-6 mb-8 border border-gray-800">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
           <h2 className="text-xl font-bold">🔥 Engagement por sección</h2>
-          
+
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded">
               Lectura = ≥4s visibles
             </span>
-            
+
             {/* Selector de ordenamiento */}
             <div className="flex gap-1 bg-gray-800 rounded-lg p-1">
               {(['reads', 'views', 'dwell'] as const).map((opt) => (
                 <button
                   key={opt}
                   onClick={() => setSortBy(opt)}
-                  className={`px-3 py-1 text-xs rounded-md transition-colors whitespace-nowrap ${
-                    sortBy === opt 
-                      ? 'bg-amber-500 text-black font-medium' 
+                  className={`px-3 py-1 text-xs rounded-md transition-colors whitespace-nowrap ${sortBy === opt
+                      ? 'bg-amber-500 text-black font-medium'
                       : 'text-gray-400 hover:text-white'
-                  }`}
+                    }`}
                 >
                   {opt === 'reads' ? '📖 Lecturas' : opt === 'views' ? '👁️ Vistas' : '⏱️ Tiempo'}
                 </button>
@@ -257,10 +248,10 @@ export default function VisitasClient() {
               const readRate = section.views > 0 ? (section.reads / section.views) * 100 : 0;
               const interactions = section.hovers + section.touches;
               const isLowRetention = readRate < 10 && section.views > 20;
-              
+
               return (
-                <div 
-                  key={section._id} 
+                <div
+                  key={section._id}
                   className="bg-gray-800/50 rounded-lg p-4 border border-gray-700 hover:border-amber-500/50 transition-all group"
                 >
                   <div className="flex justify-between items-start mb-3">
@@ -279,35 +270,35 @@ export default function VisitasClient() {
                       <span className="text-xs text-gray-500">lecturas</span>
                     </div>
                   </div>
-                  
+
                   {/* Alerta de baja retención */}
                   {isLowRetention && (
                     <div className="mb-3 p-2 bg-red-900/30 border border-red-700/50 rounded text-xs text-red-300">
                       ⚠️ Baja retención ({readRate.toFixed(0)}%)
                     </div>
                   )}
-                  
+
                   {/* Barras de métricas */}
                   <div className="space-y-1.5 text-xs mb-3">
-                    <EngagementBar 
-                      label="👁️ Vistas" 
-                      value={section.views} 
-                      max={maxViews} 
-                      color="from-blue-400 to-cyan-500" 
+                    <EngagementBar
+                      label="👁️ Vistas"
+                      value={section.views}
+                      max={maxViews}
+                      color="from-blue-400 to-cyan-500"
                     />
-                    <EngagementBar 
-                      label="📖 Lecturas" 
-                      value={section.reads} 
-                      max={maxReads} 
+                    <EngagementBar
+                      label="📖 Lecturas"
+                      value={section.reads}
+                      max={maxReads}
                     />
-                    <EngagementBar 
-                      label="✋ Interacciones" 
-                      value={interactions} 
-                      max={maxInteractions} 
-                      color="from-purple-400 to-pink-500" 
+                    <EngagementBar
+                      label="✋ Interacciones"
+                      value={interactions}
+                      max={maxInteractions}
+                      color="from-purple-400 to-pink-500"
                     />
                   </div>
-                  
+
                   {/* Tiempo promedio y tasa de lectura */}
                   <div className="flex justify-between items-center text-xs pt-3 border-t border-gray-700">
                     <span className="text-gray-400">
@@ -317,14 +308,13 @@ export default function VisitasClient() {
                       {readRate.toFixed(0)}% tasa lectura
                     </span>
                   </div>
-                  
+
                   {/* Barra visual de tasa de lectura */}
                   <div className="mt-2">
                     <div className="w-full bg-gray-700 rounded-full h-1">
-                      <div 
-                        className={`h-1 rounded-full transition-all ${
-                          readRate >= 30 ? 'bg-green-500' : readRate >= 15 ? 'bg-amber-500' : 'bg-red-500'
-                        }`}
+                      <div
+                        className={`h-1 rounded-full transition-all ${readRate >= 30 ? 'bg-green-500' : readRate >= 15 ? 'bg-amber-500' : 'bg-red-500'
+                          }`}
                         style={{ width: `${Math.min(100, readRate)}%` }}
                       />
                     </div>
