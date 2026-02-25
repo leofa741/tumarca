@@ -1,6 +1,31 @@
 import { NextResponse } from "next/server";
 import { redis } from "@/lib/redis";
 
+const timeZone = "America/Argentina/Buenos_Aires";
+
+function formatHourKey(date: Date) {
+  const formatter = new Intl.DateTimeFormat("sv-SE", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    hour12: false,
+  });
+
+  const parts = formatter.formatToParts(date);
+
+  const year = parts.find(p => p.type === "year")?.value;
+  const month = parts.find(p => p.type === "month")?.value;
+  const day = parts.find(p => p.type === "day")?.value;
+  const hour = parts.find(p => p.type === "hour")?.value;
+
+  return {
+    key: `${year}-${month}-${day}T${hour}`,
+    hour,
+  };
+}
+
 export async function GET() {
   const now = Date.now();
 
@@ -8,14 +33,17 @@ export async function GET() {
   const online = await redis.zcard("online:global");
   const peak = await redis.get("stats:peak");
 
-  // últimas 12 horas
   const hours = [];
+
   for (let i = 11; i >= 0; i--) {
-    const d = new Date(Date.now() - i * 3600000);
-    const key = d.toISOString().slice(0, 13);
+    const date = new Date(Date.now() - i * 3600000);
+
+    const { key, hour } = formatHourKey(date);
+
     const views = await redis.get(`views:${key}`);
+
     hours.push({
-      hour: key.slice(11),
+      hour: `${hour}:00`,
       views: Number(views || 0),
     });
   }
