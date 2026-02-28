@@ -117,13 +117,6 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://tumarca.ar"),
 };
 
-// ===== METADATOS DINÁMICOS POR PÁGINA (Opcional) =====
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  return {
-    title: `${params.slug} | Tu Marca AR`,
-    // ... más metadatos dinámicos
-  };
-}
 
 export default function SiteLayout({
   children,
