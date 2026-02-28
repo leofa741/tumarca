@@ -12,6 +12,9 @@ import {
 } from 'lucide-react';
 import FormContactLanding from '@/app/(marketing)/components/FormContactLanding';
 
+import { useSectionTracker } from '@/app/(marketing)/components/useSectionTracker';
+import VisitTracker from '@/app/(marketing)/components/VisitTracker';
+
 
 // ============================================================================
 // COMPONENTES REUTILIZABLES PREMIUM
@@ -478,9 +481,44 @@ const GymAccessControlPage = () => {
     }
   ];
 
+  const { ref: serviciosRef } = useSectionTracker({
+    sectionId: 'caracteristicas',
+    sectionName: 'caracteristicas',
+    minReadTime: 3000,
+    onEngagement: (data) => {
+      if (data.eventType === 'read') {
+        console.log('🎯 Usuario leyó caracteristicas');
+      }
+    },
+  });
+
+    const { ref: heroRef } = useSectionTracker({
+    sectionId: 'hero',
+    sectionName: 'hero',
+    minReadTime: 3000,
+    onEngagement: (data) => {
+      if (data.eventType === 'read') {
+        console.log('🎯 Usuario leyó hero'); 
+      }
+    },
+  });
+
+    const { ref: comoFuncionaRef } = useSectionTracker({
+    sectionId: 'como-funciona',
+    sectionName: 'como-funciona',
+    minReadTime: 3000,
+    onEngagement: (data) => {
+      if (data.eventType === 'read') {
+        console.log('🎯 Usuario leyó como-funciona'); 
+      }
+    },
+  });
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 transition-colors duration-500">
+    <div  className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 transition-colors duration-500">
       
+      <VisitTracker pageName="sistema-de-control-de-acceso" />
+
       {/* Scroll Progress Bar */}
       <motion.div 
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 z-[100] origin-left"
@@ -568,7 +606,9 @@ const GymAccessControlPage = () => {
       </header>*/}
 
       {/* Hero Section */}
-      <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+      <section
+      ref={heroRef}
+       id="hero" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
         <GradientBlob className="w-96 h-96 bg-blue-400 -top-48 -left-48" />
         <GradientBlob className="w-96 h-96 bg-indigo-400 top-1/4 -right-48" />
         <GradientBlob className="w-96 h-96 bg-purple-400 -bottom-48 left-1/3" />
@@ -759,7 +799,9 @@ const GymAccessControlPage = () => {
       </section>
 
       {/* Features Section */}
-      <section id="caracteristicas" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
+      <section 
+      ref={serviciosRef}
+      id="caracteristicas" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-7xl mx-auto">
           <SectionHeading 
             eyebrow="Características principales"
@@ -776,7 +818,9 @@ const GymAccessControlPage = () => {
       </section>
 
       {/* How it Works - Access Methods */}
-      <section id="como-funciona" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
+      <section
+      ref={comoFuncionaRef}
+       id="como-funciona" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
         <div className="max-w-7xl mx-auto">
           <SectionHeading 
             eyebrow="Flexibilidad total"
