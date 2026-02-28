@@ -24,13 +24,17 @@ export default function ValorDestacado({
       style={{ animationDelay: `${delay}s` }}
     >
       {/* Imagen */}
-      <div className="md:w-20 md:h-20 w-16 h-16 flex-shrink-0">
+      <div className="md:w-20 md:h-20 w-16 h-16 flex-shrink-0 rounded-2xl overflow-hidden 
+                bg-gradient-to-br from-amber-500/10 to-amber-600/5 
+                border border-amber-500/20 
+                hover:border-amber-500/50 hover:shadow-lg hover:shadow-amber-500/20 
+                transition-all duration-300 group">
         <Image
           src={imagenSrc}
           alt={alt}
           width={80}
           height={80}
-          className="object-contain"
+          className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
         />
       </div>
 
