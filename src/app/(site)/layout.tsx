@@ -7,6 +7,36 @@ import RedesFlotantes from "@/components/RedesFlotantes";
 import { Analytics } from "@vercel/analytics/next";
 import ScrollProgressBar from "@/components/scroolprogress/ScrollProgressBar";
 import OnlineVisitors from "@/components/onlinevisitors/OnlineVisitors";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Tu Marca",
+  description: "Tu Marca",
+  
+  openGraph: {
+    title: "Tu Marca",
+    description: "Tu Marca",
+    url: "https://tumarca.com",
+    siteName: "Tu Marca",
+    images: [
+      {
+        url: "https://tumarca.com/logo-n.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Tu Marca",
+      },
+    ],
+    locale: "es_ES",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tu Marca",
+    description: "Tu Marca",
+    images: ["https://tumarca.com/logo-n.jpg"],
+  },
+};
+
 
 export default function SiteLayout({
   children,
