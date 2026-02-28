@@ -433,7 +433,7 @@ export default function HomeContent() {
                             href="/contact"
                             className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/20 rounded-xl text-white hover:bg-white/10 transition-all duration-300"
                         >
-                            Agendá una consultoría gratuita
+                            Agendá una consultoría 
                             <ArrowRight size={18} />
                         </a>
                     </motion.div>
@@ -515,7 +515,7 @@ export default function HomeContent() {
                                     href="/contact"
                                     className="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-amber-400 to-amber-600 text-black font-bold text-xl rounded-2xl hover:shadow-2xl hover:shadow-amber-500/50 transition-all duration-300 hover:-translate-y-1"
                                 >
-                                    🚀 Agendar llamada gratuita
+                                    🚀 Agendar llamada
                                     <ArrowRight className="group-hover:translate-x-1 transition-transform" size={22} />
                                 </a>
                                 <span className="text-gray-400 text-sm flex items-center gap-2">
