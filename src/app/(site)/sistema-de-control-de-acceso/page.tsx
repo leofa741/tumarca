@@ -685,7 +685,7 @@ const GymAccessControlPage = () => {
                   onClick={() => scrollToSection('contacto')}
                   className="group flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold text-base sm:text-lg shadow-xl shadow-blue-500/25 transition-all"
                 >
-                  Solicitar demo gratis
+                  Solicitar demo 
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                 </motion.button>
                 
@@ -1029,7 +1029,7 @@ const GymAccessControlPage = () => {
                 className="flex items-center justify-center gap-2 bg-white text-gray-900 px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-shadow"
               >
                 <Calendar className="w-5 h-5" />
-                Agendar demo gratis
+                Agendar demo 
               </motion.button>
               
               <motion.a
@@ -1154,7 +1154,7 @@ const GymAccessControlPage = () => {
         className="fixed bottom-5 right-5 z-50 sm:hidden flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-3 rounded-2xl font-semibold shadow-xl shadow-blue-500/30"
       >
         <MessageCircle className="w-5 h-5" />
-        Demo gratis
+        Demo 
       </motion.button>
     </div>
   );
