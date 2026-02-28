@@ -481,35 +481,35 @@ const GymAccessControlPage = () => {
     }
   ];
 
-  const { ref: serviciosRef } = useSectionTracker({
-    sectionId: 'caracteristicas',
-    sectionName: 'caracteristicas',
+  const { ref: caracteristicasRfidRef } = useSectionTracker({
+    sectionId: 'caracteristicasRfid',
+    sectionName: 'caracteristicasRfid',
     minReadTime: 3000,
     onEngagement: (data) => {
       if (data.eventType === 'read') {
-        console.log('🎯 Usuario leyó caracteristicas');
+        console.log('🎯 Usuario leyó caracteristicasRfid');
       }
     },
   });
 
-    const { ref: heroRef } = useSectionTracker({
-    sectionId: 'hero',
-    sectionName: 'hero',
+    const { ref: heroRfidRef } = useSectionTracker({
+    sectionId: 'heroRfid',
+    sectionName: 'heroRfid',
     minReadTime: 3000,
     onEngagement: (data) => {
       if (data.eventType === 'read') {
-        console.log('🎯 Usuario leyó hero'); 
+        console.log('🎯 Usuario leyó heroRfid'); 
       }
     },
   });
 
-    const { ref: comoFuncionaRef } = useSectionTracker({
-    sectionId: 'como-funciona',
-    sectionName: 'como-funciona',
+    const { ref: comoFuncionaRfidRef } = useSectionTracker({
+    sectionId: 'como-funcionaRfid',
+    sectionName: 'como-funcionaRfid',
     minReadTime: 3000,
     onEngagement: (data) => {
       if (data.eventType === 'read') {
-        console.log('🎯 Usuario leyó como-funciona'); 
+        console.log('🎯 Usuario leyó como-funcionaRfid'); 
       }
     },
   });
@@ -607,8 +607,8 @@ const GymAccessControlPage = () => {
 
       {/* Hero Section */}
       <section
-      ref={heroRef}
-       id="hero" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+      ref={heroRfidRef}
+       id="heroRfid" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
         <GradientBlob className="w-96 h-96 bg-blue-400 -top-48 -left-48" />
         <GradientBlob className="w-96 h-96 bg-indigo-400 top-1/4 -right-48" />
         <GradientBlob className="w-96 h-96 bg-purple-400 -bottom-48 left-1/3" />
@@ -800,8 +800,8 @@ const GymAccessControlPage = () => {
 
       {/* Features Section */}
       <section 
-      ref={serviciosRef}
-      id="caracteristicas" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
+      ref={caracteristicasRfidRef}
+      id="caracteristicasRfid" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-7xl mx-auto">
           <SectionHeading 
             eyebrow="Características principales"
@@ -819,8 +819,8 @@ const GymAccessControlPage = () => {
 
       {/* How it Works - Access Methods */}
       <section
-      ref={comoFuncionaRef}
-       id="como-funciona" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
+      ref={comoFuncionaRfidRef}
+       id="como-funcionaRfid" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
         <div className="max-w-7xl mx-auto">
           <SectionHeading 
             eyebrow="Flexibilidad total"
