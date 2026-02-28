@@ -11,6 +11,8 @@ import { Metadata } from "next";
 
 
 
+
+
 export const metadata: Metadata = {
   // ===== METADATOS BÁSICOS =====
   title: {
@@ -21,24 +23,12 @@ export const metadata: Metadata = {
 
   // ===== SEO AVANZADO =====
   keywords: [
-    "branding Argentina",
-    "diseño web Buenos Aires",
-    "marketing digital",
-    "agencia de marketing",
-    "diseño de marca",
-    "SEO",
-    "posicionamiento web",
-    "identidad corporativa",
-    "diseño UX/UI",
-    "consultoría digital",
-    "machine learning negocios",
-    "sistemas a medida"
+    "branding Argentina", "diseño web Buenos Aires", "marketing digital",
+    "agencia de marketing", "diseño de marca", "SEO", "posicionamiento web",
+    "identidad corporativa", "diseño UX/UI", "consultoría digital"
   ],
 
-  authors: [
-    { name: "Tu Marca AR", url: "https://tumarca.ar" }
-  ],
-
+  authors: [{ name: "Tu Marca AR", url: "https://tumarca.ar" }],
   creator: "Tu Marca AR",
   publisher: "Tu Marca AR",
 
@@ -56,18 +46,14 @@ export const metadata: Metadata = {
   },
 
   // ===== URL CANÓNICA =====
-  alternates: {
-    canonical: "https://tumarca.ar",
-  },
+  alternates: { canonical: "https://tumarca.ar" },
 
-  // ===== VERIFICACIÓN =====
+  // ===== VERIFICACIÓN (completar con tus códigos) =====
   verification: {
-    google: "tu-codigo-de-verificacion-google",
-    yandex: "tu-codigo-de-verificacion-yandex",
-    yahoo: "tu-codigo-de-verificacion-yahoo",
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
 
-  // ===== OPEN GRAPH / FACEBOOK =====
+  // ===== OPEN GRAPH =====
   openGraph: {
     type: "website",
     locale: "es_AR",
@@ -75,20 +61,13 @@ export const metadata: Metadata = {
     url: "https://tumarca.ar",
     siteName: "Tu Marca AR",
     title: "Tu Marca AR | Branding, Diseño Web & Marketing Digital",
-    description: "Transformamos tu negocio con branding estratégico, diseño web premium y marketing digital basado en datos. +50 marcas transformadas desde 2015.",
+    description: "Transformamos tu negocio con branding estratégico, diseño web premium y marketing digital basado en datos.",
     images: [
       {
-        url: "/og-image.jpg", // Imagen en /public/og-image.jpg
+        url: "/logo-n.jpg", // ✅ Imagen en /public/logo-n.jpg
         width: 1200,
         height: 630,
         alt: "Tu Marca AR - Branding y Marketing Digital",
-        type: "image/jpeg",
-      },
-      {
-        url: "/logo-n.jpg", // Imagen en /public/logo-n.jpg
-        width: 1200,
-        height: 630,
-        alt: "Tu Marca AR Logo",
         type: "image/jpeg",
       },
     ],
@@ -101,59 +80,40 @@ export const metadata: Metadata = {
     title: "Tu Marca AR | Branding, Diseño Web & Marketing Digital",
     description: "Transformamos tu negocio con branding estratégico, diseño web premium y marketing digital basado en datos.",
     images: ["/logo-n.jpg"],
-    creator: "@tumarcaar", // Tu usuario de Twitter
+    creator: "@tumarcaar",
     site: "@tumarcaar",
   },
 
-  // ===== ICONOS & MANIFEST =====
+  // ===== ICONOS =====
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
       { url: "/icon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/icon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/icon-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icon-512x512.png", sizes: "512x512", type: "image/png" },
     ],
-    apple: [
-      { url: "/apple-icon-180x180.png", sizes: "180x180", type: "image/png" },
-    ],
+    apple: [{ url: "/apple-icon-180x180.png", sizes: "180x180", type: "image/png" }],
     shortcut: "/favicon.ico",
   },
 
   manifest: "/manifest.json",
 
-  // ===== APPLE =====
+  // ===== APPLE WEB APP =====
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
     title: "Tu Marca AR",
-    startupImage: [
-      {
-        media: "(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)",
-        url: "/apple-splash-1125x2436.png",
-      },
-    ],
   },
 
-  // ===== FORMATOS ADICIONALES =====
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
 
-  // ===== METADATOS DE LA APLICACIÓN =====
   applicationName: "Tu Marca AR",
-
-  // ===== CATEGORÍA & CLASIFICACIÓN =====
   category: "Business & Industrial/Marketing & Advertising",
 
-  // ===== CLASIFICACIÓN DE EDAD =====
-  other: {
-    rating: "general",
-  },
-
-  // ===== DERECHOS DE AUTOR =====
+  // ✅ BASE URL para rutas relativas
   metadataBase: new URL("https://tumarca.ar"),
 };
 
