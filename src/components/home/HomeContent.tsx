@@ -254,7 +254,7 @@ export default function HomeContent() {
 
             {/* HERO SECTION */}
             <section id="hero" className="relative min-h-screen flex items-center justify-center px-6 pt-20">
-                <VisitTracker pageName="intro-Home" />
+
 
                 {/* Glow effect simplificado para móvil */}
                 {!reducedMotion && (
@@ -264,6 +264,7 @@ export default function HomeContent() {
                 )}
 
                 <div className="relative z-10 max-w-5xl mx-auto text-center">
+                    <VisitTracker pageName="intro-Home" />
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
