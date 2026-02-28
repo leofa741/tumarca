@@ -9,34 +9,161 @@ import ScrollProgressBar from "@/components/scroolprogress/ScrollProgressBar";
 import OnlineVisitors from "@/components/onlinevisitors/OnlineVisitors";
 import { Metadata } from "next";
 
+
+
 export const metadata: Metadata = {
-  title: "Tu Marca",
-  description: "Tu Marca",
-  
+  // ===== METADATOS BÁSICOS =====
+  title: {
+    default: "Tu Marca AR | Branding, Diseño Web & Marketing Digital",
+    template: "%s | Tu Marca AR"
+  },
+  description: "Transformamos tu negocio con branding estratégico, diseño web premium y marketing digital basado en datos. +50 marcas transformadas desde 2015. ¡Consultoría gratuita!",
+
+  // ===== SEO AVANZADO =====
+  keywords: [
+    "branding Argentina",
+    "diseño web Buenos Aires",
+    "marketing digital",
+    "agencia de marketing",
+    "diseño de marca",
+    "SEO",
+    "posicionamiento web",
+    "identidad corporativa",
+    "diseño UX/UI",
+    "consultoría digital",
+    "machine learning negocios",
+    "sistemas a medida"
+  ],
+
+  authors: [
+    { name: "Tu Marca AR", url: "https://tumarca.ar" }
+  ],
+
+  creator: "Tu Marca AR",
+  publisher: "Tu Marca AR",
+
+  // ===== ROBOTS & INDEXACIÓN =====
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  // ===== URL CANÓNICA =====
+  alternates: {
+    canonical: "https://tumarca.ar",
+  },
+
+  // ===== VERIFICACIÓN =====
+  verification: {
+    google: "tu-codigo-de-verificacion-google",
+    yandex: "tu-codigo-de-verificacion-yandex",
+    yahoo: "tu-codigo-de-verificacion-yahoo",
+  },
+
+  // ===== OPEN GRAPH / FACEBOOK =====
   openGraph: {
-    title: "Tu Marca",
-    description: "Tu Marca",
-    url: "https://tumarca.com",
-    siteName: "Tu Marca",
+    type: "website",
+    locale: "es_AR",
+    alternateLocale: ["es_ES", "en_US"],
+    url: "https://tumarca.ar",
+    siteName: "Tu Marca AR",
+    title: "Tu Marca AR | Branding, Diseño Web & Marketing Digital",
+    description: "Transformamos tu negocio con branding estratégico, diseño web premium y marketing digital basado en datos. +50 marcas transformadas desde 2015.",
     images: [
       {
-        url: "https://tumarca.com/logo-n.jpg",
+        url: "/og-image.jpg", // Imagen en /public/og-image.jpg
         width: 1200,
         height: 630,
-        alt: "Tu Marca",
+        alt: "Tu Marca AR - Branding y Marketing Digital",
+        type: "image/jpeg",
+      },
+      {
+        url: "/logo-n.jpg", // Imagen en /public/logo-n.jpg
+        width: 1200,
+        height: 630,
+        alt: "Tu Marca AR Logo",
+        type: "image/jpeg",
       },
     ],
-    locale: "es_ES",
-    type: "website",
+    countryName: "Argentina",
   },
+
+  // ===== TWITTER CARD =====
   twitter: {
     card: "summary_large_image",
-    title: "Tu Marca",
-    description: "Tu Marca",
-    images: ["https://tumarca.com/logo-n.jpg"],
+    title: "Tu Marca AR | Branding, Diseño Web & Marketing Digital",
+    description: "Transformamos tu negocio con branding estratégico, diseño web premium y marketing digital basado en datos.",
+    images: ["/logo-n.jpg"],
+    creator: "@tumarcaar", // Tu usuario de Twitter
+    site: "@tumarcaar",
   },
+
+  // ===== ICONOS & MANIFEST =====
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon-180x180.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+  },
+
+  manifest: "/manifest.json",
+
+  // ===== APPLE =====
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Tu Marca AR",
+    startupImage: [
+      {
+        media: "(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)",
+        url: "/apple-splash-1125x2436.png",
+      },
+    ],
+  },
+
+  // ===== FORMATOS ADICIONALES =====
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+
+  // ===== METADATOS DE LA APLICACIÓN =====
+  applicationName: "Tu Marca AR",
+
+  // ===== CATEGORÍA & CLASIFICACIÓN =====
+  category: "Business & Industrial/Marketing & Advertising",
+
+  // ===== CLASIFICACIÓN DE EDAD =====
+  other: {
+    rating: "general",
+  },
+
+  // ===== DERECHOS DE AUTOR =====
+  metadataBase: new URL("https://tumarca.ar"),
 };
 
+// ===== METADATOS DINÁMICOS POR PÁGINA (Opcional) =====
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  return {
+    title: `${params.slug} | Tu Marca AR`,
+    // ... más metadatos dinámicos
+  };
+}
 
 export default function SiteLayout({
   children,
@@ -46,7 +173,7 @@ export default function SiteLayout({
   return (
     <>
       <Header />
-  <ScrollProgressBar 
+      <ScrollProgressBar
         gradient="from-pink-500 to-rose-500"
         opacity={0.9}
         className="shadow-lg shadow-pink-500/20"
@@ -56,9 +183,9 @@ export default function SiteLayout({
         <Loader />
 
         <main className="min-h-screen">
-       
+
           {children}
-           <OnlineVisitors />
+          <OnlineVisitors />
           <ChatWidget />
           <Analytics />
         </main>
