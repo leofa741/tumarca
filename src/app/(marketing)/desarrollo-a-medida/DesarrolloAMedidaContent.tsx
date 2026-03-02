@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import FormContactLanding from '../components/FormContactLanding';
+import { motion } from 'framer-motion';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -288,7 +290,7 @@ export default function DesarrolloAMedidaContent() {
                 onClick={scrollToContact}
                 style={{ fontFamily: "'Bricolage Grotesque',sans-serif", fontWeight: 700, fontSize: 16, padding: '15px 30px', borderRadius: 12, border: 'none', cursor: 'pointer', background: 'linear-gradient(135deg,#f59e0b,#ea580c)', color: '#000', transition: 'all .2s' }}
               >
-                Solicitar diagnóstico gratis →
+                Solicitar diagnóstico →
               </button>
               <button
                 className="tm-btn-wa"
@@ -303,65 +305,33 @@ export default function DesarrolloAMedidaContent() {
 
           {/* Form Card */}
           <FadeIn delay={150}>
-            <div
-              ref={contactRef}
-              id="contacto"
-              style={{ background: '#0f0f14', border: '1px solid rgba(255,255,255,.07)', borderRadius: 24, padding: 'clamp(24px,4vw,40px)', boxShadow: '0 40px 100px rgba(0,0,0,.6)', position: 'sticky', top: 100 }}
-            >
-              <h2 style={{ fontFamily: "'Bricolage Grotesque',sans-serif", fontSize: 22, fontWeight: 700, letterSpacing: -.5, marginBottom: 6 }}>
-                Contanos tu proyecto
-              </h2>
-              <p style={{ fontSize: 14, color: '#6b6b7a', marginBottom: 24 }}>Respondemos en menos de 24 horas con una propuesta.</p>
 
-              {submitted ? (
-                <div style={{ textAlign: 'center', padding: '40px 0' }}>
-                  <div style={{ fontSize: 48, marginBottom: 16 }}>✅</div>
-                  <p style={{ fontFamily: "'Bricolage Grotesque',sans-serif", fontWeight: 700, fontSize: 18, marginBottom: 8 }}>¡Mensaje enviado!</p>
-                  <p style={{ fontSize: 14, color: '#6b6b7a' }}>Te contactamos en menos de 24hs.</p>
-                </div>
-              ) : (
-                <>
-                  {(['nombre', 'email', 'problema'] as const).map(k => {
-                    const labels = { nombre: 'Nombre y empresa', email: 'Email', problema: 'Contanos el problema' };
-                    const placeholders = { nombre: 'Ej: Martín García — García Distribuciones', email: 'martin@tuempresa.com', problema: 'Describí brevemente qué está fallando o qué querés mejorar...' };
-                    const isArea = k === 'problema';
-                    return (
-                      <div key={k} style={{ marginBottom: 14 }}>
-                        <label style={{ display: 'block', fontSize: 11, fontWeight: 600, color: '#888', letterSpacing: .5, textTransform: 'uppercase', marginBottom: 6 }}>{labels[k]}</label>
-                        {isArea
-                          ? <textarea rows={3} className="tm-input" value={form[k]} onChange={e => handleField(k, e.target.value)} placeholder={placeholders[k]} style={inputStyle(!!errors[k])} />
-                          : <input type={k === 'email' ? 'email' : 'text'} className="tm-input" value={form[k]} onChange={e => handleField(k, e.target.value)} placeholder={placeholders[k]} style={inputStyle(!!errors[k])} />
-                        }
-                      </div>
-                    );
-                  })}
 
-                  <div style={{ marginBottom: 14 }}>
-                    <label style={{ display: 'block', fontSize: 11, fontWeight: 600, color: '#888', letterSpacing: .5, textTransform: 'uppercase', marginBottom: 6 }}>¿Qué necesitás?</label>
-                    <select className="tm-input" value={form.servicio} onChange={e => handleField('servicio', e.target.value)} style={{ ...inputStyle(!!errors.servicio), appearance: 'none' as const }}>
-                      <option value="" disabled>Seleccioná una opción</option>
-                      {SERVICE_OPTIONS.map(o => <option key={o} value={o} style={{ background: '#1a1a24' }}>{o}</option>)}
-                    </select>
+
+             {/* FORMULARIO DE CONTACTO */}
+                <section id="contact" className="py-24 bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-xl text-black dark:text-white">
+                  <div className="max-w-3xl mx-auto px-4">
+                    <motion.h2
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      className="text-3xl font-bold text-center mb-6"
+                    >
+                      Reservá tu demo GRATIS
+                    </motion.h2>
+                    <p className="text-center text-gray-600 dark:text-gray-400 mb-10">
+                      Completá el formulario y agendá tu demo personalizada sin compromiso.
+                    </p>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-xl"
+                    >
+                      <FormContactLanding />
+                    </motion.div>
                   </div>
-
-                  <button
-                    className="tm-submit"
-                    onClick={handleSubmit}
-                    style={{ width: '100%', padding: '15px', borderRadius: 12, border: 'none', cursor: 'pointer', fontFamily: "'Bricolage Grotesque',sans-serif", fontWeight: 700, fontSize: 16, background: 'linear-gradient(135deg,#f59e0b,#ea580c)', color: '#000', transition: 'all .2s', marginTop: 4 }}
-                  >
-                    Solicitar diagnóstico gratuito →
-                  </button>
-
-                  <div style={{ display: 'flex', justifyContent: 'center', gap: 20, marginTop: 16, flexWrap: 'wrap' }}>
-                    {['Sin compromiso', '100% confidencial', 'Respuesta en 24hs'].map(t => (
-                      <span key={t} style={{ fontSize: 11, color: '#555', display: 'flex', alignItems: 'center', gap: 5 }}>
-                        <span style={{ color: '#22c55e', fontWeight: 700 }}>✓</span> {t}
-                      </span>
-                    ))}
-                  </div>
-                </>
-              )}
-            </div>
+                </section>
           </FadeIn>
         </section>
 
