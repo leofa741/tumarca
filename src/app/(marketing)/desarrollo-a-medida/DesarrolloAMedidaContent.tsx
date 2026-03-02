@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import FormContactLanding from '../components/FormContactLanding';
 import { motion } from 'framer-motion';
+import { useSectionTracker } from '@/app/(marketing)/components/useSectionTracker';
+import VisitTracker from '@/app/(marketing)/components/VisitTracker';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -125,8 +127,7 @@ function FadeIn({ children, delay = 0, className = '' }: { children: React.React
 export default function DesarrolloAMedidaContent() {
   const contactRef = useRef<HTMLDivElement>(null);
   const [form, setForm] = useState<FormState>({ nombre: '', email: '', servicio: '', problema: '' });
-  const [submitted, setSubmitted] = useState(false);
-  const [errors, setErrors] = useState<Partial<FormState>>({});
+
 
   // ── Cursor ──────────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -151,19 +152,7 @@ export default function DesarrolloAMedidaContent() {
   const scrollToContact = () =>
     contactRef.current?.scrollIntoView({ behavior: 'smooth' });
 
-  const handleField = (k: keyof FormState, v: string) => {
-    setForm(p => ({ ...p, [k]: v }));
-    setErrors(p => ({ ...p, [k]: '' }));
-  };
 
-  const handleSubmit = () => {
-    const next: Partial<FormState> = {};
-    (Object.keys(form) as (keyof FormState)[]).forEach(k => {
-      if (!form[k].trim()) next[k] = 'required';
-    });
-    if (Object.keys(next).length) { setErrors(next); return; }
-    setSubmitted(true);
-  };
 
   // ── Styles (inline — no Tailwind dependency for custom tokens) ──────────────
   const S = {
@@ -203,6 +192,41 @@ export default function DesarrolloAMedidaContent() {
     transition: 'border-color .2s',
   });
 
+    const { ref: seccionDesarrolloAMedidaRef } = useSectionTracker({
+        sectionId: 'desarrollo-a-medida',
+        sectionName: 'desarrollo-a-medida',
+        minReadTime: 3000,
+        onEngagement: (data) => {
+            if (data.eventType === 'read') {
+                console.log('🎯 Usuario leyó desarrollo-a-medida');
+            }
+        },
+    });
+
+    const { ref: seccionProcesoRef } = useSectionTracker({
+        sectionId: 'proceso',
+        sectionName: 'proceso',
+        minReadTime: 3000,
+        onEngagement: (data) => {
+            if (data.eventType === 'read') {
+                console.log('🎯 Usuario leyó proceso');
+            }
+        },
+    });
+
+    const { ref: seccionAudienciaRef } = useSectionTracker({
+        sectionId: 'audiencia',
+        sectionName: 'audiencia',
+        minReadTime: 3000,
+        onEngagement: (data) => {
+            if (data.eventType === 'read') {
+                console.log('🎯 Usuario leyó audiencia');
+            }
+        },
+    });
+
+
+
   return (
     <>
       {/* Google Fonts */}
@@ -227,7 +251,9 @@ export default function DesarrolloAMedidaContent() {
       <main style={S.wrap}>
 
         {/* ── HERO ──────────────────────────────────────────────────────────── */}
-        <section style={{
+        <section 
+        ref={seccionDesarrolloAMedidaRef}
+        style={{
           padding: 'clamp(120px,14vw,160px) clamp(20px,5vw,64px) 80px',
           display: 'grid',
           gridTemplateColumns: 'minmax(0,1fr) min(440px,100%)',
@@ -252,6 +278,8 @@ export default function DesarrolloAMedidaContent() {
                 trabaje por vos
               </span>
             </h1>
+
+            <VisitTracker pageName="desarrollo-a-medida" />
 
             <p style={{ fontSize: 18, color: '#9090a0', lineHeight: 1.7, maxWidth: 520, marginBottom: 40 }}>
               Transformamos procesos caóticos en sistemas digitales que aumentan ventas,
@@ -375,7 +403,9 @@ export default function DesarrolloAMedidaContent() {
         </section>
 
         {/* ── PARA QUIÉN ────────────────────────────────────────────────────── */}
-        <section style={{ padding: 'clamp(60px,8vw,100px) clamp(20px,5vw,64px)', background: '#0f0f14', borderTop: '1px solid rgba(255,255,255,.07)', borderBottom: '1px solid rgba(255,255,255,.07)' }}>
+        <section
+        ref={seccionAudienciaRef}
+         style={{ padding: 'clamp(60px,8vw,100px) clamp(20px,5vw,64px)', background: '#0f0f14', borderTop: '1px solid rgba(255,255,255,.07)', borderBottom: '1px solid rgba(255,255,255,.07)' }}>
           <div style={{ maxWidth: 1200, margin: '0 auto' }}>
             <FadeIn>
               <div style={{ textAlign: 'center', marginBottom: 52 }}>
@@ -402,7 +432,9 @@ export default function DesarrolloAMedidaContent() {
         </section>
 
         {/* ── PROCESO ───────────────────────────────────────────────────────── */}
-        <section style={{ padding: 'clamp(60px,8vw,100px) clamp(20px,5vw,64px)' }}>
+        <section
+        ref={seccionProcesoRef}
+         style={{ padding: 'clamp(60px,8vw,100px) clamp(20px,5vw,64px)' }}>
           <div style={{ maxWidth: 1200, margin: '0 auto' }}>
             <FadeIn>
               <div style={{ textAlign: 'center', marginBottom: 64 }}>
