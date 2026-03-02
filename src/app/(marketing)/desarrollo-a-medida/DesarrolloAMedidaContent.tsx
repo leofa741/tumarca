@@ -48,6 +48,8 @@ const SERVICES: ServiceItem[] = [
   { num: '04', title: 'Automatización con IA', text: 'Reemplazamos tareas manuales repetitivas con procesos inteligentes. Tu equipo se libera para lo que realmente importa.' },
   { num: '05', title: 'Integraciones Avanzadas', text: 'Conectamos tus sistemas con pagos, logística, bancos, AFIP y APIs externas. Todo en un solo ecosistema integrado.' },
   { num: '06', title: 'Arquitectura Escalable', text: 'Infraestructura preparada para crecer. Construimos para hoy y para el doble de tu operación en 2 años.' },
+  { num: '07', title: 'Soporte 24/7', text: 'Soporte técnico disponible las 24 horas del día, los 7 días de la semana. Estamos siempre ahí cuando nos necesitás.' },
+  { num: '08', title: 'Capacitación y Onboarding', text: 'Capacitación y onboarding para que tu equipo pueda utilizar el sistema de manera eficiente. Te acompañamos en todo el proceso.' },
 ];
 
 const AUDIENCE: AudienceItem[] = [
