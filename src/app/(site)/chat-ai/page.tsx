@@ -282,7 +282,7 @@ export default function ChatAIPage() {
                         <p className={`mb-6 leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                             {hasDonated 
                                 ? 'Tu contribución ayuda a mantener este proyecto activo y en mejora continua. ¡Podés seguir chateando sin límites!' 
-                                : `Este asistente es gratuito gracias a la comunidad. Ya usaste <strong>${messagesUsed}</strong> de <strong>${FREE_MESSAGES_LIMIT}</strong> mensajes gratis. ¿Podés colaborar para que siga disponible?`
+                                : `Este asistente es gratuito gracias a la comunidad. Ya usaste ${messagesUsed} de ${FREE_MESSAGES_LIMIT} mensajes gratis. ¿Podés colaborar para que siga disponible?`
                             }
                         </p>
                         
