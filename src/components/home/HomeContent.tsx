@@ -95,8 +95,8 @@ export default function HomeContent() {
 
     const [activeSection, setActiveSection] = useState('hero');
     const { ref: serviciosRef } = useSectionTracker({
-        sectionId: 'serviciosHome',
-        sectionName: 'serviciosHome',
+        sectionId: 'servis-Home',
+        sectionName: 'servis-Home',
         minReadTime: 3000,
         onEngagement: (data) => {
             if (data.eventType === 'read') {
@@ -113,7 +113,7 @@ export default function HomeContent() {
         const handleScroll = () => {
             if (!ticking) {
                 requestAnimationFrame(() => {
-                    const sections = ['hero', 'serviciosHome', 'portfolio', 'cta'];
+                    const sections = ['hero', 'servis-Home', 'portfolio', 'cta'];
                     const scrollPosition = window.scrollY + 200;
 
                     for (const section of sections) {
@@ -264,11 +264,11 @@ export default function HomeContent() {
                 )}
 
                 <div className="relative z-10 max-w-5xl mx-auto text-center">
-                    <VisitTracker pageName="intro-Home" />
+                     <VisitTracker pageName="Home" /> 
+                  
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: reducedMotion ? 0.3 : 0.8 }}
                         className="inline-flex items-center gap-2 px-5 py-2.5 bg-amber-500/10 border border-amber-500/30 rounded-full mb-8"
                     >
                         <Sparkles className="text-amber-400" size={18} />
@@ -367,7 +367,7 @@ export default function HomeContent() {
             </section>
 
             {/* SECCIÓN SERVICIOS */}
-            <section ref={serviciosRef} id="serviciosHome" className="relative py-24 md:py-32 px-6">
+            <section ref={serviciosRef} id="servis-Home" className="relative py-24 md:py-32 px-6">
                 <div className="max-w-7xl mx-auto">
                     <motion.div
                         className="text-center mb-20"
