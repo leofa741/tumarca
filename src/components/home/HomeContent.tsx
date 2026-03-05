@@ -264,8 +264,8 @@ export default function HomeContent() {
                 )}
 
                 <div className="relative z-10 max-w-5xl mx-auto text-center">
-                     <VisitTracker pageName="Home" /> 
-                  
+                    <VisitTracker pageName="Home" />
+
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -433,7 +433,7 @@ export default function HomeContent() {
                             href="/contact"
                             className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/20 rounded-xl text-white hover:bg-white/10 transition-all duration-300"
                         >
-                            Agendá una consultoría 
+                            Agendá una consultoría
                             <ArrowRight size={18} />
                         </a>
                     </motion.div>
