@@ -515,7 +515,7 @@ const GymAccessControlPage = () => {
   });
 
   return (
-    <div  className="min-h-screen dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 transition-colors duration-500">
+    <div  className="min-h-screen bg-gradient-to-b from-gray-650 via-gray-500 to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 transition-colors duration-500" >
       
       <VisitTracker pageName="sistema-de-control-de-acceso" />
 
