@@ -861,7 +861,7 @@ const GymAccessControlPage = () => {
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Pricing Section 
       <section id="precios" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
         <GradientBlob className="w-96 h-96 bottom-0 right-0" color="amber" />
         <div className="max-w-7xl mx-auto relative z-10">
@@ -889,7 +889,7 @@ const GymAccessControlPage = () => {
             </GlassCard>
           </motion.div>
         </div>
-      </section>
+      </section>*/}
 
       {/* FAQ Section */}
       <section id="faq" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
