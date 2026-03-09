@@ -734,7 +734,7 @@ const GymAccessControlPage = () => {
           <SectionHeading
             eyebrow="Flexibilidad total"
             title="Elegí el método de acceso que mejor se adapta a tu gimnasio"
-            subtitle="Desde tags RFID económicos hasta reconocimiento facial de última generación. Mezclá métodos según la zona o el tipo de socio."
+            subtitle="Tags RFID hasta huella dactilar. Mezclá métodos según la zona o el tipo de socio."
           />
           
           {/* Tabs */}
