@@ -641,7 +641,7 @@ const GymAccessControlPage = () => {
               </motion.div>
 
               {/* Headline */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-[1.1] tracking-tight text-gray-900 dark:text-white">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-[1.1] tracking-tight text-gray-600 dark:text-white">
                 Control de acceso inteligente para gimnasios que <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">elimina fraudes y optimiza tu operación</span>
               </h1>
 
