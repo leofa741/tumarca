@@ -140,9 +140,7 @@ const AccessControlComplexLanding = () => {
                             Consultar →
                         </motion.button>
 
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-                            ⚠️ Solo 3 instalaciones disponibles este mes
-                        </p>
+                    
                     </motion.div>
 
                     {/* Formulario */}
