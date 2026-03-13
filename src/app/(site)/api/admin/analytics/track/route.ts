@@ -5,7 +5,6 @@ import { redis } from "@/lib/redis";
 const timeZone = "America/Argentina/Buenos_Aires";
 
 function formatHourKey(date: Date) {
-
   const formatter = new Intl.DateTimeFormat("sv-SE", {
     timeZone,
     year: "numeric",
@@ -46,22 +45,17 @@ export async function POST(req: Request) {
   const now = Date.now();
   const hourKey = formatHourKey(new Date());
 
-  // usuarios online
   await redis.zadd("online:global", {
     score: now,
     member: visitorId
   });
 
-  // visitas por hora
   await redis.incr(`views:${hourKey}`);
 
-  // origen
   await redis.incr(`traffic:source:${source}`);
 
-  // páginas
   await redis.incr(`traffic:page:${page}`);
 
-  // dispositivo
   let device = "desktop";
 
   if (ua.includes("Mobile")) device = "mobile";
@@ -69,12 +63,10 @@ export async function POST(req: Request) {
 
   await redis.incr(`traffic:device:${device}`);
 
-  // usuarios únicos
   const today = new Date().toISOString().slice(0, 10);
 
   await redis.sadd(`visitors:${today}`, visitorId);
 
-  // pico máximo
   const online = await redis.zcard("online:global");
   const peak = Number(await redis.get("stats:peak") || 0);
 

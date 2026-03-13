@@ -12,7 +12,6 @@ function formatHourKey(date: Date) {
     hour: "2-digit",
     hour12: false,
   });
-  
 
   const parts = formatter.formatToParts(date);
 
@@ -28,15 +27,18 @@ function formatHourKey(date: Date) {
 }
 
 export async function GET() {
+
   const now = Date.now();
 
   await redis.zremrangebyscore("online:global", 0, now - 30000);
+
   const online = await redis.zcard("online:global");
   const peak = await redis.get("stats:peak");
 
   const hours = [];
 
   for (let i = 11; i >= 0; i--) {
+
     const date = new Date(Date.now() - i * 3600000);
 
     const { key, hour } = formatHourKey(date);
@@ -49,9 +51,31 @@ export async function GET() {
     });
   }
 
+  const today = new Date().toISOString().slice(0,10);
+  const visitors = await redis.scard(`visitors:${today}`);
+
+  const instagram = await redis.get("traffic:source:instagram");
+  const facebook = await redis.get("traffic:source:facebook");
+  const google = await redis.get("traffic:source:google");
+  const direct = await redis.get("traffic:source:direct");
+
+  const mobile = await redis.get("traffic:device:mobile");
+  const desktop = await redis.get("traffic:device:desktop");
+
   return NextResponse.json({
     online,
     peak: Number(peak || 0),
+    visitors,
+    sources: {
+      instagram: Number(instagram || 0),
+      facebook: Number(facebook || 0),
+      google: Number(google || 0),
+      direct: Number(direct || 0),
+    },
+    devices: {
+      mobile: Number(mobile || 0),
+      desktop: Number(desktop || 0),
+    },
     hourly: hours,
   });
 }

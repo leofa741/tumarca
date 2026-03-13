@@ -7,17 +7,14 @@ interface Data {
   online: number;
   peak: number;
   visitors: number;
-
   hourly: { hour: string; views: number }[];
-
-  sources: {
+  sources?: {
     instagram: number;
     facebook: number;
     google: number;
     direct: number;
   };
-
-  devices: {
+  devices?: {
     mobile: number;
     desktop: number;
   };
@@ -30,24 +27,22 @@ export default function AnalyticsClient() {
     peak: 0,
     visitors: 0,
     hourly: [],
-    sources: {
-      instagram: 0,
-      facebook: 0,
-      google: 0,
-      direct: 0
-    },
-    devices: {
-      mobile: 0,
-      desktop: 0
-    }
   });
 
   useEffect(() => {
 
     const fetchData = async () => {
-      const res = await fetch("/api/admin/analytics", { cache: "no-store" });
-      const json = await res.json();
-      setData(json);
+      try {
+
+        const res = await fetch("/api/admin/analytics", { cache: "no-store" });
+
+        const json = await res.json();
+
+        setData(json);
+
+      } catch (err) {
+        console.error("analytics error", err);
+      }
     };
 
     fetchData();
@@ -68,125 +63,99 @@ export default function AnalyticsClient() {
 
       <h1 className="text-3xl font-bold mb-10">📊 Realtime Analytics</h1>
 
+      <button onClick={logout} className="mb-10 px-4 py-2 bg-red-600 rounded">
+        Cerrar sesión
+      </button>
+
       <div className="flex gap-6 mb-10">
 
         <a href="/admin/chat">Chat en Vivo</a>
 
-        <a href="/admin/visitas">📊 Visitas</a>
-
-        <button
-          onClick={logout}
-          className="px-4 py-2 bg-red-600 rounded-lg"
-        >
-          Cerrar Sesión
-        </button>
+        <a href="/admin/visitas">Visitas</a>
 
       </div>
 
-      {/* STATS PRINCIPALES */}
-
       <div className="grid grid-cols-4 gap-6 mb-10">
 
-        <div className="bg-gray-900 p-6 rounded-xl">
-          <p className="text-gray-400 text-xs">ONLINE</p>
-          <p className="text-4xl font-bold text-green-400">{data.online}</p>
+        <div className="bg-gray-900 p-6 rounded">
+          <p>ONLINE</p>
+          <p className="text-3xl">{data.online}</p>
         </div>
 
-        <div className="bg-gray-900 p-6 rounded-xl">
-          <p className="text-gray-400 text-xs">PICO</p>
-          <p className="text-4xl font-bold text-yellow-400">{data.peak}</p>
+        <div className="bg-gray-900 p-6 rounded">
+          <p>PICO</p>
+          <p className="text-3xl">{data.peak}</p>
         </div>
 
-        <div className="bg-gray-900 p-6 rounded-xl">
-          <p className="text-gray-400 text-xs">VISITANTES HOY</p>
-          <p className="text-4xl font-bold text-blue-400">{data.visitors}</p>
+        <div className="bg-gray-900 p-6 rounded">
+          <p>VISITANTES HOY</p>
+          <p className="text-3xl">{data.visitors}</p>
         </div>
 
-        <div className="bg-gray-900 p-6 rounded-xl">
-          <p className="text-gray-400 text-xs">ÚLTIMA HORA</p>
-          <p className="text-4xl font-bold text-purple-400">
-            {data.hourly.at(-1)?.views ?? 0}
+        <div className="bg-gray-900 p-6 rounded">
+          <p>ÚLTIMA HORA</p>
+          <p className="text-3xl">
+            {data.hourly?.length
+              ? data.hourly[data.hourly.length - 1].views
+              : 0}
           </p>
         </div>
 
       </div>
 
-      {/* VISITAS POR HORA */}
+      <div className="bg-gray-900 p-6 rounded mb-10">
 
-      <div className="bg-gray-900 p-6 rounded-xl mb-10">
+        <h2 className="mb-4">Visitas por hora</h2>
 
-        <h2 className="mb-4 font-semibold">Visitas por hora</h2>
-
-        <div className="space-y-2">
-
-          {data.hourly.map((h, i) => (
-
-            <div key={i} className="flex justify-between text-sm">
-
-              <span>{h.hour}</span>
-
-              <span>{h.views}</span>
-
-            </div>
-
-          ))}
-
-        </div>
+        {data.hourly?.map((h, i) => (
+          <div key={i} className="flex justify-between">
+            <span>{h.hour}</span>
+            <span>{h.views}</span>
+          </div>
+        ))}
 
       </div>
 
-      {/* TRAFICO */}
+      <div className="grid grid-cols-2 gap-6">
 
-      <div className="grid grid-cols-2 gap-6 mb-10">
+        <div className="bg-gray-900 p-6 rounded">
 
-        <div className="bg-gray-900 p-6 rounded-xl">
+          <h2 className="mb-4">Origen tráfico</h2>
 
-          <h2 className="mb-4 font-semibold">Origen del tráfico</h2>
+          <div className="flex justify-between">
+            <span>Instagram</span>
+            <span>{data.sources?.instagram ?? 0}</span>
+          </div>
 
-          <div className="space-y-2 text-sm">
+          <div className="flex justify-between">
+            <span>Facebook</span>
+            <span>{data.sources?.facebook ?? 0}</span>
+          </div>
 
-            <div className="flex justify-between">
-              <span>Instagram</span>
-              <span>{data.sources.instagram}</span>
-            </div>
+          <div className="flex justify-between">
+            <span>Google</span>
+            <span>{data.sources?.google ?? 0}</span>
+          </div>
 
-            <div className="flex justify-between">
-              <span>Facebook</span>
-              <span>{data.sources.facebook}</span>
-            </div>
-
-            <div className="flex justify-between">
-              <span>Google</span>
-              <span>{data.sources.google}</span>
-            </div>
-
-            <div className="flex justify-between">
-              <span>Directo</span>
-              <span>{data.sources.direct}</span>
-            </div>
-
+          <div className="flex justify-between">
+            <span>Directo</span>
+            <span>{data.sources?.direct ?? 0}</span>
           </div>
 
         </div>
 
-        {/* DISPOSITIVOS */}
+        <div className="bg-gray-900 p-6 rounded">
 
-        <div className="bg-gray-900 p-6 rounded-xl">
+          <h2 className="mb-4">Dispositivos</h2>
 
-          <h2 className="mb-4 font-semibold">Dispositivos</h2>
+          <div className="flex justify-between">
+            <span>Mobile</span>
+            <span>{data.devices?.mobile ?? 0}</span>
+          </div>
 
-          <div className="space-y-2 text-sm">
-
-            <div className="flex justify-between">
-              <span>Mobile</span>
-              <span>{data.devices.mobile}</span>
-            </div>
-
-            <div className="flex justify-between">
-              <span>Desktop</span>
-              <span>{data.devices.desktop}</span>
-            </div>
-
+          <div className="flex justify-between">
+            <span>Desktop</span>
+            <span>{data.devices?.desktop ?? 0}</span>
           </div>
 
         </div>
