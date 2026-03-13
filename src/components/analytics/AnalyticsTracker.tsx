@@ -28,7 +28,7 @@ export default function AnalyticsTracker() {
 
     send();
 
-    const interval = setInterval(send, 10000);
+    const interval = setInterval(send, 1000);
 
     return () => clearInterval(interval);
 
