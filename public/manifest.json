@@ -4,8 +4,8 @@
   "description": "Branding, Diseño Web & Marketing Digital",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0a0a",
-  "theme_color": "#f59e0b",
+  "background_color": "#000000",
+  "theme_color": "#000000",
   "orientation": "portrait-primary",
   "icons": [
     {
