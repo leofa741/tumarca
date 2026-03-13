@@ -140,7 +140,7 @@ export default function SiteLayout({
 
           {children}
           <AnalyticsTracker />
-        
+          <OnlineVisitors />
           <ChatWidget />
           <Analytics />
         </main>
