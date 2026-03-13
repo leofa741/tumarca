@@ -5,6 +5,7 @@ import { redis } from "@/lib/redis";
 const timeZone = "America/Argentina/Buenos_Aires";
 
 function formatHourKey(date: Date) {
+
   const formatter = new Intl.DateTimeFormat("sv-SE", {
     timeZone,
     year: "numeric",
@@ -32,47 +33,57 @@ export async function POST(req: Request) {
   const page = body.page || "/";
   const visitorId = body.visitorId;
 
-  const referer = h.get("referer") || "direct";
+  const referer = h.get("referer") || "";
   const ua = h.get("user-agent") || "";
 
   let source = "direct";
 
   if (referer.includes("instagram")) source = "instagram";
-  if (referer.includes("facebook")) source = "facebook";
-  if (referer.includes("google")) source = "google";
-  if (referer.includes("tiktok")) source = "tiktok";
-
-  const now = Date.now();
-  const hourKey = formatHourKey(new Date());
-
-  await redis.zadd("online:global", {
-    score: now,
-    member: visitorId
-  });
-
-  await redis.incr(`views:${hourKey}`);
-
-  await redis.incr(`traffic:source:${source}`);
-
-  await redis.incr(`traffic:page:${page}`);
+  else if (referer.includes("facebook")) source = "facebook";
+  else if (referer.includes("google")) source = "google";
+  else if (referer.includes("tiktok")) source = "tiktok";
 
   let device = "desktop";
 
   if (ua.includes("Mobile")) device = "mobile";
   if (ua.includes("Tablet")) device = "tablet";
 
-  await redis.incr(`traffic:device:${device}`);
+  const now = Date.now();
 
-  const today = new Date().toISOString().slice(0, 10);
+  const today = new Date().toISOString().slice(0,10);
 
-  await redis.sadd(`visitors:${today}`, visitorId);
+  const hourKey = formatHourKey(new Date());
+
+  // mantener online
+  await redis.zadd("online:global", {
+    score: now,
+    member: visitorId
+  });
+
+  // contar visitas por hora (pageview)
+  await redis.incr(`views:${hourKey}`);
+
+  // visitante único del día
+  const isNewVisitor = await redis.sadd(`visitors:${today}`, visitorId);
+
+  if (isNewVisitor === 1) {
+
+    await redis.incr(`traffic:device:${device}`);
+
+    await redis.incr(`traffic:source:${source}`);
+
+  }
 
   const online = await redis.zcard("online:global");
+
   const peak = Number(await redis.get("stats:peak") || 0);
 
   if (online > peak) {
+
     await redis.set("stats:peak", online);
+
   }
 
   return NextResponse.json({ ok: true });
+
 }
