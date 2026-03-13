@@ -8,6 +8,7 @@ import { Analytics } from "@vercel/analytics/next";
 import ScrollProgressBar from "@/components/scroolprogress/ScrollProgressBar";
 import OnlineVisitors from "@/components/onlinevisitors/OnlineVisitors";
 import { Metadata } from "next";
+import AnalyticsTracker from "@/components/analytics/AnalyticsTracker";
 
 
 
@@ -138,6 +139,7 @@ export default function SiteLayout({
         <main className="min-h-screen">
 
           {children}
+          <AnalyticsTracker />
           <OnlineVisitors />
           <ChatWidget />
           <Analytics />

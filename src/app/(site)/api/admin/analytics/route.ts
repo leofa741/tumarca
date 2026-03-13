@@ -12,6 +12,7 @@ function formatHourKey(date: Date) {
     hour: "2-digit",
     hour12: false,
   });
+  
 
   const parts = formatter.formatToParts(date);
 

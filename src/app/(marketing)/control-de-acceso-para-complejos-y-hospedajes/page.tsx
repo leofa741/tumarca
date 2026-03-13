@@ -140,7 +140,7 @@ const AccessControlComplexLanding = () => {
                             Consultar →
                         </motion.button>
 
-                    
+
                     </motion.div>
 
                     {/* Formulario */}
