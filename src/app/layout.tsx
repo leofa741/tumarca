@@ -23,8 +23,8 @@ const playfair = Playfair_Display({
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Tu Marca AR | Agencia Digital",
-  description: "Agencia digital especializada en desarrollo web y sistemas",
+  title: "Tu Marca AR | Diseño Web y Desarrollo de Software",
+  description: "Transformamos tu negocio con branding estratégico, diseño web premium y marketing digital basado en datos. +50 marcas transformadas desde 2015. ¡Consultoría gratuita!",
 };
 
 export default function RootLayout({
@@ -36,7 +36,7 @@ export default function RootLayout({
     <html lang="es">
       <head>
         <link rel="manifest" href="/manifest.json"/>
-          <meta name="theme-color" content="#ffffff" />
+          <meta name="theme-color" content="#000000" />
           {/* Google Tag Manager */}
           <Script
             id="gtm-script"

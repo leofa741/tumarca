@@ -17,7 +17,7 @@ import AnalyticsTracker from "@/components/analytics/AnalyticsTracker";
 export const metadata: Metadata = {
   // ===== METADATOS BÁSICOS =====
   title: {
-    default: "Tu Marca AR | Branding, Diseño Web & Marketing Digital",
+    default: "Tu Marca AR | Diseño Web y Desarrollo de Software",
     template: "%s | Tu Marca AR"
   },
   description: "Transformamos tu negocio con branding estratégico, diseño web premium y marketing digital basado en datos. +50 marcas transformadas desde 2015. ¡Consultoría gratuita!",
