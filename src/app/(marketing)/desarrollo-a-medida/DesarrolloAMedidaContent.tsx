@@ -15,6 +15,18 @@ export default function DesarrolloAMedidaContent() {
     minReadTime: 2000,
   });
 
+  const { ref: autoridadRef } = useSectionTracker({
+    sectionId: 'autoridad',
+    sectionName: 'autoridad',
+    minReadTime: 2000,
+  });
+
+  const { ref: procesoRef } = useSectionTracker({
+    sectionId: 'proceso',
+    sectionName: 'proceso',
+    minReadTime: 2000,
+  });
+
   async function trackAndScroll(eventName: string, section: string) {
 
     try {
@@ -193,7 +205,10 @@ export default function DesarrolloAMedidaContent() {
 
       {/* AUTORIDAD */}
 
-      <section className="py-20 border-y border-gray-900 px-6">
+      <section
+       ref={autoridadRef}
+       id="autoridad"
+       className="py-20 border-y border-gray-900 px-6">
 
         <div className="max-w-6xl mx-auto text-center">
 
@@ -307,7 +322,10 @@ export default function DesarrolloAMedidaContent() {
 
       {/* PROCESO */}
 
-      <section className="py-28 px-6 bg-gradient-to-b from-black to-gray-950">
+      <section
+       ref={procesoRef}
+       id="proceso"
+       className="py-28 px-6 bg-gradient-to-b from-black to-gray-950">
 
         <div className="max-w-6xl mx-auto text-center">
 
