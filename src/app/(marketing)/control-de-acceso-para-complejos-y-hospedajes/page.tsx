@@ -12,8 +12,6 @@ import VisitTracker from '../components/VisitTracker';
 import { useSectionTracker } from '../components/useSectionTracker';
 import { trackClick } from '@/lib/rackClick';
 
-
-
 const AccessControlComplexLanding = () => {
     const [darkMode, setDarkMode] = useState(false);
 
@@ -69,7 +67,6 @@ const AccessControlComplexLanding = () => {
             {/* Hero Section */}
             <section className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-7xl mx-auto">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
-
 
                     {/* Contenido principal */}
                     <motion.div
@@ -140,30 +137,59 @@ const AccessControlComplexLanding = () => {
                             Consultar →
                         </motion.button>
 
-
                     </motion.div>
 
-                    {/* Formulario */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        id="contact"
-                        className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-200 dark:border-gray-700 p-6 sm:p-8"
-                    >
-                        <div className="text-center mb-8">
-                            <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl mx-auto mb-4">
-                                <Building2 className="w-7 h-7 text-white" />
+                    {/* Columna derecha - Imagen y Formulario */}
+                    <div className="space-y-8">
+                        {/* Imagen del sistema */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="relative"
+                        >
+                            <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-3xl blur-2xl opacity-20 dark:opacity-30"></div>
+                            <img 
+                                src="/Control de acceso inteligente en resort.png" 
+                                alt="Control de Acceso Inteligente para Complejos y Hospedajes - Sistema RFID con cerraduras digitales, cámaras de seguridad y acceso móvil"
+                                className="relative rounded-3xl shadow-2xl border-4 border-white dark:border-gray-700 w-full object-cover"
+                            />
+                            {/* Badge flotante */}
+                            <motion.div 
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
+                                className="absolute -bottom-4 -right-4 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-4 border-2 border-emerald-500"
+                            >
+                                <div className="flex items-center gap-2">
+                                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                                    <span className="font-bold text-gray-900 dark:text-white">Acceso Permitido</span>
+                                </div>
+                            </motion.div>
+                        </motion.div>
+
+                        {/* Formulario */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                            id="contact"
+                            className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-200 dark:border-gray-700 p-6 sm:p-8"
+                        >
+                            <div className="text-center mb-8">
+                                <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl mx-auto mb-4">
+                                    <Building2 className="w-7 h-7 text-white" />
+                                </div>
+                                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                                    Modernizá tu complejo hoy
+                                </h2>
+                                <p className="text-gray-500 dark:text-gray-400">
+                                    Recibí una propuesta personalizada sin compromiso
+                                </p>
                             </div>
-                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                                Modernizá tu complejo hoy
-                            </h2>
-                            <p className="text-gray-500 dark:text-gray-400">
-                                Recibí una propuesta personalizada sin compromiso
-                            </p>
-                        </div>
-                        <FormContactLanding />
-                    </motion.div>
+                            <FormContactLanding />
+                        </motion.div>
+                    </div>
                 </div>
             </section>
 
