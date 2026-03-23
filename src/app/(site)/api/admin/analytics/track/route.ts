@@ -1,3 +1,4 @@
+// src/app/(site)/api/admin/analytics/track/route.ts
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import { redis } from "@/lib/redis";
@@ -5,85 +6,100 @@ import { redis } from "@/lib/redis";
 const timeZone = "America/Argentina/Buenos_Aires";
 
 function formatHourKey(date: Date) {
-
   const formatter = new Intl.DateTimeFormat("sv-SE", {
     timeZone,
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    hour12: false,
+    year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", hour12: false,
   });
-
   const parts = formatter.formatToParts(date);
-
-  const year = parts.find(p => p.type === "year")?.value;
-  const month = parts.find(p => p.type === "month")?.value;
-  const day = parts.find(p => p.type === "day")?.value;
-  const hour = parts.find(p => p.type === "hour")?.value;
-
-  return `${year}-${month}-${day}T${hour}`;
+  const get = (type: string) => parts.find(p => p.type === type)?.value;
+  return `${get("year")}-${get("month")}-${get("day")}T${get("hour")}`;
 }
 
 export async function POST(req: Request) {
+  try {
+    const h = await headers();
+    const body = await req.json();
 
-  const h = await headers();
-  const body = await req.json();
+    const page = body.page || "/";
+    const visitorId = body.visitorId;
+    const referer = h.get("referer") || "";
+    const ua = h.get("user-agent") || "";
 
-  const page = body.page || "/";
-  const visitorId = body.visitorId;
+    // Detección de fuente y dispositivo
+    let source = "direct";
+    if (referer.includes("instagram")) source = "instagram";
+    else if (referer.includes("facebook")) source = "facebook";
+    else if (referer.includes("google")) source = "google";
+    else if (referer.includes("tiktok")) source = "tiktok";
 
-  const referer = h.get("referer") || "";
-  const ua = h.get("user-agent") || "";
+    let device = "desktop";
+    if (ua.includes("Mobile")) device = "mobile";
+    if (ua.includes("Tablet")) device = "tablet";
 
-  let source = "direct";
+    const now = Date.now();
+    const today = new Date().toISOString().slice(0, 10);
+    const hourKey = formatHourKey(new Date());
 
-  if (referer.includes("instagram")) source = "instagram";
-  else if (referer.includes("facebook")) source = "facebook";
-  else if (referer.includes("google")) source = "google";
-  else if (referer.includes("tiktok")) source = "tiktok";
+    // 🎯 PIPELINE: Agrupa múltiples comandos en 1 sola request a Upstash
+    const pipeline = redis.pipeline();
 
-  let device = "desktop";
+    // 1. Mantener online (siempre)
+    pipeline.zadd("online:global", { score: now, member: visitorId });
 
-  if (ua.includes("Mobile")) device = "mobile";
-  if (ua.includes("Tablet")) device = "tablet";
+    // 2. Contar pageview por hora (siempre)
+    pipeline.incr(`views:${hourKey}`);
 
-  const now = Date.now();
+    // 3. Registrar visitante único y obtener si es nuevo
+    pipeline.sadd(`visitors:${today}`, visitorId);
 
-  const today = new Date().toISOString().slice(0,10);
+    // Ejecutamos las primeras 3 operaciones para saber si es nuevo visitante
+    const [_, __, isNewVisitor] = await pipeline.exec();
 
-  const hourKey = formatHourKey(new Date());
+    // 4. Si es nuevo, agregamos métricas de tráfico (segundo pipeline opcional)
+    if (isNewVisitor === 1) {
+      const p2 = redis.pipeline();
+      p2.incr(`traffic:device:${device}`);
+      p2.incr(`traffic:source:${source}`);
+      await p2.exec(); // Esto cuenta como 1 request adicional solo cuando es necesario
+    }
 
-  // mantener online
-  await redis.zadd("online:global", {
-    score: now,
-    member: visitorId
-  });
+    // 5. Actualizar peak cada 10 minutos (no en cada request)
+    const lastPeakUpdate = await redis.get<number>("stats:peak:updated");
+    const shouldUpdatePeak = !lastPeakUpdate || (now - lastPeakUpdate) > 10 * 60 * 1000;
 
-  // contar visitas por hora (pageview)
-  await redis.incr(`views:${hourKey}`);
+    if (shouldUpdatePeak) {
+      const online = await redis.zcard("online:global");
+      const peak = Number(await redis.get("stats:peak") || 0);
+      
+      if (online > peak) {
+        const p3 = redis.pipeline();
+        p3.set("stats:peak", online);
+        p3.set("stats:peak:updated", now); // Guardar timestamp
+        await p3.exec();
+      }
+    }
 
-  // visitante único del día
-  const isNewVisitor = await redis.sadd(`visitors:${today}`, visitorId);
+    return NextResponse.json({ ok: true });
 
-  if (isNewVisitor === 1) {
+  } catch (error: any) {
+    // 🛡️ Manejo elegante del límite de Upstash
+    if (error.message?.includes("max requests limit exceeded")) {
+      console.warn("⚠️ Upstash quota exceeded - analytics paused gracefully");
+      // Retornamos 200 para no romper la experiencia del usuario
+      return NextResponse.json({ ok: true, warning: "analytics_limited" });
+    }
 
-    await redis.incr(`traffic:device:${device}`);
+    // Loguear otros errores para debugging
+    console.error("❌ Analytics tracking error:", {
+      message: error.message,
+      code: error.code,
+      stack: error.stack,
+    });
 
-    await redis.incr(`traffic:source:${source}`);
-
+    // En producción, no exponer detalles del error
+    return NextResponse.json(
+      { error: process.env.NODE_ENV === "development" ? error.message : "Tracking unavailable" },
+      { status: 500 }
+    );
   }
-
-  const online = await redis.zcard("online:global");
-
-  const peak = Number(await redis.get("stats:peak") || 0);
-
-  if (online > peak) {
-
-    await redis.set("stats:peak", online);
-
-  }
-
-  return NextResponse.json({ ok: true });
-
 }

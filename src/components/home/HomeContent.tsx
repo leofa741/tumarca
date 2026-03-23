@@ -15,6 +15,8 @@ import AplicacionesIA from '@/components/AplicacionesIA';
 import ScrollProgressBar from '@/components/scroolprogress/ScrollProgressBar';
 import { useSectionTracker } from '@/app/(marketing)/components/useSectionTracker';
 import VisitTracker from '@/app/(marketing)/components/VisitTracker';
+import SistemaSection from '../sistemaaction/SistemaSection';
+import PricingSection from '../pricingsection/PricingSection';
 
 const playfair = Playfair_Display({
     subsets: ['latin'],
@@ -283,10 +285,10 @@ export default function HomeContent() {
                         transition={{ duration: reducedMotion ? 0.3 : 0.8, delay: reducedMotion ? 0 : 0.2 }}
                         className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-8"
                     >
-                        Tu marca merece
+                        Conseguí clientes todos los días
                         <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500">
-                            ser inolvidable
+                            con un sistema automático
                         </span>
                     </motion.h1>
 
@@ -296,8 +298,8 @@ export default function HomeContent() {
                         transition={{ duration: reducedMotion ? 0.3 : 0.8, delay: reducedMotion ? 0 : 0.4 }}
                         className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
                     >
-                        Diseñamos identidades auténticas, sitios web que convierten y estrategias digitales para emprendedores que <strong className="text-white">quieren destacar con propósito</strong>.
-                    </motion.p>
+                        Creamos la web, la publicidad y la automatización
+                        para que tu negocio reciba consultas todos los días sin depender de redes sociales.   </motion.p>
 
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -365,6 +367,8 @@ export default function HomeContent() {
                     </motion.div>
                 )}
             </section>
+            <SistemaSection />
+            <PricingSection />
 
             {/* SECCIÓN SERVICIOS */}
             <section ref={serviciosRef} id="servis-Home" className="relative py-24 md:py-32 px-6">
