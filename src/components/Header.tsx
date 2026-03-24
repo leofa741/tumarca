@@ -352,7 +352,7 @@ export default function Header() {
         </div>
       </motion.header>
 
-      {/* Mobile Menu Overlay - Full screen con animaciones staggered */}
+      {/* Mobile Menu Overlay - Full screen con animaciones staggered - FIXED */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -360,7 +360,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 lg:hidden"
+            className="fixed inset-0 z-40 lg:hidden overflow-hidden"
           >
             {/* Backdrop con blur y gradiente */}
             <motion.div
@@ -373,16 +373,16 @@ export default function Header() {
             {/* Aurora móvil */}
             <div className="absolute inset-0 aurora-bg opacity-40" />
 
-            {/* Contenido del menú */}
+            {/* Contenido del menú - CORREGIDO: h-screen + overflow-hidden */}
             <motion.div
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="relative h-full flex flex-col px-6 pt-24 pb-8"
+              className="relative h-screen w-full flex flex-col px-6 pt-24 pb-24 overflow-hidden"
             >
               {/* Logo móvil */}
-              <div className="absolute top-6 left-6">
+              <div className="absolute top-6 left-6 z-10">
                 <Link href="/" onClick={() => setMenuOpen(false)}>
                   <Image
                     src="/marca-2-ar-removebg.png"
@@ -394,8 +394,8 @@ export default function Header() {
                 </Link>
               </div>
 
-              {/* Nav Links con animación escalonada */}
-              <nav className="flex-1 flex flex-col justify-center space-y-2">
+              {/* Nav Links con animación escalonada - scrollable si es necesario */}
+              <nav className="flex-1 flex flex-col justify-center space-y-1 overflow-y-auto overscroll-none py-4">
                 {navLinks.map(({ href, label }, index) => {
                   const isActive = pathname === href
                   return (
@@ -408,12 +408,12 @@ export default function Header() {
                       <Link
                         href={href}
                         onClick={() => setMenuOpen(false)}
-                        className={`block py-4 px-2 text-2xl font-bold tracking-tight transition-all duration-300 relative overflow-hidden group
-                          ${isActive
+                        className={`block py-3 px-2 text-xl font-bold tracking-tight transition-all duration-300 relative overflow-hidden group
+                    ${isActive
                             ? 'text-white'
                             : 'text-gray-400 hover:text-white'
                           }
-                        `}
+                  `}
                       >
                         {/* Gradient slide effect */}
                         <span className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-blue-500/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500" />
@@ -427,7 +427,7 @@ export default function Header() {
                         {isActive && (
                           <motion.span
                             layoutId="mobileActive"
-                            className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-gradient-to-b from-orange-500 to-blue-500 rounded-r-full"
+                            className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-gradient-to-b from-orange-500 to-blue-500 rounded-r-full"
                           />
                         )}
                       </Link>
@@ -436,41 +436,41 @@ export default function Header() {
                 })}
               </nav>
 
-              {/* WhatsApp Button móvil */}
+              {/* WhatsApp Button móvil - fijo en la parte inferior */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="pt-6 border-t border-white/10"
+                className="pt-4 border-t border-white/10"
               >
                 <a
                   href="https://wa.me/541141461312?text=Hola%20Tu%20Marca%20AR%2C%20estoy%20interesado%20en%20potenciar%20mi%20marca.%20¿Podemos%20agendar%20una%20llamada?"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white font-bold text-lg shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all duration-300"
+                  className="flex items-center justify-center gap-3 w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white font-bold text-base shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all duration-300"
                 >
                   <MessageCircle className="w-5 h-5" />
                   <span>Chatear por WhatsApp</span>
                 </a>
               </motion.div>
 
-              {/* Decorative floating elements */}
-              <div className="absolute bottom-0 right-0 w-64 h-64 pointer-events-none">
+              {/* Decorative floating elements - CORREGIDO: dentro del viewport */}
+              <div className="absolute bottom-8 right-4 w-40 h-40 pointer-events-none">
                 <motion.div
-                  className="absolute w-32 h-32 bg-orange-500/10 rounded-full blur-3xl"
+                  className="absolute w-24 h-24 bg-orange-500/10 rounded-full blur-2xl"
                   animate={{
-                    x: [0, 30, 0],
-                    y: [0, -20, 0],
+                    x: [0, 20, 0],
+                    y: [0, -15, 0],
                     scale: [1, 1.1, 1]
                   }}
                   transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                 />
                 <motion.div
-                  className="absolute bottom-10 right-10 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl"
+                  className="absolute bottom-6 right-4 w-16 h-16 bg-blue-500/10 rounded-full blur-xl"
                   animate={{
-                    x: [0, -20, 0],
-                    y: [0, 30, 0],
+                    x: [0, -15, 0],
+                    y: [0, 20, 0],
                     scale: [1, 1.2, 1]
                   }}
                   transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
