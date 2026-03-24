@@ -7,6 +7,28 @@ import Image from 'next/image'
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion'
 import { MessageCircle, X, Menu, Sparkles } from 'lucide-react'
 
+// ============================================================================
+// COMPONENTE AUXILIAR: ScrollProgress (SSR Safe)
+// ============================================================================
+const ScrollProgress = () => {
+  const { scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  })
+
+  return (
+    <motion.div
+      className="fixed top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-500 via-blue-500 to-purple-500 z-[60] origin-left"
+      style={{ scaleX }}
+    />
+  )
+}
+
+// ============================================================================
+// COMPONENTE PRINCIPAL: Header
+// ============================================================================
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -23,22 +45,6 @@ export default function Header() {
   const springConfig = { damping: 25, stiffness: 150, mass: 0.1 }
   const headerBgSpring = useSpring(headerBg, springConfig)
   const headerBlurSpring = useSpring(headerBlur, springConfig)
-
-  const ScrollProgress = () => {
-    const { scrollYProgress } = useScroll()
-    const scaleX = useSpring(scrollYProgress, {
-      stiffness: 100,
-      damping: 30,
-      restDelta: 0.001
-    })
-
-    return (
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-500 via-blue-500 to-purple-500 z-[60] origin-left"
-        style={{ scaleX }}
-      />
-    )
-  }
 
   // Detect scroll for header style change
   useEffect(() => {
@@ -151,11 +157,8 @@ export default function Header() {
         }
       `}</style>
 
-      {/* Scroll Progress Bar - Detalle premium */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-500 via-blue-500 to-purple-500 z-[60] origin-left"
-        style={{ scaleX: useTransform(scrollY, [0, document.documentElement.scrollHeight - window.innerHeight], [0, 1]) }}
-      />
+      {/* Scroll Progress Bar - SSR Safe ✨ */}
+      <ScrollProgress />
 
       {/* Header Principal */}
       <motion.header

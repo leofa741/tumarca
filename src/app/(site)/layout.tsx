@@ -9,6 +9,7 @@ import ScrollProgressBar from "@/components/scroolprogress/ScrollProgressBar";
 import OnlineVisitors from "@/components/onlinevisitors/OnlineVisitors";
 import { Metadata } from "next";
 import AnalyticsTracker from "@/components/analytics/AnalyticsTracker";
+import ClientOnly from "@/components/ClientOnly";
 
 
 
@@ -126,7 +127,9 @@ export default function SiteLayout({
 }) {
   return (
     <>
+      <ClientOnly fallback={<div className="h-20 bg-black" />}>
       <Header />
+      </ClientOnly>
       <ScrollProgressBar
         gradient="from-pink-500 to-rose-500"
         opacity={0.9}
