@@ -24,9 +24,14 @@ const steps = [
   },
 ];
 
-export default function SistemaSection() {
+interface SistemaSectionProps {
+    id: string;
+    ref: React.RefObject<HTMLElement | null>;
+}
+
+export default function SistemaSection({ id, ref }: SistemaSectionProps) {
   return (
-    <section className="relative py-24 px-6">
+    <section id={id} ref={ref} className="relative py-24 px-6">
       <div className="max-w-6xl mx-auto text-center">
 
         {/* Título */}

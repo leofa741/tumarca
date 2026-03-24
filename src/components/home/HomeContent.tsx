@@ -96,6 +96,18 @@ export default function HomeContent() {
     const yBackground = useTransform(scrollData.scrollYProgress, [0, 1], ["0%", "25%"]);
 
     const [activeSection, setActiveSection] = useState('hero');
+
+    const { ref: sistemaRef } = useSectionTracker({
+        sectionId: 'sistema-home',
+        sectionName: 'sistema-home',
+        minReadTime: 3000,
+        onEngagement: (data) => {
+            if (data.eventType === 'read') {
+                console.log('🎯 Usuario leyó sistema-home');
+            }
+        },
+    });
+
     const { ref: serviciosRef } = useSectionTracker({
         sectionId: 'servis-Home',
         sectionName: 'servis-Home',
@@ -367,7 +379,10 @@ export default function HomeContent() {
                     </motion.div>
                 )}
             </section>
-            <SistemaSection />
+            <SistemaSection
+                id="sistema-home"
+                ref={sistemaRef}
+            />
             <PricingSection />
 
             {/* SECCIÓN SERVICIOS */}
