@@ -7,7 +7,8 @@ import {
   ArrowRight, Play, MessageCircle, Phone, Mail, Calendar,
   Lock, Wifi, Database, Bell, TrendingUp, Clock, CreditCard, Key,
   ChevronDown, ExternalLink, Star, Award, Truck, Headphones,
-  Fingerprint, Sparkles, Crown, Diamond
+  Fingerprint, Sparkles, Crown, Diamond,
+  MapPin
 } from 'lucide-react';
 import FormContactLanding from '@/app/(marketing)/components/FormContactLanding';
 import { useSectionTracker } from '@/app/(marketing)/components/useSectionTracker';
@@ -986,7 +987,7 @@ const GymAccessControlPage = () => {
                 </div>
                 <div>
                   <div className="font-bold text-xl text-white">Tu Marca <span className="text-amber-400">AR</span></div>
-                  <div className="text-xs text-gray-500">Sistemas de Acceso Premium</div>
+                  <div className="text-xs text-gray-500">Sistemas de Acceso</div>
                 </div>
               </div>
               <p className="text-gray-500 mb-6 max-w-md leading-relaxed">
@@ -997,7 +998,7 @@ const GymAccessControlPage = () => {
                   <motion.a
                     key={social}
                     whileHover={{ y: -3 }}
-                    href={social === 'whatsapp' ? 'https://wa.me/5491141461312' : `https://${social}.com/tumarcaar`}
+                    href={social === 'whatsapp' ? 'https://wa.me/5491141461312' : '#'}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl flex items-center justify-center transition-colors"
@@ -1033,20 +1034,13 @@ const GymAccessControlPage = () => {
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Truck className="w-5 h-5 text-amber-400 mt-0.5 flex-shrink-0" />
+                 <MapPin className="w-5 h-5 text-amber-400 mt-0.5 flex-shrink-0" />
                   <span className="text-gray-500 text-sm">Buenos Aires, Argentina</span>
                 </li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-600">
-            <p>© {new Date().getFullYear()} Tu Marca AR. Todos los derechos reservados.</p>
-            <div className="flex gap-6">
-              <a href="#" className="hover:text-amber-400 transition-colors">Privacidad</a>
-              <a href="#" className="hover:text-amber-400 transition-colors">Términos</a>
-              <a href="#" className="hover:text-amber-400 transition-colors">Cookies</a>
-            </div>
-          </div>
+      
         </div>
       </footer>
 

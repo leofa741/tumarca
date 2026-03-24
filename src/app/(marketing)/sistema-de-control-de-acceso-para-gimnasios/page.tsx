@@ -37,32 +37,32 @@ const GymAccessLanding = () => {
   }, [darkMode]);
 
   const { ref: beneficiosRef } = useSectionTracker({
-  sectionId: 'beneficios',
-  sectionName: 'beneficios_principales',
-  minReadTime: 4000, // 4 segundos para considerar lectura
-  onEngagement: (data) => {
-    // Opcional: lógica extra en cliente
-    if (data.eventType === 'read') {
-      console.log('🎯 Usuario leyó beneficios');
-    }
-  },
-});
+    sectionId: 'beneficios',
+    sectionName: 'beneficios_principales',
+    minReadTime: 4000, // 4 segundos para considerar lectura
+    onEngagement: (data) => {
+      // Opcional: lógica extra en cliente
+      if (data.eventType === 'read') {
+        console.log('🎯 Usuario leyó beneficios');
+      }
+    },
+  });
 
   const { ref: funcionesRef } = useSectionTracker({
-  sectionId: 'funciones',
-  sectionName: 'funciones ',
-  minReadTime: 4000, // 4 segundos para considerar lectura
-  onEngagement: (data) => {
-    // Opcional: lógica extra en cliente
-    if (data.eventType === 'read') {
-      console.log('🎯 Usuario leyó funciones');
-    }
-  },
-});
+    sectionId: 'funciones',
+    sectionName: 'funciones ',
+    minReadTime: 4000, // 4 segundos para considerar lectura
+    onEngagement: (data) => {
+      // Opcional: lógica extra en cliente
+      if (data.eventType === 'read') {
+        console.log('🎯 Usuario leyó funciones');
+      }
+    },
+  });
 
   return (
 
-    
+
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
 
       {/* Header con toggle de dark mode */}
@@ -225,9 +225,9 @@ const GymAccessLanding = () => {
       </section>
 
       {/* Beneficios Principales */}
-      <section 
-      ref={beneficiosRef}
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-gray-800/50">
+      <section
+        ref={beneficiosRef}
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-gray-800/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -351,10 +351,147 @@ const GymAccessLanding = () => {
         </div>
       </section>
 
+      {/* Sección: Integración con tu infraestructura existente */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-amber-50 dark:bg-amber-900/30 px-4 py-2 rounded-full mb-4">
+              <span className="text-sm font-medium text-amber-700 dark:text-amber-300">🔌 Integración sin obra civil</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Instalamos el sistema sobre <span className="text-blue-600 dark:text-blue-400">tus accesos actuales</span>
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              No vendemos molinetes. Desarrollamos e instalamos el <strong>sistema inteligente completo</strong> que se integra con la infraestructura que ya tenés.
+            </p>
+          </div>
+
+          {/* Grid explicativo */}
+          <div className="grid lg:grid-cols-2 gap-8 items-center mb-12">
+            {/* LO QUE TENÉS VOS */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-gray-50 dark:bg-gray-800/50 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-2xl p-6 sm:p-8"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-xl flex items-center justify-center">
+                  <span className="text-xl">🏢</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Lo que ya tenés</h3>
+              </div>
+              <ul className="space-y-4">
+                {[
+                  "Molinetes o torniquetes existentes",
+                  "Puertas eléctricas o manuales",
+                  "Accesos peatonales o vehiculares",
+                  "Cualquier infraestructura de control físico"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-gray-300 dark:bg-gray-600 flex items-center justify-center mt-0.5">
+                      <span className="text-xs text-gray-700 dark:text-gray-300">✓</span>
+                    </div>
+                    <span className="text-gray-700 dark:text-gray-300">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* LO QUE PROVEEMOS NOSOTROS */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-2 border-blue-200 dark:border-blue-700 rounded-2xl p-6 sm:p-8 relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-20 h-20 bg-blue-500/10 rounded-full -translate-y-10 translate-x-10"></div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
+                  <Shield className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Lo que proveemos nosotros</h3>
+              </div>
+              <ul className="space-y-4">
+                {[
+                  "Lectores RFID/NFC profesionales",
+                  "App administrativa web para gestión de socios",
+                  "Panel de control en tiempo real con métricas",               
+                  "Instalación técnica, configuración y soporte"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 dark:text-gray-300">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* Diagrama visual de integración */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-800 dark:to-blue-900/20 rounded-2xl p-6 sm:p-8 border border-gray-200 dark:border-gray-700"
+          >
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-center md:text-left">
+              <div className="flex-1">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-white dark:bg-gray-900 rounded-2xl shadow-md mb-4 mx-auto md:mx-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-gray-600 dark:text-gray-300">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <path d="M9 3v18M15 3v18M3 9h18M3 15h18" />
+                  </svg>
+                </div>
+                <h4 className="font-bold text-gray-900 dark:text-white mb-1">Tu infraestructura</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Molinetes, puertas o accesos</p>
+              </div>
+
+              <div className="flex items-center justify-center">
+                <ArrowRight className="w-6 h-6 text-blue-500 rotate-90 md:rotate-0" />
+              </div>
+
+              <div className="flex-1">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl shadow-md mb-4 mx-auto md:mx-0">
+                  <Smartphone className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="font-bold text-gray-900 dark:text-white mb-1">Nuestro sistema</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Software + hardware inteligente</p>
+              </div>
+
+              <div className="flex items-center justify-center">
+                <ArrowRight className="w-6 h-6 text-green-500 rotate-90 md:rotate-0" />
+              </div>
+
+              <div className="flex-1">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-2xl shadow-md mb-4 mx-auto md:mx-0">
+                  <CheckCircle className="w-6 h-6 text-green-600 dark:text-green-400" />
+                </div>
+                <h4 className="font-bold text-gray-900 dark:text-white mb-1">Resultado</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Acceso inteligente listo</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Nota importante */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mt-8 text-center"
+          >
+            <div className="inline-flex items-center gap-2 bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-200 px-4 py-2 rounded-full text-sm">
+              <span>💡</span>
+              <span><strong>Importante:</strong> No vendemos molinetes. Nuestro valor está en el <u>sistema inteligente</u> que hace que tus accesos actuales sean más seguros, eficientes y trazables.</span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Funciones Esenciales */}
-      <section 
-      ref={funcionesRef}
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-gray-800/50">
+      <section
+        ref={funcionesRef}
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-gray-800/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
