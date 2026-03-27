@@ -1,0 +1,396 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import FormContactLanding from '../components/FormContactLanding';
+import {
+    CheckCircle, XCircle, Palette, Ruler, Sparkles, Truck,
+    Users, Smartphone, BarChart2, Mail, Phone, Sun, Moon, 
+    Building2, Scissors, Layers, Zap, Award, Clock
+} from 'lucide-react';
+import VisitCounter from '../components/VisitCounter';
+import VisitTracker from '../components/VisitTracker';
+import { useSectionTracker } from '../components/useSectionTracker';
+import { trackClick } from '@/lib/rackClick';
+
+const GraficaComercialLanding = () => {
+    const [darkMode, setDarkMode] = useState(false);
+
+    // 🔆 Dark mode: preferencia del sistema + persistencia
+    useEffect(() => {
+        const saved = localStorage.getItem('darkMode');
+        if (saved !== null) {
+            setDarkMode(saved === 'true');
+        } else {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            setDarkMode(prefersDark);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (darkMode) {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('darkMode', 'true');
+        } else {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('darkMode', 'false');
+        }
+    }, [darkMode]);
+
+    // 📊 Trackers de sección
+    const { ref: materialesRef } = useSectionTracker({
+        sectionId: 'materiales-grafica',
+        sectionName: 'materiales_y_tecnicas-grafica',
+        minReadTime: 4000,
+        onEngagement: (data) => {
+            if (data.eventType === 'read') console.log('🎯 Usuario leyó materiales');
+        },
+    });
+
+    const { ref: aplicacionesRef } = useSectionTracker({
+        sectionId: 'aplicaciones-grafica',
+        sectionName: 'aplicaciones-grafica',
+        minReadTime: 4000,
+        onEngagement: (data) => {
+            if (data.eventType === 'read') console.log('🎯 Usuario leyó aplicaciones');
+        },
+    });
+
+    // 🎯 Handler reutilizable para CTAs
+    const handleConsultarClick = (section: string, button: string) => {
+        trackClick('consultar_click', { section, button });
+        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    return (
+        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+
+            {/* Hero Section */}
+            <section className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-7xl mx-auto">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+                    {/* Contenido principal */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="space-y-8"
+                    >
+                        <div className="inline-flex items-center gap-2 bg-violet-50 dark:bg-violet-900/30 px-4 py-2 rounded-full">
+                            <div className="w-2 h-2 bg-violet-500 rounded-full animate-pulse"></div>
+                            <VisitCounter />
+                            <VisitTracker pageName="grafica-comercial-landing" />
+                            <span className="text-sm font-medium text-violet-700 dark:text-violet-300">
+                                ¿Tu marca necesita destacar en el mundo físico?
+                            </span>
+                        </div>
+
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+                            Corpóreos y gráfica comercial que <span className="text-violet-600 dark:text-violet-400">hacen hablar a tu marca</span>
+                        </h1>
+
+                        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-xl">
+                            Especialistas en letras corpóreas en <span className="font-semibold">Polifan y MDF</span>, 
+                            ploteos de corte en vinilo y banners de alto impacto. 
+                            <span className="font-medium text-violet-600 dark:text-violet-400"> Calidad profesional, entrega rápida.</span>
+                        </p>
+
+                        {/* Materiales Destacados */}
+                        <div className="grid md:grid-cols-2 gap-6 mt-8">
+                            <div className="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 p-5 rounded-2xl">
+                                <div className="flex items-center gap-2 text-violet-600 dark:text-violet-400 mb-3">
+                                    <Layers size={20} />
+                                    <h4 className="font-bold">Polifan Premium</h4>
+                                </div>
+                                <ul className="text-gray-600 dark:text-gray-300 space-y-2 text-sm">
+                                    <li className="flex items-start gap-2"><span>•</span> Liviano y fácil de instalar</li>
+                                    <li className="flex items-start gap-2"><span>•</span> Corte láser de precisión</li>
+                                    <li className="flex items-start gap-2"><span>•</span> Ideal para interiores y ferias</li>
+                                </ul>
+                            </div>
+                            <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 p-5 rounded-2xl">
+                                <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 mb-3">
+                                    <Building2 size={20} />
+                                    <h4 className="font-bold">MDF Terminado</h4>
+                                </div>
+                                <ul className="text-gray-600 dark:text-gray-300 space-y-2 text-sm">
+                                    <li className="flex items-start gap-2"><span>•</span> Acabado pintado o laminado</li>
+                                    <li className="flex items-start gap-2"><span>•</span> Resistentes</li>
+                                    <li className="flex items-start gap-2"><span>•</span> Elegancia para locales y oficinas</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        {/* Badges de valor */}
+                        <div className="flex flex-wrap gap-3 mt-6">
+                            <span className="bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 px-4 py-1.5 rounded-full text-sm font-medium">Corte incluido</span>
+                            <span className="bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 px-4 py-1.5 rounded-full text-sm font-medium">Instalación disponible</span>
+                            <span className="bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 px-4 py-1.5 rounded-full text-sm font-medium">Entrega express</span>
+                        </div>
+
+                        {/* CTA Principal */}
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => handleConsultarClick('hero', 'cotizar_principal')}
+                            className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl"
+                        >
+                            Cotizar mi proyecto →
+                        </motion.button>
+
+                    </motion.div>
+
+                    {/* Columna derecha - Imagen y Formulario */}
+                    <div className="space-y-8">
+                        {/* Imagen del sistema */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="relative"
+                        >
+                            <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-fuchsia-600 rounded-3xl blur-2xl opacity-20 dark:opacity-30"></div>
+                            <img 
+                                src="/corporeos-polifan-mdf-banner..png" 
+                                alt="Corpóreos en Polifan y MDF, ploteos en vinilo y banners para gráfica comercial"
+                                className="relative rounded-3xl shadow-2xl border-4 border-white dark:border-gray-700 w-full object-cover"
+                            />
+                            {/* Badge flotante */}
+                            <motion.div 
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
+                                className="absolute -bottom-4 -right-4 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-4 border-2 border-violet-500"
+                            >
+                                <div className="flex items-center gap-2">
+                                    <Sparkles className="w-4 h-4 text-amber-500" />
+                                    <span className="font-bold text-gray-900 dark:text-white">Acabado Premium</span>
+                                </div>
+                            </motion.div>
+                        </motion.div>
+
+                        {/* Formulario */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                            id="contact"
+                            className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-200 dark:border-gray-700 p-6 sm:p-8"
+                        >
+                            <div className="text-center mb-8">
+                                <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r from-violet-500 to-fuchsia-600 rounded-2xl mx-auto mb-4">
+                                    <Palette className="w-7 h-7 text-white" />
+                                </div>
+                                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                                    Convertí tu idea en realidad
+                                </h2>
+                                <p className="text-gray-500 dark:text-gray-400">
+                                    Envianos tu diseño o idea y recibí una cotización sin compromiso
+                                </p>
+                            </div>
+                            <FormContactLanding />
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Materiales y Técnicas */}
+            <section ref={materialesRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-gray-800/50">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                            Materiales que marcan la diferencia
+                        </h2>
+                        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Trabajamos con insumos de primera calidad para garantizar durabilidad y presencia
+                        </p>
+                    </div>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {[
+                            { 
+                                icon: <Layers className="w-8 h-8" />, 
+                                title: "Polifan de alta densidad", 
+                                desc: "Corte limpio, bordes perfectos y superficie ideal para pintar o vinilar", 
+                                color: "text-violet-500" 
+                            },
+                            { 
+                                icon: <Building2 className="w-8 h-8" />, 
+                                title: "MDF pintado/laminado", 
+                                desc: "Resistencia y elegancia para señalética permanente en exteriores e interiores", 
+                                color: "text-amber-500" 
+                            },
+                            { 
+                                icon: <Scissors className="w-8 h-8" />, 
+                                title: "Vinilo de corte", 
+                                desc: "Precisión milimétrica para logos, frases y decoración en cualquier superficie", 
+                                color: "text-emerald-500" 
+                            },
+                            { 
+                                icon: <Zap className="w-8 h-8" />, 
+                                title: "Banners y lonas", 
+                                desc: "Impresión de alto impacto con resistencia a la intemperie para eventos y locales", 
+                                color: "text-fuchsia-500" 
+                            }
+                        ].map((b, i) => (
+                            <motion.div 
+                                key={i} 
+                                initial={{ opacity: 0, y: 20 }} 
+                                whileInView={{ opacity: 1, y: 0 }} 
+                                viewport={{ once: true }} 
+                                transition={{ delay: i * 0.1 }}
+                                className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-md hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-700"
+                            >
+                                <div className={`${b.color} mb-6`}>{b.icon}</div>
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{b.title}</h3>
+                                <p className="text-gray-600 dark:text-gray-300">{b.desc}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Aplicaciones / Sectores */}
+            <section ref={aplicacionesRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                            Soluciones para cada espacio
+                        </h2>
+                        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Adaptamos cada proyecto a las necesidades de tu negocio o evento
+                        </p>
+                    </div>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        {[
+                            { 
+                                title: "Locales comerciales", 
+                                desc: "Cartelería, logos corpóreos y vinilos para vidrieras que atraen clientes", 
+                                icon: <Building2 className="w-8 h-8" />, 
+                                gradient: "from-violet-500 to-fuchsia-600" 
+                            },
+                            { 
+                                title: "Eventos y ferias", 
+                                desc: "Stands, banners y señalética temporal con montaje rápido y desmonte limpio", 
+                                icon: <Sparkles className="w-8 h-8" />, 
+                                gradient: "from-amber-500 to-orange-600" 
+                            },
+                            { 
+                                title: "Oficinas y empresas", 
+                                desc: "Señalética institucional, logos en recepción y gráficos motivacionales", 
+                                icon: <Users className="w-8 h-8" />, 
+                                gradient: "from-emerald-500 to-teal-600" 
+                            }
+                        ].map((s, i) => (
+                            <motion.div 
+                                key={i} 
+                                initial={{ opacity: 0, scale: 0.95 }} 
+                                whileInView={{ opacity: 1, scale: 1 }} 
+                                viewport={{ once: true }} 
+                                transition={{ delay: i * 0.1 }}
+                                className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 rounded-2xl hover:border-violet-300 dark:hover:border-violet-700 transition-all"
+                            >
+                                <div className={`mb-6 p-4 rounded-xl bg-gradient-to-r ${s.gradient} bg-opacity-10 w-fit`}>
+                                    {s.icon}
+                                </div>
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{s.title}</h3>
+                                <p className="text-gray-600 dark:text-gray-300">{s.desc}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Proceso de Trabajo */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-gray-800/50">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                            Así trabajamos tu proyecto
+                        </h2>
+                        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Proceso simple, transparente y enfocado en resultados
+                        </p>
+                    </div>
+                    <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                        {[
+                            { step: "01", icon: <Palette className="w-6 h-6" />, title: "Briefing", desc: "Nos contás tu idea, medidas y ubicación" },
+                            { step: "02", icon: <Ruler className="w-6 h-6" />, title: "Cotización", desc: "Te enviamos propuesta con materiales y tiempos" },
+                            { step: "03", icon: <Sparkles className="w-6 h-6" />, title: "Producción", desc: "Corte, impresión y acabado con control de calidad" },
+                            { step: "04", icon: <Truck className="w-6 h-6" />, title: "Entrega", desc: "Retiro o instalación según lo acordado" }
+                        ].map((p, i) => (
+                            <motion.div 
+                                key={i} 
+                                initial={{ opacity: 0, y: 20 }} 
+                                whileInView={{ opacity: 1, y: 0 }} 
+                                viewport={{ once: true }} 
+                                transition={{ delay: i * 0.15 }}
+                                className="text-center bg-white dark:bg-gray-900 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 relative"
+                            >
+                                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-violet-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">
+                                    {p.step}
+                                </div>
+                                <div className="text-violet-500 mb-4 mt-4 flex justify-center">{p.icon}</div>
+                                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{p.title}</h3>
+                                <p className="text-gray-600 dark:text-gray-300 text-sm">{p.desc}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA Final */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-violet-600 to-fuchsia-700 text-white">
+                <div className="max-w-4xl mx-auto text-center">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6">¿Listo para darle presencia física a tu marca?</h2>
+                    <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">
+                        Trabajamos con archivos vectoriales o te ayudamos a adaptar tu diseño para producción
+                    </p>
+                    <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => handleConsultarClick('cta_final', 'cotizar_final')}
+                        className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl"
+                    >
+                        Empezar mi proyecto →
+                    </motion.button>
+                    <p className="text-sm opacity-80 mt-6 max-w-md mx-auto">
+                        ✅ Asesoramiento técnico sin costo<br />
+                        ✅ Archivos de corte incluidos<br />
+                        ✅ Garantía de calidad en materiales
+                    </p>
+                </div>
+            </section>
+
+            {/* Footer */}
+            <footer className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-900 text-gray-300 border-t border-gray-800">
+                <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+                    <div>
+                        <div className="font-bold text-2xl text-white mb-4">tumarca.ar</div>
+                        <p className="max-w-xs">Gráfica comercial: corpóreos en Polifan y MDF, vinilos de corte y banners de alto impacto.</p>
+                    </div>
+                    <div>
+                        <h3 className="font-bold text-lg text-white mb-4">Contacto</h3>
+                        <div className="space-y-3">
+                            <div className="flex items-center gap-3"><Mail className="w-5 h-5 text-violet-400" /><span>hola@tumarca.ar</span></div>
+                            <div className="flex items-center gap-3"><Phone className="w-5 h-5 text-violet-400" /><span>11-4146-1312</span></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 className="font-bold text-lg text-white mb-4">Servicios</h3>
+                        <ul className="space-y-2 text-sm">
+                            <li>• Corpóreos en Polifan y MDF</li>
+                            <li>• Vinilos de corte y ploteo</li>
+                            <li>• Banners y lonas publicitarias</li>
+                            <li>• Instalación y asesoría</li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="border-t border-gray-800 mt-10 pt-8 text-center text-gray-500 text-sm">
+                    <p>© {new Date().getFullYear()} tumarca.ar. Todos los derechos reservados.</p>
+                </div>
+            </footer>
+        </div>
+    );
+};
+
+export default GraficaComercialLanding;
