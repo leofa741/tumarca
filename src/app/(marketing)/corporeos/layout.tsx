@@ -63,6 +63,18 @@ export default function MarketingLayout({
         `}
       </Script>
 
+
+      <Script id="google-ads-session">
+        {`
+          gtag('event', 'session_start', {
+            'event_category': 'session',
+            'event_label': 'session_start',
+            'value': 1
+          }); 
+        `}
+      </Script>
+
+
       <main className="min-h-screen bg-white">
         {children}
         <ChatWidget />
