@@ -4,9 +4,8 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FormContactLanding from '../components/FormContactLanding';
 import {
-    CheckCircle, XCircle, Palette, Ruler, Sparkles, Truck,
-    Users, Smartphone, BarChart2, Mail, Phone, 
-    Building2, Scissors, Layers, Zap, Award, Clock, X
+    Palette, Ruler, Sparkles, Truck, Users, Building2, 
+    Scissors, Layers, Zap, Mail, Phone, X
 } from 'lucide-react';
 import VisitCounter from '../components/VisitCounter';
 import VisitTracker from '../components/VisitTracker';
@@ -14,20 +13,14 @@ import { useSectionTracker } from '../components/useSectionTracker';
 import { trackClick } from '@/lib/rackClick';
 
 const GraficaComercialLanding = () => {
-    const [hasSeenLanding, setHasSeenLanding] = useState(false);
     const [showBanner, setShowBanner] = useState(false);
 
-    // 🌙 DARK MODE FORZADO: Siempre activo, sin toggle, sin detectar sistema
+    // 🌙 DARK MODE FORZADO: Siempre activo para todos los usuarios
     useEffect(() => {
-        // Forzar clase 'dark' en el html
         document.documentElement.classList.add('dark');
-        
-        // Opcional: guardar en localStorage por consistencia (aunque ya no se usa toggle)
         localStorage.setItem('darkMode', 'true');
-        
-        // Cleanup: no removemos la clase al desmontar para evitar FOUC en navegación
         return () => {
-            // Si querés que otras páginas no tengan dark mode, descomentá:
+            // Opcional: remover si otras páginas no deben ser dark
             // document.documentElement.classList.remove('dark');
         };
     }, []);
@@ -40,7 +33,7 @@ const GraficaComercialLanding = () => {
         
         const bannerDismissed = localStorage.getItem(BANNER_KEY);
         const lastVisit = localStorage.getItem(LAST_VISIT_KEY);
-        const sevenDays = 7 * 24 * 60 * 60 * 1000; // 7 días en ms
+        const sevenDays = 7 * 24 * 60 * 60 * 1000; // 7 días en milisegundos
         
         const shouldShowBanner = () => {
             if (bannerDismissed === 'true') return false;
@@ -53,8 +46,6 @@ const GraficaComercialLanding = () => {
             localStorage.setItem(LAST_VISIT_KEY, Date.now().toString());
             const timer = setTimeout(() => setShowBanner(true), 2000);
             return () => clearTimeout(timer);
-        } else {
-            setHasSeenLanding(true);
         }
     }, []);
 
