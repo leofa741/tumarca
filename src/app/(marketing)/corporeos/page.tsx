@@ -1,12 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import FormContactLanding from '../components/FormContactLanding';
 import {
     CheckCircle, XCircle, Palette, Ruler, Sparkles, Truck,
     Users, Smartphone, BarChart2, Mail, Phone, Sun, Moon, 
-    Building2, Scissors, Layers, Zap, Award, Clock
+    Building2, Scissors, Layers, Zap, Award, Clock, X
 } from 'lucide-react';
 import VisitCounter from '../components/VisitCounter';
 import VisitTracker from '../components/VisitTracker';
@@ -15,6 +15,8 @@ import { trackClick } from '@/lib/rackClick';
 
 const GraficaComercialLanding = () => {
     const [darkMode, setDarkMode] = useState(false);
+    const [hasSeenLanding, setHasSeenLanding] = useState(false);
+    const [showBanner, setShowBanner] = useState(false);
 
     // 🔆 Dark mode: preferencia del sistema + persistencia
     useEffect(() => {
@@ -36,6 +38,43 @@ const GraficaComercialLanding = () => {
             localStorage.setItem('darkMode', 'false');
         }
     }, [darkMode]);
+
+    // 🎯 Lógica para detectar primera visita y mostrar banner
+  useEffect(() => {
+    const LANDING_KEY = 'grafica_comercial_landing_seen';
+    const BANNER_KEY = 'grafica_comercial_banner_dismissed';
+    const LAST_VISIT_KEY = 'grafica_comercial_last_visit';
+    
+    const bannerDismissed = localStorage.getItem(BANNER_KEY);
+    const lastVisit = localStorage.getItem(LAST_VISIT_KEY);
+    const sevenDays = 7 * 24 * 60 * 60 * 1000; // 7 días en ms
+    
+    const shouldShowBanner = () => {
+        if (bannerDismissed === 'true') return false;
+        if (!lastVisit) return true;
+        return Date.now() - parseInt(lastVisit) > sevenDays;
+    };
+    
+    if (shouldShowBanner()) {
+        localStorage.setItem(LANDING_KEY, 'true');
+        localStorage.setItem(LAST_VISIT_KEY, Date.now().toString());
+        const timer = setTimeout(() => setShowBanner(true), 2000);
+        return () => clearTimeout(timer);
+    } else {
+        setHasSeenLanding(true);
+    }
+}, []);
+
+    const dismissBanner = () => {
+        setShowBanner(false);
+        localStorage.setItem('grafica_comercial_banner_dismissed', 'true');
+    };
+
+    const handleBannerCTAClick = () => {
+        trackClick('banner_cta_click', { location: 'sticky_banner' });
+        dismissBanner();
+        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    };
 
     // 📊 Trackers de sección
     const { ref: materialesRef } = useSectionTracker({
@@ -65,8 +104,44 @@ const GraficaComercialLanding = () => {
     return (
         <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
 
+            {/* 🚨 Banner Sticky de CTA - Solo para primeras visitas */}
+            <AnimatePresence>
+                {showBanner && (
+                    <motion.div
+                        initial={{ y: -100, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -100, opacity: 0 }}
+                        className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white shadow-lg"
+                    >
+                        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+                            <div className="flex items-center gap-3">
+                                <Sparkles className="w-5 h-5 text-amber-300 flex-shrink-0" />
+                                <p className="text-sm md:text-base font-medium">
+                                    ¡Hola! 👋 ¿Listo para concretar tu proyecto de gráfica comercial?
+                                </p>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <button
+                                    onClick={handleBannerCTAClick}
+                                    className="bg-white text-violet-700 px-4 py-2 rounded-lg font-bold text-sm hover:bg-gray-100 transition-colors whitespace-nowrap"
+                                >
+                                    Cotizar ahora →
+                                </button>
+                                <button
+                                    onClick={dismissBanner}
+                                    className="p-1 hover:bg-white/20 rounded-full transition-colors"
+                                    aria-label="Cerrar banner"
+                                >
+                                    <X className="w-5 h-5" />
+                                </button>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             {/* Hero Section */}
-            <section className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-7xl mx-auto">
+            <section className={`relative px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-7xl mx-auto ${showBanner ? 'mt-16' : ''}`}>
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
 
                     {/* Contenido principal */}
