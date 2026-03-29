@@ -174,7 +174,7 @@ const GraficaComercialLanding = () => {
                                 </div>
                                 <ul className="text-gray-300 space-y-2 text-sm">
                                     <li className="flex items-start gap-2"><span>•</span> Acabado pintado o laminado</li>
-                                    <li className="flex items-start gap-2"><span>•</span> Resistentes para exteriores</li>
+                                    <li className="flex items-start gap-2"><span>•</span> Resistentes para interiores</li>
                                     <li className="flex items-start gap-2"><span>•</span> Elegancia para locales y oficinas</li>
                                 </ul>
                             </div>
@@ -275,7 +275,7 @@ const GraficaComercialLanding = () => {
                             { 
                                 icon: <Building2 className="w-8 h-8" />, 
                                 title: "MDF pintado/laminado", 
-                                desc: "Resistencia y elegancia para señalética permanente en exteriores e interiores", 
+                                desc: "Resistencia y elegancia para señalética permanente en interiores", 
                                 color: "text-amber-400" 
                             },
                             { 
