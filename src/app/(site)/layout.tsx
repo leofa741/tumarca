@@ -128,7 +128,7 @@ export default function SiteLayout({
   return (
     <>
       <ClientOnly fallback={<div className="h-20 bg-black" />}>
-      <Header />
+        <Header />
       </ClientOnly>
       <ScrollProgressBar
         gradient="from-pink-500 to-rose-500"
