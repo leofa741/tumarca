@@ -242,7 +242,7 @@ export default function ChatWidget() {
                     msg.from === 'visitor'
                       ? 'bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-tr-none shadow-sm'
                       : 'bg-gray-200 text-gray-800 rounded-tl-none'
-                  } ${darkMode && msg.from !== 'visitor' ? 'bg-gray-700 text-gray-100' : ''}`}
+                  } ${darkMode && msg.from !== 'visitor' ? 'bg-gray-700 text-gray-50' : ''}`}
                 >
                   {msg.text}
                 </span>
