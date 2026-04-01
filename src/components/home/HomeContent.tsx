@@ -17,6 +17,7 @@ import { useSectionTracker } from '@/app/(marketing)/components/useSectionTracke
 import VisitTracker from '@/app/(marketing)/components/VisitTracker';
 import SistemaSection from '../sistemaaction/SistemaSection';
 import PricingSection from '../pricingsection/PricingSection';
+import BrandFullPackSection from '../branding/BrandSystemSection';
 
 const playfair = Playfair_Display({
     subsets: ['latin'],
@@ -383,6 +384,10 @@ export default function HomeContent() {
                 id="sistema-home"
                 ref={sistemaRef}
             />
+
+            <BrandFullPackSection reducedMotion={reducedMotion} />
+
+
             <PricingSection />
 
             {/* SECCIÓN SERVICIOS */}
