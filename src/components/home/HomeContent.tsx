@@ -18,6 +18,7 @@ import VisitTracker from '@/app/(marketing)/components/VisitTracker';
 import SistemaSection from '../sistemaaction/SistemaSection';
 import PricingSection from '../pricingsection/PricingSection';
 import BrandFullPackSection from '../branding/BrandSystemSection';
+import AudiobookPremiumSection from '../audiolibrossection/AudioLibrosSection';
 
 const playfair = Playfair_Display({
     subsets: ['latin'],
@@ -496,6 +497,7 @@ export default function HomeContent() {
             {/* COMPONENTES ADICIONALES */}
             <ServicioSEO />
             <AplicacionesAMedida />
+            <AudiobookPremiumSection />
             <AplicacionesIA />
 
             {/* CTA FINAL */}
