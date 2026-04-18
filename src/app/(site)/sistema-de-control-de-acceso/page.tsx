@@ -558,7 +558,7 @@ const GymAccessControlPage = () => {
               {/* Subheadline */}
               <p className="text-lg text-gray-400 leading-relaxed max-w-xl">
                 Sistema todo-en-uno con lectores RFID, dashboard en tiempo real y app para socios.
-                <span className="font-semibold text-amber-400"> Sin cuotas mensuales ocultas.</span>
+                <span className="font-semibold text-amber-400"> Lo instalamos en tus molinetes, no necesitas comprar nuevos.(No vendemos molinetes ,instalamos el sistema en los que ya tienes)</span>
               </p>
 
               {/* Before/After Quick */}
