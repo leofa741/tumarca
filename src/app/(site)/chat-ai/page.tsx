@@ -9,6 +9,7 @@ import VisitTracker from '@/app/(marketing)/components/VisitTracker';
 const FREE_MESSAGES_LIMIT = 3;
 const DONATION_URL = 'https://www.paypal.com/donate/?hosted_button_id=6WZGSW58C4TZG';
 
+
 export default function ChatAIPage() {
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState('');

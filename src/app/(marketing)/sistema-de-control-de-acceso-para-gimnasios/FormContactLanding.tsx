@@ -4,12 +4,11 @@ import { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Loader2 } from 'lucide-react';
 
-// ✅ 1. Definir interfaz de props (ANTES del componente)
-export interface FormContactLandingProps {
+// ✅ Tipo para el prop callback
+interface FormContactLandingProps {
   onLeadGenerated?: () => void;
 }
 
-// ✅ 2. Tipar las props en el componente
 export default function FormContactLanding({ onLeadGenerated }: FormContactLandingProps) {
   const [formData, setFormData] = useState({
     nombre: '',
@@ -43,7 +42,7 @@ export default function FormContactLanding({ onLeadGenerated }: FormContactLandi
 
       if (!response.ok) throw new Error('Error al enviar el formulario');
 
-      // ✅ Éxito: disparar evento de Google Ads vía callback
+      // ✅ Éxito: disparar evento de Google Ads
       if (onLeadGenerated) {
         onLeadGenerated();
       }
