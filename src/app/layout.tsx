@@ -35,36 +35,40 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        <link rel="manifest" href="/manifest.json"/>
+        <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#000000" />
-        
-        {/* ✅ Google Ads Tag (gtag.js) - AW-18104982319 */}
+
+        {/* ✅ Google Analytics 4 (GA4) - G-EK2MHEC8C4 */}
         <Script
-          id="gtag-ads"
+          id="gtag-ga4"
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=AW-18104982319"
+          src="https://www.googletagmanager.com/gtag/js?id=G-EK2MHEC8C4"
         />
+
         <Script
-          id="gtag-init"
+          id="gtag-ga4-init"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'AW-18104982319');
+              gtag('config', 'G-EK2MHEC8C4');
             `,
           }}
         />
+
+
+
       </head>
 
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${inter.className} antialiased bg-gray-100 text-gray-900`}
       >
         <RegisterSW />
-        
+
         {/* ❌ GTM eliminado - ya no se utiliza */}
-        
+
         {children}
       </body>
     </html>
