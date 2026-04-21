@@ -57,9 +57,10 @@ export default function FormContactLanding() {
       // ✅ Conversión de Google Ads (solo si el envío fue exitoso)
       if (typeof window !== 'undefined' && window.gtag) {
         window.gtag('event', 'conversion', {
-          send_to: 'AW-17893506096/5519CMKZ4-kbELD4pNRC',
+          send_to: 'AW-18104438023/S9xOCM3f7Z4cEIea77hD', // ← NUEVO ID ACTUALIZADO
           value: 1.0,
           currency: 'ARS',
+          transaction_id: `lead_${Date.now()}`, // Opcional: para deduplicar
         });
       }
 
