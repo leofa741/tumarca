@@ -5,13 +5,13 @@ import ChatWidget from "@/components/chatwidget/ChatWidget";
 // ✅ METADATA COMPLETA PARA SEO Y GOOGLE ADS
 export const metadata: Metadata = {
   title: {
-    default: 'Control  de acceso para complejos y hospedajes | Tu Marca AR',
+    default: 'Control de acceso para complejos y hospedajes | Tu Marca AR',
     template: '%s | Tu Marca AR + Puentes Digitales'
   },
   description: 'Sistema de control de acceso RFID para complejos y hospedajes. Reducción de fraudes, ahorro operativo y experiencia premium para tus socios. Instalación en 7 días.',
   keywords: ['Sistema de control de acceso', 'Complejos', 'Hospedajes', 'RFID', 'Fraudes', 'Ahorro operativo', 'Experiencia premium', 'Instalación en 7 días'],
   openGraph: {
-    title:'Control  de acceso para complejos y hospedajes | Tu Marca AR',
+    title:'Control de acceso para complejos y hospedajes | Tu Marca AR',
     description: 'Sistema de control de acceso RFID para complejos y hospedajes. Reducción de fraudes, ahorro operativo y experiencia premium para tus socios. Instalación en 7 días.',
     type: 'website',
     locale: 'es-AR',
@@ -22,12 +22,12 @@ export const metadata: Metadata = {
         url: 'https://tumarca.ar/icon-192.png',
         width: 1200,
         height: 630,
-        alt: 'Control  de acceso para complejos y hospedajes | Tu Marca AR',
+        alt: 'Control de acceso para complejos y hospedajes | Tu Marca AR',
       },
     ],
   },
   twitter: {
-    title: 'Control  de acceso para complejos y hospedajes | Tu Marca AR',
+    title: 'Control de acceso para complejos y hospedajes | Tu Marca AR',
     description: 'Sistema de control de acceso RFID para complejos y hospedajes. Reducción de fraudes, ahorro operativo y experiencia premium para tus socios. Instalación en 7 días.',
     card: 'summary_large_image',
     images: [
@@ -35,11 +35,10 @@ export const metadata: Metadata = {
         url: 'https://tumarca.ar/icon-192.png',
         width: 1200,
         height: 630,
-        alt: 'Control  de acceso para complejos y hospedajes | Tu Marca AR',
+        alt: 'Control de acceso para complejos y hospedajes | Tu Marca AR',
       },
     ],
   },
-
 };
 
 export default function MarketingLayout({
@@ -49,9 +48,9 @@ export default function MarketingLayout({
 }) {
   return (
     <>
-      {/* Google Ads Global Tag */}
+      {/* ✅ Google Ads Global Tag - AW-18104438023 */}
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=AW-17893506096"
+        src="https://www.googletagmanager.com/gtag/js?id=AW-18104438023"
         strategy="afterInteractive"
       />
       <Script id="google-ads-init" strategy="afterInteractive">
@@ -59,7 +58,7 @@ export default function MarketingLayout({
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'AW-17893506096');
+          gtag('config', 'AW-18104438023');
         `}
       </Script>
 
