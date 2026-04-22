@@ -45,21 +45,24 @@ export default function RootLayout({
           src="https://www.googletagmanager.com/gtag/js?id=G-EK2MHEC8C4"
         />
 
+        {/* ✅ Inicialización combinada: GA4 + Google Ads */}
         <Script
-          id="gtag-ga4-init"
+          id="gtag-init-combined"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
+              
+              // Google Analytics 4
               gtag('config', 'G-EK2MHEC8C4');
+              
+              // Google Ads Conversion Tracking
+              gtag('config', 'AW-18104438023');
             `,
           }}
         />
-        
-
-
 
       </head>
 
@@ -67,9 +70,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${inter.className} antialiased bg-gray-100 text-gray-900`}
       >
         <RegisterSW />
-
-        {/* ❌ GTM eliminado - ya no se utiliza */}
-
         {children}
       </body>
     </html>
