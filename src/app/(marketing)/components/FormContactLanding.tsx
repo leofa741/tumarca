@@ -12,6 +12,7 @@ interface FormData {
   message: string;
 }
 
+// ✅ Declaración de tipos para gtag (Google Ads)
 declare global {
   interface Window {
     gtag?: (
@@ -21,6 +22,18 @@ declare global {
     ) => void;
   }
 }
+
+// ✅ Función helper para disparar conversión de Google Ads
+const trackGoogleAdsConversion = (value: number = 1.0, currency: string = 'ARS') => {
+  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+    window.gtag('event', 'conversion', {
+      send_to: 'AW-18104438023/S9xOCM3f7Z4cEIea77hD',
+      value: value,
+      currency: currency,
+      transaction_id: `lead_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+    });
+  }
+};
 
 export default function FormContactLanding() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -54,15 +67,8 @@ export default function FormContactLanding() {
         throw new Error('Error al enviar el mensaje');
       }
 
-      // ✅ Conversión de Google Ads (solo si el envío fue exitoso)
-      if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'conversion', {
-          send_to: 'AW-18104438023/S9xOCM3f7Z4cEIea77hD', // ← NUEVO ID ACTUALIZADO
-          value: 1.0,
-          currency: 'ARS',
-          transaction_id: `lead_${Date.now()}`, // Opcional: para deduplicar
-        });
-      }
+      // ✅ DISPARAR CONVERSIÓN DE GOOGLE ADS (solo si el envío fue exitoso)
+      trackGoogleAdsConversion(1.0, 'ARS');
 
       setSubmitSuccess(true);
       reset();
@@ -75,6 +81,7 @@ export default function FormContactLanding() {
     }
   };
 
+  // ✅ Vista de éxito post-envío
   if (submitSuccess) {
     return (
       <div className="text-center py-8">
@@ -105,9 +112,11 @@ export default function FormContactLanding() {
     );
   }
 
+  // ✅ Formulario principal
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div className="grid md:grid-cols-2 gap-6">
+        {/* Nombre */}
         <div>
           <label htmlFor="name" className="block text-sm font-medium mb-2">
             Nombre completo *
@@ -127,6 +136,7 @@ export default function FormContactLanding() {
           )}
         </div>
 
+        {/* Email */}
         <div>
           <label htmlFor="email" className="block text-sm font-medium mb-2">
             Email *
@@ -155,6 +165,7 @@ export default function FormContactLanding() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
+        {/* Negocio */}
         <div>
           <label htmlFor="business" className="block text-sm font-medium mb-2">
             Negocio *
@@ -178,6 +189,7 @@ export default function FormContactLanding() {
           )}
         </div>
 
+        {/* Teléfono */}
         <div>
           <label htmlFor="phone" className="block text-sm font-medium mb-2">
             Teléfono (opcional)
@@ -192,6 +204,7 @@ export default function FormContactLanding() {
         </div>
       </div>
 
+      {/* Mensaje */}
       <div>
         <label htmlFor="message" className="block text-sm font-medium mb-2">
           ¿Qué necesitás resolver? *
@@ -203,8 +216,7 @@ export default function FormContactLanding() {
             required: 'Por favor, contanos qué necesitás',
             minLength: {
               value: 20,
-              message:
-                'Por favor, sé más específico (mínimo 20 caracteres)',
+              message: 'Por favor, sé más específico (mínimo 20 caracteres)',
             },
           })}
           className={`w-full px-4 py-3 rounded-lg border ${
@@ -221,12 +233,14 @@ export default function FormContactLanding() {
         )}
       </div>
 
+      {/* Error message */}
       {submitError && (
         <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
           <p className="text-red-700 dark:text-red-300">{submitError}</p>
         </div>
       )}
 
+      {/* Submit button */}
       <button
         type="submit"
         disabled={isSubmitting}
