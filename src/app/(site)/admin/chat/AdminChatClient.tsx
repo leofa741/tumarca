@@ -29,8 +29,7 @@ export default function AdminChatClient() {
   const [showSuccess, setShowSuccess] = useState(false);
 
   // Dark mode
-  const [darkMode, setDarkMode] = useState(false);
-
+  const [darkMode, setDarkMode] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
 
   const refreshAgentStatus = (e: React.MouseEvent) => {
@@ -65,14 +64,6 @@ export default function AdminChatClient() {
       document.title = "Panel de Operador - Tu Marca AR";
     }
   }, [pendingMessages.length]);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    setDarkMode(mediaQuery.matches);
-    const handler = (e: MediaQueryListEvent) => setDarkMode(e.matches);
-    mediaQuery.addEventListener('change', handler);
-    return () => mediaQuery.removeEventListener('change', handler);
-  }, []);
 
   // Auto-ocultar alerta después de 5 segundos
   useEffect(() => {
