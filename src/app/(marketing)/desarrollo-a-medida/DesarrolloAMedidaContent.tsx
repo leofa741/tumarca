@@ -10,20 +10,20 @@ import { useSectionTracker } from '../components/useSectionTracker';
 export default function DesarrolloAMedidaContent() {
 
   const { ref: heroRef } = useSectionTracker({
-    sectionId: 'hero',
-    sectionName: 'hero',
+    sectionId: 'hero-amedida',
+    sectionName: 'hero-amedida',
     minReadTime: 2000,
   });
 
   const { ref: autoridadRef } = useSectionTracker({
-    sectionId: 'autoridad',
-    sectionName: 'autoridad',
+    sectionId: 'autoridad-amedida',
+    sectionName: 'autoridad-amedida',
     minReadTime: 2000,
   });
 
   const { ref: procesoRef } = useSectionTracker({
-    sectionId: 'proceso',
-    sectionName: 'proceso',
+    sectionId: 'proceso-amedida',
+    sectionName: 'proceso-amedida',
     minReadTime: 2000,
   });
 
