@@ -54,6 +54,7 @@ const Footer = () => {
             <span>Design by <a href="https://www.tumarca.ar" className="text-blue-600 hover:underline"> TuMarca.Ar</a></span>
             <span className="mx-2">•</span>
             Distributed by <a href="https://www.tumarca.ar" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">TuMarca.Ar</a>
+         <span className="mx-2">•</span>
           </p>
 
           <div className="flex items-center space-x-2">
