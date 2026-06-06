@@ -19,6 +19,7 @@ import SistemaSection from '../sistemaaction/SistemaSection';
 import PricingSection from '../pricingsection/PricingSection';
 import BrandFullPackSection from '../branding/BrandSystemSection';
 import AudiobookPremiumSection from '../audiolibrossection/AudioLibrosSection';
+import AudioPlayer from '../audioplayer/AudioPlayer';
 
 const playfair = Playfair_Display({
     subsets: ['latin'],
@@ -387,7 +388,21 @@ export default function HomeContent() {
             />
 
             <BrandFullPackSection reducedMotion={reducedMotion} />
-
+   {/* Reproductor de audio accesible */}
+        <AudioPlayer
+          src="/audio/presentacion-tumarca.mp3"
+          title="Conocé Tu Marca AR"
+          description="Escuchá nuestra presentación y descubrí cómo podemos ayudarte"
+          showTranscript={true}
+          transcript={`En Tu Marca AR, transformamos ideas en soluciones digitales. 
+            Somos una agencia de desarrollo web y sistemas a medida en Buenos Aires. 
+            Creamos sitios web profesionales, aplicaciones personalizadas y sistemas 
+            que automatizan tu negocio. Nuestro enfoque: tecnología de vanguardia, 
+            diseño premium y resultados que impulsan tu crecimiento. ¿Listo para 
+            llevar tu negocio al siguiente nivel? Visitá tumarca.ar y agendá una 
+            consulta gratuita hoy.`}
+          className="mb-8"
+        />
 
             <PricingSection />
 
