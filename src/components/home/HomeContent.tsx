@@ -394,7 +394,7 @@ export default function HomeContent() {
           title="Conocé Tu Marca AR"
           description="Escuchá nuestra presentación y descubrí cómo podemos ayudarte"
           showTranscript={true}
-          transcript={`En Tu Marca AR, transformamos ideas en soluciones digitales. 
+          transcript={`En Tu Marca, transformamos ideas en soluciones digitales. 
             Somos una agencia de desarrollo web y sistemas a medida en Buenos Aires. 
             Creamos sitios web profesionales, aplicaciones personalizadas y sistemas 
             que automatizan tu negocio. Nuestro enfoque: tecnología de vanguardia, 
