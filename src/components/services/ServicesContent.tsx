@@ -13,6 +13,7 @@ import AplicacionesAMedida from '@/components/AplicacionesAMedida';
 import ServicioSEO from '@/components/ServicioSEO';
 import AplicacionesIA from '@/components/AplicacionesIA';
 import VisitTracker from '@/app/(marketing)/components/VisitTracker';
+import SchemaMarkup from '../SchemaMarkup';
 
 const playfair = Playfair_Display({
     subsets: ['latin'],
@@ -237,6 +238,8 @@ export default function ServicesContent() {
     }, [isMobile, reducedMotion, yBackground, scrollData.scrollYProgress]);
 
     return (
+        <>
+        <SchemaMarkup type="services" />
         <main className={`min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white overflow-x-hidden ${playfair.variable} ${inter.className}`}>
 
             <VisitTracker pageName="servicios" />
@@ -680,5 +683,6 @@ export default function ServicesContent() {
                 </motion.div>
             )}
         </main>
+        </>
     );
 }

@@ -20,6 +20,7 @@ import PricingSection from '../pricingsection/PricingSection';
 import BrandFullPackSection from '../branding/BrandSystemSection';
 import AudiobookPremiumSection from '../audiolibrossection/AudioLibrosSection';
 import AudioPlayer from '../audioplayer/AudioPlayer';
+import SchemaMarkup from '../SchemaMarkup';
 
 const playfair = Playfair_Display({
     subsets: ['latin'],
@@ -238,6 +239,8 @@ export default function HomeContent() {
     }, [isMobile, reducedMotion, yBackground, scrollData.scrollYProgress]);
 
     return (
+        <>
+        <SchemaMarkup type="home" />
         <main className={`min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white overflow-x-hidden ${playfair.variable} ${inter.className}`}>
 
             <BackgroundEffects />
@@ -584,5 +587,6 @@ export default function HomeContent() {
                 </a>
             </motion.div>
         </main>
+        </>
     );
 }

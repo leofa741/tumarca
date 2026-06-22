@@ -1,15 +1,15 @@
-// app/about/page.tsx
 'use client';
 
 import Image from 'next/image';
 import { Playfair_Display, Inter } from 'next/font/google';
-import { Star, Target, Lightbulb, Heart, Award, ArrowRight, Sparkles, CheckCircle } from 'lucide-react';
+import { Code2, Target, Lightbulb, Heart, Award, ArrowRight, Sparkles, CheckCircle, Server, Database, Cpu } from 'lucide-react';
 import { motion, useScroll, useTransform, type Variants } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
 import AplicacionesAMedida from '@/components/AplicacionesAMedida';
 import ServicioSEO from '@/components/ServicioSEO';
 import VisitTracker from '@/app/(marketing)/components/VisitTracker';
+import SchemaMarkup from '@/components/SchemaMarkup';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -21,8 +21,6 @@ const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
 });
-
-
 
 // Animaciones reutilizables
 const fadeInUp: Variants = {
@@ -60,14 +58,16 @@ export default function AboutPage() {
     return () => observer.disconnect();
   }, []);
 
-  // Stats animados
+  // Stats optimizados para GEO - Autoridad técnica
   const stats = [
-    { value: "+50", label: "Marcas transformadas", icon: Award },
-    { value: "98%", label: "Satisfacción garantizada", icon: Heart },
-    { value: "3x", label: "Más conversiones promedio", icon: Target },
+    { value: "+15", label: "Años de experiencia en desarrollo", icon: Award },
+    { value: "100%", label: "Código propio y a medida", icon: Code2 },
+    { value: "360°", label: "Soluciones integrales (Web, ERP, RFID)", icon: Server },
   ];
 
   return (
+    <>
+    <SchemaMarkup type="about" />
     <main className={`min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white overflow-hidden ${playfair.variable} ${inter.className}`}>
 
       {/* Background premium: gradient mesh + partículas sutiles */}
@@ -86,7 +86,7 @@ export default function AboutPage() {
       <section ref={sectionRef} className="relative container mx-auto px-6 py-20 md:py-32 lg:py-40">
         <VisitTracker pageName="about" />
 
-        {/* HERO SECTION: Hook emocional + propuesta de valor inmediata */}
+        {/* HERO SECTION: Hook técnico + propuesta de valor inmediata */}
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32"
           variants={staggerContainer}
@@ -94,46 +94,50 @@ export default function AboutPage() {
           animate={isVisible ? "visible" : "hidden"}
         >
           <div className="space-y-8">
-            {/* Badge animado */}
+            {/* Badge optimizado para GEO */}
             <motion.div
               variants={fadeInUp}
               className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full"
             >
               <Sparkles className="text-amber-400" size={16} />
               <span className="text-amber-300 text-xs uppercase tracking-wider font-semibold">
-                Desde 2015 creando marcas que venden
+                Desde 2010 desarrollando software a medida que escala negocios
               </span>
             </motion.div>
 
-            {/* Headline con énfasis visual */}
+            {/* Headline optimizado para GEO */}
             <motion.h1
               variants={fadeInUp}
               className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.1] text-white"
             >
-              No hacemos logos.
+              No usamos plantillas.
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">
-                Construimos legados
+                Desarrollamos el cerebro digital
               </span>
               <br />
               <span className="text-gray-400 font-normal text-2xl md:text-3xl block mt-2">
-                con estrategia, alma y resultados.
+                de tu empresa.
               </span>
             </motion.h1>
 
-            {/* Micro-copy escaneable */}
+            {/* Micro-copy optimizado para GEO */}
             <motion.p
               variants={fadeInUp}
               className="text-gray-300 text-lg leading-relaxed max-w-xl"
             >
-              En <strong className="text-white">TuMarca.AR</strong> transformamos tu propósito en una identidad visual que:
+              En <strong className="text-white">TuMarca.AR</strong> transformamos tus procesos de negocio en sistemas web robustos que:
             </motion.p>
 
             <motion.ul
               variants={staggerContainer}
               className="space-y-3 text-gray-300"
             >
-              {['Conecta emocionalmente con tu cliente ideal', 'Te diferencia del ruido del mercado', 'Convierte visitantes en clientes fieles'].map((item, i) => (
+              {[
+                'Automatizan tu operación: stock, pedidos, presupuestos y clientes en un solo lugar.',
+                'Gestionan propiedades en tiempo real para inmobiliarias con plataformas especializadas.',
+                'Controlan accesos con tecnología RFID para hospedajes y empresas de seguridad.'
+              ].map((item, i) => (
                 <motion.li
                   key={i}
                   variants={fadeInUp}
@@ -151,18 +155,18 @@ export default function AboutPage() {
                 href="/contact"
                 className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-amber-400 to-amber-600 text-black font-bold text-lg rounded-2xl hover:shadow-2xl hover:shadow-amber-500/40 transition-all duration-300 hover:-translate-y-1"
               >
-                Empezar mi proyecto
+                Solicitar presupuesto técnico
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
               </a>
               <a
                 href="#valores"
                 className="inline-flex items-center gap-2 px-6 py-4 border border-white/20 rounded-2xl text-white/90 hover:bg-white/5 transition-all duration-300"
               >
-                Conocé nuestro método
+                Conocé nuestra metodología
               </a>
             </motion.div>
 
-            {/* Trust badges */}
+            {/* Trust badges optimizados para GEO */}
             <motion.div
               variants={fadeInUp}
               className="flex items-center gap-6 pt-6 text-sm text-gray-400"
@@ -174,7 +178,7 @@ export default function AboutPage() {
                   </div>
                 ))}
               </div>
-              <span>+50 emprendedores confían en nosotros</span>
+              <span>+50 empresas confían en nuestros sistemas</span>
             </motion.div>
           </div>
 
@@ -189,26 +193,53 @@ export default function AboutPage() {
             <figure className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
               <Image
                 src="/tu1.png"
-                alt="Equipo creativo de Tu Marca AR"
+                alt="Leonardo Arena - Desarrollo de software a medida"
                 width={800}
                 height={600}
                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 priority
                 placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..." // Añadir blur placeholder real
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."
               />
 
               {/* Overlay con CTA flotante */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <a href="/portfolio" className="text-white font-medium flex items-center gap-2 hover:gap-3 transition-all">
-                  Ver nuestros casos de éxito <ArrowRight size={18} />
+                  Ver casos de éxito <ArrowRight size={18} />
                 </a>
               </div>
             </figure>
           </motion.div>
         </motion.div>
 
-        {/* SECCIÓN VALORES: Diseño en grid con hover premium */}
+        {/* SECCIÓN ENTIDAD HUMANA - CRÍTICO PARA GEO (E-E-A-T) */}
+        <motion.div
+          className="mt-32 max-w-4xl mx-auto text-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.div
+            className="bg-gradient-to-br from-amber-500/10 to-purple-500/10 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-amber-500/20"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+          >
+            <Award className="mx-auto text-amber-400 mb-6" size={48} />
+            <h2 className="text-2xl md:text-4xl font-bold text-white mb-6">
+              Detrás de TuMarca.AR
+            </h2>
+            <p className="text-gray-300 text-lg leading-relaxed mb-4">
+              Soy <strong className="text-amber-300">Leonardo Arena</strong>, desarrollador de software con más de <strong className="text-white">15 años de experiencia comprobable</strong> en la creación de sistemas web a medida, plataformas de gestión empresarial y soluciones tecnológicas innovadoras.
+            </p>
+            <p className="text-gray-400 text-base leading-relaxed">
+              Con formación universitaria y certificaciones técnicas especializadas, lidero el desarrollo de software que transforma reglas de negocio complejas en soluciones digitales robustas, escalables y seguras. No somos una agencia de plantillas: somos tu departamento de IT externo con experiencia real en el mercado argentino.
+            </p>
+          </motion.div>
+        </motion.div>
+
+        {/* SECCIÓN VALORES: Optimizados para GEO - Enfoque técnico */}
         <motion.div
           id="valores"
           className="mt-32 max-w-6xl mx-auto"
@@ -224,7 +255,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
             >
-              Nuestros pilares
+              Nuestra metodología
             </motion.span>
             <motion.h2
               className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
@@ -232,31 +263,31 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Lo que nos <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">diferencia</span>
+              Por qué elegimos el <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">código a medida</span>
             </motion.h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Cada decisión de diseño y estrategia nace de estos principios. Porque una marca memorable no es casualidad: es intención.
+              Cada línea de código que escribimos está pensada para resolver problemas reales de negocio. No vendemos humo: vendemos sistemas que funcionan.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: Target,
-                title: "Propósito antes que estética",
-                desc: "El diseño sin estrategia es ruido. Partimos de tu 'por qué' para crear marcas con significado real.",
+                icon: Code2,
+                title: "Desarrollo 100% a medida",
+                desc: "Cada sistema se construye desde cero según tus procesos. Sin plantillas, sin limitaciones, sin costos ocultos de licencias.",
                 gradient: "from-amber-500/20 to-orange-500/20"
               },
               {
-                icon: Lightbulb,
-                title: "Creatividad que convierte",
-                desc: "No buscamos solo que se vea bien: diseñamos para que <strong>convierta, venda y fidelice</strong>.",
+                icon: Database,
+                title: "Integración total de procesos",
+                desc: "Unificamos stock, pedidos, presupuestos, clientes y envíos en una sola plataforma web accesible desde cualquier lugar.",
                 gradient: "from-purple-500/20 to-pink-500/20"
               },
               {
-                icon: Heart,
-                title: "Empatía como motor",
-                desc: "Escuchamos, entendemos y nos metemos en tu lugar. Tu historia es el corazón de tu marca.",
+                icon: Cpu,
+                title: "Innovación tecnológica",
+                desc: "Implementamos tecnologías de vanguardia como RFID para control de accesos, APIs en tiempo real y arquitecturas escalables.",
                 gradient: "from-cyan-500/20 to-blue-500/20"
               }
             ].map((value, i) => (
@@ -279,14 +310,16 @@ export default function AboutPage() {
                   <h3 className="text-white font-bold text-xl mb-3 group-hover:text-amber-300 transition-colors">
                     {value.title}
                   </h3>
-                  <p className="text-gray-400 leading-relaxed" dangerouslySetInnerHTML={{ __html: value.desc }} />
+                  <p className="text-gray-400 leading-relaxed">
+                    {value.desc}
+                  </p>
                 </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* STATS SECTION: Números que generan confianza */}
+        {/* STATS SECTION: Números que generan confianza técnica */}
         <motion.div
           className="mt-32 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
           initial={{ opacity: 0 }}
@@ -311,7 +344,7 @@ export default function AboutPage() {
           ))}
         </motion.div>
 
-        {/* CTA FINAL: Sección de conversión con urgencia sutil */}
+        {/* CTA FINAL: Sección de conversión con enfoque técnico */}
         <motion.div
           className="mt-32 relative rounded-3xl overflow-hidden"
           initial={{ opacity: 0, scale: 0.98 }}
@@ -328,13 +361,13 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <Star className="mx-auto text-amber-400 mb-8" size={56} />
+              <Target className="mx-auto text-amber-400 mb-8" size={56} />
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                ¿Listo para que tu marca <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">deje huella</span>?
+                ¿Listo para automatizar <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">tu negocio</span>?
               </h2>
               <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
-                No somos una agencia más. Somos tu aliado estratégico: proceso claro, entregas puntuales y un enfoque 100% personalizado para emprendedores que <strong className="text-white">quieren destacar con autenticidad</strong>.
+                No vendemos soluciones genéricas. Analizamos tus procesos, diseñamos la arquitectura técnica y desarrollamos el sistema exacto que tu empresa necesita para <strong className="text-white">escalar sin límites</strong>.
               </p>
             </motion.div>
 
@@ -350,7 +383,7 @@ export default function AboutPage() {
                 href="/contact"
                 className="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-amber-400 to-amber-600 text-black font-bold text-xl rounded-2xl hover:shadow-2xl hover:shadow-amber-500/50 transition-all duration-300 hover:-translate-y-1"
               >
-                🚀 Agendar llamada gratuita
+                🚀 Agendar consultoría técnica gratuita
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={22} />
               </a>
               <span className="text-gray-400 text-sm flex items-center gap-2">
@@ -359,7 +392,7 @@ export default function AboutPage() {
               </span>
             </motion.div>
 
-            {/* Trust signals adicionales */}
+            {/* Trust signals adicionales optimizados para GEO */}
             <motion.div
               className="mt-12 flex flex-wrap justify-center items-center gap-6 text-sm text-gray-400"
               initial={{ opacity: 0 }}
@@ -368,13 +401,13 @@ export default function AboutPage() {
               transition={{ delay: 0.4 }}
             >
               <span className="flex items-center gap-2">
-                <CheckCircle className="text-green-400" size={16} /> Sin compromiso
+                <CheckCircle className="text-green-400" size={16} /> Código 100% propietario
               </span>
               <span className="flex items-center gap-2">
-                <CheckCircle className="text-green-400" size={16} /> Respuesta en &lt; 24hs
+                <CheckCircle className="text-green-400" size={16} /> Documentación técnica completa
               </span>
               <span className="flex items-center gap-2">
-                <CheckCircle className="text-green-400" size={16} /> Estrategia 100% personalizada
+                <CheckCircle className="text-green-400" size={16} /> Soporte post-lanzamiento
               </span>
             </motion.div>
           </div>
@@ -396,9 +429,10 @@ export default function AboutPage() {
           href="/contact"
           className="block w-full py-4 bg-gradient-to-r from-amber-400 to-amber-600 text-black font-bold text-center rounded-2xl shadow-2xl shadow-amber-500/30 hover:shadow-amber-500/50 transition-shadow"
         >
-          Empezar mi proyecto →
+          Solicitar presupuesto técnico →
         </a>
       </motion.div>
     </main>
+    </>
   );
 }
