@@ -57,10 +57,10 @@
 /* Ventana del chat */
 .chat {
   position: absolute;
-  bottom: 80px;
-  right: 0;
+  bottom: 30px;
+  right: 40;
   width: 380px;
-  height: 600px;
+  height: 550px;
   background: var(--bg-primary);
   border-radius: 16px;
   box-shadow: var(--shadow);

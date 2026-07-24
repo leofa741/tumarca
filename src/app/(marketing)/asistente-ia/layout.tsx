@@ -1,5 +1,6 @@
 // src/app/(marketing)/asistente-ia/layout.tsx
 import type { Metadata } from 'next';
+import ChatRgaWidget from '@/components/chat-widget';
 
 // Metadatos específicos que sobrescriben/complementan al layout raíz
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function AsistenteIALayout({
   return (
     <>
       {children}
+      <ChatRgaWidget />
     </>
   );
 }

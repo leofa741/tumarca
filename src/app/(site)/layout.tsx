@@ -146,7 +146,7 @@ export default function SiteLayout({
           <AnalyticsTracker />
           <OnlineVisitors />
           <ChatWidget />
-          {/* <ChatRgaWidget /> */}
+           {/* <ChatRgaWidget /> */}
           <Analytics />
         </main>
 
