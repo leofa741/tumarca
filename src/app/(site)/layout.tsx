@@ -10,6 +10,7 @@ import OnlineVisitors from "@/components/onlinevisitors/OnlineVisitors";
 import { Metadata } from "next";
 import AnalyticsTracker from "@/components/analytics/AnalyticsTracker";
 import ClientOnly from "@/components/ClientOnly";
+import ChatRgaWidget from "@/components/chat-widget";
 
 
 
@@ -145,6 +146,7 @@ export default function SiteLayout({
           <AnalyticsTracker />
           <OnlineVisitors />
           <ChatWidget />
+          {/* <ChatRgaWidget /> */}
           <Analytics />
         </main>
 
