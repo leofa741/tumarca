@@ -361,6 +361,8 @@ export default function ChatAIPage() {
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
                     <h1 className="text-3xl font-bold">Chat AI — Tu Marca AR</h1>
                     <VisitTracker pageName="chat-ai" />
+                    <br />
+                    <br />
 
                     <div className="flex flex-wrap gap-2">
                         <button
