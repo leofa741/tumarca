@@ -20,7 +20,7 @@ export default function ChatAIPage() {
     const [chatHistory, setChatHistory] = useState<ChatHistory[]>([]);
     const [showHistory, setShowHistory] = useState(false);
     const [tokenCount, setTokenCount] = useState(0);
-    
+
     // 👇 Estados para sistema de donación
     const [messagesUsed, setMessagesUsed] = useState(0);
     const [showDonationModal, setShowDonationModal] = useState(false);
@@ -44,12 +44,12 @@ export default function ChatAIPage() {
     // Cargar historial + estado de donación
     useEffect(() => {
         setChatHistory(loadChatHistory());
-        
+
         const donated = localStorage.getItem('chat_donated') === 'true';
         const used = parseInt(localStorage.getItem('chat_messages_used') || '0', 10);
         setHasDonated(donated);
         setMessagesUsed(used);
-        
+
         if (!donated && used >= FREE_MESSAGES_LIMIT) {
             setShowDonationModal(true);
         }
@@ -145,9 +145,9 @@ export default function ChatAIPage() {
             }
         } catch (error) {
             console.error('Error:', error);
-            setMessages(prev => [...prev, { 
-                role: 'assistant', 
-                content: 'Lo siento, ocurrió un error. Por favor, intenta nuevamente.' 
+            setMessages(prev => [...prev, {
+                role: 'assistant',
+                content: 'Lo siento, ocurrió un error. Por favor, intenta nuevamente.'
             }]);
         } finally {
             setIsLoading(false);
@@ -201,7 +201,7 @@ export default function ChatAIPage() {
         if (hasDonated) return null;
         const progress = Math.min((messagesUsed / FREE_MESSAGES_LIMIT) * 100, 100);
         const remaining = FREE_MESSAGES_LIMIT - messagesUsed;
-        
+
         return (
             <div className="flex items-center gap-3">
                 <div className="flex-1 min-w-[120px]">
@@ -214,14 +214,13 @@ export default function ChatAIPage() {
                         </span>
                     </div>
                     <div className={`h-2 rounded-full overflow-hidden ${darkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
-                        <div 
-                            className={`h-full rounded-full transition-all duration-500 ease-out ${
-                                progress >= 100 
-                                    ? 'bg-gradient-to-r from-amber-400 to-orange-500 animate-pulse' 
-                                    : progress >= 66 
-                                        ? 'bg-gradient-to-r from-amber-400 to-amber-500' 
+                        <div
+                            className={`h-full rounded-full transition-all duration-500 ease-out ${progress >= 100
+                                    ? 'bg-gradient-to-r from-amber-400 to-orange-500 animate-pulse'
+                                    : progress >= 66
+                                        ? 'bg-gradient-to-r from-amber-400 to-amber-500'
                                         : 'bg-gradient-to-r from-blue-400 to-blue-500'
-                            }`}
+                                }`}
                             style={{ width: `${progress}%` }}
                         />
                     </div>
@@ -241,22 +240,20 @@ export default function ChatAIPage() {
     // Modal de Donación - Diseño Premium
     const DonationModal = () => {
         if (!showDonationModal) return null;
-        
+
         return (
-            <div 
+            <div
                 className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn"
                 onClick={(e) => e.target === e.currentTarget && !hasDonated && setShowDonationModal(false)}
             >
-                <div className={`relative max-w-md w-full rounded-2xl shadow-2xl p-6 transform transition-all duration-300 scale-100 ${
-                    darkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-100'
-                }`}>
+                <div className={`relative max-w-md w-full rounded-2xl shadow-2xl p-6 transform transition-all duration-300 scale-100 ${darkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-100'
+                    }`}>
                     {/* Close button - solo si ya donó */}
                     {hasDonated && (
-                        <button 
+                        <button
                             onClick={() => setShowDonationModal(false)}
-                            className={`absolute top-3 right-3 p-1 rounded-full transition-colors ${
-                                darkMode ? 'hover:bg-gray-700 text-gray-400' : 'hover:bg-gray-100 text-gray-500'
-                            }`}
+                            className={`absolute top-3 right-3 p-1 rounded-full transition-colors ${darkMode ? 'hover:bg-gray-700 text-gray-400' : 'hover:bg-gray-100 text-gray-500'
+                                }`}
                             aria-label="Cerrar"
                         >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -264,7 +261,7 @@ export default function ChatAIPage() {
                             </svg>
                         </button>
                     )}
-                    
+
                     <div className="text-center">
                         {/* Icono animado */}
                         <div className="relative inline-block mb-4">
@@ -275,18 +272,18 @@ export default function ChatAIPage() {
                                 </div>
                             )}
                         </div>
-                        
+
                         <h3 className="text-xl font-bold mb-2">
                             {hasDonated ? '¡Gracias por tu apoyo! 🎉' : '¿Te está sirviendo el chat?'}
                         </h3>
-                        
+
                         <p className={`mb-6 leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                            {hasDonated 
-                                ? 'Tu contribución ayuda a mantener este proyecto activo y en mejora continua. ¡Podés seguir chateando sin límites!' 
+                            {hasDonated
+                                ? 'Tu contribución ayuda a mantener este proyecto activo y en mejora continua. ¡Podés seguir chateando sin límites!'
                                 : `Este asistente es gratuito gracias a la comunidad. Ya usaste ${messagesUsed} de ${FREE_MESSAGES_LIMIT} mensajes gratis. ¿Podés colaborar para que siga disponible?`
                             }
                         </p>
-                        
+
                         {/* Botón principal de donación */}
                         {!hasDonated && (
                             <a
@@ -297,49 +294,48 @@ export default function ChatAIPage() {
                                 className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold rounded-xl transition-all transform hover:scale-105 hover:shadow-lg mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
                             >
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
                                 </svg>
                                 Donar con PayPal
                             </a>
                         )}
-                        
+
                         {/* Mensaje post-donación */}
                         {hasDonated && (
                             <div className={`p-3 rounded-lg mb-4 ${darkMode ? 'bg-green-900/30 text-green-300' : 'bg-green-50 text-green-700'}`}>
                                 <div className="flex items-center justify-center gap-2">
                                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                     </svg>
                                     <span className="font-medium">¡Donación registrada! Disfrutá el chat ilimitado.</span>
                                 </div>
                             </div>
                         )}
-                        
+
                         {/* Link secundario */}
                         {!hasDonated && (
                             <>
                                 <p className="text-xs opacity-60 mb-3">
                                     💡 Tip: Después de donar, hacé click en "Ya doné" para continuar inmediatamente.
                                 </p>
-                                
+
                                 <button
                                     onClick={markAsDonated}
-                                    className={`text-sm font-medium underline transition-colors ${
-                                        darkMode 
-                                            ? 'text-gray-400 hover:text-gray-200' 
+                                    className={`text-sm font-medium underline transition-colors ${darkMode
+                                            ? 'text-gray-400 hover:text-gray-200'
                                             : 'text-gray-500 hover:text-gray-700'
-                                    }`}
+                                        }`}
                                 >
                                     ✓ Ya realicé mi donación
                                 </button>
                             </>
                         )}
-                        
+
                         {/* Badge de confianza */}
                         <div className={`mt-6 pt-4 border-t ${darkMode ? 'border-gray-700' : 'border-gray-100'}`}>
                             <p className="text-xs opacity-50 flex items-center justify-center gap-1">
                                 <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd"/>
+                                    <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                                 </svg>
                                 Pago seguro vía PayPal • Sin suscripciones
                             </p>
@@ -353,9 +349,8 @@ export default function ChatAIPage() {
     // ===== RENDER =====
 
     return (
-        <div className={`min-h-screen p-4 md:p-8 transition-colors duration-300 ${
-            darkMode ? 'bg-gray-900 text-white' : 'bg-gradient-to-br from-gray-50 to-gray-100 text-gray-800'
-        }`}>
+        <div className={`min-h-screen p-4 md:p-8 transition-colors duration-300 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gradient-to-br from-gray-50 to-gray-100 text-gray-800'
+            }`}>
             <div className="max-w-4xl mx-auto">
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
@@ -364,7 +359,9 @@ export default function ChatAIPage() {
                     <br />
                     <br />
                     <br />
-                    
+                    <br />
+                    <br />
+                    <br />
 
                     <div className="flex flex-wrap gap-2">
                         <button
@@ -397,16 +394,15 @@ export default function ChatAIPage() {
                 </div>
 
                 {/* Estadísticas + Progreso + Donación */}
-                <div className={`mb-4 p-3 rounded-xl flex flex-wrap items-center gap-4 ${
-                    darkMode ? 'bg-gray-800/50 border border-gray-700' : 'bg-white/70 border border-gray-200 shadow-sm'
-                }`}>
+                <div className={`mb-4 p-3 rounded-xl flex flex-wrap items-center gap-4 ${darkMode ? 'bg-gray-800/50 border border-gray-700' : 'bg-white/70 border border-gray-200 shadow-sm'
+                    }`}>
                     <span className="text-sm">🪙 Tokens: <strong>{tokenCount.toLocaleString()}</strong></span>
                     <span className="text-sm">💵 Est. ${(tokenCount * 0.0000007).toFixed(4)} USD</span>
-                    
+
                     <div className="flex-1 min-w-[200px]">
                         <ProgressBadge />
                     </div>
-                    
+
                     <button
                         onClick={() => window.open(DONATION_URL.trim(), '_blank')}
                         className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-lg text-sm font-medium transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -418,9 +414,8 @@ export default function ChatAIPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
                     {/* Historial */}
                     {showHistory && (
-                        <div className={`lg:col-span-1 rounded-xl shadow-lg p-4 h-[600px] overflow-y-auto ${
-                            darkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'
-                        }`}>
+                        <div className={`lg:col-span-1 rounded-xl shadow-lg p-4 h-[600px] overflow-y-auto ${darkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'
+                            }`}>
                             <h3 className="font-bold mb-3">📚 Historial</h3>
                             {chatHistory.length === 0 ? (
                                 <p className="text-sm opacity-75">No hay chats guardados</p>
@@ -430,9 +425,8 @@ export default function ChatAIPage() {
                                         <li key={chat.id}>
                                             <button
                                                 onClick={() => loadChat(chat)}
-                                                className={`w-full text-left p-2 rounded text-sm truncate transition-colors ${
-                                                    darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'
-                                                }`}
+                                                className={`w-full text-left p-2 rounded text-sm truncate transition-colors ${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'
+                                                    }`}
                                             >
                                                 {chat.title}
                                             </button>
@@ -453,9 +447,8 @@ export default function ChatAIPage() {
 
                     {/* Chat principal */}
                     <div className={`${showHistory ? 'lg:col-span-3' : 'lg:col-span-4'}`}>
-                        <div className={`rounded-2xl shadow-xl border flex flex-col ${
-                            darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'
-                        }`} style={{ height: '70vh' }}>
+                        <div className={`rounded-2xl shadow-xl border flex flex-col ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'
+                            }`} style={{ height: '70vh' }}>
 
                             {/* Messages Area */}
                             <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-4 space-y-4 relative">
@@ -476,13 +469,12 @@ export default function ChatAIPage() {
                                 ) : (
                                     messages.map((msg, index) => (
                                         <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                                            <div className={`max-w-[85%] lg:max-w-[75%] px-4 py-3 rounded-2xl transition-all ${
-                                                msg.role === 'user'
+                                            <div className={`max-w-[85%] lg:max-w-[75%] px-4 py-3 rounded-2xl transition-all ${msg.role === 'user'
                                                     ? 'bg-amber-500 text-black rounded-tr-none shadow-md'
-                                                    : darkMode 
-                                                        ? 'bg-gray-700 text-gray-100 rounded-tl-none' 
+                                                    : darkMode
+                                                        ? 'bg-gray-700 text-gray-100 rounded-tl-none'
                                                         : 'bg-gray-100 text-gray-900 rounded-tl-none'
-                                            }`}>
+                                                }`}>
                                                 <p className="whitespace-pre-wrap">{msg.content}</p>
                                             </div>
                                         </div>
@@ -492,14 +484,13 @@ export default function ChatAIPage() {
                                 {/* Typing indicator */}
                                 {isTyping && (
                                     <div className="flex justify-start">
-                                        <div className={`max-w-[85%] lg:max-w-[75%] px-4 py-3 rounded-2xl rounded-tl-none ${
-                                            darkMode ? 'bg-gray-700' : 'bg-gray-200'
-                                        }`}>
+                                        <div className={`max-w-[85%] lg:max-w-[75%] px-4 py-3 rounded-2xl rounded-tl-none ${darkMode ? 'bg-gray-700' : 'bg-gray-200'
+                                            }`}>
                                             <div className="flex space-x-1">
                                                 {[0, 0.1, 0.2].map((delay, i) => (
-                                                    <div 
+                                                    <div
                                                         key={i}
-                                                        className="w-2 h-2 bg-current rounded-full animate-bounce" 
+                                                        className="w-2 h-2 bg-current rounded-full animate-bounce"
                                                         style={{ animationDelay: `${delay}s` }}
                                                     />
                                                 ))}
@@ -528,10 +519,9 @@ export default function ChatAIPage() {
                             <div className={`p-4 border-t ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
                                 {/* Mensaje de límite alcanzado */}
                                 {!hasDonated && messagesUsed >= FREE_MESSAGES_LIMIT && (
-                                    <div className={`mb-3 p-2 rounded-lg text-center text-sm ${
-                                        darkMode ? 'bg-amber-900/30 text-amber-300' : 'bg-amber-50 text-amber-800'
-                                    }`}>
-                                        🎯 ¡Límite alcanzado! <button 
+                                    <div className={`mb-3 p-2 rounded-lg text-center text-sm ${darkMode ? 'bg-amber-900/30 text-amber-300' : 'bg-amber-50 text-amber-800'
+                                        }`}>
+                                        🎯 ¡Límite alcanzado! <button
                                             onClick={() => setShowDonationModal(true)}
                                             className="font-semibold underline hover:no-underline"
                                         >
@@ -539,7 +529,7 @@ export default function ChatAIPage() {
                                         </button>
                                     </div>
                                 )}
-                                
+
                                 <div className="flex gap-2">
                                     <input
                                         type="text"
@@ -548,11 +538,10 @@ export default function ChatAIPage() {
                                         onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                                         placeholder={hasDonated ? "Escribe tu mensaje..." : `Mensaje ${messagesUsed + 1}/${FREE_MESSAGES_LIMIT}...`}
                                         disabled={isLoading || (!hasDonated && messagesUsed >= FREE_MESSAGES_LIMIT)}
-                                        className={`flex-1 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 transition-colors ${
-                                            darkMode
+                                        className={`flex-1 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 transition-colors ${darkMode
                                                 ? 'bg-gray-700 border border-gray-600 text-white placeholder-gray-400 disabled:opacity-50'
                                                 : 'bg-white border border-gray-300 text-gray-800 placeholder-gray-500 disabled:opacity-50'
-                                        } ${!hasDonated && messagesUsed >= FREE_MESSAGES_LIMIT ? 'cursor-not-allowed' : ''}`}
+                                            } ${!hasDonated && messagesUsed >= FREE_MESSAGES_LIMIT ? 'cursor-not-allowed' : ''}`}
                                     />
                                     <button
                                         onClick={handleSend}
@@ -562,8 +551,8 @@ export default function ChatAIPage() {
                                     >
                                         {isLoading ? (
                                             <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
-                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
-                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                                             </svg>
                                         ) : (
                                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
