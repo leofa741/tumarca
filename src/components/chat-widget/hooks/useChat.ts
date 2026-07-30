@@ -7,6 +7,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080/api';
 // ============================================
 // FUNCIÓN AUXILIAR: Registrar conversación
 // ============================================
+
 async function registrarConversacion(conversationId: string, role: 'user' | 'bot', message: string) {
   try {
     await fetch(`${API_URL}/conversaciones`, {
@@ -48,11 +49,26 @@ async function getServicios(): Promise<string> {
 // ============================================
 function detectKeyword(text: string): 'contacto' | 'precios' | 'servicios' | null {
   const t = text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  if (['contacto','email','correo','ustedes','tu','telefono','whatsapp','direccion','ubicacion'].some(w => t.includes(w))) return 'contacto';
+  
+  // Solo detectar preguntas EXPLÍCITAS por contacto
+  // NO detectar si el usuario está DANDO su email
+  const preguntaPorContacto = [
+    'cual es tu email', 'cual es su email', 'cual es el email',
+    'cual es tu telefono', 'cual es su telefono', 'cual es el telefono',
+    'cual es tu whatsapp', 'cual es su whatsapp', 'cual es el whatsapp',
+    'como los contacto', 'como te contacto', 'como contactarlos',
+    'donde estan ubicados', 'cual es su direccion', 'donde quedan'
+  ];
+  
+  if (preguntaPorContacto.some(phrase => t.includes(phrase))) return 'contacto';
   if (['precio','precios','costo','costos','cuanto cuesta','tarifa','presupuesto'].some(w => t.includes(w))) return 'precios';
   if (['servicio','servicios','que hacen','que ofrecen'].some(w => t.includes(w))) return 'servicios';
+  
   return null;
 }
+
+
+
 
 // ============================================
 // HOOK PRINCIPAL
@@ -78,6 +94,8 @@ export function useChat() {
       timestamp: new Date()
     }]);
   };
+
+
 
   const sendMessage = async (text: string) => {
     if (!text.trim() || isLoading) return;
@@ -133,6 +151,8 @@ export function useChat() {
       setIsLoading(false);
     }
   };
+
+
 
   return { messages, isLoading, messagesEndRef, sendMessage };
 }
