@@ -18,9 +18,9 @@ const steps = [
   },
   {
     icon: MessageCircle,
-    title: "Automatizamos WhatsApp y seguimiento",
+    title: "Automatizamos Telegram",
     description:
-      "Respondemos automáticamente y organizamos tus clientes para no perder oportunidades.",
+      "Recivis tus consultas en Telegram en tiempo real.",
   },
 ];
 
@@ -48,7 +48,7 @@ export default function SistemaSection({ id, ref }: SistemaSectionProps) {
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Un sistema simple que genera{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">
-              clientes todos los días
+              clientes 
             </span>
           </h2>
 
@@ -108,10 +108,8 @@ export default function SistemaSection({ id, ref }: SistemaSectionProps) {
           viewport={{ once: true }}
           className="mt-16"
         >
-          <p className="text-gray-400 mb-4">Resultado:</p>
-
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
-            🔥 Clientes llegando todos los días a tu negocio
+            🔥 Clientes llegando a tu negocio en modo Online
           </h3>
 
           <a

@@ -372,7 +372,7 @@ export default function HomeContent() {
                         transition={{ duration: reducedMotion ? 0.3 : 0.8, delay: reducedMotion ? 0 : 0.2 }}
                         className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-8"
                     >
-                        Conseguí clientes todos los días
+                        Conseguí clientes 
                         <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500">
                             con un sistema automático
