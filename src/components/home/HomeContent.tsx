@@ -476,7 +476,7 @@ export default function HomeContent() {
           className="mb-8"
         />
 
-            <PricingSection />
+             {/* <PricingSection /> */}
 
             {/* SECCIÓN SERVICIOS */}
             <section ref={serviciosRef} id="servis-Home" className="relative py-24 md:py-32 px-6">
