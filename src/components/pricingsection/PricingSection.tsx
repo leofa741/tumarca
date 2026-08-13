@@ -8,8 +8,8 @@ const WHATSAPP_NUMBER = "5491141461312";
 const plans = [
   {
     name: "Starter",
-    price: "$70.000 ARS",
-    setup: "$120.000 ARS",
+    price: "$100.000 ARS",
+    setup: "$220.000 ARS",
     description: "Ideal para empezar a generar tus primeros clientes",
     features: [
       "Página web optimizada",
@@ -20,8 +20,8 @@ const plans = [
   },
   {
     name: "Pro",
-    price: "$140.000 ARS",
-    setup: "$240.000 ARS",
+    price: "$200.000 ARS",
+    setup: "$350.000 ARS",
     description: "Sistema completo para generar clientes todos los días",
     features: [
       "Web optimizada para conversión",
@@ -34,8 +34,8 @@ const plans = [
   },
   {
     name: "Premium",
-    price: "$250.000 ARS",
-    setup: "$350.000 ARS",
+    price: "$300.000 ARS",
+    setup: "$500.000 ARS",
     description: "Escala tu negocio con automatización avanzada",
     features: [
       "Todo lo del plan Pro",
