@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import Image from 'next/image';
 import { signOut } from 'next-auth/react';
+import GeoClicksClient from '@/components/geoclick/GeoClicksClient';
 
 // Tipos para mejor autocompletado
 interface EngagementStat {
@@ -379,6 +380,7 @@ export default function VisitasClient() {
             </div>
           )}
         </div>
+         <GeoClicksClient />
       </div>
 
       {/* Footer con timestamp */}

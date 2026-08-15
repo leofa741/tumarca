@@ -17,6 +17,7 @@ export default async function VisitasPage() {
   if (!session || !ADMIN_EMAILS.includes(userEmail)) {
     redirect('/admin/login');
   }
+  
 
   return <VisitasClient />;
 }

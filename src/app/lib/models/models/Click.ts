@@ -6,6 +6,9 @@ const ClickSchema = new Schema({
   button: { type: String, default: "unknown" },
   date: { type: String, required: true }, // YYYY-MM-DD
   count: { type: Number, default: 1 },
+  country: String,
+  region: String,
+  city: String,
 });
 
 export default models.Click || model("Click", ClickSchema);
