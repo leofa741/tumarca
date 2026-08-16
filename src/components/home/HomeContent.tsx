@@ -21,6 +21,7 @@ import BrandFullPackSection from '../branding/BrandSystemSection';
 import AudiobookPremiumSection from '../audiolibrossection/AudioLibrosSection';
 import AudioPlayer from '../audioplayer/AudioPlayer';
 import SchemaMarkup from '../SchemaMarkup';
+import { trackClick } from '@/lib/trackClick';
 
 const playfair = Playfair_Display({
     subsets: ['latin'],
@@ -396,13 +397,16 @@ export default function HomeContent() {
                         >
                             <a
                                 href="/contact"
+                                onClick={() => trackClick('contact_request', 'hero', 'Solicitar propuesta estratégica')}
                                 className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-400 to-amber-600 text-black font-bold text-lg rounded-2xl hover:shadow-2xl hover:shadow-amber-500/40 transition-all duration-300 hover:-translate-y-1"
                             >
                                 Solicitar propuesta estratégica
                                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                             </a>
+
                             <a
                                 href="#servis-Home"
+                                onClick={() => trackClick('services_view', 'hero', 'Conocer nuestros servicios')}
                                 className="inline-flex items-center gap-2 px-6 py-4 border border-white/20 rounded-2xl text-white/90 hover:bg-white/5 transition-all duration-300"
                             >
                                 Conocer nuestros servicios
