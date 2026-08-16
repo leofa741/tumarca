@@ -468,6 +468,7 @@ export default function HomeContent() {
 
                 {/* Reproductor de audio accesible */}
                 <AudioPlayer
+
                     src="/audio/presentacion-tumarca.mp3"
                     title="Conocé Tu Marca AR"
                     description="Escuchá nuestra presentación y descubrí cómo podemos ayudarte"
@@ -550,6 +551,7 @@ export default function HomeContent() {
                             <p className="text-gray-400 mb-6">¿No tenés claro cuál debería ser tu prioridad?</p>
                             <a
                                 href="/contact"
+                                onClick={() => trackClick('diagnostic_request', 'services', 'Solicitar diagnóstico estratégico')}
                                 className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/20 rounded-xl text-white hover:bg-white/10 transition-all duration-300"
                             >
                                 Solicitar diagnóstico estratégico
@@ -634,6 +636,7 @@ export default function HomeContent() {
                                 >
                                     <a
                                         href="/contact"
+                                        onClick={() => trackClick('proposal_request', 'services', 'Solicitar propuesta ejecutiva')}
                                         className="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-amber-400 to-amber-600 text-black font-bold text-xl rounded-2xl hover:shadow-2xl hover:shadow-amber-500/50 transition-all duration-300 hover:-translate-y-1"
                                     >
                                         Solicitar propuesta ejecutiva
@@ -658,6 +661,7 @@ export default function HomeContent() {
                 >
                     <a
                         href="/contact"
+                        onClick={() => trackClick('mobile_cta_click', 'floating_cta', 'Solicitar propuesta estratégica')}
                         className="block w-full py-4 bg-gradient-to-r from-amber-400 to-amber-600 text-black font-bold text-center rounded-2xl shadow-2xl shadow-amber-500/30 hover:shadow-amber-500/50 transition-shadow"
                     >
                         Solicitar propuesta estratégica →
