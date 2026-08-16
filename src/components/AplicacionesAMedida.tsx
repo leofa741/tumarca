@@ -2,6 +2,7 @@
 'use client';
 import { Code, Zap, Layout, Database } from 'lucide-react';
 import { useSectionTracker } from '@/app/(marketing)/components/useSectionTracker';
+import { trackClick } from '@/lib/trackClick';
 
 export default function AplicacionesAMedida() {
   const { ref: medidaRef } = useSectionTracker({ 
@@ -74,6 +75,17 @@ export default function AplicacionesAMedida() {
               Una app útil también debe ser intuitiva. Diseño interfaces limpias, modernas y fáciles de usar para tu equipo o clientes.
             </p>
           </div>
+        </div>
+
+        {/* CTA interno */}
+        <div className="text-center mt-16">
+          <a
+            href="/contact"
+            onClick={() => trackClick('contact_request', 'medida', 'Desde apps internas para gestión')}
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-black font-bold rounded-xl hover:from-amber-400 hover:to-orange-400 transition-all duration-300 shadow-lg hover:shadow-amber-500/25"
+          >
+            ⚡ Quiero una app a mi medida
+          </a>
         </div>
 
         <div className="mt-12 bg-amber-500/10 border border-amber-500/30 rounded-xl p-6 max-w-2xl mx-auto">

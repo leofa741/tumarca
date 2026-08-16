@@ -1,6 +1,8 @@
 // components/ServicioSEO.tsx
 'use client';
 import { useSectionTracker } from '@/app/(marketing)/components/useSectionTracker';
+import { trackClick } from '@/lib/trackClick';
+
 import { Search, BarChart3, AlertTriangle, CheckCircle, ArrowRight } from 'lucide-react';
 
 
@@ -120,6 +122,7 @@ export default function ServicioSEO() {
         <div className="text-center mt-16">
           <a
             href="/contact"
+            onClick={() => trackClick('contact_request', 'seo', 'Quiero que mi web aparezca en Google')}
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-black font-bold rounded-xl hover:from-amber-400 hover:to-orange-400 transition-all duration-300 shadow-lg hover:shadow-amber-500/25"
           >
             🔍 Quiero que mi web aparezca en Google
