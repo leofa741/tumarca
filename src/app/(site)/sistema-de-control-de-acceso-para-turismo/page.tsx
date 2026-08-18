@@ -6,7 +6,7 @@ import {
   ArrowRight, Play, MessageCircle, Phone, Mail, Calendar,
   Lock, Wifi, Database, Bell, TrendingUp, Clock, CreditCard, Key,
   ChevronDown, ExternalLink, Star, Award, Truck, Headphones,
-  Fingerprint, Sparkles, Crown, Diamond, MapPin, Bed, Luggage, 
+  Fingerprint, Sparkles, Crown, Diamond, MapPin, Bed, Luggage,
   KeyRound, Hotel, QrCode
 } from 'lucide-react';
 import FormContactLanding from '@/app/(marketing)/components/FormContactLanding';
@@ -152,11 +152,10 @@ const ComparisonCard = ({
     initial={{ opacity: 0, scale: 0.98 }}
     whileInView={{ opacity: 1, scale: 1 }}
     viewport={{ once: true }}
-    className={`p-6 rounded-2xl border ${
-      isPositive
+    className={`p-6 rounded-2xl border ${isPositive
         ? 'bg-green-900/20 border-green-500/30'
         : 'bg-red-900/20 border-red-500/30'
-    }`}
+      }`}
   >
     <div className={`flex items-center gap-2 mb-4 ${isPositive ? 'text-green-400' : 'text-red-400'}`}>
       {isPositive ? <CheckCircle size={20} /> : <XCircle size={20} />}
@@ -200,11 +199,10 @@ const PricingCard = ({
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     whileHover={{ y: -5 }}
-    className={`relative rounded-3xl p-8 ${
-      highlighted
+    className={`relative rounded-3xl p-8 ${highlighted
         ? 'bg-gradient-to-b from-amber-600 via-purple-700 to-indigo-800 text-white shadow-2xl shadow-amber-500/25 scale-105 z-10 border border-amber-500/50'
         : 'bg-gray-900/80 border border-gray-700/50'
-    }`}
+      }`}
   >
     {highlighted && (
       <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-400 to-orange-500 text-gray-900 px-4 py-1 rounded-full text-sm font-bold shadow-lg flex items-center gap-1">
@@ -230,11 +228,10 @@ const PricingCard = ({
     <motion.button
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      className={`w-full py-3.5 rounded-xl font-semibold transition-all ${
-        highlighted
+      className={`w-full py-3.5 rounded-xl font-semibold transition-all ${highlighted
           ? 'bg-white text-gray-900 hover:bg-gray-100 shadow-lg'
           : 'bg-gray-800 text-white hover:bg-gray-700 border border-gray-600'
-      }`}
+        }`}
     >
       {cta}
     </motion.button>
@@ -313,16 +310,7 @@ const TurismoAccessControlPage = () => {
       ],
       delay: 0
     },
-    {
-      icon: <Wifi className="w-7 h-7" />,
-      title: "Sincronización con PMS y OTAs",
-      description: "Conectá tu sistema con Booking, Airbnb, Expedia o tu PMS favorito. Los códigos de acceso se generan y envían automáticamente al confirmar la reserva.",
-      stats: [
-        { label: "Integraciones", value: "15+" },
-        { label: "Sync", value: "Tiempo real" }
-      ],
-      delay: 0.1
-    },
+
     {
       icon: <BarChart2 className="w-7 h-7" />,
       title: "Dashboard de Ocupación en Vivo",
@@ -438,10 +426,7 @@ const TurismoAccessControlPage = () => {
       question: "¿Qué pasa si se corta la luz o el internet en la cabaña?",
       answer: "Las cerraduras inteligentes funcionan con baterías de larga duración (6-12 meses). Los códigos PIN se almacenan localmente en la cerradura, por lo que el huésped puede ingresar incluso sin internet. Además, todas incluyen llave mecánica de emergencia."
     },
-    {
-      question: "¿Se integra con Booking.com, Airbnb o mi PMS?",
-      answer: "Sí. Nos integramos con los principales Channel Managers y PMS del mercado (como Cloudbeds, Hostfully, Smoobu o soluciones a medida) para automatizar el envío de códigos al confirmar la reserva."
-    },
+   
     {
       question: "¿Es difícil de instalar en una cabaña o hotel ya construido?",
       answer: "No. La mayoría de nuestras cerraduras son de sobreponer o reemplazan directamente la manija existente sin necesidad de obras, cableado ni modificar la estructura de la puerta."
@@ -456,7 +441,7 @@ const TurismoAccessControlPage = () => {
     },
     {
       question: "¿Ofrecen instalación en el interior del país?",
-      answer: "Sí, contamos con red de instaladores certificados en todo el país, o brindamos guías de instalación remota asistida por videollamada para cerraduras de fácil montaje plug-and-play."
+      answer: "Sí, contamos con instaladores certificados , brindamos guías de instalación remota asistida por videollamada para cerraduras de fácil montaje plug-and-play."
     }
   ];
 
@@ -496,7 +481,7 @@ const TurismoAccessControlPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white">
       <VisitTracker pageName="sistema-control-acceso-turismo" />
-      
+
       {/* Scroll Progress Bar - Premium Gold */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-purple-500 to-blue-500 z-[100] origin-left shadow-lg shadow-amber-500/50"
@@ -506,16 +491,16 @@ const TurismoAccessControlPage = () => {
       {/* Hero Section */}
       <section
         ref={heroTurismoRef}
-        id="heroTurismo" 
+        id="heroTurismo"
         className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
       >
         <GradientBlob className="w-96 h-96 -top-48 -left-48" color="purple" />
         <GradientBlob className="w-96 h-96 top-1/4 -right-48" color="amber" />
         <GradientBlob className="w-96 h-96 -bottom-48 left-1/3" color="blue" />
-        
+
         {/* Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:32px_32px]" />
-        
+
         {/* Radial Glow */}
         <div className="absolute inset-0 bg-radial-gradient from-amber-500/10 via-transparent to-transparent" />
 
@@ -554,7 +539,7 @@ const TurismoAccessControlPage = () => {
 
               {/* Subheadline */}
               <p className="text-lg text-gray-400 leading-relaxed max-w-xl">
-                Sistema todo-en-uno con cerraduras inteligentes, dashboard en tiempo real y acceso mediante QR, PIN o RFID. 
+                Sistema todo-en-uno con cerraduras inteligentes, dashboard en tiempo real y acceso mediante QR, PIN o RFID.
                 <span className="font-semibold text-amber-400"> Instalación sin obras, ideal para propiedades que buscan escalar sin aumentar costos de personal.</span>
               </p>
 
@@ -703,7 +688,7 @@ const TurismoAccessControlPage = () => {
       {/* Features Section */}
       <section
         ref={caracteristicasTurismoRef}
-        id="caracteristicasTurismo" 
+        id="caracteristicasTurismo"
         className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 relative"
       >
         <GradientBlob className="w-96 h-96 top-0 right-0" color="purple" />
@@ -724,7 +709,7 @@ const TurismoAccessControlPage = () => {
       {/* How it Works - Access Methods */}
       <section
         ref={comoFuncionaTurismoRef}
-        id="como-funcionaTurismo" 
+        id="como-funcionaTurismo"
         className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 relative"
       >
         <GradientBlob className="w-96 h-96 bottom-0 left-0" color="amber" />
@@ -734,7 +719,7 @@ const TurismoAccessControlPage = () => {
             title="Elegí el método de acceso que mejor se adapta a tu tipo de propiedad"
             subtitle="Desde códigos temporales para Airbnb hasta tarjetas RFID para hoteles. Mezclá métodos según la zona o el tipo de alojamiento."
           />
-          
+
           {/* Tabs */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-12 mb-10">
             {Object.entries(accessMethods).map(([key, method]) => (
@@ -743,11 +728,10 @@ const TurismoAccessControlPage = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setActiveTab(key as typeof activeTab)}
-                className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-medium text-sm sm:text-base transition-all ${
-                  activeTab === key
+                className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-medium text-sm sm:text-base transition-all ${activeTab === key
                     ? 'bg-gradient-to-r from-amber-500 to-purple-600 text-white shadow-lg shadow-amber-500/25'
                     : 'bg-gray-900/80 text-gray-400 border border-gray-700/50 hover:border-amber-500/50 backdrop-blur-xl'
-                }`}
+                  }`}
               >
                 {method.title}
               </motion.button>
@@ -859,7 +843,7 @@ const TurismoAccessControlPage = () => {
         </div>
       </section>
 
-    
+
 
       {/* FAQ Section */}
       <section id="faq" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
@@ -889,10 +873,10 @@ const TurismoAccessControlPage = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-purple-950 to-black" />
         <GradientBlob className="w-96 h-96 top-0 left-0" color="amber" />
         <GradientBlob className="w-96 h-96 bottom-0 right-0" color="purple" />
-        
+
         {/* Animated border glow */}
         <div className="absolute inset-0 border-2 border-amber-500/10 rounded-3xl m-4" />
-        
+
         <div className="max-w-4xl mx-auto text-center relative z-10 px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <div className="inline-flex items-center gap-2 bg-amber-500/10 backdrop-blur-sm px-4 py-2 rounded-full border border-amber-500/30 mb-6">
@@ -1003,7 +987,7 @@ const TurismoAccessControlPage = () => {
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
-                 <MapPin className="w-5 h-5 text-amber-400 mt-0.5 flex-shrink-0" />
+                  <MapPin className="w-5 h-5 text-amber-400 mt-0.5 flex-shrink-0" />
                   <span className="text-gray-500 text-sm">Buenos Aires, Argentina</span>
                 </li>
               </ul>
