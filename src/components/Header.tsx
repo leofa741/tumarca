@@ -73,6 +73,7 @@ export default function Header() {
     { href: '/services', label: 'Services' },
     { href: '/desarrollo-web', label: 'Web' },
     { href: '/sistema-de-control-de-acceso', label: 'Gym' },
+    { href: '/sistema-de-control-de-acceso-para-turismo', label: 'Turismo' },
     { href: '/machine-learning', label: 'LLM' },
     { href: '/ia-estrategica-para-marcas', label: 'IA' },
     { href: '/about', label: 'About' },
