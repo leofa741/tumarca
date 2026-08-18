@@ -3,6 +3,7 @@
 import { Sparkles, MessageSquare, Mic, BookOpen, Globe, Brain } from 'lucide-react';
 
 import { useSectionTracker } from '@/app/(marketing)/components/useSectionTracker';
+import { trackClick } from '@/lib/trackClick';
 
 export default function AplicacionesIA() {
     const { ref: iaRef } = useSectionTracker({
@@ -121,6 +122,7 @@ export default function AplicacionesIA() {
           <div className="text-center mt-16">
             <a
               href="/contact"
+               onClick={() => trackClick('iaAppcontact_request', 'medida', 'Desde apps internas para gestión')}
               className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-xl hover:from-blue-400 hover:to-purple-500 transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
             >
               💬 Quiero mi asistente de IA personalizado

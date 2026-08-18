@@ -1,5 +1,6 @@
 'use client';
 
+import { trackClick } from '@/lib/trackClick';
 import { motion, Variants } from 'framer-motion';
 import {
     BookOpen,
@@ -245,6 +246,7 @@ export default function AudiobookPremiumSection({ reducedMotion = false }: Props
                     <div className="relative flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <a
                             href="/contact"
+                             onClick={() => trackClick('audiobookContact_request', 'medida', 'Desde Apps internas para gestión')}
                             className="group inline-flex items-center gap-2 px-8 py-4 bg-amber-500 text-black font-bold rounded-xl hover:bg-amber-400 hover:shadow-lg hover:shadow-amber-500/20 hover:scale-[1.02] transition-all duration-300"
                         >
                             Quiero producir mi audiolibro
