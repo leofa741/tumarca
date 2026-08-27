@@ -290,7 +290,7 @@ const FAQItem = ({
 
 const TurismoAccessControlPage = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(0);
-  const [activeTab, setActiveTab] = useState<'pin' | 'rfid' | 'smartlock'>('pin');
+  const [activeTab, setActiveTab] = useState<'rfid' | 'admin' | 'roadmap'>('rfid');
   const { scrollYProgress } = useScroll();
   const heroY = useTransform(scrollYProgress, [0, 0.2], [0, 40]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
@@ -302,75 +302,89 @@ const TurismoAccessControlPage = () => {
   const features = [
     {
       icon: <KeyRound className="w-7 h-7" />,
-      title: "Acceso sin llaves (Keyless)",
-      description: "Cerraduras inteligentes con PIN temporal, QR o RFID. Olvidate de las llaves físicas perdidas o copiadas. Ideal para check-in autónomo 24/7.",
+      title: "Acceso mediante RFID Seguro",
+      description: "Sistema robusto de apertura con tarjetas o tags RFID. Ideal para entregar al huésped al llegar o dejar en una caja segura. Lectura instantánea y sin fallas.",
       stats: [
-        { label: "Instalación", value: "Sin obras" },
-        { label: "Seguridad", value: "Cifrado AES" }
+        { label: "Tecnología", value: "RFID 13.56MHz" },
+        { label: "Respuesta", value: "< 0.5s" }
       ],
       delay: 0
     },
-
     {
-      icon: <BarChart2 className="w-7 h-7" />,
-      title: "Dashboard de Ocupación en Vivo",
-      description: "Visualizá el estado de cada cabaña o habitación en tiempo real. Sabé quién entró, cuándo y si la puerta quedó abierta, todo desde una plataforma web centralizada.",
+      icon: <Smartphone className="w-7 h-7" />,
+      title: "Panel Administrativo Web",
+      description: "Toma el control total desde tu celular o PC. Como encargado o dueño, puedes abrir puertas de forma remota, gestionar accesos y ver el historial en tiempo real.",
       stats: [
-        { label: "Control", value: "Total" },
-        { label: "Auditoría", value: "100%" }
+        { label: "Control", value: "100% Remoto" },
+        { label: "Usuarios", value: "Ilimitados" }
       ],
       delay: 0.2
     },
     {
-      icon: <Bell className="w-7 h-7" />,
-      title: "Alertas de Seguridad Proactivas",
-      description: "Notificaciones inmediatas por WhatsApp o email ante intentos de acceso fallidos, puertas forzadas o batería baja de las cerraduras.",
+      icon: <Zap className="w-7 h-7" />,
+      title: "Funciona sin Luz ni Internet",
+      description: "Desarrollado sobre hardware ESP32 con memoria local. Si se corta la luz o el WiFi de la cabaña, el sistema sigue leyendo las tarjetas RFID autorizadas sin interrupciones.",
       stats: [
-        { label: "Canales", value: "WhatsApp/Email" },
-        { label: "Latencia", value: "<2s" }
+        { label: "Resiliencia", value: "Modo Offline" },
+        { label: "Memoria", value: "Local en placa" }
       ],
       delay: 0.3
     },
     {
-      icon: <Smartphone className="w-7 h-7" />,
-      title: "Experiencia Premium para el Huésped",
-      description: "El huésped recibe su código de acceso por WhatsApp o email antes de llegar. Puede ingresar directamente sin esperar en recepción, elevando la calificación de tu propiedad.",
+      icon: <Shield className="w-7 h-7" />,
+      title: "Aperturas de Emergencia",
+      description: "Protocolos de seguridad integrados que permiten la apertura manual o mecánica en situaciones excepcionales, garantizando siempre la seguridad del huésped.",
       stats: [
-        { label: "Satisfacción", value: "4.9★" },
-        { label: "Check-in", value: "0 min espera" }
+        { label: "Seguridad", value: "Prioritaria" },
+        { label: "Protocolo", value: "Fail-Safe" }
       ],
       delay: 0.4
     },
     {
-      icon: <Database className="w-7 h-7" />,
-      title: "Gestión de Personal y Limpieza",
-      description: "Asigná códigos o tarjetas maestras para el personal de limpieza o mantenimiento, con horarios y días de acceso restringidos de forma modular y segura.",
+      icon: <BarChart2 className="w-7 h-7" />,
+      title: "Auditoría y Registro de Accesos",
+      description: "Cada vez que se usa una tarjeta o se abre desde el panel, queda registrado en la base de datos. Sabé exactamente quién entró y a qué hora.",
       stats: [
-        { label: "Roles", value: "Ilimitados" },
-        { label: "API", value: "REST/GraphQL" }
+        { label: "Registro", value: "En tiempo real" },
+        { label: "Historial", value: "Exportable" }
       ],
       delay: 0.5
     }
   ];
 
   const accessMethods = {
-    pin: {
-      title: "PIN Temporal o QR",
-      description: "La opción favorita para alquileres vacacionales, cabañas y Airbnb. El código se genera por reserva y expira automáticamente al momento del check-out.",
-      icon: <QrCode className="w-12 h-12" />,
-      benefits: ["Cero costo de hardware para el huésped", "Envío automático por WhatsApp/Email", "Caducidad programada", "Sin instalaciones complejas"]
-    },
     rfid: {
-      title: "Tarjetas o Tags RFID",
-      description: "Ideal para hostels y hoteles que buscan una experiencia tradicional pero modernizada. Reutilizables, de bajo costo operativo y alta durabilidad.",
+      title: "Tarjetas y Tags RFID",
+      description: "Nuestro método principal y más robusto. Entregá una tarjeta o tag al huésped. Es reutilizable, de bajo costo y no depende de que el huésped tenga batería en su celular.",
       icon: <Key className="w-12 h-12" />,
-      benefits: ["Experiencia de hotel clásico", "Bajo costo por unidad reutilizable", "Lectura instantánea (<1s)", "Fácil reemplazo en caso de pérdida"]
+      benefits: [
+        "Funciona sin internet ni electricidad (memoria local ESP32)",
+        "Cero fricción para huéspedes de todas las edades",
+        "Desactivación instantánea de tarjetas perdidas desde el panel",
+        "Hardware de desarrollo propio, sin dependencias de terceros"
+      ]
     },
-    smartlock: {
-      title: "Cerraduras Smart WiFi/Bluetooth",
-      description: "Tecnología de vanguardia para cabañas o habitaciones independientes. Se controlan desde la nube o vía Bluetooth sin necesidad de cableado ni obras.",
-      icon: <Lock className="w-12 h-12" />,
-      benefits: ["Instalación sin obras (a pila)", "Apertura con smartphone del huésped", "Historial de accesos en la nube", "Apertura mecánica de emergencia"]
+    admin: {
+      title: "Panel de Control Web",
+      description: "Diseñado para el dueño o encargado de la propiedad. Permite gestionar el estado de las puertas, autorizar accesos puntuales (ej: limpieza, mantenimiento) y abrir de forma remota si un huésped lo solicita.",
+      icon: <Database className="w-12 h-12" />,
+      benefits: [
+        "Interfaz web intuitiva y responsive",
+        "Gestión centralizada de múltiples cabañas/unidades",
+        "Roles de usuario (Dueño, Encargado, Limpieza)",
+        "Comunicación bidireccional segura con el ESP32"
+      ]
+    },
+    roadmap: {
+      title: "Próximamente: QR y PIN",
+      description: "Estamos desarrollando activamente la integración de códigos QR dinámicos y teclados numéricos (PIN) para ofrecer aún más flexibilidad y un check-in 100% digital en el futuro cercano.",
+      icon: <Clock className="w-12 h-12" />,
+      benefits: [
+        "Envío de QR por WhatsApp antes de la llegada",
+        "Códigos PIN temporales que expiran al hacer el check-out",
+        "Integración directa con calendarios de reservas",
+        "Actualización de firmware OTA para unidades existentes"
+      ]
     }
   };
 
@@ -424,24 +438,23 @@ const TurismoAccessControlPage = () => {
   const faqs = [
     {
       question: "¿Qué pasa si se corta la luz o el internet en la cabaña?",
-      answer: "Las cerraduras inteligentes funcionan con baterías de larga duración (6-12 meses). Los códigos PIN se almacenan localmente en la cerradura, por lo que el huésped puede ingresar incluso sin internet. Además, todas incluyen llave mecánica de emergencia."
+      answer: "¡El sistema sigue funcionando! Nuestra tecnología está basada en placas ESP32 que almacenan las credenciales RFID autorizadas en su memoria local. Si se va la luz o el WiFi, el huésped puede seguir ingresando con su tarjeta sin problemas. Además, contamos con mecanismos de apertura de emergencia."
     },
-   
     {
       question: "¿Es difícil de instalar en una cabaña o hotel ya construido?",
-      answer: "No. La mayoría de nuestras cerraduras son de sobreponer o reemplazan directamente la manija existente sin necesidad de obras, cableado ni modificar la estructura de la puerta."
+      answer: "No. Al ser un desarrollo modular, el hardware se adapta a la cerradura o picaporte existente sin necesidad de obras civiles complejas ni cableado de red. Instalación plug-and-play."
     },
     {
       question: "¿Cómo manejo el acceso del personal de limpieza?",
-      answer: "Podés crear códigos 'maestros' o de 'personal' que solo funcionen en horarios específicos (ej: de 10:00 a 16:00) y recibir notificaciones automáticas cuando ingresen a cada unidad."
+      answer: "Desde el Panel Administrativo Web, podés asignar tarjetas específicas para el personal o realizar aperturas remotas tú mismo, manteniendo un registro exacto de a qué hora ingresaron a cada unidad."
     },
     {
-      question: "¿Qué pasa si un huésped pierde el código o la tarjeta?",
-      answer: "Desde el dashboard podés revocar o eliminar cualquier código o tarjeta al instante, sin costo de reemplazo y sin necesidad de cambiar la cerradura ni las llaves."
+      question: "¿Qué pasa si un huésped pierde la tarjeta RFID?",
+      answer: "Es tan simple como entrar a tu panel de administración y desactivar esa tarjeta específica con un clic. La puerta ya no responderá a ese tag, pero el resto de las tarjetas y el sistema seguirán funcionando con total normalidad."
     },
     {
-      question: "¿Ofrecen instalación en el interior del país?",
-      answer: "Sí, contamos con instaladores certificados , brindamos guías de instalación remota asistida por videollamada para cerraduras de fácil montaje plug-and-play."
+      question: "¿Ofrecen instalación y soporte en el interior del país?",
+      answer: "Sí. Brindamos guías de instalación detalladas, soporte remoto para la configuración del ESP32 y, según la zona, contamos con técnicos aliados para la instalación física."
     }
   ];
 
@@ -752,23 +765,45 @@ const TurismoAccessControlPage = () => {
                 <div className="flex flex-col md:flex-row items-center gap-8">
                   <div className="flex-shrink-0">
                     <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-amber-500 to-purple-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-amber-500/25">
-                      {accessMethods[activeTab].icon}
+                      {
+                        activeTab === 'rfid' ? <Key className="w-12 h-12" /> :
+                          activeTab === 'admin' ? <Database className="w-12 h-12" /> :
+                            <Clock className="w-12 h-12" />
+                      } 
                     </div>
                   </div>
                   <div className="text-center md:text-left">
                     <h3 className="text-2xl font-bold text-white mb-3">
-                      {accessMethods[activeTab].title}
+                      {
+                        activeTab === 'rfid' ? 'Tarjetas y Tags RFID' :
+                          activeTab === 'admin' ? 'Panel de Control Web' :
+                            'Próximamente: QR y PIN'
+                      }
                     </h3>
                     <p className="text-gray-400 mb-6 leading-relaxed">
-                      {accessMethods[activeTab].description}
+                      {activeTab === 'rfid' ? 'Nuestro método principal y más robusto. Entregá una tarjeta o tag al huésped. Es reutilizable, de bajo costo y no depende de que el huésped tenga batería en su celular.' :
+                        activeTab === 'admin' ? 'Diseñado para el dueño o encargado de la propiedad. Permite gestionar el estado de las puertas, autorizar accesos puntuales (ej: limpieza, mantenimiento) y abrir de forma remota si un huésped lo solicita.' :
+                          'Estamos desarrollando activamente la integración de códigos QR dinámicos y teclados numéricos (PIN) para ofrecer aún más flexibilidad y un check-in 100% digital en el futuro cercano.'}
                     </p>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {accessMethods[activeTab].benefits.map((benefit, idx) => (
+                      {activeTab === 'rfid' ? accessMethods.rfid.benefits.map((benefit, idx) => (
                         <li key={idx} className="flex items-center gap-2 text-sm text-gray-300">
                           <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
                           {benefit}
                         </li>
-                      ))}
+                      )) :
+                        activeTab === 'admin' ? accessMethods.admin.benefits.map((benefit, idx) => (
+                          <li key={idx} className="flex items-center gap-2 text-sm text-gray-300">
+                            <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
+                            {benefit}
+                          </li>
+                        )) :
+                          accessMethods.roadmap.benefits.map((benefit, idx) => (
+                            <li key={idx} className="flex items-center gap-2 text-sm text-gray-300">
+                              <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
+                              {benefit}
+                            </li>
+                          ))}
                     </ul>
                   </div>
                 </div>
