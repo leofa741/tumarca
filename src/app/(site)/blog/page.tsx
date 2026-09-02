@@ -1,19 +1,16 @@
-// app/blog/page.tsx
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { Playfair_Display } from 'next/font/google';
-import { BookOpen, PenTool, Zap, Target } from 'lucide-react';
+import { BookOpen, PenTool, Zap, Target, ArrowRight, Clock, Sparkles } from 'lucide-react';
 import type { Metadata } from 'next';
 import posts from '@/lib/posts';
 import NewsletterCTA from '@/components/NewsletterCTA';
 import AplicacionesAMedida from '@/components/AplicacionesAMedida';
 import ServicioSEO from '@/components/ServicioSEO';
-// ← Componente del cliente
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
-  weight: ['400', '600'],
+  weight: ['400', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -26,7 +23,7 @@ export const metadata: Metadata = {
       'Guías prácticas sobre branding, diseño web, marketing emocional y lanzamientos exitosos. Transforma tu negocio desde la esencia.',
     images: [
       {
-       url: 'https://www.tumarca.ar/marca-2-ar.png',
+        url: 'https://www.tumarca.ar/marca-2-ar.png',
         width: 800,
         height: 600,
         alt: 'Tu Marca AR - Blog de Estrategia de Marca',
@@ -35,99 +32,127 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogPage() {
-  return (
-    <>
-    <section className="container mx-auto px-6 py-16 md:py-24 lg:py-32">
-      {/* Encabezado */}
-      <div className="max-w-4xl mx-auto text-center space-y-6">
-        <BookOpen className="mx-auto text-amber-500" size={48} />
-        <h1 className={`${playfair.className} text-4xl md:text-6xl font-semibold text-white animate-slideUp`}>
-          El <span className="text-amber-500">Blog Estratégico</span> de Tu Marca
-        </h1>
-        <p
-          className="text-gray-300 text-lg leading-relaxed animate-fadeIn"
-          style={{ animationDelay: '0.2s' }}
-        >
-          No son solo artículos. Son <strong>guías prácticas</strong> para construir una marca que destaque,
-          conecte y crezca con propósito. Ideal para emprendedores, coaches y pequeñas empresas.
-        </p>
-      </div>
-
-      {/* Sección de valor */}
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-        <div className="bg-white/5 rounded-xl p-6 backdrop-blur-md border border-white/10">
-          <PenTool className="mx-auto mb-4 text-amber-500" size={32} />
-          <h3 className="text-white font-semibold text-lg mb-2">Branding Auténtico</h3>
-          <p className="text-gray-400 text-sm">Define tu esencia, voz y propuesta de valor única.</p>
-        </div>
-        <div className="bg-white/5 rounded-xl p-6 backdrop-blur-md border border-white/10">
-          <Zap className="mx-auto mb-4 text-amber-500" size={32} />
-          <h3 className="text-white font-semibold text-lg mb-2">Diseño que Convierte</h3>
-          <p className="text-gray-400 text-sm">Sitios estéticos, rápidos y orientados a resultados.</p>
-        </div>
-        <div className="bg-white/5 rounded-xl p-6 backdrop-blur-md border border-white/10">
-          <Target className="mx-auto mb-4 text-amber-500" size={32} />
-          <h3 className="text-white font-semibold text-lg mb-2">Marketing con Sentido</h3>
-          <p className="text-gray-400 text-sm">Estrategias que generan tráfico, engagement y ventas.</p>
-        </div>
-      </div>
-
-      {/* Posts */}
-      <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {posts.map((post) => (
-          <Link key={post.id} href={`/blog/${post.slug}`} className="group block">
-            <article className="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden shadow-lg border border-white/10 hover:shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-1 hover:scale-102">
-              <div className="relative w-full h-48">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="inline-flex items-center gap-1 bg-amber-500/90 text-black text-xs font-bold px-3 py-1 rounded-full">
-                    {getIcon(post.category)}
-                    {post.category}
-                  </span>
-                </div>
-              </div>
-              <div className="p-6">
-                <h2
-                  className={`${playfair.className} text-xl font-semibold text-white group-hover:text-amber-400 transition-colors`}
-                >
-                  {post.title}
-                </h2>
-                <p className="mt-3 text-gray-300 text-sm leading-relaxed">{post.excerpt}</p>
-                <p className="mt-4 text-amber-500 text-xs font-medium">🕒 {post.readTime} de lectura</p>
-              </div>
-            </article>
-          </Link>
-        ))}
-      </div>
-
-      {/* Newsletter CTA (Client Component) */}
-      <NewsletterCTA />
-    </section>
-
-     <ServicioSEO />
-     
-                 <AplicacionesAMedida />
-    
-                </>
-  );
-}
-
-// Función auxiliar para mostrar ícono según categoría
 function getIcon(category: string) {
   switch (category) {
-    case 'Branding Estratégico':
-      return <PenTool size={16} />;
-    case 'Diseño Web':
-      return <Zap size={16} />;
-    case 'Marketing Digital':
-      return <Target size={16} />;
-    default:
-      return <BookOpen size={16} />;
+    case 'Branding Estratégico': return <PenTool size={14} />;
+    case 'Diseño Web': return <Zap size={14} />;
+    case 'Marketing Digital': return <Target size={14} />;
+    default: return <BookOpen size={14} />;
   }
+}
+
+export default function BlogPage() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white relative overflow-hidden">
+      {/* Background Effects Premium */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl opacity-40 animate-pulse pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl opacity-40 animate-pulse pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+
+      <main className="relative z-10 container mx-auto px-6 py-16 md:py-24 lg:py-32">
+        
+        {/* Hero Section */}
+        <div className="max-w-4xl mx-auto text-center space-y-6 mb-20">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-500 to-purple-600 rounded-2xl mx-auto mb-6 shadow-lg shadow-amber-500/25">
+            <BookOpen className="w-8 h-8 text-white" />
+          </div>
+          <h1 className={`${playfair.className} text-4xl md:text-6xl lg:text-7xl font-semibold text-white leading-tight`}>
+            El <span className="bg-gradient-to-r from-amber-400 to-purple-400 bg-clip-text text-transparent">Blog Estratégico</span> de Tu Marca
+          </h1>
+          <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+            No son solo artículos. Son <strong className="text-white">guías prácticas</strong> para construir una marca que destaque, conecte y crezca con propósito.
+          </p>
+        </div>
+
+        {/* Value Propositions */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
+          {[
+            { icon: <PenTool className="w-6 h-6" />, title: 'Branding Auténtico', desc: 'Define tu esencia, voz y propuesta de valor única.' },
+            { icon: <Zap className="w-6 h-6" />, title: 'Diseño que Convierte', desc: 'Sitios estéticos, rápidos y orientados a resultados.' },
+            { icon: <Target className="w-6 h-6" />, title: 'Marketing con Sentido', desc: 'Estrategias que generan tráfico, engagement y ventas.' }
+          ].map((item, idx) => (
+            <div 
+              key={idx} 
+              className="group relative bg-gray-900/60 backdrop-blur-xl rounded-3xl border border-gray-700/50 hover:border-amber-500/50 hover:shadow-2xl hover:shadow-amber-500/10 transition-all duration-500 p-8 text-center h-full"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+              <div className="relative z-10">
+                <div className="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center mx-auto mb-4 text-amber-400 group-hover:scale-110 transition-transform duration-300">
+                  {item.icon}
+                </div>
+                <h3 className="text-white font-semibold text-lg mb-2">{item.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Section Heading */}
+        <div className="max-w-3xl mx-auto text-center mb-12">
+          <span className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/10 to-purple-500/10 px-4 py-1.5 rounded-full text-sm font-medium text-amber-400 border border-amber-500/20 mb-6">
+            <Sparkles className="w-4 h-4" />
+            Últimas Publicaciones
+          </span>
+          <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6 text-white bg-gradient-to-r from-white via-amber-100 to-white bg-clip-text text-transparent`}>
+            Conocimiento que transforma negocios
+          </h2>
+          <p className="text-lg leading-relaxed text-gray-400">
+            Explora nuestras guías más recientes sobre diseño, estrategia y crecimiento digital.
+          </p>
+        </div>
+
+        {/* Blog Posts Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {posts.map((post) => (
+            <Link key={post.id} href={`/blog/${post.slug}`} className="group block h-full">
+              <article className="group relative h-full bg-gray-900/60 backdrop-blur-xl rounded-3xl border border-gray-700/50 hover:border-amber-500/50 hover:shadow-2xl hover:shadow-amber-500/10 transition-all duration-500 overflow-hidden flex flex-col">
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+                
+                <div className="relative z-10 w-full h-52 overflow-hidden">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60" />
+                  <div className="absolute top-4 left-4">
+                    <span className="inline-flex items-center gap-1.5 bg-gray-900/80 backdrop-blur-md border border-amber-500/30 text-amber-400 text-xs font-bold px-3 py-1.5 rounded-full">
+                      {getIcon(post.category)}
+                      {post.category}
+                    </span>
+                  </div>
+                </div>
+                
+                <div className="relative z-10 p-6 flex flex-col flex-grow">
+                  <h2 className={`${playfair.className} text-xl font-semibold text-white group-hover:text-amber-400 transition-colors mb-3`}>
+                    {post.title}
+                  </h2>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-700/50">
+                    <span className="flex items-center gap-1.5 text-gray-500 text-xs font-medium">
+                      <Clock className="w-3.5 h-3.5" />
+                      {post.readTime}
+                    </span>
+                    <span className="flex items-center gap-1 text-amber-400 text-sm font-semibold group-hover:translate-x-1 transition-transform duration-300">
+                      Leer más <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
+                </div>
+              </article>
+            </Link>
+          ))}
+        </div>
+
+        {/* Bottom Sections */}
+        <div className="mt-32 space-y-24">
+          <NewsletterCTA />
+          <ServicioSEO />
+          <AplicacionesAMedida />
+        </div>
+      </main>
+    </div>
+  );
 }
