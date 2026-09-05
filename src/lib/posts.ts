@@ -284,7 +284,7 @@ const posts: Post[] = [
   },
   {
     id: 10,
-    title: "Agentes de IA: qué son y cómo pueden trabajar por tu empresa en 2026",
+    title: "Agentes de IA: qué son y cómo pueden trabajar por tu empresa",
     category: "Inteligencia Artificial",
     excerpt:
       "Los agentes de IA representan una nueva etapa de la inteligencia artificial: pueden analizar información, tomar decisiones y ejecutar tareas para una empresa.",
