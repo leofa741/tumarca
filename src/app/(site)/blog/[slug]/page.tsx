@@ -10,6 +10,7 @@ import VisitTracker from '@/app/(marketing)/components/VisitTracker';
 import BlogPostTracker from '@/app/(marketing)/components/BlogPostTracker';
 import ShareButton from '@/app/(site)/blog/[slug]/ShareButton';
 
+
 const playfair = Playfair_Display({
   subsets: ['latin'],
   weight: ['400', '600', '700'],

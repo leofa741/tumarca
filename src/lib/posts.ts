@@ -212,11 +212,11 @@ const posts: Post[] = [
     publishedAt: "2025-04-03",
   },
   {
-  id: 8,
-  title: "Cómo el Machine Learning está transformando el Retail",
-  category: "Machine Learning",
-  excerpt: "De la predicción de ventas a la personalización del cliente: la IA ya no es futuro, es presente.",
-  content: `
+    id: 8,
+    title: "Cómo el Machine Learning está transformando el Retail",
+    category: "Machine Learning",
+    excerpt: "De la predicción de ventas a la personalización del cliente: la IA ya no es futuro, es presente.",
+    content: `
     <p>El <strong>Machine Learning en el retail</strong> ya no es una promesa lejana: es una herramienta concreta que las grandes y pequeñas cadenas están utilizando para <strong>vender más, reducir costos y fidelizar clientes</strong>. Si en 2020 hablábamos de pruebas, en 2025 hablamos de resultados.</p>
 
     <h2 class="text-2xl font-semibold text-white mt-6 mb-4">1. Predicción de la demanda</h2>
@@ -238,16 +238,16 @@ const posts: Post[] = [
 
     <p class="mt-6"><em>¿Quieres llevar estas ideas a tu negocio? Descubre cómo podemos ayudarte en nuestra <a href="/machine-learning" class="text-blue-400 underline">página de servicios de Machine Learning para Retail</a>.</em></p>
   `,
-  slug: "machine-learning-retail-2025",
-  image: "/machinelearning.webp",
-  readTime: "7 min",
-  publishedAt: "2025-04-10",
-},{
-  id: 9,
-  title: "Qué es un LLM (Large Language Model) y cómo puede transformar tu negocio",
-  category: "Inteligencia Artificial",
-  excerpt: "Los modelos de lenguaje como GPT no son magia: son herramientas poderosas que ya están revolucionando la forma en que trabajamos y creamos.",
-  content: `
+    slug: "machine-learning-retail-2025",
+    image: "/machinelearning.webp",
+    readTime: "7 min",
+    publishedAt: "2025-04-10",
+  }, {
+    id: 9,
+    title: "Qué es un LLM (Large Language Model) y cómo puede transformar tu negocio",
+    category: "Inteligencia Artificial",
+    excerpt: "Los modelos de lenguaje como GPT no son magia: son herramientas poderosas que ya están revolucionando la forma en que trabajamos y creamos.",
+    content: `
     <p>Seguramente escuchaste hablar de <strong>ChatGPT</strong> o de la <strong>Inteligencia Artificial Generativa</strong>. Detrás de estas tecnologías está un concepto clave: los <strong>LLM (Large Language Models)</strong>, o Modelos de Lenguaje a Gran Escala.</p>
 
     <h2 class="text-2xl font-semibold text-white mt-6 mb-4">¿Qué es un LLM?</h2>
@@ -277,12 +277,80 @@ const posts: Post[] = [
 
     <p class="mt-6"><em>¿Querés aprender a aplicar la IA en tu empresa? Contactanos en <a href="https://www.tumarca.ar" class="text-blue-400 underline">www.tumarca.ar</a> y descubrí cómo aprovechar los LLM para crecer.</em></p>
   `,
-  slug: "que-es-un-llm",
-  image: "/que-es-un-llm.png",
-  readTime: "7 min",
-  publishedAt: "2025-09-16",
-}
+    slug: "que-es-un-llm",
+    image: "/que-es-un-llm.png",
+    readTime: "7 min",
+    publishedAt: "2025-09-16",
+  },
+  {
+    id: 10,
+    title: "Agentes de IA: qué son y cómo pueden trabajar por tu empresa en 2026",
+    category: "Inteligencia Artificial",
+    excerpt:
+      "Los agentes de IA representan una nueva etapa de la inteligencia artificial: pueden analizar información, tomar decisiones y ejecutar tareas para una empresa.",
+    content: `
+      <p>La Inteligencia Artificial está entrando en una nueva etapa. Durante los últimos años aprendimos a utilizar herramientas como ChatGPT y Gemini para hacer preguntas, generar textos o analizar información. Ahora aparece una tecnología todavía más interesante para las empresas: los <strong>agentes de IA</strong>.</p>
 
+      <p>Un agente de IA no se limita a responder una pregunta. Puede recibir un objetivo, analizar información, utilizar herramientas y ejecutar acciones siguiendo determinadas reglas y con supervisión humana.</p>
+
+      <h2 class="text-2xl font-semibold text-white mt-6 mb-4">¿Qué es un agente de IA?</h2>
+
+      <p>Un agente de Inteligencia Artificial es un sistema capaz de interpretar una situación, razonar sobre ella y realizar acciones para alcanzar un objetivo.</p>
+
+      <p>Por ejemplo, imaginá que un cliente completa un formulario solicitando un presupuesto. Un agente podría analizar la consulta, identificar qué servicio necesita, consultar información de tu empresa, preparar una respuesta y derivar el contacto a una persona cuando sea necesario.</p>
+
+      <h2 class="text-2xl font-semibold text-white mt-6 mb-4">¿Cuál es la diferencia entre un chatbot y un agente de IA?</h2>
+
+      <p>Un chatbot tradicional normalmente responde utilizando reglas o información previamente configurada.</p>
+
+      <p>Un agente puede trabajar con objetivos más complejos y utilizar diferentes herramientas para completar una tarea.</p>
+
+      <ul class="list-disc list-inside">
+        <li><strong>Chatbot:</strong> responde preguntas.</li>
+        <li><strong>Agente de IA:</strong> analiza, decide y puede ejecutar acciones.</li>
+        <li><strong>Automatización:</strong> conecta diferentes procesos para reducir tareas manuales.</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-white mt-6 mb-4">¿Qué puede hacer un agente para una empresa?</h2>
+
+      <ul class="list-disc list-inside">
+        <li>Responder consultas de clientes.</li>
+        <li>Clasificar potenciales clientes.</li>
+        <li>Generar presupuestos preliminares.</li>
+        <li>Analizar solicitudes.</li>
+        <li>Consultar información de productos.</li>
+        <li>Realizar seguimiento de oportunidades comerciales.</li>
+        <li>Automatizar tareas administrativas.</li>
+        <li>Conectarse con sistemas internos y bases de datos.</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-white mt-6 mb-4">Agentes de IA trabajando 24/7</h2>
+
+      <p>Una de las principales ventajas es que un sistema automatizado puede permanecer disponible fuera del horario comercial.</p>
+
+      <p>Esto permite responder rápidamente a una consulta recibida por la noche, durante un fin de semana o en un feriado.</p>
+
+      <h2 class="text-2xl font-semibold text-white mt-6 mb-4">¿Los agentes de IA reemplazan a las personas?</h2>
+
+      <p>No necesariamente. En una empresa bien diseñada, la IA puede encargarse de tareas repetitivas mientras las personas se concentran en las decisiones importantes, las relaciones comerciales y los casos que requieren criterio humano.</p>
+
+      <p>La clave no es reemplazar personas por tecnología. Es <strong>automatizar tareas para que las personas puedan dedicar más tiempo a tareas de mayor valor</strong>.</p>
+
+      <h2 class="text-2xl font-semibold text-white mt-6 mb-4">El futuro de la automatización empresarial</h2>
+
+      <p>La evolución de la IA está llevando a las empresas desde simples asistentes conversacionales hacia sistemas capaces de participar activamente en procesos de negocio.</p>
+
+      <p>Para una empresa, esto significa que la IA puede convertirse en una nueva capa de automatización conectada con la web, WhatsApp, CRM, bases de datos y otras herramientas.</p>
+
+      <p class="mt-6"><strong>¿Querés implementar IA y automatización en tu empresa?</strong> En TuMarca.ar desarrollamos soluciones digitales adaptadas a las necesidades de cada negocio.</p>
+    `,
+    slug: "agentes-de-ia-para-empresas",
+    image: "/agentes-de-ia-para-empresas.png",
+    readTime: "8 min",
+    publishedAt: "2026-09-05",
+  },
+
+  
 
 
 ];
