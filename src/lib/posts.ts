@@ -345,7 +345,7 @@ const posts: Post[] = [
       <p class="mt-6"><strong>¿Querés implementar IA y automatización en tu empresa?</strong> En TuMarca.ar desarrollamos soluciones digitales adaptadas a las necesidades de cada negocio.</p>
     `,
     slug: "agentes-de-ia-para-empresas",
-    image: "/agentes-de-ia-para-empresas.png",
+    image: "/agentes-de-iaempresas.png",
     readTime: "8 min",
     publishedAt: "2026-09-05",
   },
