@@ -10,9 +10,9 @@ export default function ContactSection() {
         {/* Título */} <VisitTracker
                 pageName="contact" 
               />
-        <h2 className="text-4xl md:text-6xl font-semibold text-white">
+        <h1 className="text-4xl md:text-6xl font-semibold text-white">
           Estamos listos para ayudarte
-        </h2>
+        </h1>
         <p className="text-gray-400 text-lg leading-relaxed">
           ¿Tenés un proyecto en mente o querés potenciar tu marca? <strong>Hablemos</strong>. 
           Estamos aquí para escucharte y acompañarte en cada paso.
