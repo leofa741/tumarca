@@ -4,7 +4,7 @@ import DesarrolloAMedidaContent from "./DesarrolloAMedidaContent";
 ;
 
 export const meta: Metadata = {
-  title: "Desarrollo a Medida | Sistemas que Escalan con tu Negocio | Tu Marca AR",
+  title: "Desarrollo de Software a Medida para Empresas | TuMarca.ar",
   description: "Soluciones digitales a medida para emprendedores: ERP, CRM, automatización y dashboards en tiempo real. Entrega en 15 días. Pago 50/50. Garantía total.",
   
   keywords: [

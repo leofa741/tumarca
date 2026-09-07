@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import VisitTracker from '@/app/(marketing)/components/VisitTracker';
 
 export const metadata: Metadata = {
-    title: "Desarrollo Web Empresarial | TuMarca",
-    description: "Soluciones web a medida para empresas que buscan escalar: sitios, e-commerce y aplicaciones con alto rendimiento, SEO y seguridad. Hecho para crecer.",
+    title: "Desarrollo Web Profesional para Empresas | TuMarca.ar",
+    description: "Diseñamos y desarrollamos sitios web rápidos, modernos y orientados a convertir visitas en clientes. Desarrollo web personalizado con SEO, WhatsApp y herramientas de automatización.",
 };
 
 export default function DesarrolloWebPage() {
@@ -14,7 +14,7 @@ export default function DesarrolloWebPage() {
                 pageName="desarrollo-web"
               />
                 <h1 className="text-4xl md:text-6xl font-bold text-gray-200 dark:text-white mb-6 leading-tight">
-                    Desarrollo Web que Impulsa tu Negocio
+                  Desarrollo Web Profesional para Empresas
                 </h1>
                 <p className="text-lg md:text-xl text-gray-100 dark:text-gray-300 max-w-3xl mx-auto mb-10">
                     No construimos solo sitios web. Creamos <strong>herramientas digitales estratégicas</strong> que generan leads, aumentan ventas y fortalecen tu marca.
