@@ -205,10 +205,10 @@ export default function Header() {
                     blurDataURL="/marca-2-ar-removebg.png"
                     alt="TUMARCA.AR Logo"
                     className="transition-transform duration-500 group-hover:scale-105"
-                  />
+                  /> 🇦🇷
                   {/* Glow effect on hover */}
                   <div className="absolute inset-0 rounded-full bg-orange-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  🇦🇷
+                 
                 </div>
               </Link>
             </motion.div>
