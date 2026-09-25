@@ -193,22 +193,28 @@ export default function Header() {
             <motion.div style={{ scale: logoScale }} className="relative z-10">
               <Link href="/" className="block group">
                 <div className="relative">
-                  <Image
-                    src="/marca-3-ar-removebg.png"
-                    width={70}
-                    height={70}
-                    priority
-                    loading="eager"
-                    draggable="false"
-                    quality={100}
-                    placeholder="blur"
-                    blurDataURL="/marca-2-ar-removebg.png"
-                    alt="TUMARCA.AR 🇦🇷"
-                    className="transition-transform duration-500 group-hover:scale-105"
-                  /> 
+<Image
+  src="/marca-3-ar-removebg.png"
+  width={70}
+  height={70}
+  priority
+  loading="eager"
+  draggable="false"
+  quality={100}
+  placeholder="blur"
+  blurDataURL="/marca-2-ar-removebg.png"
+  alt="TUMARCA.AR 🇦🇷"
+  className="
+    transition-all duration-500 
+    group-hover:scale-105
+    rounded-4xl
+    [mask-image:radial-gradient(circle,black_25%,transparent_100%)]
+    drop-shadow-[0_0_20px_rgba(255,255,255,0.12)]
+  "
+/>
                   {/* Glow effect on hover */}
                   <div className="absolute inset-0 rounded-full bg-orange-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                 
+
                 </div>
               </Link>
             </motion.div>
