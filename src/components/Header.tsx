@@ -208,6 +208,7 @@ export default function Header() {
                   />
                   {/* Glow effect on hover */}
                   <div className="absolute inset-0 rounded-full bg-orange-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  🇦🇷
                 </div>
               </Link>
             </motion.div>
