@@ -192,7 +192,7 @@ export default function Header() {
             {/* Logo con animación magnética */}
             <motion.div style={{ scale: logoScale }} className="relative z-10">
               <Link href="/" className="block group">
-                <div className="relative">
+                <div className="relative">🇦🇷
                   <Image
                     src="/marca-2-ar-removebg.png"
                     width={70}
@@ -203,9 +203,9 @@ export default function Header() {
                     quality={100}
                     placeholder="blur"
                     blurDataURL="/marca-2-ar-removebg.png"
-                    alt="TUMARCA.AR Logo"
+                    alt="TUMARCA.AR 🇦🇷"
                     className="transition-transform duration-500 group-hover:scale-105"
-                  /> 🇦🇷
+                  /> 
                   {/* Glow effect on hover */}
                   <div className="absolute inset-0 rounded-full bg-orange-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                  
