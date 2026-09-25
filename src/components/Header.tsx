@@ -192,9 +192,9 @@ export default function Header() {
             {/* Logo con animación magnética */}
             <motion.div style={{ scale: logoScale }} className="relative z-10">
               <Link href="/" className="block group">
-                <div className="relative">🇦🇷
+                <div className="relative">
                   <Image
-                    src="/marca-2-ar-removebg.png"
+                    src="/marca-3-ar-removebg.png"
                     width={70}
                     height={70}
                     priority
